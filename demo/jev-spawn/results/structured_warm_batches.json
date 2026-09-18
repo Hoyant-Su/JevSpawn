@@ -1,0 +1,143 @@
+{
+  "scope": "Repeated warm timings of selected original batches on one model replica. Includes tokenization, synchronized model execution and parsing; excludes model load, garbage collection, warmups and file I/O. Not full-run latency or an extrapolated speedup. Allocator remains warm; memory is not a clean comparison.",
+  "backend": {
+    "model_path": "Qwen/Qwen3.5-4B",
+    "model_class": "Qwen3_5ForConditionalGeneration",
+    "parameters": 4539265536,
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "kernel": "fla",
+    "device": "NVIDIA H100 80GB HBM3",
+    "controller": "restricted next-token softmax; not calibrated"
+  },
+  "cases": [
+    {
+      "batch_index": 0,
+      "batch_size": 8,
+      "field_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "methods": {
+        "streamed": {
+          "median_seconds": 0.2870346182025969
+        },
+        "independent": {
+          "median_seconds": 0.5879751858301461
+        },
+        "compact_json": {
+          "median_seconds": 0.8890721839852631
+        }
+      },
+      "ratios_other_over_streamed": {
+        "independent": 2.0484469417383555,
+        "compact_json": 3.0974388718427392
+      }
+    },
+    {
+      "batch_index": 16,
+      "batch_size": 8,
+      "field_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "methods": {
+        "streamed": {
+          "median_seconds": 0.24682811880484223
+        },
+        "independent": {
+          "median_seconds": 0.46632205322384834
+        },
+        "compact_json": {
+          "median_seconds": 0.8003597031347454
+        }
+      },
+      "ratios_other_over_streamed": {
+        "independent": 1.8892582234220718,
+        "compact_json": 3.242579115419017
+      }
+    },
+    {
+      "batch_index": 31,
+      "batch_size": 8,
+      "field_counts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "methods": {
+        "streamed": {
+          "median_seconds": 0.32947394205257297
+        },
+        "independent": {
+          "median_seconds": 0.7235784432850778
+        },
+        "compact_json": {
+          "median_seconds": 0.9901252840645611
+        }
+      },
+      "ratios_other_over_streamed": {
+        "independent": 2.196162885529864,
+        "compact_json": 3.0051702356071925
+      }
+    },
+    {
+      "batch_index": 47,
+      "batch_size": 1,
+      "field_counts": [
+        11
+      ],
+      "methods": {
+        "streamed": {
+          "median_seconds": 0.1400721208192408
+        },
+        "independent": {
+          "median_seconds": 0.09397612465545535
+        },
+        "compact_json": {
+          "median_seconds": 0.8242731220088899
+        }
+      },
+      "ratios_other_over_streamed": {
+        "independent": 0.6709124135896317,
+        "compact_json": 5.8846336957558565
+      }
+    }
+  ],
+  "methods": {
+    "streamed": {
+      "pooled_batch_median_seconds": 0.2692095891106874,
+      "measured_batches": 12
+    },
+    "independent": {
+      "pooled_batch_median_seconds": 0.5272550983354449,
+      "measured_batches": 12
+    },
+    "compact_json": {
+      "pooled_batch_median_seconds": 0.8589873656164855,
+      "measured_batches": 12
+    }
+  },
+  "limits": "Agreement is not correctness. Joint JSON may change decisions. Selected batches have different shapes; pooled medians are descriptive.",
+  "sampling": "Rank 0 batches 0,16,31,47 chosen by run position and schema shape before reading evaluation labels: 25 paragraphs, 227 questions.",
+  "warmups_per_case_method": 1,
+  "repeats_per_case_method": 3,
+  "interpretation": "Full batch cases support the observed direction of acceleration. At batch size 1 independent readout is faster than streamed. Warm selected-batch ratios must not replace the full-workload ratios in structured_comparison.json."
+}

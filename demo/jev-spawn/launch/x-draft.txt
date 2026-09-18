@@ -1,0 +1,28 @@
+DRAFT - EMBARGOED UNTIL THE REPOSITORY IS PUBLIC. DO NOT POST.
+Replace [PUBLIC_REPO_URL] after publication.
+Sources: results/structured_comparison.json, results/structured_warm_batches.json and results/coding_comparison.json.
+
+1/8
+JevSpawn: 1,204 paragraph workers, 11,873 SQuAD2 answerability decisions, 41.51s. Frozen Qwen3.5-4B on 4 H100s. Compact constrained JSON took 69.30s: a measured 1.67x dispatch-to-completion ratio in one full pass.
+
+2/8
+Independent batched readout took 109.96s: 2.65x the streamed dispatch time. Maximum per-GPU PyTorch allocated peaks: streamed 10.89 GiB, compact JSON 11.14 GiB, independent 21.25 GiB. These include model weights; they are not whole-device memory.
+
+3/8
+Question accuracy: streamed 83.05%, compact JSON 81.52%, independent 82.97%. All evaluated the same 11,873 questions, with zero invalid choices. This measures binary answerability from a paragraph, not SQuAD answer-span QA EM/F1.
+
+4/8
+The mechanism: reuse each paragraph prefix across question branches, consume and release caches layer by layer, and project final states onto candidate token rows. The streamed path produces finite choices with 0 autoregressively generated tokens.
+
+5/8
+One bulk job spawns 1,204 independent workers, one per paragraph. Peak running workers: 32 across 4 GPUs. Questions are fields within a worker. No extra neural coordinator, and no claim that thousands of agents run simultaneously.
+
+6/8
+One full pass per method; load/warmup tracked separately. Three repeats on four selected warm batches: streamed beat compact JSON in all four, but lost to independent readout at batch size 1. Batch timings are not full-run uncertainty estimates.
+
+7/8
+Auxiliary coding workload: adaptive passed 735/1,138 with 1,703 worker calls in 268.94s; plain coding passed 730/1,138 in 116.05s. HumanEval + an explicit one-example MBPP variant. This is not evidence of coding acceleration.
+
+8/8
+Independent Jev-style inference experiment; no official Jev reproduction or RLCD training. MIT project code; SQuAD replay text retains CC-BY-SA-4.0. Attribution, frozen run artifacts and worker replay accompany the release.
+[PUBLIC_REPO_URL]

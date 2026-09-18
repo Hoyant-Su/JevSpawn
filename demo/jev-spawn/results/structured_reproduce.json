@@ -1,0 +1,123 @@
+{
+  "working_directory": "demo/jev-spawn",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HF_HUB_OFFLINE": "1"
+  },
+  "placeholders": {
+    "PYTHON": "Python executable with the pinned project dependencies",
+    "MODEL": "Local Qwen3.5-4B weights",
+    "DATA": "Directory for pinned SQuAD2 data",
+    "RUN": "New results directory"
+  },
+  "commands": [
+    [
+      "PYTHON",
+      "scripts/prepare_squad2_answerability.py",
+      "--output",
+      "DATA",
+      "--feasibility-paragraphs",
+      "16"
+    ],
+    [
+      "PYTHON",
+      "scripts/configure_structured.py",
+      "--template",
+      "configs/structured.json",
+      "--model",
+      "MODEL",
+      "--tasks",
+      "DATA/tasks.jsonl",
+      "--run-dir",
+      "RUN",
+      "--output",
+      "RUN/config.json",
+      "--method",
+      "streamed"
+    ],
+    [
+      "PYTHON",
+      "scripts/launch.py",
+      "--config",
+      "RUN/config.json",
+      "--python",
+      "PYTHON",
+      "--entrypoint",
+      "scripts/run_structured.py"
+    ],
+    [
+      "PYTHON",
+      "scripts/collect_structured.py",
+      "--config",
+      "RUN/config.json"
+    ],
+    [
+      "PYTHON",
+      "scripts/evaluate_answerability.py",
+      "--run",
+      "RUN",
+      "--labels",
+      "DATA/evaluation/labels.jsonl",
+      "--format",
+      "workers"
+    ],
+    [
+      "PYTHON",
+      "scripts/build_structured_replay.py",
+      "--events",
+      "RUN/events.jsonl",
+      "--summary",
+      "RUN/summary.json",
+      "--evaluation",
+      "RUN/quality.json",
+      "--output",
+      "RUN/replay.json",
+      "--standalone",
+      "RUN/jevspawn.html"
+    ]
+  ],
+  "comparison": "Repeat with method independent and compact_json in separate run directories, on identical inputs and hardware. Every method uses the same schema buckets. Compact JSON generates ordered option letters with finite syntax constraints; it does not generate explanations or probability objects.",
+  "counts": "One paragraph is one bounded worker; each real question is a field decision. Model weights are shared across workers, one replica per GPU. The root dispatcher is ordinary code, with no extra model call.",
+  "resume": "Rerun the same launch command to skip completed batches. Use a new run directory when changing data, configuration or model.",
+  "quality_scope": "SQuAD2.0 dev answerability classification only; not extractive answer EM/F1 or hidden-test evaluation. Labels are read solely by the separate evaluator.",
+  "probabilities": "Uncalibrated conditional option scores from frozen token rows. No threshold or calibration fit.",
+  "execution": "streamed calls native Qwen decoder layers, reuses each prefix layer state across question branches, then releases it. branch_batch_size explicitly sets per-layer branch tiling; changing tile size can change BF16 rounding.",
+  "license": "Project code MIT; SQuAD2 paragraph/question material in the replay remains CC-BY-SA-4.0 with attribution.",
+  "warm_batch_command": [
+    "PYTHON",
+    "scripts/benchmark_batches.py",
+    "--config",
+    "RUN/config.json",
+    "--source-run",
+    "RUN",
+    "--rank",
+    "0",
+    "--batch-indices",
+    "0",
+    "16",
+    "31",
+    "47",
+    "--methods",
+    "streamed",
+    "independent",
+    "compact_json",
+    "--warmups",
+    "1",
+    "--repeats",
+    "3",
+    "--output-dir",
+    "RUN/warm-batches"
+  ],
+  "warm_batch_scope": "Recorded batch indices refer to the complete official dev workload using the supplied 4-GPU, batch-size-8 template. Run this command on GPU 0 after the complete streamed run; selected-batch timings are not a full-run extrapolation.",
+  "comparison_command": [
+    "PYTHON",
+    "scripts/compare_structured.py",
+    "--runs",
+    "STREAMED_RUN",
+    "INDEPENDENT_RUN",
+    "COMPACT_JSON_RUN",
+    "--output",
+    "COMPARISON.json"
+  ]
+}

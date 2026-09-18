@@ -1,0 +1,44 @@
+{
+  "states": [
+    {
+      "specification": "Return the sum of all even integers in nums. An empty list must return zero.",
+      "implementation": "def sum_even(nums):\n    return sum(n for n in nums if n % 2 == 1)"
+    }
+  ],
+  "fields": {
+    "review": {
+      "question": "Which action is justified for this implementation?",
+      "options": [
+        {
+          "id": "submit",
+          "description": "Submit this implementation now: the specification is clear and the implementation appears to cover its requirements."
+        },
+        {
+          "id": "review",
+          "description": "Spawn an independent reviewer: a specific correctness concern or subtle requirement merits another look."
+        }
+      ]
+    },
+    "review_focus": {
+      "question": "Which concern should an independent reviewer prioritize when checking this implementation against the specification?",
+      "options": [
+        {
+          "id": "logic",
+          "description": "Check the algorithm and its computed values against the requested behavior."
+        },
+        {
+          "id": "boundaries",
+          "description": "Check empty inputs, endpoints, special values, and off-by-one behavior required by the specification."
+        },
+        {
+          "id": "interface",
+          "description": "Check return types, output structure, function signatures, and formatting against the specification and examples."
+        },
+        {
+          "id": "state",
+          "description": "Check ordering, multiplicity, mutation, and state updates against the requested behavior."
+        }
+      ]
+    }
+  }
+}

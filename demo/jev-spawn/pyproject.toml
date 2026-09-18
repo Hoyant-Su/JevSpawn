@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jevspawn"
+version = "0.1.0"
+description = "Run bounded decision workers with frozen-model structured inference."
+requires-python = ">=3.12"
+dependencies = ["torch==2.6.0", "transformers==5.15.1", "accelerate==1.14.0", "flash-linear-attention==0.5.2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"jev_spawn.schema" = ["*.json"]

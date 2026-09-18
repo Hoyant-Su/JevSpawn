@@ -1,0 +1,71 @@
+{
+  "review_focus": {
+    "question": "Which concern should an independent reviewer prioritize when checking this implementation against the specification?",
+    "options": [
+      {"id": "logic", "description": "Check the algorithm and its computed values against the requested behavior."},
+      {"id": "boundaries", "description": "Check empty inputs, endpoints, special values, and off-by-one behavior required by the specification."},
+      {"id": "interface", "description": "Check return types, output structure, function signatures, and formatting against the specification and examples."},
+      {"id": "state", "description": "Check ordering, multiplicity, mutation, and state updates against the requested behavior."}
+    ]
+  },
+  "review": {
+    "question": "Which action is justified for this implementation?",
+    "options": [
+      {
+        "id": "submit",
+        "description": "Submit this implementation now: the specification is clear and the implementation appears to cover its requirements."
+      },
+      {
+        "id": "review",
+        "description": "Spawn an independent reviewer: a specific correctness concern or subtle requirement merits another look."
+      }
+    ]
+  },
+  "repair": {
+    "question": "Does the available review justify spawning a repair agent?",
+    "options": [
+      {
+        "id": "keep",
+        "description": "Keep the implementation: the review has not identified a credible specification violation."
+      },
+      {
+        "id": "repair",
+        "description": "Spawn a repair agent: the review identifies a credible bug that should be addressed."
+      }
+    ]
+  },
+  "select": {
+    "question": "Which complete implementation is more likely to satisfy the original specification?",
+    "options": [
+      {
+        "id": "original",
+        "description": "The original implementation better satisfies the specification."
+      },
+      {
+        "id": "revised",
+        "description": "The revised implementation better satisfies the specification."
+      }
+    ]
+  },
+  "route": {
+    "question": "Which specialist should implement this independent Python subtask?",
+    "options": [
+      {
+        "id": "strings",
+        "description": "Implement string, character, parsing, and text-processing functions. Check empty strings, boundaries, and formatting requirements."
+      },
+      {
+        "id": "collections",
+        "description": "Implement functions over lists, tuples, dictionaries, sets, and sequences. Preserve the requested ordering, multiplicity, and mutation behavior."
+      },
+      {
+        "id": "numeric",
+        "description": "Implement numeric, arithmetic, combinatorial, and mathematical functions. Check boundary values and the exact requested return type."
+      },
+      {
+        "id": "general",
+        "description": "Implement the specified Python function directly, choosing an appropriate algorithm and following all stated constraints."
+      }
+    ]
+  }
+}

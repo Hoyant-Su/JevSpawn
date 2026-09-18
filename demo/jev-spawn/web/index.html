@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JevSpawn · Recorded role-worker workflows</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="./"><span class="brand-symbol">✳</span> Jev<span class="brand-muted">Spawn</span></a>
+    <div class="header-right"><span class="tag">RECORDED EXECUTION</span><label class="file-button">Open run<input id="file" type="file" accept=".json,application/json"></label></div>
+  </header>
+  <main>
+    <section class="intro"><div><div id="policy-label" class="eyebrow">RECORDED ROLE-WORKER WORKFLOWS</div><h1 id="run-headline">Inspect every decision and worker.</h1><p id="run-description">Load a recorded run to inspect worker calls, execution, and evidence.</p></div><div id="run-status" class="run-status">NO RUN LOADED</div></section>
+    <section id="job-panel" class="job-panel" hidden><div class="job-icon">↳</div><div class="job-content"><div class="eyebrow">ROOT JOB <span id="job-id"></span></div><p id="job-instruction"></p><div class="job-flow"><span>Dataset-defined function subtasks</span><b>→</b><span id="controller-label">Structured decisions</span><b>→</b><span id="worker-policy">Recorded workers</span></div><small id="policy-scope" class="scope-note"></small></div><button id="replay-spawning" class="primary-button" disabled>↻ Replay spawning</button></section>
+    <p id="worker-definition" class="worker-definition">One worker is one role-scoped model generation. A task flow can use a coder, reviewer and repairer; controller decisions are counted separately.</p>
+    <section id="execution-design" class="panel architecture-panel" hidden><div class="panel-heading"><div><h2>Execution design</h2><p id="architecture-description">Summary-declared inference architecture. This diagram is not a live cache trace.</p></div></div><div class="architecture-flow"><div><strong>Exact shared prefix</strong><small>Token-identical state prefix</small></div><div><strong>Batched prefill</strong><small>Encode each state once</small></div><div><strong>Native cache forks</strong><small>Attention KV · convolution · recurrent state</small></div><div class="question-branches"><strong>Isolated questions</strong><small>Review?</small><small>Review focus?</small></div><div><strong>Frozen LM readout</strong><small>Select option-token rows</small></div><div><strong>FP32 softmax</strong><small>Typed conditional scores</small></div></div><p class="metric-note">Question branches share a prefix state and receive separate native caches. Scores are conditional on the supplied options; calibration is not established.</p><p id="shared-compute" class="metric-note" hidden></p></section>
+    <section id="run-measurements" class="run-measurements" hidden><div id="spawn-measurement" hidden><span id="spawn-label">Recorded spawn interval</span><strong id="spawn-duration"></strong><small>Measured spawn phase</small></div><div id="elapsed-measurement" hidden><span>End-to-end execution</span><strong id="execution-duration"></strong><small id="execution-scope">Recorded run duration</small></div><div id="peak-measurement" hidden><span>Peak running worker calls</span><strong id="measured-peak"></strong><small>Measured across the complete run</small></div><div class="measurement-context">Saved run measurements<span id="replica-count"></span><span>Playback counters below follow recorded timestamps.</span></div></section>
+    <section id="spawn-accounting" class="panel spawn-accounting" hidden><div id="spawn-accounting-values" class="metric-values"></div><div id="decision-counts" class="decision-counts"></div></section>
+    <section id="timing-profile" class="panel timing-panel" hidden><div class="panel-heading"><div><h2>Task-flow and worker-call latency</h2><p>Aggregate tasks per second does not measure individual response time.</p></div><span class="tag">OBSERVED TIMING</span></div><div id="timing-values" class="metric-values"></div><p id="flow-timing-scope" class="metric-note" hidden>Task-flow latency runs from initial coder start to recorded task completion, including follow-up decisions, role calls and stage barriers. Initial queue waiting is excluded.</p><p class="metric-note">A worker call measures start → batch-result delivery and excludes queue waiting. Calls in the same batch receive their outputs when that batch returns.</p><p id="timing-context" class="metric-note"></p></section>
+    <section class="metrics" aria-label="Run counters">
+      <div class="metric"><span>Worker calls spawned</span><strong id="spawned">—</strong><small>One role-scoped generation each</small></div>
+      <div class="metric"><span>Running</span><strong id="running">—</strong><small>Started, awaiting completion</small></div>
+      <div class="metric"><span>Queued</span><strong id="queued">—</strong><small>Spawned, not yet started</small></div>
+      <div class="metric"><span>Completed</span><strong id="completed">—</strong><small>Recorded completion events</small></div>
+      <div class="metric"><span>Decisions</span><strong id="decisions">—</strong><small>Recorded controller decisions</small></div>
+      <div class="metric"><span>Task flows finished</span><strong id="tasks-completed">—</strong><small id="task-total">No task records</small></div>
+    </section>
+    <section class="playback"><button id="play" disabled aria-label="Play replay">▶ Play</button><span id="elapsed">00:00.0</span><input id="scrubber" type="range" min="0" max="1000" value="0" disabled aria-label="Replay position"><span id="duration">00:00.0</span><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value="5">5×</option><option value="20" selected>20×</option><option value="100">100×</option></select><button id="spawn-checkpoint" disabled>Spawn checkpoint</button><button id="latest" disabled>End ↗</button></section>
+    <section class="workspace">
+      <div class="panel swarm-panel">
+        <div class="panel-heading"><div><h2>Role-worker calls <span id="visible-count"></span></h2><p id="field-description">Each cell is one generation call. Select a cell to inspect its assignment.</p></div><select id="task-filter" aria-label="Filter task"><option value="">All tasks</option></select></div>
+        <div class="legend"><span><i class="queued"></i>Queued</span><span><i class="running"></i>Running</span><span><i class="completed"></i>Completed</span><span><i class="failed"></i>Failed</span><span class="lineage-label">Lines connect the selected call's parent and children</span></div>
+        <div id="field-scroll"><canvas id="field" aria-label="Interactive role-worker execution field"></canvas><div id="empty"><span class="empty-symbol">✳</span><h3>Your execution, visible.</h3><p>Open a replay JSON, or serve this directory with a real <code>replay.json</code> beside it.</p><small>No sample worker calls or simulated results are displayed.</small></div></div>
+        <div class="field-footer"><span id="event-position">0 events</span><span id="timestamp">Awaiting recorded data</span></div>
+      </div>
+      <aside class="panel inspector"><div class="panel-heading"><div><h2>Evidence inspector</h2><p>Actual outputs, linked to their source events.</p></div></div><div id="selection-heading"><span class="subtle">Select a worker call or timeline event.</span></div><div class="tabs"><button data-tab="output" class="active">Output</button><button data-tab="decisions">Decisions</button><button data-tab="events">Events</button></div><div id="inspection"></div></aside>
+    </section>
+    <section id="policy-comparison" class="panel comparison-panel" hidden><div class="panel-heading"><div><h2>Quality and work across policies</h2><p>Observed runs: timings exclude model loading and are descriptive, not matched causal estimates.</p></div><span class="tag">MEASURED TRADEOFFS</span></div><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th scope="col">Policy / run</th><th scope="col">All tasks passed</th><th scope="col">Role calls / extra</th><th scope="col">HumanEval</th><th scope="col">MBPP test</th><th scope="col">Fixed / regressed</th><th scope="col">Observed time</th><th scope="col">Worker output tokens</th></tr></thead><tbody id="comparison-rows"></tbody></table></div><p class="metric-note">Fixed and regressed counts compare final solutions with their initial drafts. The all-task workload includes MBPP non-test splits; official test results are separate. Highlighting identifies the replay run, not a winning policy.</p><p id="comparison-context" class="metric-note"></p></section>
+    <section id="quality-panel" class="panel quality-panel"><div class="panel-heading"><div><h2>Execution is not correctness</h2><p id="quality-protocol">Quality evaluation pending. Worker-call completion does not imply a correct solution.</p></div><span id="quality-status" class="tag">PENDING</span></div><div id="quality-values" class="metric-values"></div></section>
+    <section class="bottom-grid">
+      <div class="panel"><div class="panel-heading"><div><h2>Execution timeline</h2><p>Most recent events at the current replay position.</p></div><span id="timeline-count" class="tag">0 EVENTS</span></div><div id="timeline" class="timeline"><p class="subtle placeholder">Events will appear here.</p></div></div>
+      <div class="panel"><div class="panel-heading"><div><h2>Inference & results</h2><p>Observed batches and saved run metrics.</p></div></div><div class="batch-metrics"><div><span>Recorded batches</span><strong id="batches">—</strong></div><div><span>Largest batch</span><strong id="largest-batch">—</strong></div><div><span>GPU identifiers</span><strong id="gpus">—</strong></div><div><span>Peak running worker calls</span><strong id="peak-running">—</strong></div></div><p class="metric-note">Concurrent worker calls and GPU batch size describe different workloads. Worker calls share model replicas.</p></div>
+    </section>
+    <footer><span>JevSpawn</span><span>Qwen-based prototype · Not an official Jev implementation</span><span id="source">No data source</span><span class="dataset-attribution">Benchmark sources: <a href="https://github.com/openai/human-eval">HumanEval — OpenAI</a> (<a href="https://github.com/openai/human-eval/blob/master/LICENSE">MIT</a>); <a href="https://github.com/google-research/google-research/tree/master/mbpp">MBPP — Google Research</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). This replay exports task IDs, generated outputs, decisions and timings, excluding input prompts and reference solutions; generated outputs may repeat source docstrings. Prompt modification: one public MBPP example assertion was supplied during inference and excluded from evaluation.</span><details class="dataset-licenses"><summary>HumanEval MIT copyright and permission notice</summary><pre id="humaneval-license">The MIT License
+
+Copyright (c) OpenAI (https://openai.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></footer>
+    <div id="error" role="alert" hidden></div>
+  </main>
+</body>
+</html>

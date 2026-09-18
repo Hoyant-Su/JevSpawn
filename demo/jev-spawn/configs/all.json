@@ -1,0 +1,34 @@
+{
+  "run_id": "all",
+  "run_dir": "/path/to/runs/all",
+  "tasks_path": "/path/to/data/tasks.jsonl",
+  "model_path": "/path/to/Qwen3.5-4B",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "kernel": "fla",
+  "max_input_tokens": 8192,
+  "seed": 0,
+  "cpu_threads": 8,
+  "world_size": 4,
+  "batch_size": 64,
+  "task_offset": 0,
+  "task_count": 1138,
+  "mode": "bulk",
+  "max_new_tokens": {
+    "implement": 512,
+    "review": 256,
+    "repair": 512
+  },
+  "controller_mode": "direct",
+  "controller_max_new_tokens": 32,
+  "job": {
+    "id": "python-utilities",
+    "instruction": "Implement every independent Python utility in this batch and return one complete solution for each task."
+  },
+  "controller_batch_size": 64,
+  "spawn_policy": "all",
+  "field_mode": "shared",
+  "schedule": "stage",
+  "json_constraints": "finite",
+  "routing_mode": "model"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "JevSpawn: inference-only typed workers with native shared-state execution",
+  "weights": "Unmodified Qwen3.5-4B. No training, adapter, learned head, or probability calibration.",
+  "computation": [
+    "Compile each schema field into a question and finite candidate slots represented by verified single tokens.",
+    "Tokenize each complete state/question prompt; determine exact shared token prefixes, without changing any prompt token.",
+    "In the primary streamed path, execute each shared prefix once per native decoder layer.",
+    "Fork only that layer cache into isolated question branches, including full-attention KV, convolution and Gated DeltaNet recurrent states.",
+    "Evaluate suffix branches in explicit tiles, release the layer cache, and advance prefix and branch hidden states to the next native layer.",
+    "Project each final question representation onto frozen output-embedding rows for its legal candidate slots, then normalize only over those candidates.",
+    "Structured workers return bounded decisions. The auxiliary coding workflow uses categorical decisions to request reviewers and repairs; ordinary generation produces reports and code."
+  ],
+  "readout": "p(option_i | state, question, schema) = softmax_i(W[label_i] @ h_last). These are conditional slot probabilities, not calibrated correctness estimates.",
+  "computation_saving": "For state lengths S_i and question-suffix lengths Q_ij, independent input processing is sum_i sum_j(S_i + Q_ij); shared processing is sum_i S_i + sum_i sum_j Q_ij, before padding. Suffix attention still reads the state.",
+  "memory_limit": "The original shared path retains and copies every layer cache. The streamed path shortens cache lifetime; absolute model weights remain resident, and total-memory gains must be measured against the selected baseline.",
+  "architectural_claim": "A concrete open implementation of a Jev-style decision interface and shared-state inference pattern; not a reverse-engineered or verified reproduction of official Jev.",
+  "candidate_limit_per_field": 26,
+  "workflow_boundary": "Structured demo: one paragraph-scoped finite decision call per worker, with multiple question fields. Coding demo: one role-scoped text-generation call per worker. Neither is an autonomous tool-using multi-turn agent loop.",
+  "scheduling": "Stage queues can reduce full-batch completion time while increasing individual task-flow latency. Scheduling gains are not specific to Jev-style readout.",
+  "primary_workload": "Bulk answerability checking: one bounded worker per paragraph and one finite yes/no field per actual question. The root dispatcher does not run a model.",
+  "streamed_execution": {
+    "implementation": "src/jev_spawn/streaming.py",
+    "operation": "At each native decoder layer, process the shared prefix, fork its state into explicit branch tiles, process question suffixes, then release that layer cache before the next layer. Frozen weights and native attention/recurrent operations are reused.",
+    "memory": "Keeps one layer of branch cache live rather than all decoder layers. Prefix cache copies and attention work still exist; this is not zero-copy attention."
+  },
+  "primary_results": "results/structured_comparison.json",
+  "coding_results": "results/coding_comparison.json",
+  "precision": "BF16 batch arithmetic can change scores and choices. The full streamed and independent runs disagreed on 52 of 11,873 decisions."
+}

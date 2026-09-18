@@ -1,0 +1,164 @@
+{
+  "working_directory": "demo/jev-spawn",
+  "placeholders": {
+    "PYTHON": "Python executable in an environment with project dependencies",
+    "MODEL": "Local Qwen3.5-4B checkpoint directory",
+    "DATA": "Directory for downloaded source data and prepared tasks",
+    "RUN": "New results directory",
+    "SANDBOX": "Bubblewrap executable; evaluation requires working Linux user/mount/network namespaces"
+  },
+  "commands": [
+    [
+      "PYTHON",
+      "scripts/prepare_data.py",
+      "--output",
+      "DATA",
+      "--mbpp-split",
+      "all",
+      "--mbpp-examples",
+      "1"
+    ],
+    [
+      "PYTHON",
+      "scripts/configure.py",
+      "--template",
+      "configs/adaptive.json",
+      "--model",
+      "MODEL",
+      "--tasks",
+      "DATA/tasks.jsonl",
+      "--run-dir",
+      "RUN",
+      "--output",
+      "RUN/config.json",
+      "--spawn-policy",
+      "adaptive",
+      "--field-mode",
+      "shared"
+    ],
+    [
+      "PYTHON",
+      "scripts/launch.py",
+      "--config",
+      "RUN/config.json",
+      "--python",
+      "PYTHON"
+    ],
+    [
+      "PYTHON",
+      "scripts/collect_run.py",
+      "--config",
+      "RUN/config.json"
+    ],
+    [
+      "PYTHON",
+      "scripts/evaluate.py",
+      "--solutions",
+      "RUN/solutions.jsonl",
+      "--tests",
+      "DATA/evaluation/tests.jsonl",
+      "--sandbox",
+      "SANDBOX",
+      "--output",
+      "RUN/evaluation.jsonl",
+      "--work-dir",
+      "RUN/evaluation-work",
+      "--workers",
+      "8"
+    ],
+    [
+      "PYTHON",
+      "scripts/summarize_evaluation.py",
+      "--run-dir",
+      "RUN",
+      "--manifest",
+      "DATA/manifest.json"
+    ],
+    [
+      "PYTHON",
+      "scripts/profile_run.py",
+      "--run-dir",
+      "RUN"
+    ],
+    [
+      "PYTHON",
+      "scripts/build_replay.py",
+      "--events",
+      "RUN/events.jsonl",
+      "--summary",
+      "RUN/summary.json",
+      "--evaluation",
+      "RUN/evaluation.splits.json",
+      "--architecture",
+      "results/architecture.json",
+      "--profile",
+      "RUN/profile.json",
+      "--public",
+      "--output",
+      "RUN/replay.json",
+      "--standalone",
+      "RUN/jevspawn.html"
+    ]
+  ],
+  "compute": "Run GPU commands on an explicitly assigned idle 4-GPU instance. The recorded run used 4 H100 80GB GPUs, one model replica per GPU, batch size 64 per replica.",
+  "resume": "Rerun the same launch command to skip completed batches. Use a new run directory when changing data, configuration or model.",
+  "versions": {
+    "python": "3.12",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.15.1",
+    "accelerate": "1.14.0",
+    "flash-linear-attention": "0.5.2"
+  },
+  "isolation": "Workers only return code text. Generated code is evaluated separately in the read-only namespace sandbox; the model has no shell or filesystem tools.",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HF_HUB_OFFLINE": "1"
+  },
+  "decision_example_command": [
+    "PYTHON",
+    "scripts/decide.py",
+    "--config",
+    "RUN/config.json",
+    "--request",
+    "examples/decision.json",
+    "--mode",
+    "shared",
+    "--output",
+    "RUN/decision.json"
+  ],
+  "profile_command": [
+    "PYTHON",
+    "scripts/profile_run.py",
+    "--run-dir",
+    "RUN"
+  ],
+  "policy_baselines": "Use configs/single.json with --spawn-policy single for the no-controller baseline; configs/all.json with --spawn-policy all for forced review and repair. Use a distinct RUN for each. configs/adaptive.json uses model routing and conditional additional workers. The bundled historical routed-single run is separately labeled; it is not the plain baseline.",
+  "initial_evaluation_command": [
+    "PYTHON",
+    "scripts/evaluate.py",
+    "--solutions",
+    "RUN/initial_solutions.jsonl",
+    "--tests",
+    "DATA/evaluation/tests.jsonl",
+    "--sandbox",
+    "SANDBOX",
+    "--output",
+    "RUN/initial_evaluation.jsonl",
+    "--work-dir",
+    "RUN/initial-evaluation-work",
+    "--workers",
+    "8"
+  ],
+  "comparison_command": [
+    "PYTHON",
+    "scripts/compare_runs.py",
+    "--run-dirs",
+    "PLAIN_RUN",
+    "ADAPTIVE_RUN",
+    "ALL_RUN",
+    "--output",
+    "COMPARISON.json"
+  ],
+  "comparison_sequence": "After final evaluation, also evaluate each run initial_solutions.jsonl using initial_evaluation_command; then run comparison_command. Pass --comparison COMPARISON.json to build_replay.py to include this table in the generated replay."
+}

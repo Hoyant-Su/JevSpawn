@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use JevSpawn in your research, please cite this software."
+type: software
+title: "JevSpawn: Inference-Only Structured Decisions and Agent Spawning"
+authors:
+  - family-names: Su
+    given-names: Haoyang
+version: 0.1.0
+repository-code: "https://github.com/Hoyant-Su/JevSpawn"
+url: "https://github.com/Hoyant-Su/JevSpawn"
+license: MIT
+abstract: >-
+  JevSpawn explores inference-only structured decisions and batched worker
+  spawning with frozen language models. It combines shared input prefixes,
+  layer-wise cache execution, and direct categorical readout, with measured
+  answerability and coding workflows. It is an independent Jev-style project.
+keywords:
+  - structured inference
+  - agent spawning
+  - inference-only
+  - language models

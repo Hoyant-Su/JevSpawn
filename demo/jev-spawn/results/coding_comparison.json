@@ -1,0 +1,506 @@
+{
+  "policies": [
+    {
+      "run_id": "bulk-1138-plain-001",
+      "policy": "single",
+      "routing_mode": "none",
+      "tasks": 1138,
+      "passed": 730,
+      "pass_rate": 0.6414762741652021,
+      "initial_passed": 730,
+      "fixed": 0,
+      "regressed": 0,
+      "elapsed_seconds": 116.04598259925842,
+      "correct_tasks_per_second": 6.290609839729729,
+      "agents_spawned": 1138,
+      "additional_agents": 0,
+      "worker_output_tokens": 100071,
+      "controller_computed_input_tokens": 0,
+      "truncated_worker_outputs": 14,
+      "decision_counts": {},
+      "splits": {
+        "all_tasks": {
+          "tasks": 1138,
+          "passed": 730,
+          "failed": 408,
+          "timeout": 0,
+          "pass_rate": 0.6414762741652021,
+          "workers_completed": 1138,
+          "worker_input_tokens": 183834,
+          "worker_output_tokens": 100071,
+          "truncated_worker_outputs": 14,
+          "tasks_with_truncation": 14,
+          "tasks_with_truncation_passed": 1
+        },
+        "humaneval": {
+          "tasks": 164,
+          "passed": 129,
+          "failed": 35,
+          "timeout": 0,
+          "pass_rate": 0.7865853658536586,
+          "workers_completed": 164,
+          "worker_input_tokens": 35096,
+          "worker_output_tokens": 22144,
+          "truncated_worker_outputs": 1,
+          "tasks_with_truncation": 1,
+          "tasks_with_truncation_passed": 1
+        },
+        "mbpp_all": {
+          "tasks": 974,
+          "passed": 601,
+          "failed": 373,
+          "timeout": 0,
+          "pass_rate": 0.6170431211498973,
+          "workers_completed": 974,
+          "worker_input_tokens": 148738,
+          "worker_output_tokens": 77927,
+          "truncated_worker_outputs": 13,
+          "tasks_with_truncation": 13,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_prompting": {
+          "tasks": 10,
+          "passed": 6,
+          "failed": 4,
+          "timeout": 0,
+          "pass_rate": 0.6,
+          "workers_completed": 10,
+          "worker_input_tokens": 1595,
+          "worker_output_tokens": 758,
+          "truncated_worker_outputs": 0,
+          "tasks_with_truncation": 0,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_test": {
+          "tasks": 500,
+          "passed": 301,
+          "failed": 199,
+          "timeout": 0,
+          "pass_rate": 0.602,
+          "workers_completed": 500,
+          "worker_input_tokens": 76718,
+          "worker_output_tokens": 39847,
+          "truncated_worker_outputs": 7,
+          "tasks_with_truncation": 7,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_train": {
+          "tasks": 374,
+          "passed": 236,
+          "failed": 138,
+          "timeout": 0,
+          "pass_rate": 0.6310160427807486,
+          "workers_completed": 374,
+          "worker_input_tokens": 56711,
+          "worker_output_tokens": 29714,
+          "truncated_worker_outputs": 5,
+          "tasks_with_truncation": 5,
+          "tasks_with_truncation_passed": 0
+        },
+        "run_id": "bulk-1138-plain-001",
+        "recorded_timing": {
+          "elapsed_seconds": 116.04598259925842,
+          "controller_gpu_seconds": 0,
+          "worker_gpu_seconds": 414.805179677438,
+          "time_scope": "First recorded routing/dispatch/worker event through last task completion. Includes scheduling and host work; excludes initial model loading. Includes gaps after interruption."
+        },
+        "timing_interpretation": "Observed run timings are not matched-order or matched-cache measurements; they do not establish a causal end-to-end speedup.",
+        "protocol": {
+          "humaneval": "Original HumanEval tests; not HumanEval+.",
+          "mbpp": "Selected split: all. Official split IDs are recorded separately. Statement plus reference interface signatures and 1 public example assertion. The first 1 original test_list assertions are exposed in source order and excluded from evaluation; remaining test_list and all challenge_test_list assertions are held out. No result-dependent example selection. This is an explicit prompt variant, not a standard MBPP+ score.",
+          "workload": "The all-splits selection is a bulk coding workload, not a standardized MBPP benchmark. Report official MBPP test IDs 11-510 separately.",
+          "evaluation": "Freeze one complete Python solution per task before reading evaluation/tests.jsonl. Public benchmark tests are runtime-held-out, not secret or proven absent from pretraining."
+        }
+      }
+    },
+    {
+      "run_id": "bulk-1138-single-001",
+      "policy": "single",
+      "routing_mode": "model",
+      "tasks": 1138,
+      "passed": 713,
+      "pass_rate": 0.6265377855887522,
+      "initial_passed": 713,
+      "fixed": 0,
+      "regressed": 0,
+      "elapsed_seconds": 153.17015194892883,
+      "correct_tasks_per_second": 4.654953924950952,
+      "agents_spawned": 1138,
+      "additional_agents": 0,
+      "worker_output_tokens": 104564,
+      "controller_computed_input_tokens": 355771,
+      "truncated_worker_outputs": 21,
+      "decision_counts": {
+        "route": {
+          "numeric": 428,
+          "general": 667,
+          "collections": 26,
+          "strings": 17
+        }
+      },
+      "splits": {
+        "all_tasks": {
+          "tasks": 1138,
+          "passed": 713,
+          "failed": 424,
+          "timeout": 1,
+          "pass_rate": 0.6265377855887522,
+          "workers_completed": 1138,
+          "worker_input_tokens": 216309,
+          "worker_output_tokens": 104564,
+          "truncated_worker_outputs": 21,
+          "tasks_with_truncation": 21,
+          "tasks_with_truncation_passed": 1
+        },
+        "humaneval": {
+          "tasks": 164,
+          "passed": 124,
+          "failed": 39,
+          "timeout": 1,
+          "pass_rate": 0.7560975609756098,
+          "workers_completed": 164,
+          "worker_input_tokens": 39866,
+          "worker_output_tokens": 22584,
+          "truncated_worker_outputs": 1,
+          "tasks_with_truncation": 1,
+          "tasks_with_truncation_passed": 1
+        },
+        "mbpp_all": {
+          "tasks": 974,
+          "passed": 589,
+          "failed": 385,
+          "timeout": 0,
+          "pass_rate": 0.6047227926078029,
+          "workers_completed": 974,
+          "worker_input_tokens": 176443,
+          "worker_output_tokens": 81980,
+          "truncated_worker_outputs": 20,
+          "tasks_with_truncation": 20,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_prompting": {
+          "tasks": 10,
+          "passed": 6,
+          "failed": 4,
+          "timeout": 0,
+          "pass_rate": 0.6,
+          "workers_completed": 10,
+          "worker_input_tokens": 1879,
+          "worker_output_tokens": 783,
+          "truncated_worker_outputs": 0,
+          "tasks_with_truncation": 0,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_test": {
+          "tasks": 500,
+          "passed": 283,
+          "failed": 217,
+          "timeout": 0,
+          "pass_rate": 0.566,
+          "workers_completed": 500,
+          "worker_input_tokens": 90948,
+          "worker_output_tokens": 42843,
+          "truncated_worker_outputs": 12,
+          "tasks_with_truncation": 12,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_train": {
+          "tasks": 374,
+          "passed": 242,
+          "failed": 132,
+          "timeout": 0,
+          "pass_rate": 0.6470588235294118,
+          "workers_completed": 374,
+          "worker_input_tokens": 67353,
+          "worker_output_tokens": 30350,
+          "truncated_worker_outputs": 7,
+          "tasks_with_truncation": 7,
+          "tasks_with_truncation_passed": 0
+        },
+        "run_id": "bulk-1138-single-001",
+        "recorded_timing": {
+          "elapsed_seconds": 153.17015194892883,
+          "controller_gpu_seconds": 104.82066873880103,
+          "worker_gpu_seconds": 434.1179790128954,
+          "time_scope": "First recorded routing/worker event through last task completion. Includes scheduling and host work; excludes initial model loading. Includes gaps after interruption."
+        },
+        "timing_interpretation": "Observed run timings are not matched-order or matched-cache measurements; they do not establish a causal end-to-end speedup.",
+        "protocol": {
+          "humaneval": "Original HumanEval tests; not HumanEval+.",
+          "mbpp": "Selected split: all. Official split IDs are recorded separately. Statement plus reference interface signatures and 1 public example assertion. The first 1 original test_list assertions are exposed in source order and excluded from evaluation; remaining test_list and all challenge_test_list assertions are held out. No result-dependent example selection. This is an explicit prompt variant, not a standard MBPP+ score.",
+          "workload": "The all-splits selection is a bulk coding workload, not a standardized MBPP benchmark. Report official MBPP test IDs 11-510 separately.",
+          "evaluation": "Freeze one complete Python solution per task before reading evaluation/tests.jsonl. Public benchmark tests are runtime-held-out, not secret or proven absent from pretraining."
+        }
+      }
+    },
+    {
+      "run_id": "bulk-1138-adaptive-queued-001",
+      "policy": "adaptive",
+      "routing_mode": "model",
+      "tasks": 1138,
+      "passed": 735,
+      "pass_rate": 0.6458699472759226,
+      "initial_passed": 713,
+      "fixed": 27,
+      "regressed": 5,
+      "elapsed_seconds": 268.9366521835327,
+      "correct_tasks_per_second": 2.73298560844138,
+      "agents_spawned": 1703,
+      "additional_agents": 565,
+      "worker_output_tokens": 215411,
+      "controller_computed_input_tokens": 1200481,
+      "truncated_worker_outputs": 236,
+      "decision_counts": {
+        "repair": {
+          "repair": 186,
+          "keep": 193
+        },
+        "review": {
+          "submit": 759,
+          "review": 379
+        },
+        "review_focus": {
+          "boundaries": 138,
+          "logic": 133,
+          "interface": 865,
+          "state": 2
+        },
+        "route": {
+          "numeric": 428,
+          "general": 667,
+          "collections": 26,
+          "strings": 17
+        },
+        "select": {
+          "revised": 163,
+          "original": 23
+        }
+      },
+      "splits": {
+        "all_tasks": {
+          "tasks": 1138,
+          "passed": 735,
+          "failed": 402,
+          "timeout": 1,
+          "pass_rate": 0.6458699472759226,
+          "workers_completed": 1703,
+          "worker_input_tokens": 451713,
+          "worker_output_tokens": 215411,
+          "truncated_worker_outputs": 236,
+          "tasks_with_truncation": 202,
+          "tasks_with_truncation_passed": 60
+        },
+        "humaneval": {
+          "tasks": 164,
+          "passed": 126,
+          "failed": 37,
+          "timeout": 1,
+          "pass_rate": 0.7682926829268293,
+          "workers_completed": 219,
+          "worker_input_tokens": 66320,
+          "worker_output_tokens": 34138,
+          "truncated_worker_outputs": 23,
+          "tasks_with_truncation": 19,
+          "tasks_with_truncation_passed": 8
+        },
+        "mbpp_all": {
+          "tasks": 974,
+          "passed": 609,
+          "failed": 365,
+          "timeout": 0,
+          "pass_rate": 0.6252566735112937,
+          "workers_completed": 1484,
+          "worker_input_tokens": 385393,
+          "worker_output_tokens": 181273,
+          "truncated_worker_outputs": 213,
+          "tasks_with_truncation": 183,
+          "tasks_with_truncation_passed": 52
+        },
+        "mbpp_prompting": {
+          "tasks": 10,
+          "passed": 6,
+          "failed": 4,
+          "timeout": 0,
+          "pass_rate": 0.6,
+          "workers_completed": 14,
+          "worker_input_tokens": 3405,
+          "worker_output_tokens": 1478,
+          "truncated_worker_outputs": 1,
+          "tasks_with_truncation": 1,
+          "tasks_with_truncation_passed": 0
+        },
+        "mbpp_test": {
+          "tasks": 500,
+          "passed": 296,
+          "failed": 204,
+          "timeout": 0,
+          "pass_rate": 0.592,
+          "workers_completed": 783,
+          "worker_input_tokens": 212138,
+          "worker_output_tokens": 97923,
+          "truncated_worker_outputs": 114,
+          "tasks_with_truncation": 98,
+          "tasks_with_truncation_passed": 27
+        },
+        "mbpp_train": {
+          "tasks": 374,
+          "passed": 250,
+          "failed": 124,
+          "timeout": 0,
+          "pass_rate": 0.6684491978609626,
+          "workers_completed": 553,
+          "worker_input_tokens": 135599,
+          "worker_output_tokens": 65212,
+          "truncated_worker_outputs": 79,
+          "tasks_with_truncation": 65,
+          "tasks_with_truncation_passed": 21
+        },
+        "run_id": "bulk-1138-adaptive-queued-001",
+        "recorded_timing": {
+          "elapsed_seconds": 268.9366521835327,
+          "controller_gpu_seconds": 262.39031477831304,
+          "worker_gpu_seconds": 646.2100991369225,
+          "time_scope": "First recorded routing/worker event through last task completion. Includes scheduling and host work; excludes initial model loading. Includes gaps after interruption."
+        },
+        "timing_interpretation": "Observed run timings are not matched-order or matched-cache measurements; they do not establish a causal end-to-end speedup.",
+        "protocol": {
+          "humaneval": "Original HumanEval tests; not HumanEval+.",
+          "mbpp": "Selected split: all. Official split IDs are recorded separately. Statement plus reference interface signatures and 1 public example assertion. The first 1 original test_list assertions are exposed in source order and excluded from evaluation; remaining test_list and all challenge_test_list assertions are held out. No result-dependent example selection. This is an explicit prompt variant, not a standard MBPP+ score.",
+          "workload": "The all-splits selection is a bulk coding workload, not a standardized MBPP benchmark. Report official MBPP test IDs 11-510 separately.",
+          "evaluation": "Freeze one complete Python solution per task before reading evaluation/tests.jsonl. Public benchmark tests are runtime-held-out, not secret or proven absent from pretraining."
+        }
+      }
+    },
+    {
+      "run_id": "bulk-1138-all-queued-001",
+      "policy": "all",
+      "routing_mode": "model",
+      "tasks": 1138,
+      "passed": 746,
+      "pass_rate": 0.655536028119508,
+      "initial_passed": 713,
+      "fixed": 48,
+      "regressed": 15,
+      "elapsed_seconds": 407.4280138015747,
+      "correct_tasks_per_second": 1.8309982984216602,
+      "agents_spawned": 3414,
+      "additional_agents": 2276,
+      "worker_output_tokens": 433223,
+      "controller_computed_input_tokens": 1432602,
+      "truncated_worker_outputs": 367,
+      "decision_counts": {
+        "review_focus": {
+          "boundaries": 141,
+          "logic": 128,
+          "interface": 868,
+          "state": 1
+        },
+        "route": {
+          "numeric": 428,
+          "general": 667,
+          "collections": 26,
+          "strings": 17
+        },
+        "select": {
+          "revised": 467,
+          "original": 671
+        }
+      },
+      "splits": {
+        "all_tasks": {
+          "tasks": 1138,
+          "passed": 746,
+          "failed": 392,
+          "timeout": 0,
+          "pass_rate": 0.655536028119508,
+          "workers_completed": 3414,
+          "worker_input_tokens": 1064182,
+          "worker_output_tokens": 433223,
+          "truncated_worker_outputs": 367,
+          "tasks_with_truncation": 333,
+          "tasks_with_truncation_passed": 140
+        },
+        "humaneval": {
+          "tasks": 164,
+          "passed": 131,
+          "failed": 33,
+          "timeout": 0,
+          "pass_rate": 0.7987804878048781,
+          "workers_completed": 492,
+          "worker_input_tokens": 195952,
+          "worker_output_tokens": 86273,
+          "truncated_worker_outputs": 45,
+          "tasks_with_truncation": 40,
+          "tasks_with_truncation_passed": 23
+        },
+        "mbpp_all": {
+          "tasks": 974,
+          "passed": 615,
+          "failed": 359,
+          "timeout": 0,
+          "pass_rate": 0.6314168377823408,
+          "workers_completed": 2922,
+          "worker_input_tokens": 868230,
+          "worker_output_tokens": 346950,
+          "truncated_worker_outputs": 322,
+          "tasks_with_truncation": 293,
+          "tasks_with_truncation_passed": 117
+        },
+        "mbpp_prompting": {
+          "tasks": 10,
+          "passed": 6,
+          "failed": 4,
+          "timeout": 0,
+          "pass_rate": 0.6,
+          "workers_completed": 30,
+          "worker_input_tokens": 8755,
+          "worker_output_tokens": 3213,
+          "truncated_worker_outputs": 2,
+          "tasks_with_truncation": 2,
+          "tasks_with_truncation_passed": 1
+        },
+        "mbpp_test": {
+          "tasks": 500,
+          "passed": 299,
+          "failed": 201,
+          "timeout": 0,
+          "pass_rate": 0.598,
+          "workers_completed": 1500,
+          "worker_input_tokens": 448785,
+          "worker_output_tokens": 179712,
+          "truncated_worker_outputs": 175,
+          "tasks_with_truncation": 160,
+          "tasks_with_truncation_passed": 61
+        },
+        "mbpp_train": {
+          "tasks": 374,
+          "passed": 252,
+          "failed": 122,
+          "timeout": 0,
+          "pass_rate": 0.6737967914438503,
+          "workers_completed": 1122,
+          "worker_input_tokens": 329548,
+          "worker_output_tokens": 130971,
+          "truncated_worker_outputs": 118,
+          "tasks_with_truncation": 105,
+          "tasks_with_truncation_passed": 49
+        },
+        "run_id": "bulk-1138-all-queued-001",
+        "recorded_timing": {
+          "elapsed_seconds": 407.4280138015747,
+          "controller_gpu_seconds": 281.1281075659208,
+          "worker_gpu_seconds": 1125.8765482888557,
+          "time_scope": "First recorded routing/worker event through last task completion. Includes scheduling and host work; excludes initial model loading. Includes gaps after interruption."
+        },
+        "timing_interpretation": "Observed run timings are not matched-order or matched-cache measurements; they do not establish a causal end-to-end speedup.",
+        "protocol": {
+          "humaneval": "Original HumanEval tests; not HumanEval+.",
+          "mbpp": "Selected split: all. Official split IDs are recorded separately. Statement plus reference interface signatures and 1 public example assertion. The first 1 original test_list assertions are exposed in source order and excluded from evaluation; remaining test_list and all challenge_test_list assertions are held out. No result-dependent example selection. This is an explicit prompt variant, not a standard MBPP+ score.",
+          "workload": "The all-splits selection is a bulk coding workload, not a standardized MBPP benchmark. Report official MBPP test IDs 11-510 separately.",
+          "evaluation": "Freeze one complete Python solution per task before reading evaluation/tests.jsonl. Public benchmark tests are runtime-held-out, not secret or proven absent from pretraining."
+        }
+      }
+    }
+  ],
+  "interpretation": "Descriptive measured runs. Different policies change real work and batch shapes. Timing includes compilation encountered during each run and excludes model loading. No universal speedup or calibrated-confidence claim."
+}

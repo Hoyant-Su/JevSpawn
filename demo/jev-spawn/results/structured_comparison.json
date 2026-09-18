@@ -1,0 +1,754 @@
+{
+  "runs": [
+    {
+      "summary": {
+        "run_id": "squad2-full-streamed-001",
+        "job": {
+          "id": "document-answerability",
+          "instruction": "Assess whether each question can be answered from its assigned paragraph. Return one finite decision per question."
+        },
+        "method": "streamed",
+        "model": "Qwen/Qwen3.5-4B",
+        "worker_count": 1204,
+        "workers_completed": 1204,
+        "field_count": null,
+        "field_count_distribution": {
+          "9": 315,
+          "8": 136,
+          "4": 8,
+          "7": 31,
+          "3": 6,
+          "5": 10,
+          "6": 14,
+          "10": 537,
+          "14": 42,
+          "12": 8,
+          "13": 19,
+          "15": 61,
+          "17": 3,
+          "20": 4,
+          "18": 2,
+          "19": 1,
+          "27": 1,
+          "25": 1,
+          "24": 1,
+          "28": 1,
+          "21": 1,
+          "11": 2
+        },
+        "field_decisions": 11873,
+        "worker_definition": "One independent state and role-scoped model call within a batch; fields are decisions, not additional agents.",
+        "datasets": {
+          "squad2_answerability": 1204
+        },
+        "gpu_replicas": 4,
+        "coordinator_extra_model_replicas": 0,
+        "batch_size_per_gpu": 8,
+        "observed_batch_sizes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "batching": "Fixed rank shards, then schema-structure buckets in first-seen order; input order preserved within each bucket.",
+        "peak_running_workers": 32,
+        "peak_queued_workers": 1175,
+        "elapsed_seconds": 41.505350828170776,
+        "workers_per_second": 29.008307988636815,
+        "field_decisions_per_second": 286.0595022832931,
+        "time_scope": "First worker dispatch through last worker completion, including queue and host time and restart gaps. Each rank loads and optionally warms its model before dispatch; other ranks may still be loading.",
+        "current_process_end_to_end_seconds": 59.62065577507019,
+        "end_to_end_scope": "Current rank invocations after argument parsing through final checkpoint; includes model loading and warmup, excludes Python import time and pre-restart processes.",
+        "model_load_seconds_per_gpu": [
+          7.3703011381439865,
+          7.397780845873058,
+          7.032987573184073,
+          7.022396956104785
+        ],
+        "warmup_seconds_per_gpu": [
+          14.101776413153857,
+          13.655356251168996,
+          10.729691974818707,
+          13.617695393972099
+        ],
+        "model_call_seconds_sum": 150.66762578859925,
+        "logical_input_tokens": 3493498,
+        "computed_input_tokens": 1082595,
+        "padded_input_tokens": 1352292,
+        "generated_tokens": 0,
+        "mean_queue_seconds": 19.042478589718524,
+        "mean_task_latency_seconds": 19.829061961649263,
+        "cuda_memory": {
+          "per_gpu": [
+            {
+              "gpu_id": 0,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 10880024576,
+              "peak_allocated_bytes": 11088095232,
+              "peak_reserved_bytes": 14195621888
+            },
+            {
+              "gpu_id": 1,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 10580131840,
+              "peak_allocated_bytes": 11690681344,
+              "peak_reserved_bytes": 14220787712
+            },
+            {
+              "gpu_id": 2,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 9705619456,
+              "peak_allocated_bytes": 10986188288,
+              "peak_reserved_bytes": 12142510080
+            },
+            {
+              "gpu_id": 3,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 10506731520,
+              "peak_allocated_bytes": 10960334336,
+              "peak_reserved_bytes": 13618905088
+            }
+          ],
+          "scope": "Current rank process after optional warmup and peak reset. Includes resident model; excludes other processes and previous preempted processes.",
+          "measurement": "PyTorch allocated/reserved bytes, not whole-device memory."
+        },
+        "evaluation_status": "evaluated",
+        "median_worker_latency_seconds": 0.41452622413635254,
+        "maximum_per_gpu_peak_allocated_bytes": 11690681344
+      },
+      "evaluation": {
+        "paragraphs": 1204,
+        "questions": 11873,
+        "correct": 9861,
+        "support": {
+          "yes": 5928,
+          "no": 5945
+        },
+        "question_accuracy": 0.8305398804009096,
+        "balanced_accuracy": 0.8304855064814783,
+        "macro_f1": 0.8302795534474617,
+        "yes_precision": 0.8572992700729927,
+        "yes_recall": 0.7925101214574899,
+        "yes_f1": 0.823632538569425,
+        "no_precision": 0.8076020647583294,
+        "no_recall": 0.8684608915054668,
+        "no_f1": 0.8369265683254985,
+        "brier_score": 0.12620362333222776,
+        "probability_count": 11873,
+        "paragraph_all_correct": 0.21345514950166114,
+        "paragraphs_all_correct_count": 257,
+        "invalid_count": 0,
+        "invalid_output_rate": 0.0,
+        "confusion_matrix": {
+          "tp": 4698,
+          "tn": 5163,
+          "fp": 782,
+          "fn": 1230,
+          "invalid_gold_yes": 0,
+          "invalid_gold_no": 0
+        },
+        "scope": "SQuAD2.0 binary answerability only; not answer-span QA EM/F1. Benchmark format uses latency repeat zero, retaining the last complete record for each method/batch key. Worker format uses all frozen collected predictions.",
+        "metric_conventions": "Each original question has equal weight. Balanced accuracy averages yes/no recall. Macro F1 averages the two class F1 values. Undefined precision or F1 is zero. Invalid choices count as incorrect and as missed gold-class predictions, never as a default yes/no answer. Brier uses raw yes probabilities only when every question supplies them; no calibration or thresholds are fitted.",
+        "baselines": {
+          "all_yes": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5928,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.4992840899519919,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.3330149991573507,
+            "yes_precision": 0.4992840899519919,
+            "yes_recall": 1.0,
+            "yes_f1": 0.6660299983147014,
+            "no_precision": 0.0,
+            "no_recall": 0.0,
+            "no_f1": 0.0,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 5928,
+              "tn": 0,
+              "fp": 5945,
+              "fn": 0,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          },
+          "all_no": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5945,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.5007159100480081,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.33365136378942645,
+            "yes_precision": 0.0,
+            "yes_recall": 0.0,
+            "yes_f1": 0.0,
+            "no_precision": 0.5007159100480081,
+            "no_recall": 1.0,
+            "no_f1": 0.6673027275788529,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 0,
+              "tn": 5945,
+              "fp": 0,
+              "fn": 5928,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "summary": {
+        "run_id": "squad2-full-independent-001",
+        "job": {
+          "id": "document-answerability",
+          "instruction": "Assess whether each question can be answered from its assigned paragraph. Return one finite decision per question."
+        },
+        "method": "independent",
+        "model": "Qwen/Qwen3.5-4B",
+        "worker_count": 1204,
+        "workers_completed": 1204,
+        "field_count": null,
+        "field_count_distribution": {
+          "9": 315,
+          "8": 136,
+          "4": 8,
+          "7": 31,
+          "3": 6,
+          "5": 10,
+          "6": 14,
+          "10": 537,
+          "14": 42,
+          "12": 8,
+          "13": 19,
+          "15": 61,
+          "17": 3,
+          "20": 4,
+          "18": 2,
+          "19": 1,
+          "27": 1,
+          "25": 1,
+          "24": 1,
+          "28": 1,
+          "21": 1,
+          "11": 2
+        },
+        "field_decisions": 11873,
+        "worker_definition": "One independent state and role-scoped model call within a batch; fields are decisions, not additional agents.",
+        "datasets": {
+          "squad2_answerability": 1204
+        },
+        "gpu_replicas": 4,
+        "coordinator_extra_model_replicas": 0,
+        "batch_size_per_gpu": 8,
+        "observed_batch_sizes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "batching": "Fixed rank shards, then schema-structure buckets in first-seen order; input order preserved within each bucket.",
+        "peak_running_workers": 32,
+        "peak_queued_workers": 1169,
+        "elapsed_seconds": 109.9594829082489,
+        "workers_per_second": 10.949487649051855,
+        "field_decisions_per_second": 107.97613526344908,
+        "time_scope": "First worker dispatch through last worker completion, including queue and host time and restart gaps. Each rank loads and optionally warms its model before dispatch; other ranks may still be loading.",
+        "current_process_end_to_end_seconds": 126.25331616401672,
+        "end_to_end_scope": "Current rank invocations after argument parsing through final checkpoint; includes model loading and warmup, excludes Python import time and pre-restart processes.",
+        "model_load_seconds_per_gpu": [
+          7.328234103973955,
+          7.011897103860974,
+          7.191848365124315,
+          7.412938751280308
+        ],
+        "warmup_seconds_per_gpu": [
+          9.517926313914359,
+          9.452060639858246,
+          8.435682174284011,
+          9.498034017160535
+        ],
+        "model_call_seconds_sum": 413.4179554595612,
+        "logical_input_tokens": 3493498,
+        "computed_input_tokens": 3493498,
+        "padded_input_tokens": 4859045,
+        "generated_tokens": 0,
+        "mean_queue_seconds": 53.42101984206228,
+        "mean_task_latency_seconds": 55.65836173909843,
+        "cuda_memory": {
+          "per_gpu": [
+            {
+              "gpu_id": 0,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 15189671936,
+              "peak_allocated_bytes": 19827961344,
+              "peak_reserved_bytes": 39822819328
+            },
+            {
+              "gpu_id": 1,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 15363735552,
+              "peak_allocated_bytes": 22812578304,
+              "peak_reserved_bytes": 39602618368
+            },
+            {
+              "gpu_id": 2,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 9909043200,
+              "peak_allocated_bytes": 16660888064,
+              "peak_reserved_bytes": 25652363264
+            },
+            {
+              "gpu_id": 3,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112114688,
+              "resident_before_work_reserved_bytes": 15848177664,
+              "peak_allocated_bytes": 16639037952,
+              "peak_reserved_bytes": 31593594880
+            }
+          ],
+          "scope": "Current rank process after optional warmup and peak reset. Includes resident model; excludes other processes and previous preempted processes.",
+          "measurement": "PyTorch allocated/reserved bytes, not whole-device memory."
+        },
+        "evaluation_status": "evaluated",
+        "median_worker_latency_seconds": 1.0898842811584473,
+        "maximum_per_gpu_peak_allocated_bytes": 22812578304
+      },
+      "evaluation": {
+        "paragraphs": 1204,
+        "questions": 11873,
+        "correct": 9851,
+        "support": {
+          "yes": 5928,
+          "no": 5945
+        },
+        "question_accuracy": 0.829697633285606,
+        "balanced_accuracy": 0.8296420516906551,
+        "macro_f1": 0.8294246207243834,
+        "yes_precision": 0.8570383912248629,
+        "yes_recall": 0.7908232118758435,
+        "yes_f1": 0.8226004562203896,
+        "no_precision": 0.8063407777604248,
+        "no_recall": 0.8684608915054668,
+        "no_f1": 0.8362487852283771,
+        "brier_score": 0.12622477708332602,
+        "probability_count": 11873,
+        "paragraph_all_correct": 0.2084717607973422,
+        "paragraphs_all_correct_count": 251,
+        "invalid_count": 0,
+        "invalid_output_rate": 0.0,
+        "confusion_matrix": {
+          "tp": 4688,
+          "tn": 5163,
+          "fp": 782,
+          "fn": 1240,
+          "invalid_gold_yes": 0,
+          "invalid_gold_no": 0
+        },
+        "scope": "SQuAD2.0 binary answerability only; not answer-span QA EM/F1. Benchmark format uses latency repeat zero, retaining the last complete record for each method/batch key. Worker format uses all frozen collected predictions.",
+        "metric_conventions": "Each original question has equal weight. Balanced accuracy averages yes/no recall. Macro F1 averages the two class F1 values. Undefined precision or F1 is zero. Invalid choices count as incorrect and as missed gold-class predictions, never as a default yes/no answer. Brier uses raw yes probabilities only when every question supplies them; no calibration or thresholds are fitted.",
+        "baselines": {
+          "all_yes": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5928,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.4992840899519919,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.3330149991573507,
+            "yes_precision": 0.4992840899519919,
+            "yes_recall": 1.0,
+            "yes_f1": 0.6660299983147014,
+            "no_precision": 0.0,
+            "no_recall": 0.0,
+            "no_f1": 0.0,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 5928,
+              "tn": 0,
+              "fp": 5945,
+              "fn": 0,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          },
+          "all_no": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5945,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.5007159100480081,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.33365136378942645,
+            "yes_precision": 0.0,
+            "yes_recall": 0.0,
+            "yes_f1": 0.0,
+            "no_precision": 0.5007159100480081,
+            "no_recall": 1.0,
+            "no_f1": 0.6673027275788529,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 0,
+              "tn": 5945,
+              "fp": 0,
+              "fn": 5928,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "summary": {
+        "run_id": "squad2-full-compact_json-001",
+        "job": {
+          "id": "document-answerability",
+          "instruction": "Assess whether each question can be answered from its assigned paragraph. Return one finite decision per question."
+        },
+        "method": "compact_json",
+        "model": "Qwen/Qwen3.5-4B",
+        "worker_count": 1204,
+        "workers_completed": 1204,
+        "field_count": null,
+        "field_count_distribution": {
+          "9": 315,
+          "8": 136,
+          "4": 8,
+          "7": 31,
+          "3": 6,
+          "5": 10,
+          "6": 14,
+          "10": 537,
+          "14": 42,
+          "12": 8,
+          "13": 19,
+          "15": 61,
+          "17": 3,
+          "20": 4,
+          "18": 2,
+          "19": 1,
+          "27": 1,
+          "25": 1,
+          "24": 1,
+          "28": 1,
+          "21": 1,
+          "11": 2
+        },
+        "field_decisions": 11873,
+        "worker_definition": "One independent state and role-scoped model call within a batch; fields are decisions, not additional agents.",
+        "datasets": {
+          "squad2_answerability": 1204
+        },
+        "gpu_replicas": 4,
+        "coordinator_extra_model_replicas": 0,
+        "batch_size_per_gpu": 8,
+        "observed_batch_sizes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "batching": "Fixed rank shards, then schema-structure buckets in first-seen order; input order preserved within each bucket.",
+        "peak_running_workers": 32,
+        "peak_queued_workers": 1175,
+        "elapsed_seconds": 69.30136346817017,
+        "workers_per_second": 17.37339555451881,
+        "field_decisions_per_second": 171.32419054717764,
+        "time_scope": "First worker dispatch through last worker completion, including queue and host time and restart gaps. Each rank loads and optionally warms its model before dispatch; other ranks may still be loading.",
+        "current_process_end_to_end_seconds": 85.75417518615723,
+        "end_to_end_scope": "Current rank invocations after argument parsing through final checkpoint; includes model loading and warmup, excludes Python import time and pre-restart processes.",
+        "model_load_seconds_per_gpu": [
+          7.6160014951601624,
+          7.203107281122357,
+          7.441900245845318,
+          7.162249899934977
+        ],
+        "warmup_seconds_per_gpu": [
+          9.398990348912776,
+          9.308279395569116,
+          8.709119839128107,
+          9.26232249988243
+        ],
+        "model_call_seconds_sum": 255.82369404425845,
+        "logical_input_tokens": 1144628,
+        "computed_input_tokens": 1144628,
+        "padded_input_tokens": 1284375,
+        "generated_tokens": 26154,
+        "mean_queue_seconds": 31.11724035248804,
+        "mean_task_latency_seconds": 32.43994829880439,
+        "cuda_memory": {
+          "per_gpu": [
+            {
+              "gpu_id": 0,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112115200,
+              "resident_before_work_reserved_bytes": 11423186944,
+              "peak_allocated_bytes": 11906502144,
+              "peak_reserved_bytes": 13031702528
+            },
+            {
+              "gpu_id": 1,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112115200,
+              "resident_before_work_reserved_bytes": 11020533760,
+              "peak_allocated_bytes": 11960601600,
+              "peak_reserved_bytes": 13021216768
+            },
+            {
+              "gpu_id": 2,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112115200,
+              "resident_before_work_reserved_bytes": 9779019776,
+              "peak_allocated_bytes": 11528311808,
+              "peak_reserved_bytes": 12186550272
+            },
+            {
+              "gpu_id": 3,
+              "resident_after_load_allocated_bytes": 9078560256,
+              "resident_after_load_reserved_bytes": 9089056768,
+              "resident_before_work_allocated_bytes": 9112115200,
+              "resident_before_work_reserved_bytes": 11003756544,
+              "peak_allocated_bytes": 11521571328,
+              "peak_reserved_bytes": 12345933824
+            }
+          ],
+          "scope": "Current rank process after optional warmup and peak reset. Includes resident model; excludes other processes and previous preempted processes.",
+          "measurement": "PyTorch allocated/reserved bytes, not whole-device memory."
+        },
+        "evaluation_status": "evaluated",
+        "median_worker_latency_seconds": 0.9869309663772583,
+        "maximum_per_gpu_peak_allocated_bytes": 11960601600
+      },
+      "evaluation": {
+        "paragraphs": 1204,
+        "questions": 11873,
+        "correct": 9679,
+        "support": {
+          "yes": 5928,
+          "no": 5945
+        },
+        "question_accuracy": 0.8152109829023836,
+        "balanced_accuracy": 0.8152216987931432,
+        "macro_f1": 0.815203609039181,
+        "yes_precision": 0.8101328903654486,
+        "yes_recall": 0.8227058029689609,
+        "yes_f1": 0.8163709407432206,
+        "no_precision": 0.820433965487784,
+        "no_recall": 0.8077375946173255,
+        "no_f1": 0.8140362773351415,
+        "brier_score": null,
+        "probability_count": 0,
+        "paragraph_all_correct": 0.17275747508305647,
+        "paragraphs_all_correct_count": 208,
+        "invalid_count": 0,
+        "invalid_output_rate": 0.0,
+        "confusion_matrix": {
+          "tp": 4877,
+          "tn": 4802,
+          "fp": 1143,
+          "fn": 1051,
+          "invalid_gold_yes": 0,
+          "invalid_gold_no": 0
+        },
+        "scope": "SQuAD2.0 binary answerability only; not answer-span QA EM/F1. Benchmark format uses latency repeat zero, retaining the last complete record for each method/batch key. Worker format uses all frozen collected predictions.",
+        "metric_conventions": "Each original question has equal weight. Balanced accuracy averages yes/no recall. Macro F1 averages the two class F1 values. Undefined precision or F1 is zero. Invalid choices count as incorrect and as missed gold-class predictions, never as a default yes/no answer. Brier uses raw yes probabilities only when every question supplies them; no calibration or thresholds are fitted.",
+        "baselines": {
+          "all_yes": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5928,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.4992840899519919,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.3330149991573507,
+            "yes_precision": 0.4992840899519919,
+            "yes_recall": 1.0,
+            "yes_f1": 0.6660299983147014,
+            "no_precision": 0.0,
+            "no_recall": 0.0,
+            "no_f1": 0.0,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 5928,
+              "tn": 0,
+              "fp": 5945,
+              "fn": 0,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          },
+          "all_no": {
+            "paragraphs": 1204,
+            "questions": 11873,
+            "correct": 5945,
+            "support": {
+              "yes": 5928,
+              "no": 5945
+            },
+            "question_accuracy": 0.5007159100480081,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.33365136378942645,
+            "yes_precision": 0.0,
+            "yes_recall": 0.0,
+            "yes_f1": 0.0,
+            "no_precision": 0.5007159100480081,
+            "no_recall": 1.0,
+            "no_f1": 0.6673027275788529,
+            "brier_score": null,
+            "probability_count": 0,
+            "paragraph_all_correct": 0.0,
+            "paragraphs_all_correct_count": 0,
+            "invalid_count": 0,
+            "invalid_output_rate": 0.0,
+            "confusion_matrix": {
+              "tp": 0,
+              "tn": 5945,
+              "fp": 0,
+              "fn": 5928,
+              "invalid_gold_yes": 0,
+              "invalid_gold_no": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "reference_run_id": "squad2-full-streamed-001",
+  "comparisons": [
+    {
+      "reference_run_id": "squad2-full-streamed-001",
+      "other_run_id": "squad2-full-independent-001",
+      "dispatch_time_ratio_other_over_reference": 2.6492845070379816,
+      "current_process_time_ratio_other_over_reference": 2.1176103235148975,
+      "max_per_gpu_peak_ratio_other_over_reference": 1.951347199768479,
+      "question_accuracy_difference_other_minus_reference": -0.0008422471153036737,
+      "balanced_accuracy_difference_other_minus_reference": -0.0008434547908232615,
+      "paired_predictions": {
+        "decisions": 11873,
+        "agreements": 11821,
+        "disagreements": 52,
+        "disagreement_rate": 0.004379684999578876,
+        "workers_with_any_disagreement": 51,
+        "choice_transitions_reference_to_other": {
+          "yes -> yes": 5449,
+          "no -> no": 6372,
+          "no -> yes": 21,
+          "yes -> no": 31
+        }
+      }
+    },
+    {
+      "reference_run_id": "squad2-full-streamed-001",
+      "other_run_id": "squad2-full-compact_json-001",
+      "dispatch_time_ratio_other_over_reference": 1.6696970892999536,
+      "current_process_time_ratio_other_over_reference": 1.438329955807271,
+      "max_per_gpu_peak_ratio_other_over_reference": 1.0230884965604277,
+      "question_accuracy_difference_other_minus_reference": -0.015328897498526062,
+      "balanced_accuracy_difference_other_minus_reference": -0.01526380768833513,
+      "paired_predictions": {
+        "decisions": 11873,
+        "agreements": 9397,
+        "disagreements": 2476,
+        "disagreement_rate": 0.2085403857491788,
+        "workers_with_any_disagreement": 1037,
+        "choice_transitions_reference_to_other": {
+          "yes -> yes": 4512,
+          "yes -> no": 968,
+          "no -> no": 4885,
+          "no -> yes": 1508
+        }
+      }
+    }
+  ],
+  "matched_controls": {
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "kernel": "fla",
+    "seed": 0,
+    "cpu_threads": 8,
+    "max_input_tokens": 8192,
+    "batch_size": 8,
+    "world_size": 4,
+    "task_offset": 0,
+    "task_count": 1204,
+    "warmup_batch": true,
+    "worker_role": "answerability",
+    "model": "Qwen/Qwen3.5-4B"
+  },
+  "interpretation": "Matched task IDs, question schemas, input bytes, model and runtime controls; one measured pass per run. Time ratios are other/reference and are descriptive, without repeated-run uncertainty estimates. Dispatch-to-completion time includes queue and host work; ranks load and warm before their own dispatch, so loading on other ranks can overlap. Current-process timing includes loading and warmup separately from the dispatch interval and excludes Python import time and earlier preempted processes. Memory lists each GPU allocator peak and the maximum per-GPU peak; peaks are not summed into an instantaneous system value. Quality is binary answerability accuracy and balanced accuracy, not answer-span QA EM/F1. Joint autoregressive JSON and isolated field readouts can choose different answers. Observed speed differences do not establish equal quality; paired disagreements are not themselves errors."
+}

@@ -1,0 +1,7 @@
+{
+  "json_output_instruction": "Return only a compact JSON object with one key, choice, whose value is the letter of the best option. Example format: {\"choice\":\"A\"}",
+  "joint_field_template": "Field: {name}\nQuestion: {question}\nOptions:\n{menu}",
+  "joint_user_template": "State:\n{state}\n\nFields:\n{fields}\n\n{output_instruction}",
+  "joint_output_instruction": "Return only one compact JSON object. Use each field name exactly once as a key and its selected option letter as the value. Do not include explanations or additional keys.",
+  "array_output_instruction": "Return only a compact JSON array of option letters, with exactly one letter for each field in the order listed above. Do not include field names, explanations, or additional elements."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "{field_id}",
+  "question": "Can this question be answered from the supplied paragraph?\nQuestion: {question}",
+  "options": [
+    {
+      "id": "yes",
+      "description": "The supplied paragraph contains enough information to answer the question."
+    },
+    {
+      "id": "no",
+      "description": "The supplied paragraph does not contain enough information to answer the question."
+    }
+  ]
+}

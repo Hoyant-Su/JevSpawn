@@ -1,0 +1,94 @@
+{
+  "project": {
+    "name": "JevSpawn",
+    "license_spdx": "MIT",
+    "copyright": "2026 JevSpawn contributors",
+    "scope": "Project-authored code only. Dataset, model and dependency licenses remain separate."
+  },
+  "datasets": [
+    {
+      "name": "HumanEval",
+      "creator": "OpenAI",
+      "repository": "https://github.com/openai/human-eval",
+      "license_spdx": "MIT",
+      "tasks": 164,
+      "modifications": "Runtime export retains task ID, original prompt and entry point; reference solutions are excluded and original tests are isolated for evaluation.",
+      "license_notice": "The MIT License\n\nCopyright (c) OpenAI (https://openai.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+    },
+    {
+      "name": "MBPP",
+      "creator": "Google Research",
+      "repository": "https://github.com/google-research/google-research/tree/master/mbpp",
+      "license_spdx": "CC-BY-4.0",
+      "tasks": 974,
+      "splits": {
+        "prompting": 10,
+        "test": 500,
+        "validation": 90,
+        "train": 374
+      },
+      "modifications": "Selected split: all. Official split IDs are recorded separately. Statement plus reference interface signatures and 1 public example assertion. The first 1 original test_list assertions are exposed in source order and excluded from evaluation; remaining test_list and all challenge_test_list assertions are held out. No result-dependent example selection. This is an explicit prompt variant, not a standard MBPP+ score.",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "name": "SQuAD2.0 answerability",
+      "creator": "Pranav Rajpurkar, Robin Jia, Percy Liang and collaborators",
+      "official_site": "https://rajpurkar.github.io/SQuAD-explorer/",
+      "license_spdx": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "split": "official development",
+      "paragraphs": 1204,
+      "questions": 11873,
+      "modifications": "Original paragraphs group their original questions into q0...qN binary answerability fields. Official question IDs are preserved in the evaluation mapping. No answer span is generated. Replay records add model decisions and execution events to the original paragraph and question text.",
+      "retained_license_scope": "SQuAD source text and adapted dataset records, including those embedded in replay artifacts, retain CC-BY-SA-4.0, source attribution and notice of the grouping/task modifications. Project-authored code remains separately MIT-licensed."
+    }
+  ],
+  "model": {
+    "id": "Qwen/Qwen3.5-4B",
+    "publisher": "Qwen",
+    "url": "https://huggingface.co/Qwen/Qwen3.5-4B",
+    "usage": "Unmodified frozen pretrained weights; inference only. No weights are included in this launch package.",
+    "license_notice": "Consult the upstream model card and license; the project MIT license does not relicense weights."
+  },
+  "references": [
+    {
+      "repository": "TheoLeeCJ/openjev",
+      "url": "https://github.com/TheoLeeCJ/openjev",
+      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+    },
+    {
+      "repository": "ekzhang/openjev-sglang",
+      "url": "https://github.com/ekzhang/openjev-sglang",
+      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+    },
+    {
+      "repository": "browser-use/jev-ultrafast",
+      "url": "https://github.com/browser-use/jev-ultrafast",
+      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+    }
+  ],
+  "architectural_references": [
+    {
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "kind": "Official claim",
+      "relevance": "Typed probabilistic decisions, parallel output and RLCD post-training. Official speed and calibration claims do not transfer to this implementation."
+    },
+    {
+      "url": "https://archerhume.com/posts/jevs-architecture-unmasked",
+      "kind": "Independent black-box investigation and architectural hypothesis",
+      "relevance": "Proposes shared-state computation, isolated question branches and direct readout. Its suggested causal/sparse backbone and readout design are not confirmed architecture."
+    }
+  ],
+  "claim_boundaries": [
+    "Independent Jev-style implementation; not an official Jev reproduction or affiliation.",
+    "No official Jev training, architecture, calibration or speed claim transfers to this project.",
+    "Controller microbenchmark and whole-workload policy measurements are distinct."
+  ],
+  "redistribution": {
+    "third_party_code": false,
+    "dataset_records": true,
+    "model_weights": false,
+    "dataset_record_scope": "Structured replay includes SQuAD2.0 paragraphs and questions under CC-BY-SA-4.0. Public coding replay excludes input prompts and reference solutions; it includes task IDs, generated outputs, decisions and timings. Benchmark attribution and retained notices accompany any source-derived text repeated in generated outputs. Raw datasets and third-party repositories are excluded.",
+    "code_license_scope": "MIT covers project-authored code, not the separately licensed dataset text, installed dependencies or model weights."
+  }
+}

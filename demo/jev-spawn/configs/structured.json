@@ -1,0 +1,26 @@
+{
+  "run_id": "structured",
+  "run_dir": "/path/to/runs/structured",
+  "tasks_path": "/path/to/data/tasks.jsonl",
+  "fields_path": null,
+  "model_path": "/path/to/Qwen3.5-4B",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "kernel": "fla",
+  "max_input_tokens": 8192,
+  "seed": 0,
+  "cpu_threads": 8,
+  "world_size": 4,
+  "batch_size": 8,
+  "branch_batch_size": 112,
+  "task_offset": 0,
+  "method": "streamed",
+  "warmup_batch": true,
+  "worker_role": "answerability",
+  "json_constraints": "finite",
+  "controller_max_new_tokens": 64,
+  "job": {
+    "id": "document-answerability",
+    "instruction": "Assess whether each question can be answered from its assigned paragraph. Return one finite decision per question."
+  }
+}
