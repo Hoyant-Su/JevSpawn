@@ -2,6 +2,7 @@
 /*
 !/.gitignore
 !/CITATION.cff
+!/README.md
 !/demo/
 /demo/*
 !/demo/jev-spawn/
