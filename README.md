@@ -129,4 +129,4 @@ If you use JevSpawn in research, please cite the software using [CITATION.cff](C
 }
 ```
 
-Application code is [MIT licensed](demo/jev-spawn/LICENSE). Dataset content retains its own terms: SQuAD2 text is CC BY-SA 4.0, HumanEval is MIT, and MBPP is CC BY 4.0. See [dataset and project attribution](demo/jev-spawn/launch/attribution.json). The repository contains our implementation and recorded demonstrations, not collected third-party repositories or model weights.
+Application code is [MIT licensed](demo/jev-spawn/LICENSE). Dataset content retains its own terms: SQuAD2 text is CC BY-SA 4.0, HumanEval is MIT, and MBPP is CC BY 4.0. See [dataset and project attribution](demo/jev-spawn/launch/attribution.json).

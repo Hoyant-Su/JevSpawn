@@ -44,7 +44,6 @@ def main():
         summary["evaluation_status"] = "Evaluated; see evaluation protocol and split-specific results."
     if args.public:
         metadata = {key: value for key, value in metadata.items() if key in PUBLIC_PAYLOAD_FIELDS}
-        metadata["export_scope"] = "Recorded task IDs, generated outputs, decisions and timings. Input prompts and reference solutions are not included."
         events = [{**event, "payload": {key: value for key, value in event.get("payload", {}).items() if key in PUBLIC_PAYLOAD_FIELDS}} for event in events]
     replay = {"metadata": metadata, "events": events, "summary": summary}
     encoded = json.dumps(replay, ensure_ascii=False)

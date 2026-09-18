@@ -47,24 +47,24 @@
     "id": "Qwen/Qwen3.5-4B",
     "publisher": "Qwen",
     "url": "https://huggingface.co/Qwen/Qwen3.5-4B",
-    "usage": "Unmodified frozen pretrained weights; inference only. No weights are included in this launch package.",
+    "usage": "Unmodified frozen pretrained weights; inference only.",
     "license_notice": "Consult the upstream model card and license; the project MIT license does not relicense weights."
   },
   "references": [
     {
       "repository": "TheoLeeCJ/openjev",
       "url": "https://github.com/TheoLeeCJ/openjev",
-      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+      "relationship": "Conceptual reference."
     },
     {
       "repository": "ekzhang/openjev-sglang",
       "url": "https://github.com/ekzhang/openjev-sglang",
-      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+      "relationship": "Conceptual reference."
     },
     {
       "repository": "browser-use/jev-ultrafast",
       "url": "https://github.com/browser-use/jev-ultrafast",
-      "relationship": "Conceptual reference; upstream package is not imported or executed by this demo."
+      "relationship": "Conceptual reference."
     }
   ],
   "architectural_references": [
@@ -83,12 +83,5 @@
     "Independent Jev-style implementation; not an official Jev reproduction or affiliation.",
     "No official Jev training, architecture, calibration or speed claim transfers to this project.",
     "Controller microbenchmark and whole-workload policy measurements are distinct."
-  ],
-  "redistribution": {
-    "third_party_code": false,
-    "dataset_records": true,
-    "model_weights": false,
-    "dataset_record_scope": "Structured replay includes SQuAD2.0 paragraphs and questions under CC-BY-SA-4.0. Public coding replay excludes input prompts and reference solutions; it includes task IDs, generated outputs, decisions and timings. Benchmark attribution and retained notices accompany any source-derived text repeated in generated outputs. Raw datasets and third-party repositories are excluded.",
-    "code_license_scope": "MIT covers project-authored code, not the separately licensed dataset text, installed dependencies or model weights."
-  }
+  ]
 }

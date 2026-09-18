@@ -100,7 +100,7 @@
       "RUN/jevspawn.html"
     ]
   ],
-  "compute": "Run GPU commands on an explicitly assigned idle 4-GPU instance. The recorded run used 4 H100 80GB GPUs, one model replica per GPU, batch size 64 per replica.",
+  "compute": "4 H100 80GB GPUs, one model replica per GPU, batch size 64 per replica.",
   "resume": "Rerun the same launch command to skip completed batches. Use a new run directory when changing data, configuration or model.",
   "versions": {
     "python": "3.12",

@@ -1,4 +1,3 @@
-# Publish only the authored demo. Collected repositories and runtime state stay local.
 /*
 !/.gitignore
 !/CITATION.cff
@@ -27,3 +26,5 @@
 **/.github/copilot-instructions.md
 /demo/jev-spawn/runs/
 /demo/jev-spawn/web/replay.json
+
+/launch_private/
