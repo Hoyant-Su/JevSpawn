@@ -1,0 +1,10 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "inference": "configs/inference/shared_service.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "terminal_settings": "configs/qualification/terminal_values/typed_answer.json",
+  "tasks": "data/qualification/terminal_values/stage030_scalar_and_sequence.json",
+  "task_count": 5,
+  "stage": "qualification"
+}

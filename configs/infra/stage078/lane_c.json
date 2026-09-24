@@ -1,0 +1,115 @@
+{
+  "stage": "stage078_history_cache_coverage",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_screen/textarena_sokoban_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/textarena_sokoban",
+      "evaluation": "results/validation/native-history-coverage-stage078/textarena_sokoban.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/textarena_sokoban.json",
+      "log": "logs/qualification/native-history-coverage-stage078-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/textarena_sokoban.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/textarena_sokoban",
+          "--output",
+          "results/validation/native-history-coverage-stage078/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_screen/korgym_2048_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/korgym_2048",
+      "evaluation": "results/validation/native-history-coverage-stage078/korgym_2048.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/korgym_2048.json",
+      "log": "logs/qualification/native-history-coverage-stage078-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/korgym_2048.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/korgym_2048",
+          "--output",
+          "results/validation/native-history-coverage-stage078/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_screen/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/korgym_circle_the_cat",
+      "evaluation": "results/validation/native-history-coverage-stage078/korgym_circle_the_cat.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/korgym_circle_the_cat.json",
+      "log": "logs/qualification/native-history-coverage-stage078-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/korgym_circle_the_cat.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/korgym_circle_the_cat",
+          "--output",
+          "results/validation/native-history-coverage-stage078/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_screen/korgym_nullify_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/korgym_nullify",
+      "evaluation": "results/validation/native-history-coverage-stage078/korgym_nullify.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/korgym_nullify.json",
+      "log": "logs/qualification/native-history-coverage-stage078-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/korgym_nullify.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/korgym_nullify",
+          "--output",
+          "results/validation/native-history-coverage-stage078/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

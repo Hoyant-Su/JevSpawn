@@ -1,0 +1,35 @@
+{
+  "tools": {
+    "calculator": {
+      "arguments": {
+        "expression": "Arithmetic string containing numeric constants, +, -, *, /, **, parentheses and sqrt(number)."
+      },
+      "returns": {
+        "value": "Computed numeric result."
+      }
+    },
+    "search": {
+      "arguments": {
+        "query": "Nonempty case-insensitive literal substring to find in supplied evidence paragraphs."
+      },
+      "returns": {
+        "matches": "List of objects with paragraph index and exact original text."
+      }
+    },
+    "read": {
+      "arguments": {
+        "index": "Zero-based integer paragraph index in the supplied evidence."
+      },
+      "returns": {
+        "index": "Requested paragraph index.",
+        "text": "Exact original paragraph text."
+      }
+    }
+  },
+  "context": "State:\n{state}\n\nQuestion:\n{question}\n\nAnswer options:\n{options}\n\nAvailable tools:\n{tools}\n\nHistory:\n{history}",
+  "react": "Solve the multiple-choice task using a Thought, Action, Observation loop. Output exactly one JSON object per turn, with keys thought (your reasoning) and action. An action has tool and arguments keys. Use an available tool with generated arguments when useful. To answer, use tool finish and arguments {\"choice\":\"option ID\"}. Do not invent tool observations. The next user prompt includes the actual observation. Only supplied option IDs are valid final answers. You have {rounds} total turns, including the final answer. Do not output markdown fences.",
+  "planner": "Plan tool calls to solve the multiple-choice task. Output only a JSON object with thought and nodes. Each node has id (a unique nonempty string), tool (an available tool name), arguments (an object), and depends_on (a list of preceding node IDs). Plan zero to {nodes} calls. Use an empty nodes list when the supplied context and reasoning already suffice; the joiner will make the final decision. Independent nodes can execute concurrently. Reference an earlier result using an object {\"ref\":\"node_id\",\"path\":[\"value\"]}; for search results the path can be [\"matches\",0,\"index\"]. Inside calculator expressions, interpolate numeric tool outputs as ${node_id.value}, for example ${a.value} * 2. Every referenced node must be listed in depends_on. Use the original supplied evidence; generate real tool arguments. A later joiner will inspect results and answer or request replanning. Do not output markdown fences.",
+  "joiner": "Use the supplied problem, answer options, generated plan and actual tool observations. Output exactly one JSON object with thought and either choice (a valid option ID) or replan (a nonempty explanation of additional tool work required). Never provide both choice and replan. The plan budget is {plans}; you are at plan {current}. Do not invent observations. Do not output markdown fences.",
+  "reasoning": "Solve the supplied multiple-choice problem. Reason through the problem and check your calculations. Return exactly one JSON object with thought (your reasoning as a string) and choice (one supplied option ID). Do not output markdown fences.",
+  "reasoning_context": "State:\n{state}\n\nQuestion:\n{question}\n\nAnswer options:\n{options}"
+}

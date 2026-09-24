@@ -1,0 +1,12 @@
+{
+  "reset_field": "frontier",
+  "anchors": [
+    "frontier",
+    "operation"
+  ],
+  "parents": {
+    "operation": "frontier"
+  },
+  "field_parent": "operation",
+  "prompts": "jevspawn.decision_continuation"
+}

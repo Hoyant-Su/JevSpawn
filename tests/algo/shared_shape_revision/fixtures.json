@@ -1,0 +1,262 @@
+{
+  "seed": 42,
+  "regression": "records/methods/shared_domain_revision/shape_regression_calls_001.json",
+  "tasks": "data/baselines/common/qualification/typed_revision_noncoding.jsonl",
+  "task_id": "lgp-test-6x6-5",
+  "record_index": 0,
+  "parent": [
+    "rows"
+  ],
+  "revised": [
+    "rows",
+    3
+  ],
+  "scalar": [
+    "rows",
+    3,
+    0
+  ],
+  "shared_scope": "shared",
+  "per_item_scope": "per_item",
+  "nested_schema": {
+    "type": "array",
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "nested_snapshot": [
+    [
+      [
+        "x"
+      ]
+    ]
+  ],
+  "nested_bindings": [
+    {
+      "parent_path": [],
+      "scope": "shared",
+      "length": 1
+    },
+    {
+      "parent_path": [
+        0
+      ],
+      "scope": "shared",
+      "length": 1
+    }
+  ],
+  "nested_selected": [
+    0,
+    0
+  ],
+  "nested_expected": [],
+  "integration_case": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "matrix": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "matrix"
+      ],
+      "additionalProperties": false
+    },
+    "input": {
+      "names": [
+        "red",
+        "blue"
+      ],
+      "shapes": [
+        "round",
+        "square"
+      ]
+    },
+    "previous": {
+      "matrix": [
+        [
+          "round",
+          "red"
+        ],
+        [
+          "square",
+          "blue"
+        ]
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          "red",
+          "round"
+        ],
+        [
+          "blue",
+          "square"
+        ]
+      ]
+    },
+    "bindings": [
+      {
+        "parent": [
+          "matrix"
+        ],
+        "position": 0,
+        "source": [
+          "input",
+          "shapes"
+        ]
+      },
+      {
+        "parent": [
+          "matrix"
+        ],
+        "position": 1,
+        "source": [
+          "input",
+          "names"
+        ]
+      }
+    ],
+    "replace": {
+      "[\"matrix\", \"*\", 0]": [
+        "input",
+        "names"
+      ],
+      "[\"matrix\", \"*\", 1]": [
+        "input",
+        "shapes"
+      ]
+    },
+    "value_revise": [
+      [
+        "matrix",
+        0
+      ]
+    ],
+    "expected_rebuilt": [
+      [
+        "matrix"
+      ]
+    ],
+    "per_item_domains": {}
+  },
+  "integration_shape": {
+    "parent_path": [
+      "matrix"
+    ],
+    "scope": "shared",
+    "length": 2,
+    "root_path": [],
+    "assignment": "Fixture assignment"
+  },
+  "invalidation": {
+    "selected": [
+      "matrix"
+    ],
+    "active_shapes": [
+      {
+        "parent_path": [
+          "matrix"
+        ],
+        "scope": "shared",
+        "length": 2,
+        "root_path": [],
+        "assignment": "Fixture assignment"
+      },
+      {
+        "parent_path": [
+          "other"
+        ],
+        "scope": "shared",
+        "length": 3
+      }
+    ],
+    "domains": [
+      {
+        "template": {
+          "parent_path": [
+            "matrix"
+          ],
+          "template_path": [
+            "matrix",
+            "*",
+            0
+          ]
+        }
+      },
+      {
+        "template": {
+          "parent_path": [
+            "other"
+          ],
+          "template_path": [
+            "other",
+            "*",
+            0
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      [
+        "matrix",
+        "*",
+        0
+      ],
+      [
+        "other",
+        "*",
+        0
+      ]
+    ],
+    "shape_paths": [
+      [
+        "matrix",
+        0
+      ],
+      [
+        "other",
+        0
+      ]
+    ],
+    "remaining_parent": [
+      "other"
+    ],
+    "replacement_scope": "per_item",
+    "replacement_length": null
+  },
+  "changed_length_expected": {
+    "matrix": [
+      [
+        "red"
+      ],
+      [
+        "blue"
+      ]
+    ]
+  },
+  "method": "configs/baselines/common/methods/jevspawn_shape_revision_tuned_recording.json",
+  "prompt_name": "jevspawn.shared_shape_revision",
+  "shape_revision": {
+    "state_key": "learned_shapes",
+    "invalidation_key": "invalidated_shape_bindings"
+  }
+}

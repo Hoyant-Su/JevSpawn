@@ -1,0 +1,14 @@
+{
+  "phases": [
+    {
+      "name": "prepare_native_bfcl",
+      "devices": "",
+      "arguments": [
+        "-m",
+        "data.prepare_bfcl",
+        "--config",
+        "configs/data/bfcl.json"
+      ]
+    }
+  ]
+}

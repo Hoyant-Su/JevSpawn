@@ -1,0 +1,132 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "source": "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind/session-0000/batches.json",
+  "output": "results/infra/latent-history-nativebatch-stage085",
+  "rank_file": "rank-{rank}.json",
+  "command": "latent_role_zero_cache_qualification",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "arms": [
+    "native",
+    "role_zero_history"
+  ],
+  "reference_arm": "native",
+  "role_zero": 0,
+  "judger_role": "judger",
+  "judger_phase": "judger_prefill",
+  "zero": 0,
+  "step": 1,
+  "scope": "Complete original latent role collaboration and first judger logits for real recorded inputs; no autoregressive answer generation or task-score claim.",
+  "workloads": [
+    {
+      "name": "cold_b8",
+      "batch": 0,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "repeat_b8",
+      "batch": 0,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "next_observation_b8",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "repeat_next_observation_b8",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "rollback_b8",
+      "batch": 0,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "cache": {
+    "history": {
+      "zero": 0,
+      "position_step": 1,
+      "row_step": 1,
+      "exclude_last": -1,
+      "last_index": -1,
+      "first_index": 0,
+      "minimum_rows": 1,
+      "record_offset": 1,
+      "cache": {
+        "initial_bytes": 0,
+        "max_entries": 128,
+        "max_bytes": 8589934592
+      },
+      "state_copy": {
+        "mode": "triton_grouped",
+        "block_size": 4096,
+        "num_warps": 4
+      }
+    },
+    "source_identity": {
+      "role_index": 0,
+      "prefix_modality": "text_only_before_any_latent_embedding",
+      "model": "configs/shared_config_tp4_v2.yaml",
+      "method": "configs/baselines/common/methods/latentmas.json"
+    },
+    "zero": 0,
+    "step": 1,
+    "last_index": -1,
+    "layer_axis": 1,
+    "sequence_axis": 1,
+    "batch_axis": 0
+  }
+}

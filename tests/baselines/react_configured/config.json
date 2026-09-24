@@ -1,0 +1,31 @@
+{
+  "method": {
+    "module": "baselines.common.configured_react",
+    "prompts": "configs/baselines/common/schema/react.json",
+    "settings": {
+      "notebook": "external/react_core/hotpotqa.ipynb",
+      "episode_action_limit": 51,
+      "original_episode_range": [1, 8],
+      "max_model_calls": 102
+    },
+    "python_paths": [],
+    "service": "baselines.common.service.BatchService"
+  },
+  "fixture": {
+    "terminal_after_actions": 51,
+    "short_terminal_after_actions": 2,
+    "max_new_tokens": 64,
+    "temperature": 0,
+    "task_id": "react-configured-fixture",
+    "initial_observation": "Unit-test environment.",
+    "instruction": "Unit-test trajectory.\n",
+    "invalid_action": "Invalid action.",
+    "ordinary_observation": "Continue.",
+    "terminal_observation": "Terminal observation.",
+    "completion": "fixture terminal",
+    "action": "Move[{}]",
+    "thought": "Proceed.",
+    "malformed_thought": "Malformed fixture response.",
+    "invalid_label_action": "not an action"
+  }
+}

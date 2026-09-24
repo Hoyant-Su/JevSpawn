@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/baselines/latentmas/shared_tp4_alignment.yaml",
+  "method": "configs/baselines/common/methods/latentmas_native_segments_tp.json",
+  "source": "runs/common-latentmas-all-datasets-qualification-006/session-0000/batches.json",
+  "source_batch": 0,
+  "output": "runs/latentmas-tp4-alignment-001",
+  "validation_timeout_seconds": 1200,
+  "decode_steps": 32,
+  "rtol": 0.05,
+  "atol": 0.05
+}

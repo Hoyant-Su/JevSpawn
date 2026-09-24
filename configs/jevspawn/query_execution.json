@@ -1,0 +1,23 @@
+{
+  "candidate_id": "value-{index}",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "prompts": "jevspawn.query_execution",
+  "tool_observation_source": "tool",
+  "history_reference": "$history",
+  "join_reference": "$join",
+  "action_identity_serialization": {
+    "ensure_ascii": false,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "allow_nan": false
+  }
+}

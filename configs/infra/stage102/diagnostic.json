@@ -1,0 +1,91 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds",
+    "reused_state_tokens",
+    "peak_cuda_memory_bytes",
+    "peak_cuda_reserved_bytes"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/history_cache_cause.py",
+  "output": "results/infra/history-cache-cause-stage102",
+  "prepared": "results/infra/history-cache-cause-stage102/prepared_all.json",
+  "repetitions": 3,
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "summary_file": "summary.json",
+  "diagnostics": {
+    "reference": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail",
+      "clear_before_call": [
+        "prefix_cache"
+      ],
+      "caches": [
+        "prefix_cache"
+      ],
+      "row_stride": 1
+    },
+    "reference_reversed": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail",
+      "clear_before_call": [
+        "prefix_cache"
+      ],
+      "caches": [
+        "prefix_cache"
+      ],
+      "row_stride": -1
+    },
+    "split_recompute": {
+      "module": "tests.infra.history_cache_cause",
+      "class": "CheckedHistoryTail",
+      "clear_before_call": [
+        "prefix_cache",
+        "history_cache"
+      ],
+      "caches": [
+        "prefix_cache",
+        "history_cache"
+      ],
+      "row_stride": 1
+    },
+    "history_reuse": {
+      "module": "tests.infra.history_cache_cause",
+      "class": "CheckedHistoryTail",
+      "clear_before_call": [
+        "prefix_cache"
+      ],
+      "caches": [
+        "prefix_cache",
+        "history_cache"
+      ],
+      "row_stride": 1
+    }
+  }
+}

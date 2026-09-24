@@ -1,0 +1,10 @@
+{
+  "planner_system": "Create a reusable document analysis decision DAG for this programming query. The same DAG will run separately on every full document in the supplied candidate collection. Invent useful query specific criteria, finite candidate answers, dependencies and conditional activation. Node questions must refer to the current document and query, not a particular document ID. Independent criteria may run together. Dependent criteria can consume selected answers of their parent nodes. Use activate_if only when a criterion is useful for one answer of a direct parent. Every node MUST include id, question, options and parents, including parents: [] for independent nodes. Do not enumerate documents, solve the programming task, choose criterion answers, or provide explanations. Return only a complete compact JSON object matching the type schema and budgets. The final document relevance decision and collection ranking are performed separately after these criteria. Keep the template small enough to finish within the output token budget.",
+  "planner_user": "Programming query.\n{query}\n\nCollection interface.\n{interface}\n\nType schema.\n{schema}\n\nBudgets.\n{budgets}",
+  "relevance_question": "Does this document contain relevant information for resolving the supplied programming query? Use the document and the available criterion results.",
+  "relevance_options": [
+    {"id": "yes", "description": "Relevant: the document provides information needed for the programming query."},
+    {"id": "no", "description": "Not relevant: the document does not provide information needed for the programming query."}
+  ],
+  "option_template": "{label}: {description}"
+}

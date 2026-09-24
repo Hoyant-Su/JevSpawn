@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "state_copy_settings": "configs/jevspawn/finite_state_copy.json",
+  "sources": [
+    "results/infra/native-rollout-stage059-roots1/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch1.json"
+  ],
+  "repetitions": 5,
+  "output": "results/infra/native-dense-suffix-stage065",
+  "devices": [0, 1, 2, 3]
+}

@@ -1,0 +1,63 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "cache": {
+    "history": {
+      "zero": 0,
+      "position_step": 1,
+      "row_step": 1,
+      "exclude_last": -1,
+      "last_index": -1,
+      "first_index": 0,
+      "minimum_rows": 1,
+      "record_offset": 1,
+      "cache": {
+        "initial_bytes": 0,
+        "max_entries": 128,
+        "max_bytes": 8589934592
+      },
+      "state_copy": {
+        "mode": "triton_grouped",
+        "block_size": 4096,
+        "num_warps": 4
+      },
+      "checkpoint": {
+        "chunk_size": 64,
+        "reserved_tail_tokens": 64,
+        "capture": {
+          "checkpoint_dtype": "float32",
+          "index_dtype": "int64",
+          "unselected_row": -1,
+          "block_size": 4096,
+          "num_warps": 4,
+          "num_stages": 1
+        }
+      }
+    },
+    "source_identity": {
+      "role_index": 0,
+      "prefix_modality": "text_only_before_any_latent_embedding",
+      "model": "configs/shared_config_tp4_v2.yaml",
+      "method": "configs/baselines/common/methods/latentmas.json"
+    },
+    "zero": 0,
+    "step": 1,
+    "last_index": -1,
+    "layer_axis": 1,
+    "sequence_axis": 1,
+    "batch_axis": 0
+  },
+  "role_zero": 0,
+  "arm": "native",
+  "cached_arm": "cached",
+  "last_index": -1,
+  "entrypoint": "tests/infra/latent_history/whole_method.py",
+  "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_latentmas.json",
+  "run": "runs/latent-history-stage085-quality/native/agentquest_mastermind"
+}

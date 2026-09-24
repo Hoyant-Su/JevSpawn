@@ -1,0 +1,21 @@
+{
+  "stage": "qualification",
+  "datasets": [
+    {
+      "dataset": "aqua",
+      "kind": "fields",
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl",
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/labels.jsonl",
+      "task_count": 254,
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "humaneval",
+      "kind": "code",
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/coding/humaneval/tasks.jsonl",
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/coding/humaneval/tests.jsonl",
+      "task_count": 164,
+      "metric": "pass_at_1"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "enum_reference_key": "x-enum-source",
+  "reference_key": "$ref",
+  "definitions_key": "$defs",
+  "answer_definition": "answer",
+  "answer_reference": "#/$defs/answer",
+  "references_key": "display_references"
+}

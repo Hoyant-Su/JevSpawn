@@ -1,0 +1,14 @@
+{
+  "sample_seconds": 0.5,
+  "live_admission_delay_seconds": 0.25,
+  "delivery_tolerance_seconds": 0.2,
+  "join_timeout_seconds": 2.0,
+  "root_workers": 2,
+  "completion_samples": 2,
+  "max_new_tokens": 1,
+  "temperature": 0.0,
+  "timeout_task_id": "expired_fixture",
+  "live_task_id": "live_fixture",
+  "live_payload": "live request fixture payload",
+  "late_payload": "late request fixture payload"
+}

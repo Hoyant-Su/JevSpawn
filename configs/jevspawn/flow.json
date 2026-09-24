@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "nodes",
+    "output"
+  ],
+  "properties": {
+    "output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "depends_on",
+        "input"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "kind": {
+          "enum": [
+            "decide",
+            "generate",
+            "expand",
+            "collect",
+            "map",
+            "reduce",
+            "generate_json",
+            "tool",
+            "rank"
+          ]
+        },
+        "depends_on": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "input": {
+          "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true} or {$parent:[path components]}, and {$item:true} or {$item:[path components]}/{$index:true} only within their nearest map template. A true binding inserts the complete value; a path selects exactly that field or element, for example {$item:[\"id\"]}. Selected values remain literal data. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+        },
+        "question": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_new_tokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "options": {
+          "anyOf": [
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ]
+                  },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "branches": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#"
+          }
+        },
+        "items_path": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer",
+                "minimum": 0
+              }
+            ]
+          },
+          "description": "Explicit path inside resolved input to the array or object being mapped. Empty path selects input itself."
+        },
+        "template": {
+          "$ref": "#",
+          "description": "One child program for each array element or object value; output preserves array order or original object keys."
+        },
+        "operator": {
+          "enum": [
+            "all_equal",
+            "any_equal",
+            "count_equal"
+          ]
+        },
+        "field_path": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer",
+                "minimum": 0
+              }
+            ]
+          },
+          "description": "Explicit path inside each input-array element; empty path compares the element itself."
+        },
+        "equals": {
+          "description": "Literal equality target. References inside this value are never interpreted."
+        },
+        "output_schema": {
+          "type": "object",
+          "description": "Model-defined JSON Schema for the generated value. Only local fragment references are allowed."
+        },
+        "tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "description": "Explicit shared semantic context for a finite node. Supports the same exact source/result/map bindings as input; context dependencies must be declared."
+        },
+        "key_path": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          }
+        },
+        "descending": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "decide"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "question",
+              "options",
+              "branches"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "generate",
+                  "expand"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "system",
+              "max_new_tokens"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "map"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "items_path",
+              "template"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "reduce"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operator",
+              "field_path",
+              "equals"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "generate_json"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "system",
+              "max_new_tokens",
+              "output_schema"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "tool"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "tool"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "rank"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "key_path",
+              "descending"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

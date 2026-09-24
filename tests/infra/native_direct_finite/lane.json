@@ -1,0 +1,165 @@
+{
+  "stage": "stage070_paired_complete_qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl_reference",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-ppnl8-reference",
+      "evaluation": "results/infra/native-direct-finite-stage070-ppnl8-reference_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-ppnl8-reference_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-ppnl8-reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/ppnl_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-ppnl8-reference",
+          "--output",
+          "results/infra/native-direct-finite-stage070-ppnl8-reference_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl_direct",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-ppnl8-direct",
+      "evaluation": "results/infra/native-direct-finite-stage070-ppnl8-direct_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-ppnl8-direct_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-ppnl8-direct.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/ppnl_direct.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-ppnl8-direct",
+          "--output",
+          "results/infra/native-direct-finite-stage070-ppnl8-direct_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft_reference",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-plancraft8-reference",
+      "evaluation": "results/infra/native-direct-finite-stage070-plancraft8-reference_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-plancraft8-reference_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-plancraft8-reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/plancraft_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-plancraft8-reference",
+          "--output",
+          "results/infra/native-direct-finite-stage070-plancraft8-reference_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft_direct",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-plancraft8-direct",
+      "evaluation": "results/infra/native-direct-finite-stage070-plancraft8-direct_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-plancraft8-direct_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-plancraft8-direct.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/plancraft_direct.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-plancraft8-direct",
+          "--output",
+          "results/infra/native-direct-finite-stage070-plancraft8-direct_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench_reference",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-autoplanbench8-reference",
+      "evaluation": "results/infra/native-direct-finite-stage070-autoplanbench8-reference_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-autoplanbench8-reference_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-autoplanbench8-reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/autoplanbench_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-autoplanbench8-reference",
+          "--output",
+          "results/infra/native-direct-finite-stage070-autoplanbench8-reference_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench_direct",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-autoplanbench8-direct",
+      "evaluation": "results/infra/native-direct-finite-stage070-autoplanbench8-direct_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-autoplanbench8-direct_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-autoplanbench8-direct.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/autoplanbench_direct.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-autoplanbench8-direct",
+          "--output",
+          "results/infra/native-direct-finite-stage070-autoplanbench8-direct_evaluation.json"
+        ]
+      ]
+    }
+  ]
+}

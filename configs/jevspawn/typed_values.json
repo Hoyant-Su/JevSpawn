@@ -1,0 +1,122 @@
+{
+  "live_limit": 8,
+  "node_budget": 4096,
+  "enum_batch_limit": 256,
+  "option_id": "value{index}",
+  "boolean_values": [
+    false,
+    true
+  ],
+  "array_continue_actions": [
+    "stop",
+    "append"
+  ],
+  "source_generation_action": "generate",
+  "unbound_scalar_policy": "select",
+  "include_source_locations": false,
+  "schema_defaults": {
+    "minItems": 0,
+    "uniqueItems": false,
+    "required": []
+  },
+  "schema_policy": {
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "metadata": [
+      "title",
+      "description",
+      "default",
+      "examples",
+      "$comment"
+    ],
+    "common": [
+      "type",
+      "enum",
+      "const",
+      "$defs",
+      "definitions",
+      "$schema",
+      "$ref"
+    ],
+    "types": {
+      "object": [
+        "properties",
+        "required",
+        "additionalProperties"
+      ],
+      "array": [
+        "items",
+        "minItems",
+        "maxItems",
+        "uniqueItems"
+      ],
+      "string": [
+        "minLength",
+        "maxLength",
+        "pattern"
+      ],
+      "integer": [
+        "minimum",
+        "maximum",
+        "exclusiveMinimum",
+        "exclusiveMaximum",
+        "multipleOf"
+      ],
+      "number": [
+        "minimum",
+        "maximum",
+        "exclusiveMinimum",
+        "exclusiveMaximum",
+        "multipleOf"
+      ],
+      "boolean": [],
+      "null": []
+    }
+  },
+  "open_object_mode": "source_domain",
+  "count_step": 1,
+  "singleton_count": 1,
+  "decision_path": "$choice",
+  "task_fields": [
+    "instruction",
+    "input",
+    "answer_schema"
+  ],
+  "length_overflow_key": "exceeds_node_budget",
+  "source_domains": {
+    "initial_offset": 0,
+    "literal_group": "value",
+    "literal_pattern": "(?P<quote>['\\\"`])(?P<value>[^\\n]*?)(?P=quote)",
+    "numeric_pattern": "(?<![A-Za-z0-9_])(?P<value>[-+]?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+))(?![A-Za-z0-9_])",
+    "numeric_group": "value",
+    "numeric_enabled": false,
+    "structured_enabled": true,
+    "structured_delimiters": [
+      "{",
+      "}"
+    ],
+    "structured_delimiter_pairs": [
+      [
+        "{",
+        "}"
+      ],
+      [
+        "[",
+        "]"
+      ]
+    ],
+    "literal_quotes": [
+      "'",
+      "\"",
+      "`"
+    ],
+    "structured_types": [
+      "dict",
+      "list",
+      "tuple"
+    ]
+  },
+  "selection": {
+    "mode": "native",
+    "fanout": 256
+  }
+}

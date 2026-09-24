@@ -1,0 +1,18 @@
+{
+  "stage": "Generated decision program portability qualification",
+  "computation": "Unchanged contract compiler, original provided answer options resolved through model-selected input_path, unchanged finite execution and collect reducer.",
+  "development_roots": {
+    "aqua": 8,
+    "supergpqa": 16,
+    "medxpertqa_text": 5
+  },
+  "training": false,
+  "heldout_evaluation": false,
+  "required_evidence": [
+    "Generated candidate binding preserves all original option IDs and descriptions.",
+    "All assigned roots remain in quality denominators, with compilation failures recorded.",
+    "Warmup and measured programs and discrete outputs are compared.",
+    "Compiler-inclusive cost and actual physical batch sizes are recorded."
+  ],
+  "boundary": "No new semantic program prompt or algorithm is selected from these outputs."
+}

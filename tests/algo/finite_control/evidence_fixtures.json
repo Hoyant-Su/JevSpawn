@@ -1,0 +1,99 @@
+{
+  "purpose": "CPU reference/navigation and transport tests; scripted model choices are not task-performance evidence.",
+  "observation": {
+    "tool": "lookup",
+    "arguments": {
+      "query": "complete source record"
+    },
+    "result": [
+      {
+        "id": "document-a",
+        "text": "Complete first document. All original punctuation, lines, and values remain.\nSecond line.",
+        "score": 1.5
+      },
+      {
+        "id": "document-b",
+        "text": "Complete second document.",
+        "active": true,
+        "missing": null
+      }
+    ]
+  },
+  "observation_path": [
+    "observations",
+    0
+  ],
+  "collection_path": [
+    "observations",
+    0,
+    "result"
+  ],
+  "scalar_path": [
+    "observations",
+    0,
+    "result",
+    0,
+    "text"
+  ],
+  "spawn_path": [
+    "observations",
+    0,
+    "result"
+  ],
+  "tool_name": "lookup",
+  "tool_schema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "query"
+    ]
+  },
+  "tool_definition": {
+    "description": "Return complete source records."
+  },
+  "tool_arguments": {
+    "query": "complete source record"
+  },
+  "spawn_choices": [
+    [
+      "evidence"
+    ],
+    [
+      "include",
+      "omit",
+      "omit",
+      "omit",
+      "omit",
+      "support",
+      "contradict"
+    ]
+  ],
+  "inspect_choices": [
+    [
+      "inspect:1"
+    ],
+    [
+      "submit"
+    ]
+  ],
+  "expected_bindings": [
+    [
+      {
+        "field": "id",
+        "whole_value": false,
+        "value": "document-a"
+      }
+    ],
+    [
+      {
+        "field": "id",
+        "whole_value": false,
+        "value": "document-b"
+      }
+    ]
+  ]
+}

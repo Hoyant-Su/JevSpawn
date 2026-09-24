@@ -1,0 +1,16 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "tasks": "data/baselines/common/qualification/all_datasets_14_contract_v2.jsonl",
+  "task_count": 14,
+  "method": "configs/baselines/common/methods/llmcompiler.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "baselines.common.schema_environment.SchemaObservationEnvironment",
+    "parameters": {
+      "read_id_schema": {
+        "$prompt": "configs/baselines/common/observations/search_schema_v1.json"
+      }
+    }
+  }
+}

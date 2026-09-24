@@ -1,0 +1,143 @@
+{
+  "stage": "formal",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/autoplanbench.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/autoplanbench",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/autoplanbench.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/autoplanbench.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/autoplanbench.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/autoplanbench",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/autoplanbench",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/textarena_lightsout.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-textarena_lightsout.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_lightsout",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_lightsout",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_nullify.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_nullify",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_nullify.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/korgym_nullify.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_nullify.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_nullify",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_nullify",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/ppnl.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-ppnl.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/ppnl.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "class": "environments.gamebench.GameBenchEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/gamebench_tic_tac_toe_runtime.json"
+  }
+}

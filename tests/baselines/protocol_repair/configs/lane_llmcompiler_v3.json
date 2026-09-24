@@ -1,0 +1,66 @@
+{
+  "stage": "isolated_protocol_qualification_v3",
+  "method": "llmcompiler",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_mastermind",
+      "specification": "tests/baselines/protocol_repair/configs/v3_llmcompiler_agentquest_mastermind.json",
+      "run": "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/agentquest_mastermind",
+      "evaluation": "results/native_baselines/protocol_repair_v3/llmcompiler/agentquest_mastermind.json",
+      "progress": "results/native_baselines/protocol_repair_v3/progress/llmcompiler/agentquest_mastermind.json",
+      "log": "logs/native_baselines/protocol-repair-v3-llmcompiler-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "tests/baselines/protocol_repair/configs/v3_llmcompiler_agentquest_mastermind.json",
+          "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/protocol_repair_v3/llmcompiler/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "lmrlgym_maze",
+      "specification": "tests/baselines/protocol_repair/configs/v3_llmcompiler_lmrlgym_maze.json",
+      "run": "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/lmrlgym_maze",
+      "evaluation": "results/native_baselines/protocol_repair_v3/llmcompiler/lmrlgym_maze.json",
+      "progress": "results/native_baselines/protocol_repair_v3/progress/llmcompiler/lmrlgym_maze.json",
+      "log": "logs/native_baselines/protocol-repair-v3-llmcompiler-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "tests/baselines/protocol_repair/configs/v3_llmcompiler_lmrlgym_maze.json",
+          "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-protocol-repair-v3-20260924/llmcompiler/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/protocol_repair_v3/llmcompiler/lmrlgym_maze.json"
+        ]
+      ]
+    }
+  ]
+}

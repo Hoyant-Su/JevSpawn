@@ -1,0 +1,143 @@
+{
+  "stage": "formal",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_2048.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_2048",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_2048.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/korgym_2048.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_2048.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_2048",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_2048",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/agentquest_mastermind.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-agentquest_mastermind.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_mastermind",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/lmrlgym_maze.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-lmrlgym_maze.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json"
+        ]
+      ]
+    }
+  ]
+}

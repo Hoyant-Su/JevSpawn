@@ -1,0 +1,33 @@
+{
+  "scope": "Real-model native finite-token stream numerical and runtime qualification; not episode success",
+  "tasks": "data/qualification/finite_cache/maze.jsonl",
+  "environment": "configs/baselines/common/environment.json",
+  "maze_configuration": "configs/data/maze/runtime.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "prompts": "qualification.native_action_stream",
+  "output": "results/qualification/native_action_stream_003",
+  "terminator": "eos_token_id",
+  "phases": [
+    "cold",
+    "warm"
+  ],
+  "variants": [
+    "full_head",
+    "candidate_head"
+  ],
+  "stream": {
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "transition": {
+      "num_warps": 4
+    }
+  },
+  "serialization": {
+    "ensure_ascii": false,
+    "indent": 2
+  }
+}

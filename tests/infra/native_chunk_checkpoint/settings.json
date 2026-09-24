@@ -1,0 +1,22 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "state_copy_settings": "configs/jevspawn/finite_state_copy.json",
+  "capture_settings": "tests/infra/native_chunk_checkpoint/capture_settings.json",
+  "entrypoint": "tests/infra/native_chunk_checkpoint/qualify.py",
+  "chunk_size": 64,
+  "repetitions": 5,
+  "arms": ["reference", "checkpoint"],
+  "output": "results/infra/native-chunk-checkpoint-stage069",
+  "devices": [0, 1, 2, 3],
+  "cases": [
+    {
+      "source": "results/infra/native-rollout-stage059-roots1/rank0-batch1.json",
+      "following": "results/infra/native-rollout-stage059-roots1/rank0-batch2.json"
+    },
+    {
+      "source": "results/infra/native-rollout-stage059-roots8/rank0-batch1.json",
+      "following": "results/infra/native-rollout-stage059-roots8/rank0-batch2.json"
+    }
+  ]
+}

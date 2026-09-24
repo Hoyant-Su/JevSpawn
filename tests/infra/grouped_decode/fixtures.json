@@ -1,0 +1,99 @@
+{
+  "backend": {
+    "execution": "qwen35_optimized",
+    "decode_attention_splits": 1
+  },
+  "native_backend": {
+    "execution": "native",
+    "decode_attention_splits": 1
+  },
+  "masks": [
+    [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "lengths": [
+    4,
+    5
+  ],
+  "leftpad": [
+    2,
+    1
+  ],
+  "replacement_masks": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ]
+  ],
+  "replacement_lengths": [
+    3,
+    4
+  ],
+  "replacement_leftpad": [
+    0,
+    3
+  ],
+  "hole_masks": [
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "empty_masks": [
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "device": "cpu"
+}

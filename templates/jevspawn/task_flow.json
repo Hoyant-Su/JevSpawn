@@ -1,0 +1,9 @@
+{
+  "assigned_task": "{system}\nAssigned task: {assignment}",
+  "compiler_feedback": "{feedback}\n{error}",
+  "planner_task_fields": [
+    "instruction",
+    "input",
+    "answer_schema"
+  ]
+}

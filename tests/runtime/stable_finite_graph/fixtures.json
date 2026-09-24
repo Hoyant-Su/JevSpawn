@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "capacity": 8192,
+  "buckets": [
+    1,
+    8
+  ],
+  "native_ids": [
+    71,
+    83,
+    97,
+    103
+  ],
+  "lengths": [
+    2,
+    5,
+    17,
+    65,
+    129,
+    257,
+    513,
+    8192
+  ],
+  "candidate_counts": [
+    1,
+    2,
+    4
+  ],
+  "output": "results/infra/stable_finite_graph_layout_cpu_001.json"
+}

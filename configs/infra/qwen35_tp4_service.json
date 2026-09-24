@@ -1,0 +1,18 @@
+{
+  "shared_config": "configs/infra/shared_tp4_service.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/baselines/common/methods/jevspawn_shared_state.json",
+  "text_source": "runs/common-react-all-datasets-gen4096-001/session-0000/batches.json",
+  "text_batch_index": 0,
+  "finite_source": "configs/infra/shared_state_prefix_bright32.json",
+  "controller_prompt": "jevspawn.controller",
+  "output": "runs/qwen35-tp4-service-003",
+  "text_max_new_tokens": 32,
+  "worker_threads": 9,
+  "deadline_source_row": 0,
+  "deadline_identity": "qualification/deadline/aqua/dev/0",
+  "deadline_window_seconds": 0.1,
+  "oracle_weight_name": "lm_head.weight",
+  "checkpoint_index": "model.safetensors.index.json",
+  "scope": "Real-input production tensor-parallel service diagnostic. Eight complete recorded prompts, explicit 32-token text budgets, 32 original BRIGHT finite workers interleaved at decode steps, and one full-budget real prompt with an explicit short deadline. No task quality or completed-task speedup claim."
+}

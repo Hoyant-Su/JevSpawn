@@ -1,0 +1,37 @@
+{
+  "module": "baselines.common.lats",
+  "service": "baselines.common.unified_service.UnifiedInferenceService",
+  "prompts": "configs/baselines/common/schema/lats.json",
+  "settings": {
+    "source_directory": "external/LanguageAgentTreeSearch",
+    "upstream_commit": "853d81614607dd27433faf17c7b0a7d660f95d22",
+    "expansion_samples": 5,
+    "evaluation_samples": 1,
+    "max_depth": 7,
+    "rollout_depth": 4,
+    "rollout_samples": 5,
+    "terminal_reward": "original_lats_lm_value",
+    "history_cache": {
+      "zero": 0,
+      "position_step": 1,
+      "row_step": 1,
+      "exclude_last": -1,
+      "last_index": -1,
+      "first_index": 0,
+      "minimum_rows": 1,
+      "record_offset": 1,
+      "cache": {
+        "initial_bytes": 0,
+        "max_entries": 128,
+        "max_bytes": 8589934592
+      },
+      "state_copy": {
+        "mode": "triton_grouped",
+        "block_size": 4096,
+        "num_warps": 4
+      }
+    },
+    "search_iterations": 36
+  },
+  "python_paths": []
+}

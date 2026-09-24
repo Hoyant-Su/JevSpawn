@@ -1,0 +1,19 @@
+{
+  "profile_result": "results/infra/finite_static_graph_001.json",
+  "phase": "cached_reordered",
+  "variant": "static",
+  "model_config_file": "config.json",
+  "device": "cuda:0",
+  "seed": 42,
+  "rows": [[0], [0, 1, 2, 3, 4, 5, 6, 7]],
+  "settings": {
+    "scalar": "configs/jevspawn/finite_state_copy_scalar.json",
+    "fused": "configs/jevspawn/finite_state_copy.json"
+  },
+  "warmup_steps": 3,
+  "repetitions": 20,
+  "event_pair": ["begin", "end"],
+  "milliseconds_per_second": 1000,
+  "result": "results/infra/state_copy_profile_001.json",
+  "scope": "Copy-only microbenchmark with generated payloads matching actual Qwen3.8-27B TP4 cache dimensions and recorded real prefix lengths. No language-model forward, output quality, ITL or end-to-end speed claim. Both variants run on the same GPU while an old completed-computation process retains memory without GPU work."
+}

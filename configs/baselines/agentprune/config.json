@@ -1,0 +1,33 @@
+{
+  "method": "AgentPrune",
+  "stage": "supergpqa-development-topology",
+  "seed": 42,
+  "task_count": 16,
+  "batch_size": 8,
+  "batch_wait_seconds": 0.02,
+  "mode": "FullConnected",
+  "domain": "mmlu",
+  "agent_names": [
+    "AnalyzeAgent",
+    "AnalyzeAgent",
+    "AnalyzeAgent",
+    "AnalyzeAgent",
+    "AnalyzeAgent"
+  ],
+  "decision_method": "FinalRefer",
+  "optimized_spatial": true,
+  "optimized_temporal": true,
+  "generation": {
+    "max_tokens": 2048,
+    "temperature": 1.0
+  },
+  "training": {
+    "num_iters": 10,
+    "num_rounds": 1,
+    "lr": 0.1,
+    "batch_size": 8,
+    "imp_per_iters": 5,
+    "pruning_rate": 0.25
+  },
+  "checkpoint_retention": "One complete checkpoint per iteration, at most ten checkpoints."
+}

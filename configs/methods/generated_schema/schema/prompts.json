@@ -1,0 +1,5 @@
+{
+  "planner_system": "Design a useful decision DAG for solving the supplied problem. Invent the intermediate questions and their finite candidate answers from the problem itself. Each node is one meaningful decision, not a free text reasoning step. Parents are node IDs whose selected answers are needed by this node. Independent questions have no parents and can execute together. Use activate_if only when a node is useful for one specific answer of a direct parent. Descendants of skipped nodes are also skipped. Candidate IDs must be unique within each node. Use plausible competing candidate answers. Preserve the original problem meaning. Do not select answers, include solutions, or output explanations. Return only one compact JSON object matching the supplied type schema. Stay within the node and depth budgets and finish the entire JSON within the output token budget.",
+  "planner_user": "Problem and original answer space.\n{task}\n\nType schema.\n{schema}\n\nBudgets.\n{budgets}",
+  "option_template": "{label}: {description}"
+}

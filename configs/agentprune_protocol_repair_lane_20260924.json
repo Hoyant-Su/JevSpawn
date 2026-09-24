@@ -1,0 +1,79 @@
+{
+  "stage": "qualification",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/agentprune_protocol_repair_llfbench_gridworld_screen_20260924.json",
+      "run": "runs/agentprune-protocol-repair-screen-20260924/llfbench_gridworld",
+      "evaluation": "results/validation/agentprune_protocol_repair_20260924/llfbench_gridworld.json",
+      "progress": "results/validation/agentprune_protocol_repair_20260924/llfbench_gridworld_progress.json",
+      "log": "logs/native_baselines/agentprune-protocol-repair-screen-llfbench_gridworld-20260924.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/agentprune_protocol_repair_llfbench_gridworld_screen_20260924.json",
+          "--output",
+          "runs/agentprune-protocol-repair-screen-20260924/llfbench_gridworld",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/agentprune-protocol-repair-screen-20260924/llfbench_gridworld",
+          "--output",
+          "results/validation/agentprune_protocol_repair_20260924/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "specification": "configs/agentprune_protocol_repair_korgym_nullify_screen_20260924.json",
+      "run": "runs/agentprune-protocol-repair-screen-20260924/korgym_nullify",
+      "evaluation": "results/validation/agentprune_protocol_repair_20260924/korgym_nullify.json",
+      "progress": "results/validation/agentprune_protocol_repair_20260924/korgym_nullify_progress.json",
+      "log": "logs/native_baselines/agentprune-protocol-repair-screen-korgym_nullify-20260924.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/agentprune_protocol_repair_korgym_nullify_screen_20260924.json",
+          "--output",
+          "runs/agentprune-protocol-repair-screen-20260924/korgym_nullify",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/agentprune-protocol-repair-screen-20260924/korgym_nullify",
+          "--output",
+          "results/validation/agentprune_protocol_repair_20260924/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

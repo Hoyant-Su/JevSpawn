@@ -1,0 +1,378 @@
+{
+  "stage": "qualification",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/ppnl",
+      "evaluation": "results/native_baselines/screen/agentprune/ppnl.json",
+      "progress": "results/native_baselines/progress/agentprune/ppnl.json",
+      "log": "logs/native_baselines/screen-agentprune-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/ppnl",
+          "--output",
+          "results/native_baselines/screen/agentprune/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/plancraft",
+      "evaluation": "results/native_baselines/screen/agentprune/plancraft.json",
+      "progress": "results/native_baselines/progress/agentprune/plancraft.json",
+      "log": "logs/native_baselines/screen-agentprune-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/plancraft_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/plancraft",
+          "--output",
+          "results/native_baselines/screen/agentprune/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/agentprune/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/agentprune/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-agentprune-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/agentprune/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/agentprune/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/agentprune/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-agentprune-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/agentprune/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_agentprune_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/agentprune/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/agentprune/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-agentprune-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_agentprune_state_v2.json",
+          "runs/native-baselines-screen-20260923/agentprune/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/agentprune/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/autoplanbench",
+      "evaluation": "results/native_baselines/screen/agentprune/autoplanbench.json",
+      "progress": "results/native_baselines/progress/agentprune/autoplanbench.json",
+      "log": "logs/native_baselines/screen-agentprune-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/agentprune/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/agentprune/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/agentprune/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-agentprune-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/agentprune/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/agentprune/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/agentprune/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-agentprune-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/agentprune/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/agentprune/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/agentprune/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-agentprune-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/agentprune/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/agentprune/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/agentprune/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-agentprune-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/agentprune/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/agentprune/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/agentprune/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-agentprune-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/agentprune/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/korgym_2048",
+      "evaluation": "results/native_baselines/screen/agentprune/korgym_2048.json",
+      "progress": "results/native_baselines/progress/agentprune/korgym_2048.json",
+      "log": "logs/native_baselines/screen-agentprune-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/agentprune/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/agentprune/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/agentprune/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-agentprune-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/agentprune/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_agentprune.json",
+      "run": "runs/native-baselines-screen-20260923/agentprune/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/agentprune/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/agentprune/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-agentprune-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_agentprune.json",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/agentprune/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/agentprune/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

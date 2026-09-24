@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "roots": 1,
+      "directory": "results/infra/native-history-profile-stage079/roots1"
+    },
+    {
+      "roots": 8,
+      "directory": "results/infra/native-history-profile-stage079/roots8"
+    }
+  ],
+  "trace_glob": "rank*-batch*.trace.json",
+  "trace_suffix": ".trace.json",
+  "summary_suffix": ".json",
+  "scope": "jev.finite_service",
+  "device_categories": [
+    "kernel",
+    "gpu_memcpy",
+    "gpu_memset"
+  ],
+  "microseconds_per_ms": 1000,
+  "output": "results/infra/native_history_stage079_profile_summary.json",
+  "measurement_scope": "Real stage078 history-cache finite cohorts on all four ranks. GPU-active interval union and its complement are clipped to the measured service scope. Unrecorded activity is not automatically avoidable idle time; NCCL kernels include rank waiting. Instrumentation overhead excludes these runs from benchmark speed claims."
+}

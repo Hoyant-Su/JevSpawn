@@ -1,0 +1,11 @@
+{
+  "leader_rank": 0,
+  "control_backend": "gloo",
+  "tensor_backend": "nccl",
+  "distributed_timeout_seconds": 300,
+  "operations": {
+    "call": "call",
+    "return": "return",
+    "finish": "finish"
+  }
+}

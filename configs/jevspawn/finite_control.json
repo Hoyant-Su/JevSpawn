@@ -1,0 +1,73 @@
+{
+  "initial_serial": 0,
+  "serial_increment": 1,
+  "node_id": "finite-{index}",
+  "first_index": 0,
+  "singleton_count": 1,
+  "source_root": [],
+  "answer_path": [],
+  "tool_path": "tool",
+  "submit_action": "submit",
+  "finish_tool": "finish",
+  "tool_action": "tool:{name}",
+  "spawn_action": "spawn:{index}",
+  "source_description_keys": {
+    "dict": "spawn_option_object",
+    "list": "spawn_option_array"
+  },
+  "inspect_action": "inspect:{index}",
+  "inspect_roots": [
+    [
+      "input"
+    ],
+    [
+      "observations"
+    ]
+  ],
+  "json_types": {
+    "NoneType": "null",
+    "bool": "boolean",
+    "dict": "object",
+    "list": "array",
+    "str": "string",
+    "int": "integer",
+    "float": "number"
+  },
+  "communication": {
+    "whole_value_field": "$value",
+    "json_types": {
+      "NoneType": "null",
+      "bool": "boolean",
+      "dict": "object",
+      "list": "array",
+      "str": "string",
+      "int": "integer",
+      "float": "number"
+    },
+    "include_choice": "include",
+    "judgment_columns": [
+      "source_path",
+      "interface",
+      "value",
+      "bindings"
+    ],
+    "binding_columns": [
+      "field",
+      "whole_value",
+      "value"
+    ]
+  },
+  "tool_expansion": {
+    "singleton_count": 1
+  },
+  "tool_map_action": "map:{name}:{argument}",
+  "tool_map_execution": "finite_domain_map",
+  "tool_map_scope": "map",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  }
+}

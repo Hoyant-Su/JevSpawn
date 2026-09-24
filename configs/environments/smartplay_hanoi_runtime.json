@@ -1,0 +1,63 @@
+{
+  "source_root": "external/smartplay-source/src",
+  "module_path_index": 0,
+  "module": "smartplay.hanoi.hanoi_env",
+  "class": "HanoiEnv",
+  "session": "configs/environments/session.json",
+  "prompts": "environments.agentquest",
+  "tool_name": "execute",
+  "action_offset": 1,
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 6
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "description": "Complete sequence of executed action numbers, using the numbering in the official instructions."
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      },
+      "score": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "observation",
+      "done",
+      "score"
+    ],
+    "additionalProperties": false
+  },
+  "context_separator": "\n\n"
+}

@@ -1,0 +1,10 @@
+{
+  "settings": "configs/baselines/resource_budget/validation/agentprune-settings.json",
+  "study": "configs/baselines/resource_budget/validation/study.json",
+  "policy": "agentprune",
+  "memory_gib": 24,
+  "deadline_seconds": 600,
+  "startup_timeout_seconds": 1800,
+  "poll_seconds": 0.1,
+  "join_timeout_seconds": 30
+}

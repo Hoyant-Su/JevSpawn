@@ -1,0 +1,65 @@
+{
+  "stage": "stage073_native_l2norm_reuse",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft-reference",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-l2norm-reuse-stage073/plancraft-reference",
+      "evaluation": "results/infra/native-l2norm-reuse-stage073/plancraft-reference_evaluation.json",
+      "progress": "results/infra/native-l2norm-reuse-stage073/plancraft-reference_progress.json",
+      "log": "logs/infra/native-l2norm-reuse-stage073-plancraft-reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage073/plancraft-reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-l2norm-reuse-stage073/plancraft-reference",
+          "--output",
+          "results/infra/native-l2norm-reuse-stage073/plancraft-reference_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft-runtime_bucket",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-l2norm-reuse-stage073/plancraft-runtime_bucket",
+      "evaluation": "results/infra/native-l2norm-reuse-stage073/plancraft-runtime_bucket_evaluation.json",
+      "progress": "results/infra/native-l2norm-reuse-stage073/plancraft-runtime_bucket_progress.json",
+      "log": "logs/infra/native-l2norm-reuse-stage073-plancraft-runtime_bucket.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage073/plancraft-runtime_bucket.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-l2norm-reuse-stage073/plancraft-runtime_bucket",
+          "--output",
+          "results/infra/native-l2norm-reuse-stage073/plancraft-runtime_bucket_evaluation.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds",
+    "reused_state_tokens"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/shared_prefix/replay.py",
+  "output": "results/infra/native-shared-prefix-stage096",
+  "prepared": "results/infra/native-shared-prefix-stage096/production_prepared.json",
+  "repetitions": 3,
+  "modes": [
+    "recompute",
+    "reuse"
+  ],
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "summary_file": "summary.json",
+  "implementations": {
+    "recompute": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail",
+      "caches": [
+        "prefix_cache"
+      ]
+    },
+    "reuse": {
+      "module": "tests.infra.shared_prefix.runtime",
+      "class": "SharedPrefixTail",
+      "caches": [
+        "prefix_cache",
+        "shared_cache"
+      ]
+    }
+  },
+  "batch_count": 64,
+  "scalar_pairs": [
+    [
+      "frontier_request",
+      "frontier_decision"
+    ],
+    [
+      "operation_request",
+      "operation_decision"
+    ]
+  ],
+  "task_pattern": "task-*.json",
+  "operation": "finite",
+  "coverage": "results/infra/native-shared-prefix-stage096/production_coverage.json",
+  "scope": "First 64 recorded finite batches per completed current production track, preserving online row order, cohort membership and all fields. This is CPU exact-token reuse accounting, not latency or a new rollout.",
+  "sources": [
+    {
+      "track": "ppnl",
+      "run": "runs/native-jevspawn-full-20260924/ppnl",
+      "batches": "runs/native-jevspawn-full-20260924/ppnl/session-0000/batches.json"
+    },
+    {
+      "track": "lmrlgym_maze",
+      "run": "runs/native-jevspawn-full-20260924/lmrlgym_maze",
+      "batches": "runs/native-jevspawn-full-20260924/lmrlgym_maze/session-0000/batches.json"
+    },
+    {
+      "track": "llfbench_gridworld",
+      "run": "runs/native-jevspawn-full-20260924/llfbench_gridworld",
+      "batches": "runs/native-jevspawn-full-20260924/llfbench_gridworld/session-0000/batches.json"
+    },
+    {
+      "track": "robotouille",
+      "run": "runs/native-jevspawn-full-20260924/robotouille",
+      "batches": "runs/native-jevspawn-full-20260924/robotouille/session-0000/batches.json"
+    },
+    {
+      "track": "textarena_lightsout",
+      "run": "runs/native-jevspawn-full-20260924/textarena_lightsout",
+      "batches": "runs/native-jevspawn-full-20260924/textarena_lightsout/session-0000/batches.json"
+    },
+    {
+      "track": "korgym_nullify",
+      "run": "runs/native-jevspawn-full-20260924/korgym_nullify",
+      "batches": "runs/native-jevspawn-full-20260924/korgym_nullify/session-0000/batches.json"
+    },
+    {
+      "track": "textarena_sokoban",
+      "run": "runs/native-jevspawn-full-20260924/textarena_sokoban",
+      "batches": "runs/native-jevspawn-full-20260924/textarena_sokoban/session-0000/batches.json"
+    },
+    {
+      "track": "textarena_rushhour",
+      "run": "runs/native-jevspawn-full-20260924/textarena_rushhour",
+      "batches": "runs/native-jevspawn-full-20260924/textarena_rushhour/session-0000/batches.json"
+    }
+  ],
+  "terminal_kind": "terminal_finite",
+  "request_fields": {
+    "history": ""
+  }
+}

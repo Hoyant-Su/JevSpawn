@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "root_cache": false,
+  "specification": "tests/infra/native_rollout_profile/config/ppnl_1_spec.json",
+  "run_output": "runs/native-root-token-stage060-roots1-reference",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json"
+}

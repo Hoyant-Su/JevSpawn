@@ -1,0 +1,86 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/action_prefix/layer_difference.py",
+  "output": "results/infra/native-action-prefix-stage095/decode_difference",
+  "repetitions": 3,
+  "orders": [
+    {
+      "name": "reference_order",
+      "indices": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "candidate_order",
+      "indices": [
+        2,
+        1,
+        3,
+        0
+      ]
+    }
+  ],
+  "protocol": "runs/native-action-prefix-stage094/textarena_sokoban/candidate/protocol.json",
+  "request_path": [
+    "trace",
+    "rounds",
+    1,
+    "frontier_request"
+  ],
+  "sources": [
+    [
+      "runs/native-action-prefix-stage094/textarena_sokoban/candidate/task-00000.json",
+      "runs/native-action-prefix-stage095/textarena_sokoban/candidate/task-00000.json"
+    ],
+    [
+      "runs/native-action-prefix-stage094/textarena_sokoban/candidate/task-00001.json",
+      "runs/native-action-prefix-stage095/textarena_sokoban/candidate/task-00001.json"
+    ],
+    [
+      "runs/native-action-prefix-stage094/textarena_sokoban/candidate/task-00002.json",
+      "runs/native-action-prefix-stage095/textarena_sokoban/candidate/task-00002.json"
+    ],
+    [
+      "runs/native-action-prefix-stage094/textarena_sokoban/candidate/task-00003.json",
+      "runs/native-action-prefix-stage095/textarena_sokoban/candidate/task-00003.json"
+    ]
+  ],
+  "implementation": {
+    "module": "tests.infra.action_prefix.runtime",
+    "class": "ActionPrefixTail"
+  },
+  "module_pattern": "language_model\\.(embed_tokens|layers\\.\\d+|layers\\.0\\.(input_layernorm|linear_attn|post_attention_layernorm|mlp)|layers\\.0\\.linear_attn\\.out_proj)",
+  "recorded_batch": {
+    "path": "runs/native-action-prefix-stage094/textarena_sokoban/candidate/session-0000/batches.json",
+    "index": 14
+  },
+  "phase": "decode"
+}

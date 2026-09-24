@@ -1,0 +1,53 @@
+{
+  "source_root": "external/AgentQuest",
+  "module_path_index": 0,
+  "session": "configs/environments/session.json",
+  "prompts": "environments.agentquest",
+  "tool_name": "execute",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "output": {
+        "type": "string"
+      },
+      "success": {
+        "type": "boolean"
+      },
+      "can_proceed": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "output",
+      "can_proceed"
+    ],
+    "additionalProperties": false
+  },
+  "module": "agentquest.benchmarks.mastermind.driver",
+  "driver": "MasterMindDriver",
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "answer": {
+        "type": "string",
+        "description": "The final guessed number as a digit string. This is the number itself; the execute action uses the separate Guess: prefix."
+      }
+    },
+    "required": [
+      "answer"
+    ],
+    "additionalProperties": false
+  }
+}

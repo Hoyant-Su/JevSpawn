@@ -1,0 +1,12 @@
+{
+  "manifest": "configs/baselines/common/formal_tp4_v1/matrix.json",
+  "identity_columns": [
+    "method",
+    "dataset",
+    "task_count",
+    "evaluation"
+  ],
+  "json_output": "results/baselines/common/tables/formal_tp4_matrix.json",
+  "csv_output": "results/baselines/common/tables/formal_tp4_completed.csv",
+  "stage": "configs/baselines/common/formal_tp4_v1_stage.json"
+}

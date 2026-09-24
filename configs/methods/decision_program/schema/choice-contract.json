@@ -1,0 +1,16 @@
+{
+  "instruction": {
+    "$prompt": "configs/methods/decision_program/schema/choice-contract.json#instruction"
+  },
+  "shared_interface": {
+    "context": "The complete problem statement or evidence shared by the questions."
+  },
+  "item_interface": {
+    "question": "The question to answer using the shared context.",
+    "options": "The question's supplied answer candidates, a list of objects with id and description. Counts and descriptions may differ between items."
+  },
+  "output_contract": {
+    "operator": "collect",
+    "format": "One original item ID and selected original option ID per item."
+  }
+}

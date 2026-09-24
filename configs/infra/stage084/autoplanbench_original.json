@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+  "entrypoint": "tests/infra/native_direct_finite/rollout.py",
+  "run_output": "runs/native-decision-continuation-stage084/autoplanbench/original",
+  "native_full_suffix": false
+}

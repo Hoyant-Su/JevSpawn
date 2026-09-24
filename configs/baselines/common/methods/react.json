@@ -1,0 +1,13 @@
+{
+  "module": "baselines.common.react",
+  "prompts": "configs/baselines/common/schema/react.json",
+  "settings": {
+    "notebook": "external/react_core/hotpotqa.ipynb",
+    "original_episode_range": [
+      1,
+      8
+    ]
+  },
+  "python_paths": [],
+  "inference_service": "shared"
+}

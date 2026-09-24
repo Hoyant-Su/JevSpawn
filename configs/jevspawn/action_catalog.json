@@ -1,0 +1,29 @@
+{
+  "metadata_key": "action_description",
+  "row_fields": [
+    "path"
+  ],
+  "json_fields": [
+    "path",
+    "members"
+  ],
+  "columns": [
+    "index",
+    "id"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "group_serialization": {
+    "sort_keys": true,
+    "ensure_ascii": false,
+    "allow_nan": false
+  },
+  "path_fields": [
+    "path"
+  ]
+}

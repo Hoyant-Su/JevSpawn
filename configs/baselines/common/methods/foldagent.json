@@ -1,0 +1,11 @@
+{
+  "module": "baselines.common.foldagent",
+  "python_paths": [],
+  "prompts": "configs/baselines/common/schema/foldagent.json",
+  "settings": {
+    "source_directory": "external/FoldAgent/agents",
+    "max_sessions": 10,
+    "session_token_budget": 6144
+  },
+  "inference_service": "shared"
+}

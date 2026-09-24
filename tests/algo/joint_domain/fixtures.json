@@ -1,0 +1,90 @@
+{
+  "method": "configs/baselines/common/methods/jevspawn_joint_domain_cohort_tp4_v2.json",
+  "values_config": "configs/jevspawn/typed_values.json",
+  "assignment": "Bind the semantic categories required by the task.",
+  "parent": [
+    "records"
+  ],
+  "unrelated_parent": [
+    "other"
+  ],
+  "first_index": 0,
+  "last_index": -1,
+  "scores": [
+    [
+      9.0,
+      8.0,
+      1.0
+    ],
+    [
+      9.0,
+      1.0,
+      1.0
+    ]
+  ],
+  "free_scores": [
+    [
+      1.0,
+      1.0,
+      9.0
+    ],
+    [
+      1.0,
+      1.0,
+      9.0
+    ]
+  ],
+  "joint_expected": [
+    1,
+    0
+  ],
+  "independent_expected": [
+    0,
+    0
+  ],
+  "free_expected": [
+    2,
+    2
+  ],
+  "options": [
+    {
+      "mode": "shared",
+      "reference": {
+        "path": [
+          "input",
+          "names"
+        ]
+      },
+      "members": [
+        "a",
+        "b"
+      ],
+      "admissible_members": [
+        "a",
+        "b"
+      ],
+      "description": "Names"
+    },
+    {
+      "mode": "shared",
+      "reference": {
+        "path": [
+          "input",
+          "colors"
+        ]
+      },
+      "members": [
+        "red",
+        "blue"
+      ],
+      "admissible_members": [
+        "red",
+        "blue"
+      ],
+      "description": "Colors"
+    },
+    {
+      "mode": "per_item"
+    }
+  ]
+}

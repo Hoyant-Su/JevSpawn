@@ -1,0 +1,148 @@
+{
+  "capacity": 2,
+  "prefixes": {
+    "a": [
+      11,
+      12
+    ],
+    "b": [
+      21,
+      22,
+      23
+    ],
+    "c": [
+      31
+    ],
+    "d": [
+      41,
+      42
+    ]
+  },
+  "steps": [
+    {
+      "requests": [
+        "a",
+        "b"
+      ],
+      "missing": [
+        "a",
+        "b"
+      ],
+      "hits": [
+        false,
+        false
+      ],
+      "resident": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "requests": [
+        "b",
+        "a",
+        "b"
+      ],
+      "missing": [],
+      "hits": [
+        true,
+        true,
+        true
+      ],
+      "resident": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "requests": [
+        "c",
+        "a",
+        "c",
+        "d",
+        "b"
+      ],
+      "missing": [
+        "c",
+        "d"
+      ],
+      "hits": [
+        false,
+        true,
+        false,
+        false,
+        true
+      ],
+      "resident": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "requests": [
+        "b",
+        "d",
+        "b"
+      ],
+      "missing": [],
+      "hits": [
+        true,
+        true,
+        true
+      ],
+      "resident": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "plan_requests": [
+    "b",
+    "a",
+    "b",
+    "c"
+  ],
+  "plan_hits": [
+    true,
+    false,
+    true,
+    false
+  ],
+  "divergent_follower_resident": [
+    "a",
+    "c"
+  ],
+  "dtype": "int64",
+  "device": "cpu",
+  "output": "results/infra/prefix_cache_batch_cpu_001.json",
+  "parent_cases": {
+    "stored": [
+      [
+        11,
+        12
+      ],
+      [
+        11,
+        12,
+        13
+      ]
+    ],
+    "extension": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "divergence": [
+      11,
+      12,
+      99
+    ],
+    "unrelated": [
+      21,
+      22
+    ],
+    "minimum_length": 2,
+    "beyond_length": 4
+  }
+}

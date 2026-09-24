@@ -1,0 +1,119 @@
+{
+  "stage": "formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/agentquest_mastermind.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/agentquest_mastermind.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/agentquest_mastermind.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/agentquest_mastermind.json",
+          "runs/native-baselines-lats-fidelity-20260924/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/ppnl.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/ppnl",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/ppnl.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/ppnl.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/ppnl.json",
+          "runs/native-baselines-lats-fidelity-20260924/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/ppnl",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/korgym_2048.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/korgym_2048",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/korgym_2048.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/korgym_2048.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/korgym_2048.json",
+          "runs/native-baselines-lats-fidelity-20260924/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/korgym_2048",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/robotouille.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/robotouille",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/robotouille.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/robotouille.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-robotouille.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/robotouille.json",
+          "runs/native-baselines-lats-fidelity-20260924/robotouille"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/robotouille",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/robotouille.json"
+        ]
+      ]
+    }
+  ]
+}

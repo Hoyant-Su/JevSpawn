@@ -1,0 +1,21 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "entrypoint": "tests/infra/history_rollout.py",
+  "specification": "configs/infra/stage101/llfbench_gridworld_history_spec.json",
+  "run_output": "runs/native-history-prefix-stage101/llfbench_gridworld/history",
+  "implementation": {
+    "module": "tests.infra.history_prefix",
+    "class": "HistoryPrefixTail",
+    "caches": [
+      "prefix_cache",
+      "history_cache"
+    ]
+  }
+}

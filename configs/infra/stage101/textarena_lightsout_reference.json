@@ -1,0 +1,20 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "entrypoint": "tests/infra/history_rollout.py",
+  "specification": "configs/infra/stage101/textarena_lightsout_reference_spec.json",
+  "run_output": "runs/native-history-prefix-stage101/textarena_lightsout/reference",
+  "implementation": {
+    "module": "jev_spawn.infra.stable_finite_graph",
+    "class": "StableFiniteGraphTail",
+    "caches": [
+      "prefix_cache"
+    ]
+  }
+}

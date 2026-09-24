@@ -1,0 +1,14 @@
+{
+  "module": "baselines.common.react",
+  "prompts": "configs/baselines/common/schema/react.json",
+  "settings": {
+    "notebook": "external/react_core/hotpotqa.ipynb",
+    "max_model_calls": 32,
+    "original_episode_range": [
+      1,
+      8
+    ]
+  },
+  "python_paths": [],
+  "service": "baselines.common.service.BatchService"
+}

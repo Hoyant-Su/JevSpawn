@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/lmrlgym_maze/tasks_schema_v2.jsonl",
+  "task_count": 25,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.maze.MazeEnvironment",
+    "parameters": {
+      "configuration": "configs/data/maze/runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/agentprune_v2.json"
+}

@@ -1,0 +1,25 @@
+{
+  "prompts": "jevspawn.query",
+  "execution_config": "configs/jevspawn/query_execution.json",
+  "control_id": "turn-{turn}-control",
+  "field_id": "turn-{turn}-field-{index}",
+  "finish_action": "answer",
+  "separator": "\t",
+  "separator_description": "one literal tab character",
+  "minimum_candidates": 2,
+  "structured_finish_action": "assemble",
+  "node_columns_before_payload": 4,
+  "qualification_turn": 0,
+  "declarations": {
+    "binding": "bind",
+    "decision": "decide"
+  },
+  "environment": {
+    "tasks": "data/qualification/finite_cache/maze.jsonl",
+    "factory": "configs/environments/maze.json",
+    "directory": "runs/finite-environment-001/tool_scratch",
+    "tool": "move",
+    "argument": "action"
+  },
+  "probe_id": "turn-{turn}-action-{index}-{predicate}"
+}

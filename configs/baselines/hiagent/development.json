@@ -1,0 +1,22 @@
+{
+  "stage": "HiAgent original hierarchical memory on BRIGHT development collections",
+  "adapter_module": "baselines.hiagent.adapter",
+  "source_directory": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/HiAgent/agentboard/agents",
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/hiagent/schema/prompts.json",
+  "collections": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/feasibility/collections.jsonl",
+  "formal_collections": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/evaluation/collections.jsonl",
+  "relevance": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/feasibility/relevance.jsonl",
+  "batch_size": 8,
+  "task_count": 8,
+  "candidate_count": 32,
+  "batch_wait_seconds": 0.03,
+  "context_length": 8192,
+  "max_new_tokens": 100,
+  "temperature": 0,
+  "memory_size": 100,
+  "max_actions": 50,
+  "max_model_calls": 256,
+  "documents_per_read": 8,
+  "ranking_cutoff": 10
+}

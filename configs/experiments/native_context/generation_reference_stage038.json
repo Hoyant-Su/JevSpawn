@@ -1,0 +1,7 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source_batches": "runs/native-textarena_lightsout-jevspawn-20260923-038/session-0000/batches.json",
+  "generation_cohorts": [0, 2],
+  "output": "results/validation/generation_reference_stage038_20260923.json"
+}

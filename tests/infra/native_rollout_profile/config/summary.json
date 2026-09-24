@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "roots": 1,
+      "directory": "results/infra/native-rollout-stage059-roots1"
+    },
+    {
+      "roots": 8,
+      "directory": "results/infra/native-rollout-stage059-roots8"
+    }
+  ],
+  "trace_glob": "rank0-batch?.trace.json",
+  "trace_suffix": ".trace.json",
+  "summary_suffix": ".json",
+  "scope": "jev.finite_service",
+  "device_categories": [
+    "kernel",
+    "gpu_memcpy",
+    "gpu_memset"
+  ],
+  "microseconds_per_ms": 1000,
+  "output": "results/infra/native_rollout_stage059_profile_summary.json",
+  "measurement_scope": "Instrumented real finite cohorts on TP4. GPU activity is the union of recorded kernels/copies/memsets clipped to the host service scope; its complement is an observed gap, not proven avoidable CPU delay. NCCL includes rank waiting. Profiling overhead and a concurrent separate TP4 qualification share each8GPUhost; these are diagnostics, not standalone inference speed."
+}

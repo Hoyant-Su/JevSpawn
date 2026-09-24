@@ -1,0 +1,10 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_row": 0,
+  "batch_size": 1,
+  "control_repeats": 20,
+  "trace": "results/infra/b1_decode_operators_001_trace.json",
+  "output": "results/infra/b1_decode_operators_001.json",
+  "scope": "One real warm B1 finite-readout CUDA graph replay, with identical-state unprofiled controls. Diagnostic only; no end-to-end latency claim."
+}

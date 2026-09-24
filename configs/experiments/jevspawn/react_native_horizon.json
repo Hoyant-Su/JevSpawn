@@ -1,0 +1,15 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_native_horizon_qualification.yaml",
+  "tasks": "data/qualification/finite_cache/maze.jsonl",
+  "task_count": 2,
+  "method": "configs/experiments/jevspawn/react_native_horizon_method.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "environments.maze.MazeEnvironment",
+    "parameters": {
+      "configuration": "configs/data/maze/runtime.json"
+    }
+  },
+  "scope": "Same native50-action horizon as paired structured policy; original ReAct formatting-retry call allowance scaled from32/16 to100/50."
+}

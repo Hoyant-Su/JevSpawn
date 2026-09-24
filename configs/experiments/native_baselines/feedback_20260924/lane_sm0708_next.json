@@ -1,0 +1,175 @@
+{
+  "stage": "formal",
+  "method": "react",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "react",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_ppnl.json",
+      "run": "runs/native-baselines-feedback-20260924/react/ppnl",
+      "evaluation": "results/native_baselines/feedback_20260924/react/ppnl.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_ppnl.json",
+      "log": "logs/native_baselines/feedback-20260924-react-ppnl.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_ppnl.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/ppnl",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/ppnl",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_lmrlgym_maze.json",
+      "run": "runs/native-baselines-feedback-20260924/react/lmrlgym_maze",
+      "evaluation": "results/native_baselines/feedback_20260924/react/lmrlgym_maze.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_lmrlgym_maze.json",
+      "log": "logs/native_baselines/feedback-20260924-react-lmrlgym_maze.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_lmrlgym_maze.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/lmrlgym_maze",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_robotouille.json",
+      "run": "runs/native-baselines-feedback-20260924/react/robotouille",
+      "evaluation": "results/native_baselines/feedback_20260924/react/robotouille.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_robotouille.json",
+      "log": "logs/native_baselines/feedback-20260924-react-robotouille.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_robotouille.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/robotouille",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/robotouille",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/robotouille.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_korgym_circle_the_cat.json",
+      "run": "runs/native-baselines-feedback-20260924/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/feedback_20260924/react/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/feedback-20260924-react-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_korgym_circle_the_cat.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_korgym_nullify.json",
+      "run": "runs/native-baselines-feedback-20260924/react/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/react/korgym_nullify.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_korgym_nullify.json",
+      "log": "logs/native_baselines/feedback-20260924-react-korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_korgym_nullify.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/korgym_nullify",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/korgym_nullify",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

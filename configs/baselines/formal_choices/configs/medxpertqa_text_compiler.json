@@ -1,0 +1,57 @@
+{
+  "dataset": "medxpertqa_text",
+  "task_scope": "Previously frozen seed 0 uniform subset of 256 original MedXpertQA Text test questions from 2450, in source order. The five original development questions are used for warmup.",
+  "task_count": 256,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "medxpertqa_text/Text-2450",
+    "medxpertqa_text/Text-2451",
+    "medxpertqa_text/Text-2452",
+    "medxpertqa_text/Text-2453",
+    "medxpertqa_text/Text-2454"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.official_llmcompiler.adapter",
+  "interface": "async_flat",
+  "adapter_config": {
+    "temperature": 0,
+    "planner_max_tokens": 512,
+    "joiner_max_tokens": 512,
+    "planner_stop": [
+      "<END_OF_PLAN>"
+    ],
+    "max_plans": 2,
+    "task_timeout_seconds": 300,
+    "calculator": {
+      "max_characters": 512,
+      "max_nodes": 128,
+      "max_exponent": 20,
+      "max_magnitude": 1e+100
+    },
+    "prompt_schema": "prompts_fewshot.json"
+  },
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/official_llmcompiler/schema/prompts_fewshot.json",
+  "python_paths": [
+    "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/runtime/official_llmcompiler/deps",
+    "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/LLMCompiler"
+  ],
+  "budget": {
+    "planner_max_tokens": 512,
+    "joiner_max_tokens": 512,
+    "max_plans": 2,
+    "model_call_ceiling": 4,
+    "temperature": 0,
+    "task_timeout_seconds": 300,
+    "tools": [
+      "bounded arithmetic calculator"
+    ],
+    "prompt_variant": "Previously qualified arithmetic few-shot configuration."
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "All original option IDs and text retained, including 4 to 10 choices. Existing text-choice role prompts and tool inventory are unchanged."
+}

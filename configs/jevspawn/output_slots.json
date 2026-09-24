@@ -1,0 +1,59 @@
+{
+  "initial_index": 0,
+  "slot_id": "slot-{index}",
+  "root_key": "output",
+  "prompts": "jevspawn.output_slots",
+  "stop": [],
+  "object_kind": "object",
+  "array_kind": "array",
+  "string_kind": "string",
+  "number_kind": "number",
+  "reference_kind": "reference",
+  "literals": {
+    "true": true,
+    "false": false,
+    "null": null
+  },
+  "kind_options": [
+    {
+      "id": "object",
+      "description": "An object mapping semantic keys to values.",
+      "value": "object"
+    },
+    {
+      "id": "array",
+      "description": "An ordered array of values.",
+      "value": "array"
+    },
+    {
+      "id": "string",
+      "description": "A text value.",
+      "value": "string"
+    },
+    {
+      "id": "number",
+      "description": "A numeric value.",
+      "value": "number"
+    },
+    {
+      "id": "true",
+      "description": "The boolean true.",
+      "value": "true"
+    },
+    {
+      "id": "false",
+      "description": "The boolean false.",
+      "value": "false"
+    },
+    {
+      "id": "null",
+      "description": "An explicit null value.",
+      "value": "null"
+    },
+    {
+      "id": "reference",
+      "description": "Reuse an existing computed or bound value exactly.",
+      "value": "reference"
+    }
+  ]
+}

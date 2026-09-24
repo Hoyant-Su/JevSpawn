@@ -1,0 +1,18 @@
+{
+  "seed": 42,
+  "temperature": 0,
+  "batch_size": 8,
+  "max_new_tokens": 512,
+  "react_max_rounds": 4,
+  "compiler_max_plans": 2,
+  "compiler_max_nodes": 8,
+  "tool_concurrency": 8,
+  "calculator": {
+    "max_characters": 512,
+    "max_nodes": 128,
+    "max_exponent": 20,
+    "max_magnitude": 1e+100
+  },
+  "max_model_calls_per_task": 4,
+  "max_output_tokens_per_task": 2048
+}

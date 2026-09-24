@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "workload_config": "configs/infra/qwen35_fullstack_decode.json",
+  "reference_run": "runs/qwen35-fullstack-decode-001",
+  "output": "runs/qwen35-tp4-decode-002",
+  "world_size": 4,
+  "writer_rank": 0,
+  "distributed_backend": "nccl",
+  "distributed_timeout_seconds": 300,
+  "optimized_execution": "qwen35_optimized",
+  "decode_steps": 32
+}

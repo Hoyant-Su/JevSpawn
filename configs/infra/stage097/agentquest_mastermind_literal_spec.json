@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/native_screen/agentquest_mastermind/tasks.jsonl",
+  "task_count": 8,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.agentquest.AgentQuestEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/agentquest_mastermind_runtime.json"
+    }
+  },
+  "method": "configs/experiments/native_jevspawn_full_20260924/method.json",
+  "experiment_configuration": "configs/infra/stage097/agentquest_mastermind_literal.json"
+}

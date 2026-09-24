@@ -1,0 +1,40 @@
+{
+  "stage": "qualification",
+  "purpose": "Two actual datasets through one persistent TP4 backend per method",
+  "methods": [
+    "react",
+    "latentmas"
+  ],
+  "datasets": [
+    {
+      "dataset": "aqua",
+      "tasks": "data/baselines/common/qualification/tp4_persistent_v1/aqua.jsonl",
+      "task_count": 8,
+      "source": "data/baselines/common/tasks/aqua.jsonl",
+      "selection": {
+        "offset": 0,
+        "count": 8
+      }
+    },
+    {
+      "dataset": "humaneval",
+      "tasks": "data/baselines/common/qualification/tp4_persistent_v1/humaneval.jsonl",
+      "task_count": 8,
+      "source": "data/baselines/common/tasks/humaneval.jsonl",
+      "selection": {
+        "offset": 0,
+        "count": 8
+      }
+    }
+  ],
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "required_evidence": [
+    "one model initialization per rank across both datasets",
+    "eight distinct actual task identities per dataset",
+    "actual GPU batch records",
+    "fresh service and deadline state per dataset",
+    "unchanged original task outputs and offline judges",
+    "all ranks complete both cells and exit cleanly"
+  ],
+  "formal_runs_authorized": false
+}

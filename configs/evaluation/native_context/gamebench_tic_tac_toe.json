@@ -1,0 +1,59 @@
+{
+  "dataset": "gamebench_tic_tac_toe",
+  "source_root": "external/GameBench-review",
+  "native_class": "games.tic_tac_toe.TicTacToe",
+  "opponent_class": "agents.random_agent.RandomAgent",
+  "native_methods": {
+    "reset": "init_game",
+    "observation": "get_observation",
+    "transition": "update",
+    "episode": "play"
+  },
+  "native_action_class": "api.classes.Action",
+  "action_value_field": "action_id",
+  "observation_text_field": "text",
+  "context_fields": [
+    "rules.title",
+    "rules.summary",
+    "rules.additional_details",
+    "observation.text",
+    "available_actions.instructions",
+    "available_actions.predefined",
+    "available_actions.openended"
+  ],
+  "terminal_field": "game_is_over",
+  "winner_field": "winning_team",
+  "score_by_winner": {
+    "0": 1.0,
+    "1": 0.0,
+    "null": 0.5
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "compatibility_patch": {
+    "file": "external/GameBench-review/games/tic_tac_toe.py",
+    "change": "Replace the dataclass Rules instance default with field(default_factory=lambda: Rules(...)), preserving every rule string and all game methods.",
+    "reason": "Python3.12 rejects mutable dataclass defaults; official setup uses Python3.10."
+  },
+  "common_runner_connected": true,
+  "native_invalid_action_behavior": "Native update chooses a random legal move for invalid actions; preserved.",
+  "seed": 42,
+  "episode_controlled_seats": [
+    0,
+    1
+  ],
+  "environment_configuration": "configs/environments/gamebench_tic_tac_toe.json"
+}

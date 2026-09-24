@@ -1,0 +1,386 @@
+{
+  "seed": 42,
+  "method": "configs/baselines/common/methods/jevspawn_shared_shape_stable.json",
+  "values_config": "configs/jevspawn/typed_values.json",
+  "control_fixture": "tests/algo/finite_control/fixtures.json",
+  "transport": "configs/jevspawn/reference_transport.json",
+  "task": {
+    "instruction": "Materialize the requested nested collections while preserving every item identity.",
+    "input": {
+      "context": "Complete task evidence for structural CPU testing."
+    },
+    "answer_schema": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "string",
+          "enum": [
+            "red",
+            "blue"
+          ]
+        }
+      }
+    }
+  },
+  "evidence": {
+    "observations": [
+      "unmodified full evidence"
+    ]
+  },
+  "path": [],
+  "cases": {
+    "uniform": {
+      "schema": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "red",
+              "blue"
+            ]
+          }
+        }
+      },
+      "expected": [
+        [
+          "red",
+          "blue"
+        ],
+        [
+          "blue",
+          "red"
+        ]
+      ],
+      "scopes": {
+        "[]": "shared"
+      },
+      "shared_lengths": {
+        "[]": 2
+      }
+    },
+    "ragged": {
+      "schema": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "red",
+              "blue"
+            ]
+          }
+        }
+      },
+      "expected": [
+        [
+          "red"
+        ],
+        [
+          "blue",
+          "red",
+          "blue"
+        ]
+      ],
+      "scopes": {
+        "[]": "per_item"
+      },
+      "shared_lengths": {}
+    },
+    "fixed": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "enum": [
+              "red",
+              "blue"
+            ]
+          }
+        }
+      },
+      "expected": [
+        [
+          "red",
+          "blue"
+        ],
+        [
+          "blue",
+          "red"
+        ]
+      ],
+      "scopes": {},
+      "shared_lengths": {}
+    },
+    "nested": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "string",
+              "enum": [
+                "red",
+                "blue"
+              ]
+            }
+          }
+        }
+      },
+      "expected": [
+        [
+          [
+            "red"
+          ],
+          [
+            "blue"
+          ]
+        ],
+        [
+          [
+            "red",
+            "blue"
+          ],
+          [
+            "blue",
+            "red"
+          ]
+        ]
+      ],
+      "scopes": {
+        "[]": "shared",
+        "[0]": "shared",
+        "[1]": "shared"
+      },
+      "shared_lengths": {
+        "[]": 2,
+        "[0]": 1,
+        "[1]": 2
+      }
+    },
+    "siblings": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "blue"
+                ]
+              }
+            }
+          },
+          "right": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "blue"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "left",
+          "right"
+        ],
+        "additionalProperties": false
+      },
+      "expected": {
+        "left": [
+          [
+            "red"
+          ],
+          [
+            "blue"
+          ]
+        ],
+        "right": [
+          [
+            "blue",
+            "red"
+          ]
+        ]
+      },
+      "scopes": {
+        "[\"left\"]": "shared",
+        "[\"right\"]": "shared"
+      },
+      "shared_lengths": {
+        "[\"left\"]": 1,
+        "[\"right\"]": 2
+      }
+    },
+    "unique_capacity": {
+      "schema": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "enum": [
+              "red",
+              "blue"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "expected": [
+        [
+          "red",
+          "blue"
+        ],
+        [
+          "blue",
+          "red"
+        ]
+      ],
+      "scopes": {
+        "[]": "shared"
+      },
+      "shared_lengths": {
+        "[]": 2
+      },
+      "expected_child_domain": [
+        1,
+        2
+      ]
+    },
+    "revision_subtree": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "blue"
+                ]
+              }
+            }
+          },
+          "stable": {
+            "const": "preserved"
+          }
+        },
+        "required": [
+          "group",
+          "stable"
+        ],
+        "additionalProperties": false
+      },
+      "expected": {
+        "group": [
+          [
+            "red",
+            "blue"
+          ],
+          [
+            "blue",
+            "red"
+          ]
+        ],
+        "stable": "preserved"
+      },
+      "scopes": {
+        "[\"group\"]": "shared"
+      },
+      "shared_lengths": {
+        "[\"group\"]": 2
+      }
+    }
+  },
+  "revision": {
+    "case": "uniform",
+    "previous": [
+      [
+        "blue"
+      ],
+      [
+        "red"
+      ]
+    ],
+    "target_path": [],
+    "keep": "keep",
+    "revise": "revise"
+  },
+  "output": "results/methods/structured_flow/shared_shape_cpu_001.json",
+  "subtree_revision": {
+    "case": "revision_subtree",
+    "previous": {
+      "group": [
+        [
+          "blue"
+        ],
+        [
+          "red"
+        ]
+      ],
+      "stable": "preserved"
+    },
+    "target_path": [
+      "group"
+    ],
+    "keep": "keep",
+    "revise": "revise"
+  }
+}

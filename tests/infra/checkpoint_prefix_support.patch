@@ -1,0 +1,12 @@
+--- a/jevspawn/src/jev_spawn/infra/finite_batch.py
++++ b/jevspawn/src/jev_spawn/infra/finite_batch.py
+@@ -62,7 +62,8 @@
+         return split_native_cache(output.past_key_values, list(map(len, sequences)))
+ 
+     def extend(missing):
+-        roots = [base_by_prefix[tuple(sequence)] for sequence in missing]
++        roots = [next(base[:len(sequence)] for prefix, base in base_by_prefix.items()
++                      if prefix[:len(sequence)] == tuple(sequence)) for sequence in missing]
+         parents = [state_cache.longest_parent(sequence, len(root))
+                    for sequence, root in zip(missing, roots, strict=True)]
+         unmatched = [index for index, parent in enumerate(parents) if parent is None]

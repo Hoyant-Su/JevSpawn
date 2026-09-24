@@ -1,0 +1,38 @@
+{
+  "calculate": {
+    "description": "Evaluate an arithmetic expression.",
+    "arguments": {
+      "expression": "string"
+    }
+  },
+  "read_documents": {
+    "description": "Read complete candidate documents by their original IDs.",
+    "arguments": {
+      "ids": "array of document IDs"
+    }
+  },
+  "search": {
+    "description": "Search the evidence corpus for relevant source units.",
+    "arguments": {
+      "query": "string",
+      "k": "integer"
+    }
+  },
+  "read": {
+    "description": "Read complete source units returned by search.",
+    "arguments": {
+      "ids": "array of source unit IDs"
+    }
+  },
+  "run_tests": {
+    "description": "Execute Python code and supplied assertions in an isolated read-only sandbox. Only public examples or self-generated assertions may be supplied. Hidden evaluation tests are unavailable.",
+    "arguments": {
+      "code": "string",
+      "assertions": "string"
+    }
+  },
+  "finish": {
+    "description": "Submit the final answer as a JSON value matching the answer schema.",
+    "arguments": "the final answer object"
+  }
+}

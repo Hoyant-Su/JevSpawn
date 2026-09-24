@@ -1,0 +1,43 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "sources": [
+    "results/infra/native-history-profile-stage079-aligned/roots1/rank0-batch6.json",
+    "results/infra/native-history-profile-stage079-aligned/roots8/rank0-batch6.json"
+  ],
+  "repetitions": 5,
+  "output": "results/infra/native-chunk-graph-stage080-batched-copy",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "service": "configs/inference/shared_service.json",
+  "arms": [
+    "eager",
+    "chunk_graph"
+  ],
+  "entrypoint": "tests/infra/native_chunk_graph/qualify.py",
+  "operator_file": "operator-rank{rank}.json",
+  "chunk_graph": {
+    "capacity": 4,
+    "warmup_steps": 3,
+    "initial_count": 0,
+    "tensor_arguments": [
+      "g",
+      "beta",
+      "initial_state",
+      "cu_seqlens"
+    ],
+    "chunk_tokens": 64,
+    "copy_arguments": [
+      "q",
+      "k",
+      "v",
+      "g",
+      "beta",
+      "initial_state"
+    ]
+  }
+}

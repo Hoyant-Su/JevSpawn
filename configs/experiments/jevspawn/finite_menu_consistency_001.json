@@ -1,0 +1,11 @@
+{
+  "scope": "Cyclic native-menu permutation consistency on fixed observed consumer states. Consistency is not correctness or task success.",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "source_protocol": "runs/action-frontier-maze-002/protocol.json",
+  "source_traces": ["runs/action-frontier-maze-002/trace-00000.json", "runs/action-frontier-maze-002/trace-00001.json"],
+  "task_id": "menu-{source}-turn-{turn}",
+  "field_id": "{original}-rotation-{rotation}",
+  "task_count": 32,
+  "consistent_choice_count": 1
+}

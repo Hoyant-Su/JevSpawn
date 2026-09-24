@@ -1,0 +1,17 @@
+{
+  "reference": "canonical_stage071",
+  "candidate": "history_stage078",
+  "scope": "Same official task identities, contexts and shared budgets; stage071 is an earlier quality reference. Cross-stage timing includes promoted runtime-length finite gates and hardware/scheduling differences and is not an isolated cache speedup.",
+  "arms": {
+    "canonical_stage071": {
+      "run": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/runs/native-jev-current-stage071-screen-20260923/korgym_2048",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/korgym_2048.json"
+    },
+    "history_stage078": {
+      "run": "runs/native-history-coverage-stage078/korgym_2048",
+      "evaluation": "results/validation/native-history-coverage-stage078/korgym_2048.json"
+    }
+  },
+  "output": "results/infra/native_history_stage078_korgym_2048_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

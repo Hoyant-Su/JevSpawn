@@ -1,0 +1,7 @@
+{
+  "runs": {
+    "mixed": {"run": "runs/common-jevspawn_reference_revision_mixed-noncoding-tp4-v1-001", "evaluation": "results/methods/structured_flow/reference_revision_mixed_tp4_001.json"},
+    "graph": {"run": "runs/common-jevspawn_reference_revision_graph-noncoding-tp4-v1-001", "evaluation": "results/methods/structured_flow/reference_revision_graph_tp4_001.json"}
+  },
+  "output": "results/infra/finite_graph_service_comparison_001.json"
+}

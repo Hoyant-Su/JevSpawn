@@ -1,0 +1,134 @@
+{
+  "python_paths": [],
+  "prompts": "jevspawn.semantic_runtime",
+  "settings": {
+    "rollout": {
+      "prompts": "jevspawn.branching",
+      "root_id": "root",
+      "frontier_id": "frontier",
+      "parent_width": 1,
+      "branch_width": 4,
+      "host_workers": 8,
+      "budget_exhausted": "turn_budget",
+      "event_separator": "\n",
+      "node_id": "n{index}",
+      "initial_node_index": 0,
+      "execution": {
+        "candidate_id": "value-{index}",
+        "serialization": {
+          "ensure_ascii": false,
+          "separators": [
+            ",",
+            ":"
+          ]
+        },
+        "prompts": "jevspawn.query_execution",
+        "tool_observation_source": "tool",
+        "history_reference": "$history",
+        "join_reference": "$join",
+        "action_identity_serialization": {
+          "ensure_ascii": false,
+          "sort_keys": true,
+          "separators": [
+            ",",
+            ":"
+          ],
+          "allow_nan": false
+        }
+      },
+      "declaration_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+                },
+                "question": {
+                  "type": "string"
+                },
+                "values": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "id",
+                "question",
+                "values"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "action": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "arguments": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "tool",
+              "arguments"
+            ],
+            "additionalProperties": false
+          },
+          "answer": {
+            "type": [
+              "object",
+              "array",
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "fields",
+          "action",
+          "answer"
+        ],
+        "additionalProperties": false
+      },
+      "expand_operation": "expand",
+      "submit_operation": "submit",
+      "submission_tool": "finish",
+      "submission_rejected": "submission_rejected",
+      "builder": "configs/baselines/common/declaration_builder.json",
+      "revise_operation": "revise",
+      "operation_id": "operation",
+      "declaration_id": "declaration-{turn}"
+    },
+    "terminal_answer": {
+      "prompts": "jevspawn.terminal_answer",
+      "decision_id": "answer-{index}",
+      "min_array_items": 0,
+      "max_array_items": 64,
+      "presence_options": [
+        false,
+        true
+      ],
+      "finite_scalar_values": {
+        "boolean": [
+          false,
+          true
+        ],
+        "null": [
+          null
+        ]
+      }
+    }
+  },
+  "module": "baselines.common.jevspawn",
+  "inference_service": "shared"
+}

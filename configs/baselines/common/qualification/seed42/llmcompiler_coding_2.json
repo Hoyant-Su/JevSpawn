@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_arena_v1.yaml",
+  "tasks": "data/baselines/common/qualification/coding_2_seed42_sandbox_fixed.jsonl",
+  "task_count": 2,
+  "method": "configs/baselines/common/methods/llmcompiler.json",
+  "environment": "configs/baselines/common/environment.json"
+}

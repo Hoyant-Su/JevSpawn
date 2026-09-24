@@ -1,0 +1,8 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "sources": [
+    "runs/native-ppnl-jevspawn-20260923-055/session-0000/batches.json",
+    "runs/native-plancraft-jevspawn-20260923-055/session-0000/batches.json"
+  ],
+  "output": "results/infra/native_suffix_graph_shape_reuse_001.json"
+}

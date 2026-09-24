@@ -1,0 +1,23 @@
+{
+  "shared_config": "configs/shared_config_optimized_v1.yaml",
+  "workload_config": "configs/infra/qwen35_fullstack_decode.json",
+  "reference_run": "runs/qwen35-fullstack-decode-001",
+  "output": "runs/qwen35-graph-profile-001",
+  "summary_output": "results/infra/qwen35_graph_profile_001.json",
+  "timed_steps": 32,
+  "profile_steps": 4,
+  "microseconds_per_ms": 1000,
+  "device_categories": ["kernel", "gpu_memcpy", "gpu_memset"],
+  "unmatched_category": "other",
+  "kernel_groups": [
+    {"name": "matrix_projections", "patterns": ["gemm", "gemv", "matmul"]},
+    {"name": "recurrent_delta_rule", "patterns": ["recurrent_gated_delta_rule"]},
+    {"name": "full_attention", "patterns": ["flash", "fmha", "attention"]},
+    {"name": "rms_normalization", "patterns": ["rms_kernel"]},
+    {"name": "gdn_gates", "patterns": ["gates_kernel"]},
+    {"name": "causal_convolution", "patterns": ["causal_conv"]},
+    {"name": "elementwise", "patterns": ["elementwise", "silu"]},
+    {"name": "reductions", "patterns": ["reduce"]},
+    {"name": "copies_and_fills", "patterns": ["copy", "memcpy", "memset", "fill", "index", "scatter"]}
+  ]
+}

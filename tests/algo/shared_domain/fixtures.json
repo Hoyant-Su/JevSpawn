@@ -1,0 +1,837 @@
+{
+  "seed": 42,
+  "method": "configs/baselines/common/methods/jevspawn_shared_domain_stable.json",
+  "values_config": "configs/jevspawn/typed_values.json",
+  "prompts": "jevspawn.shared_domain_values",
+  "instruction": "Compute every requested value from the complete provided task, preserving its semantic position.",
+  "evidence": {
+    "observations": [
+      "Complete immutable structural test evidence."
+    ]
+  },
+  "root_path": [],
+  "cases": {
+    "uniform": {
+      "schema": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red",
+          "round"
+        ],
+        [
+          "blue",
+          "square"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {
+        "[]": "shared"
+      },
+      "shared_lengths": {
+        "[]": 2
+      },
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "fixed": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red",
+          "round"
+        ],
+        [
+          "blue",
+          "square"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "ragged": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "red",
+              "blue"
+            ]
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red"
+        ],
+        [
+          "blue",
+          "red"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {
+        "[]": "per_item"
+      },
+      "shared_lengths": {},
+      "bindings": {},
+      "per_item_domains": {}
+    },
+    "nested": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ],
+        [
+          [
+            "blue",
+            "square"
+          ],
+          [
+            "red",
+            "round"
+          ]
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[0, \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[0, \"*\", 1]": [
+          "input",
+          "shapes"
+        ],
+        "[1, \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[1, \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "siblings": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "right": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "left",
+          "right"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": {
+        "left": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ],
+        "right": [
+          [
+            "blue",
+            "square"
+          ],
+          [
+            "red",
+            "round"
+          ]
+        ]
+      },
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"left\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"left\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ],
+        "[\"right\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"right\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "per_item": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red"
+        ],
+        [
+          "square"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": null
+      },
+      "per_item_domains": {
+        "[0, 0]": [
+          "input",
+          "names"
+        ],
+        "[1, 0]": [
+          "input",
+          "shapes"
+        ]
+      }
+    },
+    "empty_parent": {
+      "schema": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 0,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {},
+      "per_item_domains": {}
+    },
+    "empty_child": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 0,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [],
+        []
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {},
+      "per_item_domains": {}
+    },
+    "singleton_domain": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "one": [
+          "red"
+        ]
+      },
+      "expected": [
+        [
+          "red"
+        ],
+        [
+          "red"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "one"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "unknown_domains": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {},
+      "expected": [
+        [
+          "red",
+          "round"
+        ],
+        [
+          "blue",
+          "square"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": null,
+        "[\"*\", 1]": null
+      },
+      "per_item_domains": {}
+    },
+    "bounds": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          }
+        }
+      },
+      "input": {
+        "numbers": [
+          -1,
+          1,
+          3
+        ]
+      },
+      "expected": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "numbers"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "revision_subtree": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": {
+        "rows": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "root_path": [
+        "rows"
+      ],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"rows\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"rows\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "hierarchical": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red",
+          "round"
+        ],
+        [
+          "blue",
+          "square"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {},
+      "selection": {
+        "fanout": 2
+      }
+    },
+    "unique_children": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": [
+        [
+          "red",
+          "blue"
+        ],
+        [
+          "blue",
+          "red"
+        ]
+      ],
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"*\", 1]": [
+          "input",
+          "names"
+        ]
+      },
+      "per_item_domains": {}
+    },
+    "literal_wildcard": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "*": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "*",
+          "right"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "expected": {
+        "right": [
+          [
+            "blue",
+            "square"
+          ],
+          [
+            "red",
+            "round"
+          ]
+        ],
+        "*": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "root_path": [],
+      "shape_scopes": {},
+      "shared_lengths": {},
+      "bindings": {
+        "[\"*\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"*\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ],
+        "[\"right\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"right\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "per_item_domains": {}
+    }
+  },
+  "control_fixture": "tests/algo/finite_control/fixtures.json",
+  "first_index": 0,
+  "partition_absent_choice_index": 0,
+  "transport": "configs/jevspawn/reference_transport.json",
+  "revision": {
+    "path": [
+      0,
+      0
+    ],
+    "previous": [
+      [
+        "blue",
+        "round"
+      ],
+      [
+        "blue",
+        "square"
+      ]
+    ],
+    "keep": "keep",
+    "revise": "revise"
+  },
+  "wildcard_matching": {
+    "matching_path": [
+      "*",
+      0,
+      0
+    ],
+    "nonmatching_numeric_parent": [
+      0,
+      0,
+      0
+    ]
+  }
+}

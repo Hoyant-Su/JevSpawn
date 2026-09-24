@@ -1,0 +1,6 @@
+{
+  "class": "environments.agentquest.AgentQuestEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/agentquest_sudoku_runtime.json"
+  }
+}

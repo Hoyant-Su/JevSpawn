@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+  "entrypoint": "tests/infra/native_direct_finite/rollout.py",
+  "run_output": "runs/native-chunk-graph-rollout-stage080/lmrlgym_maze/eager",
+  "native_full_suffix": false
+}

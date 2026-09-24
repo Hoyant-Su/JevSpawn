@@ -1,0 +1,36 @@
+{
+  "deadline_seconds": 300,
+  "task_index": 0,
+  "bfcl_tasks": "data/compositional/bfcl_parallel/development/tasks.jsonl",
+  "submission": "configs/environments/submission.json",
+  "scratch": "tests/runtime/action_tasks/scratch",
+  "finish_tool": "finish",
+  "invalid_answer": {
+    "wrong_field": "invalid"
+  },
+  "submission_fixture": {
+    "completion": "[]"
+  },
+  "maze_tasks": "data/environments/maze/tasks.jsonl",
+  "maze_configuration": "configs/data/maze/runtime.json",
+  "method": "configs/methods/finite_actions/finite.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "generated_label": "A",
+  "expected_choice": "a",
+  "decision_id": "fixture-decision",
+  "invalid_label": "not a candidate label",
+  "scope": "Interface test fixtures only; no model output or benchmark accuracy."
+}

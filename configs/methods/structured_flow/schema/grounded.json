@@ -1,0 +1,304 @@
+{
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "$ref": "#/$defs/step"
+  },
+  "$defs": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^s[0-9]+$"
+    },
+    "source_ref": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/source_id"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "step_ref": {
+      "type": "object",
+      "properties": {
+        "step": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer",
+                "minimum": 0
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "step",
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "value_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/source_ref"
+        },
+        {
+          "$ref": "#/$defs/step_ref"
+        }
+      ]
+    },
+    "worker_input": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_id"
+          }
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step_ref"
+          }
+        },
+        "item": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "sources",
+        "messages",
+        "item"
+      ],
+      "additionalProperties": false
+    },
+    "step": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "decide"
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "input": {
+              "$ref": "#/$defs/worker_input"
+            }
+          },
+          "required": [
+            "kind",
+            "question",
+            "options",
+            "branches",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "generate"
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "input": {
+              "$ref": "#/$defs/worker_input"
+            }
+          },
+          "required": [
+            "kind",
+            "system",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "generate_json"
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "output_schema": {
+              "type": "object"
+            },
+            "input": {
+              "$ref": "#/$defs/worker_input"
+            }
+          },
+          "required": [
+            "kind",
+            "system",
+            "output_schema",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "expand"
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "input": {
+              "$ref": "#/$defs/worker_input"
+            }
+          },
+          "required": [
+            "kind",
+            "system",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "map"
+            },
+            "template": {
+              "$ref": "#"
+            },
+            "items_path": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "input": {
+              "$ref": "#/$defs/value_ref"
+            }
+          },
+          "required": [
+            "kind",
+            "template",
+            "items_path",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "collect"
+            },
+            "input": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/value_ref"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/value_ref"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "reduce"
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              }
+            },
+            "equals": {},
+            "input": {
+              "$ref": "#/$defs/value_ref"
+            }
+          },
+          "required": [
+            "kind",
+            "operator",
+            "field_path",
+            "equals",
+            "input"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

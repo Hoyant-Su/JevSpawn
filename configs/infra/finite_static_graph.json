@@ -1,0 +1,210 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "run": "runs/common-jevspawn_reference_revision-noncoding-tp4-v1-001",
+  "output": "runs/finite-static-graph-001",
+  "result": "results/infra/finite_static_graph_001.json",
+  "task_file": "task-{index:05d}.json",
+  "rank_file": "rank{rank}-{phase}-{variant}.json",
+  "variants": [
+    "mixed",
+    "static"
+  ],
+  "reference_variant": "reference",
+  "candidate_variant": "mixed",
+  "caches": [
+    "base",
+    "state"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "mode": "tiled_shared",
+  "command": "qualify_finite_static_graph",
+  "workloads": {
+    "initial": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "reordered": [
+      [
+        7,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "new_nodes": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "branches": [
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        1
+      ]
+    ]
+  },
+  "phases": [
+    {
+      "name": "prime",
+      "workload": "initial",
+      "clear": true
+    },
+    {
+      "name": "cold",
+      "workload": "initial",
+      "clear": true
+    },
+    {
+      "name": "cached_reordered",
+      "workload": "reordered",
+      "clear": false
+    },
+    {
+      "name": "new_nodes",
+      "workload": "new_nodes",
+      "clear": false
+    },
+    {
+      "name": "branches",
+      "workload": "branches",
+      "clear": false
+    }
+  ],
+  "profile": {
+    "phases": []
+  },
+  "graph_variants": {
+    "static": {
+      "mode": "scalar"
+    }
+  },
+  "comparison_pairs": [
+    [
+      "mixed",
+      "static"
+    ]
+  ],
+  "graph_implementations": {
+    "static": "grouped"
+  }
+}

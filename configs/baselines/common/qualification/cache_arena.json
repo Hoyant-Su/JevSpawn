@@ -1,0 +1,43 @@
+{
+  "shared_config": "configs/shared_config.yaml",
+  "source_batches": "runs/common-single-aqua-formal-001/session-0000/batches.json",
+  "source_batch_index": 0,
+  "parity_cases": [
+    {
+      "batch_size": 8,
+      "input_tokens": 512,
+      "decode_steps": 32
+    },
+    {
+      "batch_size": 8,
+      "input_tokens": 768,
+      "decode_steps": 32
+    },
+    {
+      "batch_size": 4,
+      "input_tokens": 1024,
+      "decode_steps": 32
+    },
+    {
+      "batch_size": 8,
+      "input_tokens": 1280,
+      "decode_steps": 32
+    },
+    {
+      "batch_size": 8,
+      "input_tokens": 512,
+      "decode_steps": 32
+    },
+    {
+      "batch_size": 8,
+      "input_tokens": 768,
+      "decode_steps": 32
+    }
+  ],
+  "stress": {
+    "batch_size": 8,
+    "input_tokens": 8192,
+    "decode_steps": 1024
+  },
+  "scope": "Separate infrastructure validation. Synthetic capacity workload, not dataset-performance metrics. No production service changes."
+}

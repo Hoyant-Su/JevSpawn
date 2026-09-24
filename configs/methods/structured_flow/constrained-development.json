@@ -1,0 +1,27 @@
+{
+  "tasks": "data/methods/structured_flow/development_tasks.jsonl",
+  "task_count": 8,
+  "native_config": "configs/native.json",
+  "native_overrides": {
+    "model_path": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.5-4B",
+    "batch_size": 8,
+    "branch_batch_size": 8
+  },
+  "compiler_tokens": 4096,
+  "field_mode": "tiled_shared",
+  "coordinator_role": {
+    "$prompt": "configs/methods/structured_flow/constrained-development.json#coordinator_role"
+  },
+  "limits": {
+    "max_nodes": 4096,
+    "max_depth": 4,
+    "live_limit": 8,
+    "max_generation_tokens": 4096
+  },
+  "methods": [
+    "graph",
+    "direct"
+  ],
+  "compiler_constraints": "json_schema",
+  "direct_constraints": "json_schema"
+}

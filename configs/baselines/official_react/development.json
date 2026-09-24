@@ -1,0 +1,21 @@
+{
+  "batch_size": 8,
+  "max_new_tokens": 512,
+  "temperature": 0,
+  "max_model_calls": 32,
+  "tool_limits": {
+    "max_characters": 512,
+    "max_nodes": 128,
+    "max_exponent": 20,
+    "max_magnitude": 1e+100
+  },
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "notebook": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/react_core/hotpotqa.ipynb",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/official_react/schema/prompts.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "formal_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl",
+  "task_count": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.official_react.adapter"
+}

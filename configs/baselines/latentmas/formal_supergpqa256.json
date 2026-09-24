@@ -1,0 +1,24 @@
+{
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/labels.jsonl",
+  "task_count": 256,
+  "root_batch_size": 8,
+  "latent_steps": 10,
+  "final_tokens": 1024,
+  "final_temperature": 0,
+  "memory_mode": "full",
+  "alignment": true,
+  "stage": "formal_supergpqa256_frozen_aqua_budgets",
+  "numerical_diagnostic": "runs/baselines/latentmas/runs/first-role-diagnostic-001/comparison_summary.json",
+  "seed": 42,
+  "context_tokens": 8192,
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/feasibility/tasks.jsonl",
+  "warmup_batch_sizes": [
+    8
+  ],
+  "timing_scope": "Complete four-role dispatch, task rendering and final extraction. Batch API delivers all answers together. Per-row final-token readiness is also recorded, not claimed as earlier API delivery. Model load, alignment construction and disjoint warmup are separate setup costs.",
+  "resume": "Fixed source-order blocks of8 and seed0. Resume only complete atomic blocks, with disjoint development warmup repeated after reload.",
+  "comparability_limits": "Same Qwen3.5-4B BF16 native backbone,8192 context and8-root capacity. Original3 latent roles each10 steps, full hybrid cache, original alignment and1024-token greedy finalizer. Each task keeps its original4-10 option contract. Batch-dependent latent numerical differences remain documented. No evaluation-label selection or task-specific prompt tuning.",
+  "resource_policy": "User-authorized low26-v0712-4-core GPU0. Verify current occupancy, mounts and quota before launch. Do not delete files or directories."
+}

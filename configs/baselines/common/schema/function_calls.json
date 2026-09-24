@@ -1,0 +1,17 @@
+{
+  "type_aliases": {
+    "dict": "object",
+    "float": "number",
+    "str": "string",
+    "int": "integer",
+    "list": "array",
+    "bool": "boolean"
+  },
+  "additional_properties": false,
+  "prompt": "interfaces.function_calls",
+  "answer_field": "calls",
+  "name_field": "name",
+  "arguments_field": "arguments",
+  "parameters_key": "parameters",
+  "parameters_dialect": "json_schema"
+}

@@ -1,0 +1,11 @@
+{
+  "runs": [
+    {"run": "runs/native-baselines-formal-20260923/react/ppnl", "reference": "results/native_baselines/formal/react/ppnl.json"},
+    {"run": "runs/native-baselines-formal-20260923/react/lmrlgym_maze_schema_v2", "reference": "results/native_baselines/formal/react/lmrlgym_maze_schema_v2.json"},
+    {"run": "runs/native-baselines-formal-20260923/react/plancraft", "reference": "results/native_baselines/formal/react/plancraft.json"}
+  ],
+  "process_start_method": "spawn",
+  "timing_fields": ["evaluation_seconds"],
+  "scratch_directory": "offline_evaluation_parallel_qualification",
+  "output": "results/infra/native_parallel_evaluation_stage066.json"
+}

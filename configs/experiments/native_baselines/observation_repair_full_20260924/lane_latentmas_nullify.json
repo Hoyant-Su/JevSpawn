@@ -1,0 +1,48 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "latentmas",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-0909-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_latentmas.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_nullify",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/latentmas/korgym_nullify.json",
+      "method": "latentmas",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/latentmas_korgym_nullify.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/latentmas/korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_nullify_latentmas.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_nullify",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_nullify",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/latentmas/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

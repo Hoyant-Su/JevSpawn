@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_optimized_v1.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "validation_timeout_seconds": 1200,
+  "stage": "latent_cache_compaction",
+  "scope": "Preserve every production latent role, prompt and latent step on eight distinct real tasks. Compare original-hole native masked attention, equivalent compacted native masked attention and compacted grouped attention on the same actual post-judger cache. Full-attention KV order, rotated values, recurrent states, pending tokens, physical cache length and future valid positions must remain unchanged. Decode all 32 configured positions on the same reference token trajectory. No task accuracy claim.",
+  "output": "runs/latent-cache-compaction-002",
+  "decode_steps": 32,
+  "rtol": 0.05,
+  "atol": 0.05
+}

@@ -1,0 +1,17 @@
+{
+  "runs": {
+    "jevspawn": {
+      "run": "runs/common-jevspawn_shape_revision_tuned_noncoding-tp4-v2-001",
+      "evaluation": "results/methods/structured_flow/jevspawn_shape_revision_tp4_v2_001.json"
+    },
+    "latentmas": {
+      "run": "runs/common-latentmas-matched-noncoding-tp4-v2-001",
+      "evaluation": "results/baselines/common/evaluation/latentmas-matched-noncoding-tp4-v2-001.json"
+    },
+    "jevspawn_cohort": {
+      "run": "runs/common-jevspawn-shape-cohort-tp4-v2-001",
+      "evaluation": "results/methods/structured_flow/jevspawn_shape_cohort_tp4_v2_001.json"
+    }
+  },
+  "output": "results/infra/jevspawn_cohort_v2_comparison.json"
+}

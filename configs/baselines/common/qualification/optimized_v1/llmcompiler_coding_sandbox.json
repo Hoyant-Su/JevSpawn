@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_optimized_v1.yaml",
+  "tasks": "data/baselines/common/qualification/coding_contract_v2.jsonl",
+  "task_count": 2,
+  "method": "configs/baselines/common/methods/llmcompiler.json",
+  "environment": "configs/baselines/common/environment.json"
+}

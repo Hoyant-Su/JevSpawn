@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_batches": "runs/common-agentprune-all-datasets-gen4096-001/session-0000/batches.json",
+  "source_batch": 0,
+  "input_tokens": 8192,
+  "generation_tokens": 4096,
+  "deadline_seconds": 1800,
+  "profile_steps": 128,
+  "modes": ["replay", "replay_emit", "replay_event", "replay_emit_event"],
+  "output": "results/infra/refill_replay_profile_001.json",
+  "scope": "Same Qwen27B B8 graph and cache shape as the capacity probe; isolate replay, metadata emit and event-record overhead. No benchmark task or quality claim."
+}

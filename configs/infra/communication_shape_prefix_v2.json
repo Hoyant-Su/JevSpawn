@@ -1,0 +1,23 @@
+{
+  "source_run": "runs/common-jevspawn-shape-cohort-tp4-v2-001",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "transport": "reference_transport",
+  "labels": "readout_labels",
+  "prompts": "jevspawn.literal_root_prefix_state",
+  "shared_keys": [
+    "evidence"
+  ],
+  "input_glob": "finite-inputs/cohort-*.json",
+  "serialization": {
+    "ensure_ascii": false,
+    "allow_nan": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "records": "records/infra/communication_shape_prefix_v2_inputs.json",
+  "output": "results/infra/communication_shape_prefix_v2.json",
+  "scope": "CPU admission and exact token-prefix opportunity analysis on every actual recorded request. Logical token counts do not include padding, cache eviction, GPU kernel costs or quality; this does not establish runtime speed. No source field, candidate or task is omitted.",
+  "service_result": "results/infra/communication_shape_service_v2.json"
+}

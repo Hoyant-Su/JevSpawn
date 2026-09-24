@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["expressions"],
+  "additionalProperties": false,
+  "properties": {
+    "expressions": {"type": "array", "items": {"$ref": "#/$defs/boolean"}}
+  },
+  "$defs": {
+    "number": {
+      "oneOf": [
+        {"type": "integer"},
+        {
+          "type": "object", "required": ["op", "id"], "additionalProperties": false,
+          "properties": {"op": {"const": "var"}, "id": {"type": "string", "minLength": 1}}
+        },
+        {
+          "type": "object", "required": ["op", "args"], "additionalProperties": false,
+          "properties": {
+            "op": {"enum": ["add", "sub"]},
+            "args": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/number"}}
+          }
+        },
+        {
+          "type": "object", "required": ["op", "args"], "additionalProperties": false,
+          "properties": {
+            "op": {"const": "abs"},
+            "args": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"$ref": "#/$defs/number"}}
+          }
+        }
+      ]
+    },
+    "boolean": {
+      "oneOf": [
+        {
+          "type": "object", "required": ["op", "args"], "additionalProperties": false,
+          "properties": {
+            "op": {"enum": ["eq", "ne", "lt", "le", "gt", "ge"]},
+            "args": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/number"}}
+          }
+        },
+        {
+          "type": "object", "required": ["op", "args"], "additionalProperties": false,
+          "properties": {
+            "op": {"enum": ["and", "or"]},
+            "args": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/boolean"}}
+          }
+        },
+        {
+          "type": "object", "required": ["op", "args"], "additionalProperties": false,
+          "properties": {
+            "op": {"const": "not"},
+            "args": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"$ref": "#/$defs/boolean"}}
+          }
+        }
+      ]
+    }
+  }
+}

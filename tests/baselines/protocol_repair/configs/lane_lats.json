@@ -1,0 +1,66 @@
+{
+  "stage": "isolated_protocol_qualification",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "specification": "tests/baselines/protocol_repair/configs/lats_lmrlgym_maze.json",
+      "run": "runs/native-baselines-protocol-repair-20260923/lats/lmrlgym_maze",
+      "evaluation": "results/native_baselines/protocol_repair/lats/lmrlgym_maze.json",
+      "progress": "results/native_baselines/protocol_repair/progress/lats/lmrlgym_maze.json",
+      "log": "logs/native_baselines/protocol-repair-lats-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "tests/baselines/protocol_repair/configs/lats_lmrlgym_maze.json",
+          "runs/native-baselines-protocol-repair-20260923/lats/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-protocol-repair-20260923/lats/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/protocol_repair/lats/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_rushhour",
+      "specification": "tests/baselines/protocol_repair/configs/lats_textarena_rushhour.json",
+      "run": "runs/native-baselines-protocol-repair-20260923/lats/textarena_rushhour",
+      "evaluation": "results/native_baselines/protocol_repair/lats/textarena_rushhour.json",
+      "progress": "results/native_baselines/protocol_repair/progress/lats/textarena_rushhour.json",
+      "log": "logs/native_baselines/protocol-repair-lats-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "tests/baselines/protocol_repair/configs/lats_textarena_rushhour.json",
+          "runs/native-baselines-protocol-repair-20260923/lats/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-protocol-repair-20260923/lats/textarena_rushhour",
+          "--output",
+          "results/native_baselines/protocol_repair/lats/textarena_rushhour.json"
+        ]
+      ]
+    }
+  ]
+}

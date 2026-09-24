@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "tasks": "data/baselines/common/qualification/all_datasets_14_contract_v2.jsonl",
+  "task_count": 14,
+  "method": "configs/baselines/common/methods/jevspawn_proposal_state.json",
+  "environment": "configs/baselines/common/environment.json"
+}

@@ -1,0 +1,1186 @@
+{
+  "seed": 42,
+  "method": "configs/baselines/common/methods/jevspawn_shared_domain_revision_stable.json",
+  "control_fixture": "tests/algo/finite_control/fixtures.json",
+  "transport": "configs/jevspawn/reference_transport.json",
+  "values_config": "configs/jevspawn/typed_values.json",
+  "keep": "keep",
+  "replace_choice": "replace",
+  "revise_choice": "revise",
+  "cases": {
+    "one_binding": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ],
+        [
+          "matrix",
+          1,
+          0
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "multiple_bindings": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "red"
+          ],
+          [
+            "square",
+            "blue"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "names"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"matrix\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ],
+        [
+          "matrix",
+          1,
+          0
+        ],
+        [
+          "matrix",
+          0,
+          1
+        ],
+        [
+          "matrix",
+          1,
+          1
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "no_change": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {},
+      "value_revise": [],
+      "expected_rebuilt": [],
+      "per_item_domains": {}
+    },
+    "same_replacement": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [],
+      "per_item_domains": {}
+    },
+    "to_per_item": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "round"
+          ],
+          [
+            "square",
+            "square"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": null
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ],
+        [
+          "matrix",
+          1,
+          0
+        ]
+      ],
+      "per_item_domains": {
+        "[\"matrix\", 0, 0]": [
+          "input",
+          "names"
+        ],
+        "[\"matrix\", 1, 0]": [
+          "input",
+          "names"
+        ]
+      }
+    },
+    "coupled_unique": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "red"
+          ],
+          [
+            "square",
+            "blue"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "blue"
+          ],
+          [
+            "blue",
+            "red"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "names"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0
+        ],
+        [
+          "matrix",
+          1
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "nested_literal": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "*": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "*"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "*": [
+          [
+            [
+              "round",
+              "round"
+            ],
+            [
+              "square",
+              "square"
+            ]
+          ],
+          [
+            [
+              "round",
+              "round"
+            ],
+            [
+              "square",
+              "square"
+            ]
+          ]
+        ]
+      },
+      "expected": {
+        "*": [
+          [
+            [
+              "red",
+              "round"
+            ],
+            [
+              "blue",
+              "square"
+            ]
+          ],
+          [
+            [
+              "round",
+              "round"
+            ],
+            [
+              "square",
+              "square"
+            ]
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "*",
+            0
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "*",
+            0
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "*",
+            1
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "*",
+            1
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"*\", 0, \"*\", 0]": [
+          "input",
+          "names"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "*",
+          0,
+          0,
+          0
+        ],
+        [
+          "*",
+          0,
+          1,
+          0
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "value_only": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "blue",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "names"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        }
+      ],
+      "replace": {},
+      "value_revise": [
+        [
+          "matrix",
+          0,
+          0
+        ]
+      ],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "ancestor_rebuild": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "round",
+            "red"
+          ],
+          [
+            "square",
+            "blue"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "round"
+          ],
+          [
+            "blue",
+            "square"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "names"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"matrix\", \"*\", 1]": [
+          "input",
+          "shapes"
+        ]
+      },
+      "value_revise": [
+        [
+          "matrix"
+        ]
+      ],
+      "expected_rebuilt": [
+        [
+          "matrix"
+        ]
+      ],
+      "per_item_domains": {}
+    },
+    "tightened_const": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "const": "red"
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "red",
+            "red"
+          ],
+          [
+            "red",
+            "red"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "red"
+          ],
+          [
+            "red",
+            "red"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "names"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"matrix\", \"*\", 1]": [
+          "input",
+          "names"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ],
+        [
+          "matrix",
+          1,
+          0
+        ],
+        [
+          "matrix",
+          0,
+          1
+        ],
+        [
+          "matrix",
+          1,
+          1
+        ]
+      ],
+      "per_item_domains": {},
+      "previous_scalar_schema": {
+        "type": "string"
+      }
+    },
+    "tightened_enum": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "matrix": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "blue"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "matrix"
+        ],
+        "additionalProperties": false
+      },
+      "input": {
+        "names": [
+          "red",
+          "blue"
+        ],
+        "shapes": [
+          "round",
+          "square"
+        ]
+      },
+      "previous": {
+        "matrix": [
+          [
+            "red",
+            "red"
+          ],
+          [
+            "red",
+            "red"
+          ]
+        ]
+      },
+      "expected": {
+        "matrix": [
+          [
+            "red",
+            "red"
+          ],
+          [
+            "red",
+            "red"
+          ]
+        ]
+      },
+      "bindings": [
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 0,
+          "source": [
+            "input",
+            "shapes"
+          ]
+        },
+        {
+          "parent": [
+            "matrix"
+          ],
+          "position": 1,
+          "source": [
+            "input",
+            "names"
+          ]
+        }
+      ],
+      "replace": {
+        "[\"matrix\", \"*\", 0]": [
+          "input",
+          "names"
+        ],
+        "[\"matrix\", \"*\", 1]": [
+          "input",
+          "names"
+        ]
+      },
+      "value_revise": [],
+      "expected_rebuilt": [
+        [
+          "matrix",
+          0,
+          0
+        ],
+        [
+          "matrix",
+          1,
+          0
+        ]
+      ],
+      "per_item_domains": {},
+      "previous_scalar_schema": {
+        "type": "string"
+      }
+    }
+  },
+  "first_index": 0
+}

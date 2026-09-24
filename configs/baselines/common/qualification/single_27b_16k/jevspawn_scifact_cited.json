@@ -1,0 +1,8 @@
+{
+  "stage": "formal",
+  "shared_config": "configs/shared_config_single_27b_16k.yaml",
+  "tasks": "data/baselines/common/tasks/scifact_cited.jsonl",
+  "task_count": 283,
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "environment": "configs/baselines/common/environment.json"
+}

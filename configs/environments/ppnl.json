@@ -1,0 +1,6 @@
+{
+  "class": "environments.ppnl.PPNLEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/ppnl_runtime.json"
+  }
+}

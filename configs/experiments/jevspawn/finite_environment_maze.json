@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "rollout": "configs/jevspawn/environment_qualification.json",
+  "sources": [
+    "data/qualification/maze_context/tasks.jsonl"
+  ],
+  "task_count": 2,
+  "trace_file": "trace-{index:05d}.json",
+  "result_file": "task-{index:05d}.json",
+  "mode": "environment"
+}

@@ -1,0 +1,235 @@
+{
+  "datasets": {
+    "aqua": {
+      "excluded_roots": [
+        "aqua/test/122",
+        "aqua/test/16",
+        "aqua/test/17",
+        "aqua/test/189",
+        "aqua/test/29",
+        "aqua/test/61"
+      ],
+      "annotations": [
+        {
+          "task_id": "aqua/test/16",
+          "field": "q0",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "aqua/test/17",
+          "field": "q0",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "aqua/test/29",
+          "field": "q0",
+          "text": "A)59",
+          "reason": "The option text retains an embedded original answer-label prefix. Rotating it creates competing old and new candidate-label cues."
+        },
+        {
+          "task_id": "aqua/test/29",
+          "field": "q0",
+          "text": "B)69",
+          "reason": "The option text retains an embedded original answer-label prefix. Rotating it creates competing old and new candidate-label cues."
+        },
+        {
+          "task_id": "aqua/test/29",
+          "field": "q0",
+          "text": "C)79",
+          "reason": "The option text retains an embedded original answer-label prefix. Rotating it creates competing old and new candidate-label cues."
+        },
+        {
+          "task_id": "aqua/test/29",
+          "field": "q0",
+          "text": "D)89",
+          "reason": "The option text retains an embedded original answer-label prefix. Rotating it creates competing old and new candidate-label cues."
+        },
+        {
+          "task_id": "aqua/test/29",
+          "field": "q0",
+          "text": "E)99",
+          "reason": "The option text retains an embedded original answer-label prefix. Rotating it creates competing old and new candidate-label cues."
+        },
+        {
+          "task_id": "aqua/test/61",
+          "field": "q0",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "aqua/test/122",
+          "field": "q0",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "aqua/test/189",
+          "field": "q0",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        }
+      ],
+      "original_roots": 254,
+      "original_fields": 254,
+      "excluded_root_count": 6,
+      "excluded_field_count": 6,
+      "retained_root_count": 248,
+      "retained_field_count": 248,
+      "affected_field_count": 6
+    },
+    "race_middle": {
+      "excluded_roots": [
+        "race_middle/middle1263.txt",
+        "race_middle/middle1302.txt",
+        "race_middle/middle1438.txt",
+        "race_middle/middle2165.txt",
+        "race_middle/middle2473.txt",
+        "race_middle/middle299.txt",
+        "race_middle/middle4584.txt",
+        "race_middle/middle5154.txt",
+        "race_middle/middle625.txt",
+        "race_middle/middle635.txt",
+        "race_middle/middle6374.txt",
+        "race_middle/middle641.txt",
+        "race_middle/middle6456.txt",
+        "race_middle/middle6875.txt",
+        "race_middle/middle7193.txt",
+        "race_middle/middle7961.txt",
+        "race_middle/middle859.txt"
+      ],
+      "annotations": [
+        {
+          "task_id": "race_middle/middle1263.txt",
+          "field": "q1",
+          "text": "A and C",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle1302.txt",
+          "field": "q1",
+          "text": "all the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle1438.txt",
+          "field": "q4",
+          "text": "All of above.",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle2165.txt",
+          "field": "q1",
+          "text": "A and B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle2473.txt",
+          "field": "q4",
+          "text": "all of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle299.txt",
+          "field": "q3",
+          "text": "B and C",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle4584.txt",
+          "field": "q1",
+          "text": "both A and B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle5154.txt",
+          "field": "q1",
+          "text": "all of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle625.txt",
+          "field": "q1",
+          "text": "All the above.",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle635.txt",
+          "field": "q1",
+          "text": "A, B and C",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle6374.txt",
+          "field": "q4",
+          "text": "both A and B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle641.txt",
+          "field": "q1",
+          "text": "Both of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle641.txt",
+          "field": "q1",
+          "text": "None of the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle6456.txt",
+          "field": "q1",
+          "text": "A & B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle6875.txt",
+          "field": "q2",
+          "text": "A, B and C",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle7193.txt",
+          "field": "q1",
+          "text": "both A and B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle7961.txt",
+          "field": "q0",
+          "text": "both A and B",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        },
+        {
+          "task_id": "race_middle/middle7961.txt",
+          "field": "q1",
+          "text": "All the above",
+          "reason": "The candidate explicitly refers to options above it. Cyclic permutation changes which options precede it."
+        },
+        {
+          "task_id": "race_middle/middle859.txt",
+          "field": "q0",
+          "text": "both A and C (both ...and )",
+          "reason": "The candidate explicitly names other answer-option letters. Cyclic permutation changes the alternatives named by those letters."
+        }
+      ],
+      "original_roots": 368,
+      "original_fields": 1436,
+      "excluded_root_count": 17,
+      "excluded_field_count": 67,
+      "retained_root_count": 351,
+      "retained_field_count": 1369,
+      "affected_field_count": 18
+    }
+  },
+  "rule": "For option-order analysis only, exclude an entire original root when any candidate explicitly refers to other option labels, to options above or below it, or embeds an original option-label prefix. Preserve every field of retained roots. Selection uses original question and option text only. Main full-dataset results remain unchanged.",
+  "retained_cases": [
+    "None of these and bare None are invariant to candidate order.",
+    "Letters naming algebraic variables, geometric points, events or entities are not answer-label references.",
+    "Roman numerals referring to explicitly numbered statements in the unchanged question are retained.",
+    "First, second and other ordinal words describing events or passage content are retained.",
+    "The above substring in an email address or a stem referring to the supplied passage is not an option-order reference."
+  ]
+}

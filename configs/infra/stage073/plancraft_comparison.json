@@ -1,0 +1,17 @@
+{
+  "reference": "reference",
+  "candidate": "runtime_bucket",
+  "scope": "Sequential same-device paired complete tasks, identical canonical prompts, shared configuration and real environments. Only unused L2 normalization compile-bucket specialization changes. Built-in full finite-call timings include real input processing; they are not token ITL.",
+  "arms": {
+    "reference": {
+      "run": "runs/native-l2norm-reuse-stage073/plancraft-reference",
+      "evaluation": "results/infra/native-l2norm-reuse-stage073/plancraft-reference_evaluation.json"
+    },
+    "runtime_bucket": {
+      "run": "runs/native-l2norm-reuse-stage073/plancraft-runtime_bucket",
+      "evaluation": "results/infra/native-l2norm-reuse-stage073/plancraft-runtime_bucket_evaluation.json"
+    }
+  },
+  "output": "results/infra/native_l2norm_reuse_stage073_plancraft_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

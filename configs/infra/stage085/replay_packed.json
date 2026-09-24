@@ -1,0 +1,47 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "service": "configs/inference/shared_service.json",
+  "sequences": [
+    [
+      "results/infra/native-history-profile-stage079/roots1/rank0-batch5.json",
+      "results/infra/native-history-profile-stage079/roots1/rank0-batch6.json"
+    ],
+    [
+      "results/infra/native-history-profile-stage079/roots8/rank0-batch5.json",
+      "results/infra/native-history-profile-stage079/roots8/rank0-batch6.json"
+    ]
+  ],
+  "arms": [
+    "root_cache_packed_mlp",
+    "same_pass_history_packed_mlp"
+  ],
+  "repetitions": 5,
+  "measurements_per_cohort": 1,
+  "history_cache": {
+    "chunk_tokens": 64,
+    "initial_count": 0,
+    "manager": "configs/infra/history_cache.json",
+    "capture_settings": "tests/infra/native_chunk_checkpoint/capture_settings.json"
+  },
+  "workload_fields": [
+    "batch_size",
+    "physical_batch_size",
+    "logical_field_count",
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "reused_state_tokens",
+    "reused_root_tokens",
+    "prefill_forwards",
+    "prefill_token_slots"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "output": "results/infra/shared-packed-history-stage085",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "entrypoint": "tests/infra/history_cache/replay_packed.py"
+}

@@ -1,0 +1,48 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "lats",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-v0725-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/observation_repair_cat_shards_20260924/specification_2.json",
+      "run": "runs/native-baselines-observation-repair-cat-shards-20260924/lats/shard_2",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/lats/cat_shard_2.json",
+      "method": "lats",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/lats_cat_shard_2.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/lats/cat_shard_2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/observation_repair_cat_shards_20260924/specification_2.json",
+          "--output",
+          "runs/native-baselines-observation-repair-cat-shards-20260924/lats/shard_2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-cat-shards-20260924/lats/shard_2",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/lats/cat_shard_2.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,691 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "llmcompiler",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits",
+    "--id=0,1,2,3"
+  ],
+  "entries": [
+    {
+      "method": "llmcompiler",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/ppnl",
+      "evaluation": "results/native_baselines/screen/llmcompiler/ppnl.json",
+      "progress": "results/native_baselines/progress/llmcompiler/ppnl.json",
+      "log": "logs/native_baselines/screen-llmcompiler-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/ppnl",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/ppnl",
+      "evaluation": "results/native_baselines/formal/llmcompiler/ppnl.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/ppnl.json",
+      "log": "logs/native_baselines/formal-llmcompiler-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/ppnl_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/ppnl",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/llmcompiler/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/llmcompiler/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-llmcompiler-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_llmcompiler_schema_v2.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/llmcompiler/lmrlgym_maze_schema_v2.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/lmrlgym_maze_schema_v2.json",
+      "log": "logs/native_baselines/formal-llmcompiler-lmrlgym_maze_schema_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/lmrlgym_maze_llmcompiler_schema_v2.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/lmrlgym_maze_schema_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/lmrlgym_maze_schema_v2",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/lmrlgym_maze_schema_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/llmcompiler/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/llmcompiler/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-llmcompiler-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/llmcompiler/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/llfbench_gridworld.json",
+      "log": "logs/native_baselines/formal-llmcompiler-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/llfbench_gridworld_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/plancraft",
+      "evaluation": "results/native_baselines/screen/llmcompiler/plancraft.json",
+      "progress": "results/native_baselines/progress/llmcompiler/plancraft.json",
+      "log": "logs/native_baselines/screen-llmcompiler-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/plancraft_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/plancraft",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/plancraft",
+      "evaluation": "results/native_baselines/formal/llmcompiler/plancraft.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/plancraft.json",
+      "log": "logs/native_baselines/formal-llmcompiler-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/plancraft_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/plancraft",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/autoplanbench",
+      "evaluation": "results/native_baselines/screen/llmcompiler/autoplanbench.json",
+      "progress": "results/native_baselines/progress/llmcompiler/autoplanbench.json",
+      "log": "logs/native_baselines/screen-llmcompiler-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/autoplanbench",
+      "evaluation": "results/native_baselines/formal/llmcompiler/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/autoplanbench.json",
+      "log": "logs/native_baselines/formal-llmcompiler-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/autoplanbench_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/llmcompiler/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/llmcompiler/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-llmcompiler-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/llmcompiler/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/agentquest_mastermind.json",
+      "log": "logs/native_baselines/formal-llmcompiler-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_mastermind_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/llmcompiler/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/llmcompiler/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-llmcompiler-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/llmcompiler/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-llmcompiler-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/llmcompiler/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/llmcompiler/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-llmcompiler-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/textarena_lightsout.json",
+      "log": "logs/native_baselines/formal-llmcompiler-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_lightsout",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/llmcompiler/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/llmcompiler/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-llmcompiler-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/textarena_rushhour.json",
+      "log": "logs/native_baselines/formal-llmcompiler-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_rushhour",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/llmcompiler/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/llmcompiler/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-llmcompiler-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/textarena_sokoban.json",
+      "log": "logs/native_baselines/formal-llmcompiler-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/textarena_sokoban",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/korgym_2048",
+      "evaluation": "results/native_baselines/screen/llmcompiler/korgym_2048.json",
+      "progress": "results/native_baselines/progress/llmcompiler/korgym_2048.json",
+      "log": "logs/native_baselines/screen-llmcompiler-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_2048",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/korgym_2048.json",
+      "log": "logs/native_baselines/formal-llmcompiler-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/llmcompiler/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/llmcompiler/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-llmcompiler-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-llmcompiler-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_llmcompiler.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/llmcompiler/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/llmcompiler/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-llmcompiler-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_llmcompiler.json",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_llmcompiler.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-llmcompiler-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_nullify_llmcompiler.json",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

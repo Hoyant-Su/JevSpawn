@@ -1,0 +1,15 @@
+{
+  "scope": "Fixed observed-state policy diagnosis: recomputed finite decisions versus brief reasoning on identical consumer evidence; no task-success or numerical-kernel claim.",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "source_protocol": "runs/action-frontier-maze-002/protocol.json",
+  "source_traces": [
+    "runs/action-frontier-maze-002/trace-00000.json",
+    "runs/action-frontier-maze-002/trace-00001.json"
+  ],
+  "prompts": "qualification.decision_reasoning_control",
+  "task_id": "control-{source}-turn-{turn}",
+  "task_count": 32,
+  "answer_pattern": "<answer>\\s*([^<>]+?)\\s*</answer>",
+  "answer_count": 1
+}

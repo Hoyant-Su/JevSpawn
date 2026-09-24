@@ -1,0 +1,22 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "sources": [
+    "results/infra/native-history-profile-stage079-aligned/roots1/rank0-batch6.json",
+    "results/infra/native-history-profile-stage079-aligned/roots8/rank0-batch6.json"
+  ],
+  "repetitions": 5,
+  "output": "results/infra/native-readonly-stage088",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "service": "configs/inference/shared_service.json",
+  "arms": [
+    "native_clone",
+    "immutable_views"
+  ],
+  "entrypoint": "tests/infra/native_cache_views/qualify_read_only.py"
+}

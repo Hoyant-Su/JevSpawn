@@ -1,0 +1,40 @@
+{
+  "stage": "stage070_native_forward_stall_diagnosis",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench_stall_profile",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-direct-finite-stage070-autoplanbench8-stall-profile",
+      "evaluation": "results/infra/native-direct-finite-stage070-autoplanbench8-stall-profile_evaluation.json",
+      "progress": "results/infra/native-direct-finite-stage070-autoplanbench8-stall-profile_progress.json",
+      "log": "logs/infra/native-direct-finite-stage070-autoplanbench8-stall-profile.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "tests/infra/native_direct_finite/autoplanbench_stall_profile.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-direct-finite-stage070-autoplanbench8-stall-profile",
+          "--output",
+          "results/infra/native-direct-finite-stage070-autoplanbench8-stall-profile_evaluation.json"
+        ]
+      ]
+    }
+  ]
+}

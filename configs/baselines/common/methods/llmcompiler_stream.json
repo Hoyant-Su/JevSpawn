@@ -1,0 +1,16 @@
+{
+  "module": "baselines.common.llmcompiler_stream",
+  "python_paths": [
+    "../../runtime/official_llmcompiler/deps",
+    "external/LLMCompiler"
+  ],
+  "prompts": "configs/baselines/common/schema/llmcompiler.json",
+  "settings": {
+    "planner_stop": [
+      "<END_OF_PLAN>"
+    ],
+    "max_plans": 2,
+    "planner_stream": true
+  },
+  "service": "baselines.common.streaming_service.StreamingBatchService"
+}

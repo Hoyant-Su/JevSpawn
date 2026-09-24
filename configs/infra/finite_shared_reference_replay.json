@@ -1,0 +1,39 @@
+{
+  "source_run": "runs/common-jevspawn_reference_revision_stable-recorded-noncoding-tp4-v1-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "batches_glob": "session-*/batches.json",
+  "input_directory": "finite-inputs",
+  "input_glob": "cohort-*.json",
+  "output": "runs/finite-shared-reference-replay-001",
+  "result": "results/infra/finite_shared_reference_replay_001.json",
+  "rank_file": "rank{rank}-{phase}-{variant}.json",
+  "variants": {
+    "original": "stable",
+    "relocated": "stable"
+  },
+  "caches": [
+    "base",
+    "state"
+  ],
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  },
+  "graph_shape": {
+    "batch_buckets": [
+      1,
+      8
+    ]
+  },
+  "command": "replay_shared_reference",
+  "phases": [
+    "warm",
+    "measured"
+  ],
+  "timing_scope": "All original63cohorts/270requests are replayed in fixed order; only reversible shared-state rendering differs. Each warm/measured variant starts with cleared graphs and prefix caches, preserving cold captures and exact full inputs. Numerical changes are conditioning changes; choice agreement is descriptive, not a correctness requirement. Ordinary task execution and tools are outside this replay.",
+  "original_variant": "original",
+  "relocated_variant": "relocated",
+  "layout_config": "configs/infra/shared_reference_state_cpu.json"
+}

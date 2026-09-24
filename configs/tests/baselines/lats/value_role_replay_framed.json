@@ -1,0 +1,14 @@
+{
+  "source_run": "runs/common-lats-all-datasets-gen4096-refill-001",
+  "source_batch_index": 64,
+  "source_task_id": "multihoprag/77",
+  "shared_config": "configs/infra/shared_config_refill_qualification.yaml",
+  "method": "configs/baselines/common/methods/lats.json",
+  "variants": [
+    "original",
+    "evaluator_roles"
+  ],
+  "identity_template": "lats-value-replay/{variant}",
+  "expected_output_samples": 1,
+  "stage": "LATS explicit evaluator-call framing; preserve recorded content, budgets and upstream grading."
+}

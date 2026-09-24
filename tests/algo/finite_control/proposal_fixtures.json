@@ -1,0 +1,57 @@
+{
+  "base": "tests/algo/finite_control/fixtures.json",
+  "method": "configs/baselines/common/methods/jevspawn_proposal_state.json",
+  "choices": [
+    [
+      "propose"
+    ],
+    [
+      "propose"
+    ],
+    [
+      "submit"
+    ]
+  ],
+  "proposals": [
+    {
+      "answer": "first candidate"
+    },
+    {
+      "answer": "jointly revised candidate"
+    }
+  ],
+  "expected_commits": 1,
+  "observations": [
+    {
+      "tool": "protocol_only_tool",
+      "arguments": {
+        "query": "actual query"
+      },
+      "result": {
+        "answer": "actual result"
+      }
+    }
+  ],
+  "judgments": [
+    {
+      "source_path": [
+        "protocol_only_path"
+      ],
+      "interface": "protocol_only_interface",
+      "value": "support",
+      "bindings": [
+        {
+          "field": "protocol_only_field",
+          "whole_value": false,
+          "value": "actual entity"
+        }
+      ]
+    }
+  ],
+  "forbidden_sources": [
+    "protocol_only_tool",
+    "protocol_only_path",
+    "protocol_only_interface",
+    "protocol_only_field"
+  ]
+}

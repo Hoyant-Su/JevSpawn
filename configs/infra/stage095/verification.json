@@ -1,0 +1,62 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/action_prefix/verify_post_readout.py",
+  "output": "results/infra/native-action-prefix-stage095/verification",
+  "prepared": "results/infra/native-action-prefix-stage095/post_readout/prepared.json",
+  "task_file": "task-00000.json",
+  "complete_turn_index": 0,
+  "modes": [
+    "reuse",
+    "post_readout"
+  ],
+  "sources": [
+    {
+      "track": "agentquest_mastermind",
+      "config": "configs/infra/stage094/agentquest_mastermind_candidate.json"
+    },
+    {
+      "track": "agentquest_sudoku",
+      "config": "configs/infra/stage094/agentquest_sudoku_candidate.json"
+    },
+    {
+      "track": "lmrlgym_maze",
+      "config": "configs/infra/stage094/lmrlgym_maze_candidate.json"
+    },
+    {
+      "track": "plancraft",
+      "config": "configs/infra/stage094/plancraft_candidate.json"
+    }
+  ],
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "snapshot_probe_replays": 1
+}

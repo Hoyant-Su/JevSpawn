@@ -1,0 +1,286 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "instance": "v26-0910-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_action_prefix_screen/agentquest_mastermind_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/agentquest_mastermind/reference",
+      "evaluation": "results/validation/stage094_agentquest_mastermind_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/agentquest_mastermind_reference.json",
+      "log": "logs/qualification/stage094_agentquest_mastermind_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/agentquest_mastermind_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/agentquest_mastermind/reference",
+          "--output",
+          "results/validation/stage094_agentquest_mastermind_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_action_prefix_screen/agentquest_mastermind_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/agentquest_mastermind/candidate",
+      "evaluation": "results/validation/stage094_agentquest_mastermind_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/agentquest_mastermind_candidate.json",
+      "log": "logs/qualification/stage094_agentquest_mastermind_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/agentquest_mastermind_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/agentquest_mastermind/candidate",
+          "--output",
+          "results/validation/stage094_agentquest_mastermind_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_action_prefix_screen/agentquest_sudoku_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/agentquest_sudoku/candidate",
+      "evaluation": "results/validation/stage094_agentquest_sudoku_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/agentquest_sudoku_candidate.json",
+      "log": "logs/qualification/stage094_agentquest_sudoku_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/agentquest_sudoku_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/agentquest_sudoku/candidate",
+          "--output",
+          "results/validation/stage094_agentquest_sudoku_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_action_prefix_screen/agentquest_sudoku_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/agentquest_sudoku/reference",
+      "evaluation": "results/validation/stage094_agentquest_sudoku_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/agentquest_sudoku_reference.json",
+      "log": "logs/qualification/stage094_agentquest_sudoku_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/agentquest_sudoku_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/agentquest_sudoku/reference",
+          "--output",
+          "results/validation/stage094_agentquest_sudoku_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_action_prefix_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/autoplanbench/reference",
+      "evaluation": "results/validation/stage094_autoplanbench_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/autoplanbench_reference.json",
+      "log": "logs/qualification/stage094_autoplanbench_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/autoplanbench_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/autoplanbench/reference",
+          "--output",
+          "results/validation/stage094_autoplanbench_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_action_prefix_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/autoplanbench/candidate",
+      "evaluation": "results/validation/stage094_autoplanbench_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/autoplanbench_candidate.json",
+      "log": "logs/qualification/stage094_autoplanbench_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/autoplanbench_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/autoplanbench/candidate",
+          "--output",
+          "results/validation/stage094_autoplanbench_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_circle_the_cat/reference",
+      "evaluation": "results/validation/stage094_korgym_circle_the_cat_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_circle_the_cat_reference.json",
+      "log": "logs/qualification/stage094_korgym_circle_the_cat_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_circle_the_cat_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_circle_the_cat/reference",
+          "--output",
+          "results/validation/stage094_korgym_circle_the_cat_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_circle_the_cat/candidate",
+      "evaluation": "results/validation/stage094_korgym_circle_the_cat_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_circle_the_cat_candidate.json",
+      "log": "logs/qualification/stage094_korgym_circle_the_cat_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_circle_the_cat_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_circle_the_cat/candidate",
+          "--output",
+          "results/validation/stage094_korgym_circle_the_cat_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_rushhour_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_rushhour/reference",
+      "evaluation": "results/validation/stage094_textarena_rushhour_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_rushhour_reference.json",
+      "log": "logs/qualification/stage094_textarena_rushhour_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_rushhour_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_rushhour/reference",
+          "--output",
+          "results/validation/stage094_textarena_rushhour_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_rushhour_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_rushhour/candidate",
+      "evaluation": "results/validation/stage094_textarena_rushhour_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_rushhour_candidate.json",
+      "log": "logs/qualification/stage094_textarena_rushhour_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_rushhour_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_rushhour/candidate",
+          "--output",
+          "results/validation/stage094_textarena_rushhour_candidate.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "batch_size": 8,
+  "max_new_tokens": 512,
+  "temperature": 0,
+  "max_model_calls": 32,
+  "task_timeout_seconds": 300,
+  "tool_limits": {
+    "max_characters": 512,
+    "max_nodes": 128,
+    "max_exponent": 20,
+    "max_magnitude": 1e+100
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "collections": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/feasibility/collections.jsonl",
+  "relevance": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/feasibility/relevance.jsonl",
+  "query_count": 8,
+  "candidate_count": 32,
+  "worker_batch_size": 8,
+  "field_execution": "finite",
+  "parent_outcome_conditioning": true,
+  "field_output_tokens": 128,
+  "ranking_cutoff": 10,
+  "budgets": {
+    "max_nodes": 4,
+    "min_candidates": 2,
+    "max_candidates": 4,
+    "max_depth": 1,
+    "planner_tokens": 1024
+  },
+  "message_encoding": "Shared criterion definitions plus finite node ID to option ID choices",
+  "stage": "S3f compact independent criteria"
+}

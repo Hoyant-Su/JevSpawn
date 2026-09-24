@@ -1,0 +1,65 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage103_canonical_branch_identity",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-0910-8-core",
+  "entries": [
+    {
+      "dataset": "textarena_lightsout",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/textarena_lightsout_spec.json",
+      "run": "runs/canonical-branch-stage103/textarena_lightsout",
+      "evaluation": "results/validation/canonical-branch-stage103/textarena_lightsout.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/textarena_lightsout.json",
+      "log": "logs/qualification/canonical-branch-stage103/textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/textarena_lightsout.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/textarena_lightsout",
+          "--output",
+          "results/validation/canonical-branch-stage103/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/korgym_nullify_spec.json",
+      "run": "runs/canonical-branch-stage103/korgym_nullify",
+      "evaluation": "results/validation/canonical-branch-stage103/korgym_nullify.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/korgym_nullify.json",
+      "log": "logs/qualification/canonical-branch-stage103/korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/korgym_nullify.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/korgym_nullify",
+          "--output",
+          "results/validation/canonical-branch-stage103/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

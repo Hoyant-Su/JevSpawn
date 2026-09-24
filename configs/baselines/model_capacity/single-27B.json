@@ -1,0 +1,37 @@
+{
+  "dataset": "development_capacity",
+  "task_scope": "Fixed development-only capacity comparison, preserving full original options.",
+  "task_count": 53,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/warmup.jsonl",
+  "warmup_task_ids": [
+    "aqua/dev/32",
+    "aqua/dev/33",
+    "aqua/dev/34",
+    "aqua/dev/35",
+    "aqua/dev/36",
+    "aqua/dev/37",
+    "aqua/dev/38",
+    "aqua/dev/39"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/model_capacity/native-27B.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "interface": "sync_fields",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/prompts.json",
+  "python_paths": [],
+  "budget": {
+    "max_model_calls_per_task": 1,
+    "max_new_tokens": 2048,
+    "max_output_tokens_per_task": 2048,
+    "temperature": 0,
+    "tools": [],
+    "output": "Unconstrained autoregressive JSON containing thought and choice, original strict parser."
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "Unchanged direct reasoning and original ReAct algorithms. Only model size and development inputs differ from the existing configurations.",
+  "agent_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/reasoning_config.json",
+  "comparison_class": "Authored direct single-agent generative control, not a published agent baseline."
+}

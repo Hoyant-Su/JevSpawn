@@ -1,0 +1,14 @@
+{
+  "tasks": "data/baselines/common/tasks/aqua.jsonl",
+  "offset": 0,
+  "samples": 8,
+  "batch_sizes": [
+    1,
+    8
+  ],
+  "repeats": 3,
+  "tokens": 256,
+  "trace_tokens": 32,
+  "rtol": 0.008,
+  "atol": 0.002
+}

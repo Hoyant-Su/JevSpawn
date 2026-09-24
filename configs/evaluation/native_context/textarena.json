@@ -1,0 +1,134 @@
+{
+  "family": "TextArena",
+  "scope": "Pinned official TextArena environments connected through one common external evaluator.",
+  "source_root": "external/TextArena-native",
+  "source_commit": "6dfb577c01d0337fe03b05adce84c5ae1878eca1",
+  "repository": "https://github.com/TextArena/TextArena",
+  "seed": 42,
+  "num_players": 1,
+  "tracks": [
+    {
+      "name": "LightsOut",
+      "native_class": "textarena.envs.LightsOut.env.LightsOutEnv",
+      "official_action_syntax": "[row col]",
+      "source": "external/TextArena-native/textarena/envs/LightsOut/env.py",
+      "constructor_variants": [
+        {
+          "size": 4,
+          "max_turns": 50
+        },
+        {
+          "size": 5,
+          "max_turns": 50
+        }
+      ],
+      "tasks": "data/native_context/textarena_lightsout/tasks.jsonl",
+      "common_specifications": {
+        "jevspawn": "configs/experiments/native_context/textarena_lightsout_jevspawn.json",
+        "react": "configs/experiments/native_context/textarena_lightsout_react.json",
+        "single": "configs/experiments/native_context/textarena_lightsout_single.json"
+      },
+      "env_id": "LightsOut-v0"
+    },
+    {
+      "name": "Sokoban",
+      "native_class": "textarena.envs.Sokoban.env.SokobanEnv",
+      "official_action_syntax": "[up], [down], [left], [right]",
+      "source": "external/TextArena-native/textarena/envs/Sokoban/env.py",
+      "constructor_variants": [
+        {
+          "dim_room": [
+            6,
+            6
+          ],
+          "num_boxes": 2,
+          "max_turns": 100
+        },
+        {
+          "dim_room": [
+            6,
+            6
+          ],
+          "num_boxes": 3,
+          "max_turns": 100
+        }
+      ],
+      "tasks": "data/native_context/textarena_sokoban/tasks.jsonl",
+      "common_specifications": {
+        "jevspawn": "configs/experiments/native_context/textarena_sokoban_jevspawn.json",
+        "react": "configs/experiments/native_context/textarena_sokoban_react.json",
+        "single": "configs/experiments/native_context/textarena_sokoban_single.json"
+      },
+      "env_id": "Sokoban-v0"
+    },
+    {
+      "name": "RushHour",
+      "native_class": "textarena.envs.RushHour.env.RushHourEnv",
+      "official_action_syntax": "[<vehicle id><+ or ->], for example [A+]",
+      "source": "external/TextArena-native/textarena/envs/RushHour/env.py",
+      "constructor_variants": [
+        {
+          "difficulty": "easy"
+        },
+        {
+          "difficulty": "medium"
+        }
+      ],
+      "tasks": "data/native_context/textarena_rushhour/tasks.jsonl",
+      "common_specifications": {
+        "jevspawn": "configs/experiments/native_context/textarena_rushhour_jevspawn.json",
+        "react": "configs/experiments/native_context/textarena_rushhour_react.json",
+        "single": "configs/experiments/native_context/textarena_rushhour_single.json"
+      },
+      "env_id": "RushHour-v0"
+    }
+  ],
+  "native_api": {
+    "reset": "reset(num_players: int, seed: Optional[int]) -> None; Sokoban also exposes max_retries.",
+    "observation": "get_observation() returns (player_id, public text) through the official registered observation wrapper.",
+    "step": "step(action: str) -> (done: bool, info)",
+    "close": "close() -> (per-player native rewards, per-player game info)",
+    "scoring": "Use the native terminal reward recorded by state.set_outcome; preserve native partial-credit reward and do not replace it with a proxy.",
+    "fork": "Verified deepcopy isolation for all six seed-42 task instances.",
+    "factory": "textarena.make(env_id, **native_parameters), including all official default wrappers."
+  },
+  "context_protocol": "Use the official registered initial text observation, then append the common tool contract and answer schema identically for every method.",
+  "downloaded_resources": [
+    "textarena/__init__.py",
+    "textarena/envs/registration.py",
+    "textarena/envs/LightsOut/locales/en.json",
+    "textarena/envs/Sokoban/locales/en.json",
+    "textarena/envs/RushHour/locales/en.json",
+    "pyproject.toml"
+  ],
+  "resources_root": "external/TextArena-native/textarena",
+  "readiness": {
+    "native_reset_step_verified": true,
+    "native_fork_verified": true,
+    "context_records_prepared": true,
+    "local_task_count": 6,
+    "shared_execution_bridge_present": true,
+    "common_inference_ready": true,
+    "model_inference_verified": false
+  },
+  "missing_components": [],
+  "dependency_attempt": {
+    "interpreter": "../../environ/qwen35_spawn/bin/python",
+    "package": "textarena==0.7.3",
+    "index_policy": "Installed pinned official local source without dependency resolution or index override.",
+    "exit_code": 0,
+    "result": "Selected official TextArena environments and required package resources installed in the project environment."
+  },
+  "reproducibility_note": "Native Python and NumPy RNG states are saved, seeded with task seed 42, and restored under a shared reset lock; variants differ by official constructor parameters.",
+  "environment_execution": {
+    "class": "environments.textarena.TextArenaEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/textarena_runtime.json"
+    }
+  },
+  "evidence": [
+    "results/validation/textarena_shared_evaluator_stage039_20260923.json",
+    "results/validation/textarena_positive_controls_stage039_20260923.json"
+  ],
+  "metric": "Native numeric terminal reward; invalid terminal states can retain partial credit. Unfinished answers and trailing actions after terminal receive explicitly configured zero score. A terminal state is not automatically a successful solution."
+}

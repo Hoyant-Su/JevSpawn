@@ -1,0 +1,25 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "task_count": 16,
+  "tasks": "data/compositional/bfcl_parallel_multiple/development/tasks.jsonl",
+  "method": "configs/baselines/common/methods/jevspawn_semantic_bfcl_multiple_construct_039.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "baselines.common.submission_environment.SubmissionEnvironment",
+    "parameters": {
+      "contract": {
+        "prompts": "environments.submission",
+        "include_finish": true,
+        "serialization": {
+          "ensure_ascii": false
+        },
+        "submission_result": {
+          "submitted": true
+        },
+        "terminal": true
+      }
+    }
+  },
+  "output": "runs/action-tasks-bfcl-multiple-jevspawn-construct-039"
+}

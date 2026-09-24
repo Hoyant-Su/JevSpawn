@@ -1,0 +1,91 @@
+{
+  "class": "environments.autoplanbench.AutoPlanBenchEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/autoplanbench.json"
+  },
+  "track": "official_v1.0_raw_pddl_interactive_zero_shot",
+  "native_source": "external/AutoPlanBench-review/llm_planning/raw_pddl_input/raw_pddl_env.py",
+  "official_prompt": "external/AutoPlanBench-review/llm_planning/raw_pddl_input/planning_template_pddl_interactive.txt",
+  "validator_directory": "external/AutoPlanBench-review/VAL/build/bin",
+  "python": "external/AutoPlanBench-review/environment/bin/python",
+  "source_fields": [
+    "instance_file",
+    "domain_file"
+  ],
+  "local_domain_file": "domain.pddl",
+  "context_separator": "\n\n",
+  "template_arguments": {
+    "include_examples": false,
+    "pos_examples": [],
+    "prefixes": {
+      "input": "",
+      "output": ""
+    }
+  },
+  "tool_name": "execute",
+  "tool_definition": {
+    "description": "Execute exactly one ground PDDL action in parenthesized prefix notation: (action-name object ...). Preserve the parentheses and the argument order declared by the domain. The official VAL executor reads this string directly as a one-action PDDL plan and returns execution feedback.",
+    "arguments": {
+      "action": "string"
+    }
+  },
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "One parenthesized ground PDDL action, (action-name object ...), using objects declared in the problem.",
+        "pattern": "^\\([^()\\r\\n]+\\)$"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "description": "One parenthesized ground PDDL action in the same syntax accepted by execute."
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "serialization": {
+    "ensure_ascii": false
+  },
+  "session": "configs/environments/session.json",
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "valid": {
+        "type": "boolean"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  },
+  "upstream_revision": "7ebb0b77c9f01670a5d3daa3b3a2962a5dd2c9bb",
+  "upstream_repository": "https://github.com/minecraft-saar/autoplanbench",
+  "python_paths": [
+    "src",
+    "jevspawn/src"
+  ]
+}

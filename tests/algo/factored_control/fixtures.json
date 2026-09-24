@@ -1,0 +1,55 @@
+{
+  "method": "configs/baselines/common/methods/jevspawn_factored_control_tp4_v2.json",
+  "group_sizes": {
+    "propose": 1,
+    "tool": 2,
+    "spawn": 131,
+    "inspect": 131
+  },
+  "expected_total": 265,
+  "capacity": 256,
+  "iteration": 0,
+  "singleton_count": 1,
+  "identifier": "{operation}:{index}",
+  "description": "Original operand {index} for {operation}.",
+  "evidence": {
+    "observations": [
+      {
+        "result": {
+          "value": 7
+        }
+      }
+    ],
+    "judgments": {}
+  },
+  "scalar": {
+    "values": [
+      "contradiction",
+      "unknown",
+      "support"
+    ],
+    "schema": {
+      "type": "string",
+      "enum": [
+        "contradiction",
+        "unknown",
+        "support"
+      ]
+    },
+    "path": [
+      "result"
+    ],
+    "evidence": {
+      "question": "Original question",
+      "observations": [
+        {
+          "value": 7
+        }
+      ]
+    },
+    "excluded": [],
+    "question": "Compare all admissible values against the actual evidence."
+  },
+  "selected_value": "unknown",
+  "result": "results/infra/factored_control_cpu_001.json"
+}

@@ -1,0 +1,9 @@
+{
+ "shared_config":"configs/shared_config_arena_v1.yaml",
+ "autoregressive_batches":"runs/common-jevspawn-adaptive-all-datasets-seed42-001/session-0000/batches.json",
+ "batch_index":1,
+ "finite_workload":"configs/methods/structured_flow/prefix_cache_qualification.json",
+ "field_mode":"tiled_shared",
+ "conditions":["cohort","decode_step"],
+ "scope":"Exact paired infrastructure replay; original AR eight-row batch and original SQuAD2 ten-field workload, no labels loaded. No reduced generation budget. State snapshots add qualification-only overhead and are not throughput measurements."
+}

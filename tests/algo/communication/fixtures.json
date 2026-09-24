@@ -1,0 +1,279 @@
+{
+  "settings": {
+    "whole_value_field": "$whole",
+    "json_types": {
+      "NoneType": "null",
+      "bool": "boolean",
+      "dict": "object",
+      "list": "array",
+      "str": "string",
+      "int": "integer",
+      "float": "number"
+    }
+  },
+  "items": [
+    {
+      "key": "alpha",
+      "metadata": {
+        "nested": [
+          "retained",
+          "exactly"
+        ]
+      },
+      "nullable": null,
+      "count": 7
+    },
+    {
+      "key": 17,
+      "count": "seven",
+      "$whole": "literal"
+    },
+    null,
+    [
+      "left",
+      "right"
+    ],
+    true,
+    {
+      "late_only": "last"
+    }
+  ],
+  "descriptors": [
+    {
+      "field": "key",
+      "whole_value": false,
+      "types": [
+        "string",
+        "integer"
+      ],
+      "presence": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "present_count": 2
+    },
+    {
+      "field": "metadata",
+      "whole_value": false,
+      "types": [
+        "object"
+      ],
+      "presence": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "present_count": 1
+    },
+    {
+      "field": "nullable",
+      "whole_value": false,
+      "types": [
+        "null"
+      ],
+      "presence": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "present_count": 1
+    },
+    {
+      "field": "count",
+      "whole_value": false,
+      "types": [
+        "integer",
+        "string"
+      ],
+      "presence": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "present_count": 2
+    },
+    {
+      "field": "$whole",
+      "whole_value": false,
+      "types": [
+        "string"
+      ],
+      "presence": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "present_count": 1
+    },
+    {
+      "field": "$whole",
+      "whole_value": true,
+      "types": [
+        "null",
+        "array",
+        "boolean"
+      ],
+      "presence": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ],
+      "present_count": 3
+    },
+    {
+      "field": "late_only",
+      "whole_value": false,
+      "types": [
+        "string"
+      ],
+      "presence": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "present_count": 1
+    }
+  ],
+  "selected": [
+    {
+      "field": "nullable",
+      "whole_value": false
+    },
+    {
+      "field": "key",
+      "whole_value": false
+    },
+    {
+      "field": "$whole",
+      "whole_value": true
+    },
+    {
+      "field": "late_only",
+      "whole_value": false
+    }
+  ],
+  "projected": [
+    [
+      {
+        "field": "nullable",
+        "whole_value": false,
+        "value": null
+      },
+      {
+        "field": "key",
+        "whole_value": false,
+        "value": "alpha"
+      }
+    ],
+    [
+      {
+        "field": "key",
+        "whole_value": false,
+        "value": 17
+      }
+    ],
+    [
+      {
+        "field": "$whole",
+        "whole_value": true,
+        "value": null
+      }
+    ],
+    [
+      {
+        "field": "$whole",
+        "whole_value": true,
+        "value": [
+          "left",
+          "right"
+        ]
+      }
+    ],
+    [
+      {
+        "field": "$whole",
+        "whole_value": true,
+        "value": true
+      }
+    ],
+    [
+      {
+        "field": "late_only",
+        "whole_value": false,
+        "value": "last"
+      }
+    ]
+  ],
+  "collision": {
+    "selected": [
+      {
+        "field": "$whole",
+        "whole_value": false
+      },
+      {
+        "field": "$whole",
+        "whole_value": true
+      }
+    ],
+    "items": [
+      {
+        "$whole": "object value"
+      },
+      "primitive value"
+    ],
+    "expected": [
+      [
+        {
+          "field": "$whole",
+          "whole_value": false,
+          "value": "object value"
+        }
+      ],
+      [
+        {
+          "field": "$whole",
+          "whole_value": true,
+          "value": "primitive value"
+        }
+      ]
+    ]
+  },
+  "nested": {
+    "item": {
+      "metadata": {
+        "nested": [
+          "retained",
+          "exactly"
+        ]
+      }
+    },
+    "selected": [
+      {
+        "field": "metadata",
+        "whole_value": false
+      }
+    ]
+  }
+}

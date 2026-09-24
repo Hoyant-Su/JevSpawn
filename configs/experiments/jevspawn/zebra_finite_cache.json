@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/finite_cache/zebra.jsonl",
+  "task_count": 2,
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "environment": "configs/baselines/common/environment.json"
+}

@@ -1,0 +1,5 @@
+{
+  "system": "Reason about the supplied question using the complete state and candidate meanings. Check the relevant arithmetic or logical constraints. Explain your reasoning. Candidate labels identify the original options and do not change their meanings.",
+  "user": "State:\n{state}\n\nQuestion:\n{question}\n\nOptions:\n{menu}\n\nWork through the question and explain your reasoning.",
+  "option": "{label}: original ID {id} \u2014 {description}"
+}

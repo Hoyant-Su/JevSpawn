@@ -1,0 +1,742 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "foldagent",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "foldagent",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/ppnl",
+      "evaluation": "results/native_baselines/screen/foldagent/ppnl.json",
+      "progress": "results/native_baselines/progress/foldagent/ppnl.json",
+      "log": "logs/native_baselines/screen-foldagent-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/ppnl",
+          "--output",
+          "results/native_baselines/screen/foldagent/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/ppnl",
+      "evaluation": "results/native_baselines/formal/foldagent/ppnl.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/ppnl.json",
+      "log": "logs/native_baselines/formal-foldagent-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/ppnl_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/ppnl",
+          "--output",
+          "results/native_baselines/formal/foldagent/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/foldagent/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/foldagent/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-foldagent-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/foldagent/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_foldagent_schema_v2.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/foldagent/lmrlgym_maze_schema_v2.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/lmrlgym_maze_schema_v2.json",
+      "log": "logs/native_baselines/formal-foldagent-lmrlgym_maze_schema_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/lmrlgym_maze_foldagent_schema_v2.json",
+          "runs/native-baselines-formal-20260923/foldagent/lmrlgym_maze_schema_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/lmrlgym_maze_schema_v2",
+          "--output",
+          "results/native_baselines/formal/foldagent/lmrlgym_maze_schema_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/foldagent/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/foldagent/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-foldagent-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/foldagent/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/foldagent/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/llfbench_gridworld.json",
+      "log": "logs/native_baselines/formal-foldagent-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/llfbench_gridworld_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/formal/foldagent/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/plancraft",
+      "evaluation": "results/native_baselines/screen/foldagent/plancraft.json",
+      "progress": "results/native_baselines/progress/foldagent/plancraft.json",
+      "log": "logs/native_baselines/screen-foldagent-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/plancraft_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/plancraft",
+          "--output",
+          "results/native_baselines/screen/foldagent/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/plancraft",
+      "evaluation": "results/native_baselines/formal/foldagent/plancraft.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/plancraft.json",
+      "log": "logs/native_baselines/formal-foldagent-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/plancraft_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/plancraft",
+          "--output",
+          "results/native_baselines/formal/foldagent/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_foldagent_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/foldagent/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/foldagent/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-foldagent-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_foldagent_state_v2.json",
+          "runs/native-baselines-screen-20260923/foldagent/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/foldagent/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_foldagent_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/foldagent/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-foldagent-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/robotouille_foldagent_state_v2.json",
+          "runs/native-baselines-formal-20260923/foldagent/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/foldagent/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/autoplanbench",
+      "evaluation": "results/native_baselines/screen/foldagent/autoplanbench.json",
+      "progress": "results/native_baselines/progress/foldagent/autoplanbench.json",
+      "log": "logs/native_baselines/screen-foldagent-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/foldagent/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/autoplanbench",
+      "evaluation": "results/native_baselines/formal/foldagent/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/autoplanbench.json",
+      "log": "logs/native_baselines/formal-foldagent-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/autoplanbench_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/foldagent/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/foldagent/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/foldagent/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-foldagent-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/foldagent/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/agentquest_mastermind.json",
+      "log": "logs/native_baselines/formal-foldagent-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_mastermind_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/formal/foldagent/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/foldagent/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/foldagent/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-foldagent-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/foldagent/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-foldagent-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/foldagent/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/foldagent/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/foldagent/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-foldagent-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/foldagent/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/textarena_lightsout.json",
+      "log": "logs/native_baselines/formal-foldagent-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_lightsout",
+          "--output",
+          "results/native_baselines/formal/foldagent/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/foldagent/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/foldagent/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-foldagent-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/foldagent/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/textarena_rushhour.json",
+      "log": "logs/native_baselines/formal-foldagent-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_rushhour",
+          "--output",
+          "results/native_baselines/formal/foldagent/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/foldagent/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/foldagent/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-foldagent-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/foldagent/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/textarena_sokoban.json",
+      "log": "logs/native_baselines/formal-foldagent-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/textarena_sokoban",
+          "--output",
+          "results/native_baselines/formal/foldagent/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/screen/foldagent/korgym_2048.json",
+      "progress": "results/native_baselines/progress/foldagent/korgym_2048.json",
+      "log": "logs/native_baselines/screen-foldagent-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/foldagent/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/korgym_2048.json",
+      "log": "logs/native_baselines/formal-foldagent-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/foldagent/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/foldagent/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/foldagent/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-foldagent-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/foldagent/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-foldagent-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/foldagent/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/foldagent/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/foldagent/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-foldagent-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_foldagent.json",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/foldagent/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-foldagent-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_nullify_foldagent.json",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/foldagent/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

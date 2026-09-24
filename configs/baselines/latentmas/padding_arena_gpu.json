@@ -1,0 +1,22 @@
+{
+  "stage": "shared_arena_latent_transport_bf16_validation",
+  "shared_config": "configs/shared_config_arena_v1.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "critic_prefix_tokens": 300,
+  "minimum_internal_padding_boundaries": 2,
+  "minimum_rows_with_valid_prefix_tokens": 3,
+  "validation_timeout_seconds": 1200,
+  "tolerance": {
+    "rtol": 0.05,
+    "atol": 0.05
+  },
+  "scope": "Full actual B8 planner plus ten latent transitions separately through independent cache and shared arena, require bit-exact planner hidden/masks/cache states; then compare configured300 cached critic tokens with original eager B8x1 using exact initial cache and original single-token graph kernels. GPU-only storage; no token or latent workload reduction outside explicit validation prefix; no quality claim.",
+  "workspace_reserve_bytes": 8589934592,
+  "snapshot_storage": "GPU only: initial cache clone and original final cache clone. Release initial clone after exact GPU restoration before graph capture; candidate final state uses views. No CPU snapshots or offload.",
+  "candidate_transport": "cuda_graph_single_token",
+  "graph_workspace_reserve_bytes": 2147483648
+}

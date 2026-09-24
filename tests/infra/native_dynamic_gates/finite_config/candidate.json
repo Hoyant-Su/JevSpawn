@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "tests/infra/native_rollout_profile/config/ppnl_8_spec.json",
+  "run_output": "runs/native-finite-gates-stage064-ppnl8-candidate",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "kernel": "dynamic"
+}

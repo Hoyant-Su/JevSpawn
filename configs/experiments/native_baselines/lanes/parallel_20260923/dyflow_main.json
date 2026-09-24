@@ -1,0 +1,586 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/ppnl",
+      "evaluation": "results/native_baselines/screen/dyflow/ppnl.json",
+      "progress": "results/native_baselines/progress/dyflow/ppnl.json",
+      "log": "logs/native_baselines/screen-dyflow-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/ppnl",
+          "--output",
+          "results/native_baselines/screen/dyflow/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/ppnl",
+      "evaluation": "results/native_baselines/formal/dyflow/ppnl.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/ppnl.json",
+      "log": "logs/native_baselines/formal-dyflow-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/ppnl_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/ppnl",
+          "--output",
+          "results/native_baselines/formal/dyflow/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/dyflow/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/dyflow/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-dyflow-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/dyflow/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_dyflow_schema_v2.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/dyflow/lmrlgym_maze_schema_v2.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/lmrlgym_maze_schema_v2.json",
+      "log": "logs/native_baselines/formal-dyflow-lmrlgym_maze_schema_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/lmrlgym_maze_dyflow_schema_v2.json",
+          "runs/native-baselines-formal-20260923/dyflow/lmrlgym_maze_schema_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/lmrlgym_maze_schema_v2",
+          "--output",
+          "results/native_baselines/formal/dyflow/lmrlgym_maze_schema_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/dyflow/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/dyflow/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-dyflow-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/dyflow/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/dyflow/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/llfbench_gridworld.json",
+      "log": "logs/native_baselines/formal-dyflow-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/llfbench_gridworld_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/formal/dyflow/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_dyflow_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/dyflow/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/dyflow/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-dyflow-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_dyflow_state_v2.json",
+          "runs/native-baselines-screen-20260923/dyflow/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/dyflow/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_dyflow_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/dyflow/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-dyflow-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/robotouille_dyflow_state_v2.json",
+          "runs/native-baselines-formal-20260923/dyflow/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/dyflow/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/dyflow/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/dyflow/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-dyflow-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/dyflow/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/dyflow/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/agentquest_mastermind.json",
+      "log": "logs/native_baselines/formal-dyflow-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_mastermind_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/formal/dyflow/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/dyflow/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/dyflow/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-dyflow-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/dyflow/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/textarena_lightsout.json",
+      "log": "logs/native_baselines/formal-dyflow-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_lightsout",
+          "--output",
+          "results/native_baselines/formal/dyflow/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/dyflow/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/dyflow/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-dyflow-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/dyflow/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/textarena_rushhour.json",
+      "log": "logs/native_baselines/formal-dyflow-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_rushhour",
+          "--output",
+          "results/native_baselines/formal/dyflow/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/dyflow/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/dyflow/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-dyflow-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/dyflow/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/textarena_sokoban.json",
+      "log": "logs/native_baselines/formal-dyflow-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/textarena_sokoban",
+          "--output",
+          "results/native_baselines/formal/dyflow/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_2048.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_2048.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_2048.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_dyflow.json",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_nullify_dyflow.json",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

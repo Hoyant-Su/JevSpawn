@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "method": "configs/baselines/common/methods/hiagent.json",
+  "environment": "configs/baselines/common/environment.json",
+  "oversized_tasks": "data/baselines/common/tasks/bright_pony.jsonl",
+  "valid_tasks": "data/baselines/common/tasks/aqua.jsonl",
+  "task_index": 0,
+  "output": "results/infra/hiagent_empty_history_boundary_001.json",
+  "work_dir": "runs/hiagent-empty-history-boundary-001",
+  "seed": 42,
+  "valid_history": "runs/common-hiagent-tp4-v1-matrix-001-aqua/task-00000.json",
+  "valid_history_entries": 5
+}

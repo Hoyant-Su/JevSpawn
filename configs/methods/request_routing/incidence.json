@@ -1,0 +1,74 @@
+{
+  "source_run": "runs/source-sets-development-001",
+  "task_count": 8,
+  "queries": [
+    {
+      "task_id": "multihoprag/77",
+      "questions": 3,
+      "sources": 325,
+      "dense_request_source_pairs": 975,
+      "routed_request_source_pairs": 384,
+      "incidence_groups": 7
+    },
+    {
+      "task_id": "multihoprag/1002",
+      "questions": 2,
+      "sources": 155,
+      "dense_request_source_pairs": 310,
+      "routed_request_source_pairs": 256,
+      "incidence_groups": 3
+    },
+    {
+      "task_id": "multihoprag/1085",
+      "questions": 3,
+      "sources": 203,
+      "dense_request_source_pairs": 609,
+      "routed_request_source_pairs": 384,
+      "incidence_groups": 7
+    },
+    {
+      "task_id": "multihoprag/1650",
+      "questions": 2,
+      "sources": 185,
+      "dense_request_source_pairs": 370,
+      "routed_request_source_pairs": 256,
+      "incidence_groups": 3
+    },
+    {
+      "task_id": "multihoprag/1684",
+      "questions": 4,
+      "sources": 420,
+      "dense_request_source_pairs": 1680,
+      "routed_request_source_pairs": 512,
+      "incidence_groups": 10
+    },
+    {
+      "task_id": "multihoprag/1695",
+      "questions": 4,
+      "sources": 202,
+      "dense_request_source_pairs": 808,
+      "routed_request_source_pairs": 512,
+      "incidence_groups": 14
+    },
+    {
+      "task_id": "multihoprag/1700",
+      "questions": 2,
+      "sources": 205,
+      "dense_request_source_pairs": 410,
+      "routed_request_source_pairs": 256,
+      "incidence_groups": 3
+    },
+    {
+      "task_id": "multihoprag/1905",
+      "questions": 4,
+      "sources": 430,
+      "dense_request_source_pairs": 1720,
+      "routed_request_source_pairs": 512,
+      "incidence_groups": 13
+    }
+  ],
+  "dense_request_source_pairs": 6882,
+  "routed_request_source_pairs": 3072,
+  "all_original_sources_retained": true,
+  "scope": "Structural workload count on recorded plans and retrieval. No new model predictions, quality result, latency estimate or speedup."
+}

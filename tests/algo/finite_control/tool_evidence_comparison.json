@@ -1,0 +1,12 @@
+{
+  "before": "runs/common-jevspawn-joint-domain-cohort-tp4-v2-001",
+  "after": "runs/common-jevspawn-tool-evidence-tp4-v2-001",
+  "output": "results/infra/jevspawn_tool_evidence_comparison_001.json",
+  "record_glob": "task-*.json",
+  "finite_glob": "finite-inputs/*.json",
+  "batches": "session-0000/batches.json",
+  "elapsed": "session-0000/elapsed.json",
+  "completed_status": "completed",
+  "finite_kind": "finite",
+  "serialization": {"indent": 2, "ensure_ascii": false}
+}

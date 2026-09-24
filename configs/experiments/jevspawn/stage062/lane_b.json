@@ -1,0 +1,47 @@
+{
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/jevspawn/stage062/autoplanbench.json",
+      "run": "runs/native-autoplanbench-jevspawn-20260923-062",
+      "evaluation": "results/validation/native_stage062_autoplanbench_20260923.json",
+      "progress": "results/validation/native_stage062_autoplanbench_progress_20260923.json",
+      "log": "logs/qualification/native-stage062-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/jevspawn/stage062/autoplanbench.json",
+          "--output",
+          "runs/native-autoplanbench-jevspawn-20260923-062",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-autoplanbench-jevspawn-20260923-062",
+          "--output",
+          "results/validation/native_stage062_autoplanbench_20260923.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "tasks": "data/baselines/common/qualification/typed_revision_coding.jsonl",
+  "task_count": 2,
+  "method": "configs/baselines/common/methods/jevspawn_reference_revision.json",
+  "environment": "configs/baselines/common/environment.json"
+}

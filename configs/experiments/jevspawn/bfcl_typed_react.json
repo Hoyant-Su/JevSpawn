@@ -1,0 +1,12 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/finite_cache/bfcl_typed_calls.jsonl",
+  "task_count": 4,
+  "method": "configs/baselines/common/methods/react.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "baselines.common.environment.TaskEnvironment",
+    "parameters": {}
+  }
+}

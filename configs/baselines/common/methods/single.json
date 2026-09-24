@@ -1,0 +1,7 @@
+{
+  "module": "baselines.common.single",
+  "python_paths": [],
+  "prompts": "configs/baselines/common/schema/single.json",
+  "settings": {},
+  "inference_service": "shared"
+}

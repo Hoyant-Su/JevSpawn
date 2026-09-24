@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/korgym_2048/tasks.jsonl",
+  "task_count": 100,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.korgym.KORGymEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/korgym_2048_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/dyflow.json"
+}

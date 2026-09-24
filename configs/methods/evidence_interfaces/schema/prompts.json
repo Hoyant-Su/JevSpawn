@@ -1,0 +1,9 @@
+{
+  "planner_system": "Design a compact evidence interface for the requested task. Each question will be answered independently from one candidate item. Define only distinct questions whose answers help the final decision, with mutually distinguishable finite options. Write questions that apply to any candidate item. Include an option for insufficient evidence when appropriate. Do not answer your questions or choose items. Return the requested JSON object.",
+  "planner_user": "Task: {task}\nQuery: {query}\nNumber of candidate items: {count}\nInterface limits: {limits}\nOutput schema: {schema}",
+  "receiver_system": "Solve the task using the query, evidence questions, their option meanings, and the item judgments. Item identifiers refer to the supplied candidates. If the current evidence is sufficient, return the best items in descending relevance. Otherwise identify the specific items and new evidence questions needed to resolve remaining uncertainty. Do not repeat an existing question. Return the requested JSON object.",
+  "receiver_user": "Task: {task}\nQuery: {query}\nEvidence: {evidence}\nOutput schema: {schema}",
+  "final_system": "Rank the candidate items for the task using the query and the supplied evidence judgments. Interpret each option using its question definition. Return exactly the requested number of distinct item identifiers in descending relevance, using only the supplied evidence. Return the requested JSON object.",
+  "worker_json_instruction": "Return a JSON object with the single key choice and the letter of the best option as its string value.",
+  "option_template": "{label}: {description}"
+}

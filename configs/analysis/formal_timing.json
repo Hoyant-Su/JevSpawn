@@ -1,0 +1,24 @@
+{
+  "matrix": "results/baselines/common/tables/formal_tp4_matrix.json",
+  "workers": 2,
+  "timing": {
+    "session_glob": "session-*",
+    "files": {
+      "completion": "completion.json",
+      "runtime": "runtime.json",
+      "batches": "batches.json",
+      "elapsed": "elapsed.json"
+    },
+    "batch_sizes": [
+      1,
+      8
+    ],
+    "scope": "Complete task lifecycles, tools, queue waits and captures; model loading excluded. Sum of recorded active sessions excludes downtime between restarts. Missing interrupted-session telemetry makes full-cell timing unavailable. ITL is per-sequence token intervals, excluding prefill. Memory is leader-rank CUDA allocator peak, not total TP memory. Zero model batches denotes rejected requests; the observed rejection duration is not model inference latency and has no ITL or inference-memory measurement."
+  },
+  "identity_columns": [
+    "method",
+    "dataset"
+  ],
+  "json_output": "results/baselines/common/tables/formal_tp4_timing.json",
+  "csv_output": "results/baselines/common/tables/formal_tp4_timing.csv"
+}

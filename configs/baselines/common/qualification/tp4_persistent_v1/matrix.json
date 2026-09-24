@@ -1,0 +1,29 @@
+{
+  "matrix": "configs/baselines/common/qualification/tp4_persistent_v1/datasets.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "evaluation_references": "configs/baselines/common/qualification/tp4_persistent_v1/evaluation.json",
+  "evaluation_settings": "configs/baselines/common/evaluation/settings.json",
+  "stage": "qualification",
+  "methods": {
+    "react": [
+      {
+        "dataset": "aqua",
+        "specification": "configs/baselines/common/qualification/tp4_persistent_v1/react_aqua.json"
+      },
+      {
+        "dataset": "humaneval",
+        "specification": "configs/baselines/common/qualification/tp4_persistent_v1/react_humaneval.json"
+      }
+    ],
+    "latentmas": [
+      {
+        "dataset": "aqua",
+        "specification": "configs/baselines/common/qualification/tp4_persistent_v1/latentmas_aqua.json"
+      },
+      {
+        "dataset": "humaneval",
+        "specification": "configs/baselines/common/qualification/tp4_persistent_v1/latentmas_humaneval.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "regularizer": 1e-05,
+  "source": "external/LatentMAS/models.py::ModelWrapper._build_latent_realign_matrix"
+}

@@ -1,0 +1,60 @@
+{
+  "batch_wait_seconds": 0.03,
+  "embedding": {
+    "embedding_model_path": "/inspire/hdd/global_user/suhaoyang-240107100018/LM/Qwen3-Embedding-0.6B",
+    "embedding_dtype": "bfloat16",
+    "embedding_attention": "sdpa",
+    "embedding_batch_size": 8,
+    "embedding_max_input_tokens": 8192
+  },
+  "upstream_args": {
+    "force_direct_search": false,
+    "supervisor_model": "Qwen3.5-4B",
+    "supervisor_url": "http://localhost/v1",
+    "metrics_retrieve_k": null,
+    "pass_rate": 0.6,
+    "metric_pool_file": "",
+    "embedding_cache_file": "",
+    "embedding_model": "Qwen3-Embedding-0.6B",
+    "embedding_url": "http://localhost/v1",
+    "max_metrics_count": 5,
+    "lock_metrics_after_first_round": false,
+    "use_simple_audit": 0,
+    "direct_k": 5,
+    "retrieve_p": 20,
+    "select_q": 5,
+    "random_k": 0,
+    "reasoning_model": "Qwen3.5-4B",
+    "reasoning_url": "http://localhost/v1",
+    "retries_times": 3,
+    "agent_mode": "supervisor",
+    "prm_url": null,
+    "prm_n_samples": 3,
+    "selector_model": "Qwen3.5-4B",
+    "selector_url": "http://localhost/v1",
+    "selector_api_key": "EMPTY",
+    "max_turns": 7,
+    "baseline_only": false
+  },
+  "environment": {
+    "AGENTDROPOUT_BATCH_AUDIT_METRICS": "1",
+    "AGENTDROPOUT_EXACT_SELECT_Q": "0",
+    "AGENTDROPOUT_CHEAP_PRECHECK": "0",
+    "AGENTDROPOUT_RANDOM_K_MIN": "0",
+    "AGENTDROPOUT_RANDOM_K_MAX": "0",
+    "AGENTDROPOUT_BATCH_AUDIT_MAX_TOKENS": "4000",
+    "AGENTDROPOUT_MATH_TEAM_VARIANT": "verifier",
+    "AGENTDROPOUT_PROFILE_AWARE_RETRIEVAL": "0"
+  },
+  "protocol_amendments": [
+    "Preserve original explicit selected_metrics empty-list decision and resulting no-indicator acceptance. Missing or malformed selection fields remain interface failures.",
+    "Increase maximum generation per role from512 to1024, retaining smaller original request ceilings. Same development records and original algorithm bodies."
+  ],
+  "generation_budgets": {
+    "mode": "ceiling",
+    "ceiling": 1024,
+    "unspecified": 1024,
+    "length_finish": "reject",
+    "summary_parser": "strict"
+  }
+}

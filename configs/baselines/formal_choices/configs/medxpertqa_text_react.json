@@ -1,0 +1,46 @@
+{
+  "dataset": "medxpertqa_text",
+  "task_scope": "Previously frozen seed 0 uniform subset of 256 original MedXpertQA Text test questions from 2450, in source order. The five original development questions are used for warmup.",
+  "task_count": 256,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "medxpertqa_text/Text-2450",
+    "medxpertqa_text/Text-2451",
+    "medxpertqa_text/Text-2452",
+    "medxpertqa_text/Text-2453",
+    "medxpertqa_text/Text-2454"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.official_react.adapter",
+  "interface": "sync_fields",
+  "adapter_config": {
+    "max_new_tokens": 512,
+    "temperature": 0,
+    "max_model_calls": 32,
+    "tool_limits": {
+      "max_characters": 512,
+      "max_nodes": 128,
+      "max_exponent": 20,
+      "max_magnitude": 1e+100
+    },
+    "notebook": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/react_core/hotpotqa.ipynb"
+  },
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/formal_choices/schema/react_choice_prompts.json",
+  "python_paths": [],
+  "budget": {
+    "per_call_max_tokens": 512,
+    "model_call_ceiling": 32,
+    "temperature": 0,
+    "upstream_loop": "Original ReAct webthink loop, including its format-retry calls.",
+    "tools": [
+      "bounded arithmetic calculator"
+    ]
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "One domain-independent multiple-choice instruction is shared across AQuA, SuperGPQA and MedXpertQA. Original ReAct loop, action parser and calculator remain unchanged. Every supplied option ID and description is retained."
+}

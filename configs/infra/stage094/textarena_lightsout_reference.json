@@ -1,0 +1,16 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_action_prefix_screen/textarena_lightsout_jevspawn.json",
+  "entrypoint": "tests/infra/action_prefix/rollout.py",
+  "allocator": "expandable_segments:True",
+  "action_prefix_settings": "configs/infra/stage094/action_prefix.json",
+  "action_prefix": false,
+  "run_output": "runs/native-action-prefix-stage094/textarena_lightsout/reference"
+}

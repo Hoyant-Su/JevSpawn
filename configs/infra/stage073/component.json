@@ -1,0 +1,24 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "sources": [
+    "results/infra/native-rollout-stage059-roots1/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots1/rank0-batch2.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch2.json"
+  ],
+  "repetitions": 5,
+  "output": "results/infra/native-l2norm-reuse-stage073",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "service": "configs/inference/shared_service.json",
+  "arms": [
+    "reference",
+    "runtime_bucket"
+  ],
+  "entrypoint": "tests/infra/native_l2norm_reuse/qualify.py"
+}

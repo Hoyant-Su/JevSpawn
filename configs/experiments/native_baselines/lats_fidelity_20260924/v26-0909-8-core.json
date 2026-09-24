@@ -1,0 +1,41 @@
+{
+  "stage": "formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/plancraft.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/plancraft",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/plancraft.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/plancraft.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/plancraft.json",
+          "runs/native-baselines-lats-fidelity-20260924/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/plancraft",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/plancraft.json"
+        ]
+      ]
+    }
+  ]
+}

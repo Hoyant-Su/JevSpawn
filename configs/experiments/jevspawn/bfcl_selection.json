@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "samples_per_dataset": 2,
+  "datasets": [
+    "bfcl_parallel",
+    "bfcl_parallel_multiple"
+  ]
+}

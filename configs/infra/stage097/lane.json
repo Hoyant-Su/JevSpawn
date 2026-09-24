@@ -1,0 +1,215 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage097_observation_records",
+  "world_size": 4,
+  "instance": "v26-v0715-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "agentquest_mastermind",
+      "method": "reference",
+      "specification": "configs/infra/stage097/agentquest_mastermind_reference_spec.json",
+      "run": "runs/native-observation-records-stage097/agentquest_mastermind/reference",
+      "evaluation": "results/validation/native-observation-records-stage097/agentquest_mastermind/reference.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/agentquest_mastermind_reference.json",
+      "log": "logs/qualification/native-observation-records-stage097/agentquest_mastermind/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/agentquest_mastermind_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/agentquest_mastermind/reference",
+          "--output",
+          "results/validation/native-observation-records-stage097/agentquest_mastermind/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "agentquest_mastermind",
+      "method": "literal",
+      "specification": "configs/infra/stage097/agentquest_mastermind_literal_spec.json",
+      "run": "runs/native-observation-records-stage097/agentquest_mastermind/literal",
+      "evaluation": "results/validation/native-observation-records-stage097/agentquest_mastermind/literal.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/agentquest_mastermind_literal.json",
+      "log": "logs/qualification/native-observation-records-stage097/agentquest_mastermind/literal.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/agentquest_mastermind_literal.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/agentquest_mastermind/literal",
+          "--output",
+          "results/validation/native-observation-records-stage097/agentquest_mastermind/literal.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "agentquest_sudoku",
+      "method": "reference",
+      "specification": "configs/infra/stage097/agentquest_sudoku_reference_spec.json",
+      "run": "runs/native-observation-records-stage097/agentquest_sudoku/reference",
+      "evaluation": "results/validation/native-observation-records-stage097/agentquest_sudoku/reference.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/agentquest_sudoku_reference.json",
+      "log": "logs/qualification/native-observation-records-stage097/agentquest_sudoku/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/agentquest_sudoku_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/agentquest_sudoku/reference",
+          "--output",
+          "results/validation/native-observation-records-stage097/agentquest_sudoku/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "agentquest_sudoku",
+      "method": "literal",
+      "specification": "configs/infra/stage097/agentquest_sudoku_literal_spec.json",
+      "run": "runs/native-observation-records-stage097/agentquest_sudoku/literal",
+      "evaluation": "results/validation/native-observation-records-stage097/agentquest_sudoku/literal.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/agentquest_sudoku_literal.json",
+      "log": "logs/qualification/native-observation-records-stage097/agentquest_sudoku/literal.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/agentquest_sudoku_literal.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/agentquest_sudoku/literal",
+          "--output",
+          "results/validation/native-observation-records-stage097/agentquest_sudoku/literal.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "method": "reference",
+      "specification": "configs/infra/stage097/textarena_sokoban_reference_spec.json",
+      "run": "runs/native-observation-records-stage097/textarena_sokoban/reference",
+      "evaluation": "results/validation/native-observation-records-stage097/textarena_sokoban/reference.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/textarena_sokoban_reference.json",
+      "log": "logs/qualification/native-observation-records-stage097/textarena_sokoban/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/textarena_sokoban_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/textarena_sokoban/reference",
+          "--output",
+          "results/validation/native-observation-records-stage097/textarena_sokoban/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "method": "literal",
+      "specification": "configs/infra/stage097/textarena_sokoban_literal_spec.json",
+      "run": "runs/native-observation-records-stage097/textarena_sokoban/literal",
+      "evaluation": "results/validation/native-observation-records-stage097/textarena_sokoban/literal.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/textarena_sokoban_literal.json",
+      "log": "logs/qualification/native-observation-records-stage097/textarena_sokoban/literal.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/textarena_sokoban_literal.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/textarena_sokoban/literal",
+          "--output",
+          "results/validation/native-observation-records-stage097/textarena_sokoban/literal.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "ppnl",
+      "method": "reference",
+      "specification": "configs/infra/stage097/ppnl_reference_spec.json",
+      "run": "runs/native-observation-records-stage097/ppnl/reference",
+      "evaluation": "results/validation/native-observation-records-stage097/ppnl/reference.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/ppnl_reference.json",
+      "log": "logs/qualification/native-observation-records-stage097/ppnl/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/ppnl_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/ppnl/reference",
+          "--output",
+          "results/validation/native-observation-records-stage097/ppnl/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "ppnl",
+      "method": "literal",
+      "specification": "configs/infra/stage097/ppnl_literal_spec.json",
+      "run": "runs/native-observation-records-stage097/ppnl/literal",
+      "evaluation": "results/validation/native-observation-records-stage097/ppnl/literal.json",
+      "progress": "results/validation/native-observation-records-stage097/progress/ppnl_literal.json",
+      "log": "logs/qualification/native-observation-records-stage097/ppnl/literal.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage097/ppnl_literal.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observation-records-stage097/ppnl/literal",
+          "--output",
+          "results/validation/native-observation-records-stage097/ppnl/literal.json"
+        ]
+      ]
+    }
+  ]
+}

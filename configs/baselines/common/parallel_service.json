@@ -1,0 +1,83 @@
+{
+  "generate_command": "generation_cohort",
+  "excluded_request_fields": [
+    "future"
+  ],
+  "prefix_caches": {
+    "baselines.common.service.BatchService": [],
+    "baselines.common.jevspawn_service.StructuredService": [],
+    "baselines.common.task_prefix_service.TaskPrefixService": [
+      "prefix_cache"
+    ],
+    "baselines.common.shared_state_prefix_service.SharedStatePrefixService": [
+      "prefix_cache",
+      "state_cache"
+    ],
+    "baselines.latentmas.common_service.LatentMASService": [],
+    "baselines.common.mixed_prefix_service.MixedPrefixService": [
+      "prefix_cache"
+    ],
+    "baselines.common.graph_finite_service.GraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.graph_finite_service.StableGraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.recorded_finite_service.RecordedStableGraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.recorded_finite_service.RecordedTaskStableGraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.shared_reference_service.SharedReferenceStateService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.host_tokenizer_service.HostTokenizerBatchService": [],
+    "baselines.common.literal_state_service.LiteralStateService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.scored_finite_service.ScoredFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.streaming_service.StreamingBatchService": [],
+    "baselines.common.history_service.HistoryBatchService": [],
+    "baselines.common.unified_service.UnifiedInferenceService": [],
+    "baselines.common.unified_structured_service.UnifiedStructuredService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.literal_scored_state_service.LiteralScoredStateService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.common.compact_action_service.CompactActionService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "baselines.latentmas.context_window_service.WindowedLatentMASService": [],
+    "baselines.common.graph_finite_service.HistoryGraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ]
+  },
+  "request_types": [
+    "baselines.common.service.BatchedRequest",
+    "baselines.common.jevspawn_service.DecisionRequest",
+    "baselines.common.task_prefix_service.TaskDecisionRequest",
+    "baselines.common.recorded_finite_service.TaskDecisionRequest",
+    "baselines.latentmas.common_service.LatentRequest",
+    "baselines.common.scored_finite_service.ScoredDecisionRequest",
+    "baselines.common.streaming_service.StreamRequest"
+  ],
+  "refill": {
+    "source": "baselines.common.shared_refill_service.SharedRefillService",
+    "implementation": "baselines.common.parallel_refill_service.ParallelRefillService"
+  }
+}

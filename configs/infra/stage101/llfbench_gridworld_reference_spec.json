@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/history_cache_stage101/llfbench_gridworld/tasks.jsonl",
+  "task_count": 8,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.llfbench.LLFEnvironment",
+    "parameters": {
+      "configuration": "configs/evaluation/native_context/llfbench_gridworld.json"
+    }
+  },
+  "method": "configs/experiments/native_jevspawn_full_20260924/method.json",
+  "experiment_configuration": "configs/infra/stage101/llfbench_gridworld_reference.json"
+}

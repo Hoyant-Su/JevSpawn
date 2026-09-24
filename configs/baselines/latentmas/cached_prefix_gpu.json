@@ -1,0 +1,22 @@
+{
+  "stage": "cached_update_segments_validation",
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "critic_prefix_tokens": 914,
+  "minimum_internal_padding_boundaries": 2,
+  "minimum_rows_with_valid_prefix_tokens": 3,
+  "validation_timeout_seconds": 1200,
+  "tolerance": {
+    "rtol": 0.05,
+    "atol": 0.05
+  },
+  "scope": "Actual B8 planner and ten upstream latent transitions, followed by all 914 configured critic-prefix positions with the same cached convolution update and fused recurrent delta-rule operators across padding-boundary segments. Compare every valid hidden output and all valid cache states against tokenwise cached decode under the existing tolerance. No task-quality claim; no source or label changes.",
+  "workspace_reserve_bytes": 8589934592,
+  "snapshot_storage": "GPU only: initial cache clone and original final cache clone. Release initial clone after exact GPU restoration before graph capture; candidate final state uses views. No CPU snapshots or offload.",
+  "candidate_transport": "cached_update_segments",
+  "graph_workspace_reserve_bytes": 2147483648
+}

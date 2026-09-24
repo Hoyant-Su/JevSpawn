@@ -1,0 +1,65 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage103_canonical_branch_identity",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-0910-8-core",
+  "entries": [
+    {
+      "dataset": "textarena_sokoban",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/textarena_sokoban_spec.json",
+      "run": "runs/canonical-branch-stage103/textarena_sokoban",
+      "evaluation": "results/validation/canonical-branch-stage103/textarena_sokoban.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/textarena_sokoban.json",
+      "log": "logs/qualification/canonical-branch-stage103/textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/textarena_sokoban.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/textarena_sokoban",
+          "--output",
+          "results/validation/canonical-branch-stage103/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/textarena_rushhour_spec.json",
+      "run": "runs/canonical-branch-stage103/textarena_rushhour",
+      "evaluation": "results/validation/canonical-branch-stage103/textarena_rushhour.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/textarena_rushhour.json",
+      "log": "logs/qualification/canonical-branch-stage103/textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/textarena_rushhour.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/textarena_rushhour",
+          "--output",
+          "results/validation/canonical-branch-stage103/textarena_rushhour.json"
+        ]
+      ]
+    }
+  ]
+}

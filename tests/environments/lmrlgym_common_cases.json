@@ -1,0 +1,96 @@
+{
+  "specifications": [
+    "configs/experiments/native_context/lmrlgym_maze_jevspawn.json",
+    "configs/experiments/native_context/lmrlgym_maze_react.json",
+    "configs/experiments/native_context/lmrlgym_maze_single.json"
+  ],
+  "output": "results/validation/lmrlgym_common_20260923",
+  "report": "results/validation/lmrlgym_common_20260923.json",
+  "runtime": "configs/data/maze/runtime.json",
+  "controls": [
+    {
+      "task_id": "lmrlgym_maze_0",
+      "actions": [
+        "move right",
+        "move right",
+        "move down",
+        "move down",
+        "move down",
+        "move down",
+        "move right",
+        "move right",
+        "move right",
+        "move down",
+        "move down",
+        "move down"
+      ]
+    },
+    {
+      "task_id": "lmrlgym_maze_1",
+      "actions": [
+        "move right",
+        "move down",
+        "move down",
+        "move down",
+        "move down",
+        "move right",
+        "move right",
+        "move right",
+        "move down",
+        "move down",
+        "move down"
+      ]
+    }
+  ],
+  "action_tool": "move",
+  "action_field": "action",
+  "submission_tool": "finish",
+  "answer_field": "actions",
+  "empty_actions": [],
+  "artifact_name": "correct_control_answer.json",
+  "incorrect_artifact_name": "incorrect_control_answer.json",
+  "status": "completed",
+  "scorer_settings": {
+    "environment_configuration": "configs/data/maze/runtime.json",
+    "tasks": "data/native_context/lmrlgym_maze/tasks.jsonl",
+    "work_directory": "results/validation/lmrlgym_common_20260923",
+    "completed_status": "completed",
+    "noncompleted_statuses": [
+      "timeout",
+      "invalid_output",
+      "limit_exceeded"
+    ],
+    "noncompleted_score": 0.0,
+    "score_by_success": [
+      0.0,
+      1.0
+    ],
+    "reward_sum_start": 0.0
+  },
+  "protocol_origin": {
+    "environment": "Official LMRL-Gym MazeEnv instantiated by the official AgentGym Maze utilities.",
+    "initial_instructions": "Full unmodified MazeEnvClient._fully_first_observation including public demonstrations and Thought/Action formatting.",
+    "initial_instruction_source": "external/LMRL-Gym/agentgym/maze_client.py",
+    "source_url": "https://github.com/WooooDyy/AgentGym/blob/main/agentenv/agentenv/envs/lmrlgym.py",
+    "task_source": "https://huggingface.co/datasets/AgentGym/AgentEval/blob/main/lmrlgym_maze_test.json",
+    "context_composition": [
+      "Full official AgentGym first-observation instructions",
+      "Native initial observation",
+      "Shared answer schema and tool contract"
+    ],
+    "benchmark_counting": "One AgentGym/LMRL Maze track, not two independent datasets."
+  },
+  "primary_specification": "configs/experiments/native_context/lmrlgym_maze_jevspawn.json",
+  "source_tasks": "data/environments/maze/tasks.jsonl",
+  "source_identities": "data/environments/maze/agentgym_eval_ids.json",
+  "comparison_actions": [
+    "move left",
+    "move up"
+  ],
+  "blocked_task_id": "lmrlgym_maze_0",
+  "blocked_action": "move up",
+  "goal_task_id": "lmrlgym_maze_18",
+  "goal_action": "move down",
+  "invalid_action": "teleport",
+  "reward_sum_start": 0.0
+}

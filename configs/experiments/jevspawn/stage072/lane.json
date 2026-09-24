@@ -1,0 +1,90 @@
+{
+  "stage": "stage072_observed_fields",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-observed-fields-stage072/ppnl",
+      "evaluation": "results/validation/native-observed-fields-stage072/ppnl.json",
+      "progress": "results/validation/native-observed-fields-stage072/progress/ppnl.json",
+      "log": "logs/qualification/native-observed-fields-stage072-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/experiments/jevspawn/stage072/ppnl.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observed-fields-stage072/ppnl",
+          "--output",
+          "results/validation/native-observed-fields-stage072/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-observed-fields-stage072/plancraft",
+      "evaluation": "results/validation/native-observed-fields-stage072/plancraft.json",
+      "progress": "results/validation/native-observed-fields-stage072/progress/plancraft.json",
+      "log": "logs/qualification/native-observed-fields-stage072-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/experiments/jevspawn/stage072/plancraft.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observed-fields-stage072/plancraft",
+          "--output",
+          "results/validation/native-observed-fields-stage072/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-observed-fields-stage072/autoplanbench",
+      "evaluation": "results/validation/native-observed-fields-stage072/autoplanbench.json",
+      "progress": "results/validation/native-observed-fields-stage072/progress/autoplanbench.json",
+      "log": "logs/qualification/native-observed-fields-stage072-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/experiments/jevspawn/stage072/autoplanbench.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observed-fields-stage072/autoplanbench",
+          "--output",
+          "results/validation/native-observed-fields-stage072/autoplanbench.json"
+        ]
+      ]
+    }
+  ]
+}

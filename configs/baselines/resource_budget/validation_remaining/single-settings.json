@@ -1,0 +1,37 @@
+{
+  "dataset": "aqua",
+  "task_scope": "Explicit first original eight-task batch for resource instrumentation validation, without difficulty filtering.",
+  "task_count": 8,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/resource_budget/validation_remaining/single-tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "aqua/dev/0",
+    "aqua/dev/1",
+    "aqua/dev/2",
+    "aqua/dev/3",
+    "aqua/dev/4",
+    "aqua/dev/5",
+    "aqua/dev/6",
+    "aqua/dev/7"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "interface": "sync_fields",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/prompts.json",
+  "python_paths": [],
+  "budget": {
+    "max_model_calls_per_task": 1,
+    "max_new_tokens": 2048,
+    "max_output_tokens_per_task": 2048,
+    "temperature": 0,
+    "tools": [],
+    "output": "Unconstrained autoregressive JSON containing thought and choice, original strict parser."
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "Existing AQuA single-reasoning computation, system prompt, question/options renderer and strict parser imported unchanged. Formal disjoint development warmup and atomic block resume replace the old whole-workload timing warmup.",
+  "agent_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/reasoning_config.json",
+  "comparison_class": "Authored direct single-agent generative control, not a published agent baseline."
+}

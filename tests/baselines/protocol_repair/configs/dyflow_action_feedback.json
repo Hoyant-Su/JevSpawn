@@ -1,0 +1,32 @@
+{
+  "method": "configs/baselines/common/methods/dyflow_v3.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "problem": "CPU action-feedback regression; no model inference.",
+  "operator_id": "dependency-check",
+  "operator_description": "Missing generated reference",
+  "instructions": [
+    "GENERATE_ANSWER",
+    "TEST_CODE"
+  ],
+  "parameters": {
+    "input_keys": [
+      "act_3"
+    ],
+    "output_key": "result"
+  },
+  "missing_path": "actions.act_3.content",
+  "stage": {
+    "stage_id": "recovery",
+    "stage_description": "Recover from the observed missing input",
+    "operators": []
+  },
+  "infra_failure": "Infrastructure failure sentinel",
+  "valid_parameters": {
+    "instruction_type": "GENERATE_ANSWER",
+    "input_keys": [
+      "original_problem"
+    ],
+    "output_key": "result"
+  },
+  "output": "results/validation/dyflow_action_feedback_20260924.json"
+}

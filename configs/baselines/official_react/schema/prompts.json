@@ -1,0 +1,6 @@
+{
+  "instruction": "Solve the supplied mathematics question by interleaving Thought, Action, and Observation steps. A Thought reasons about the current problem. Actions are Calculate[expression], which evaluates arithmetic, and Finish[letter], which submits one of the supplied option identifiers. Arithmetic supports numbers, addition, subtraction, multiplication, division, powers, and sqrt(expression). Do not use Python statements or assignments. At each call, continue from the final Thought or Action prefix. Return the thought followed by a newline and Action with the same step number, or return only the action when an Action prefix is supplied. Observations are supplied by the environment.\n\n",
+  "question": "Question: {state}\n{question}\nOptions:\n{options}",
+  "invalid_action": "Use Calculate[arithmetic expression] or Finish[option identifier].",
+  "finished": "Answer submitted."
+}

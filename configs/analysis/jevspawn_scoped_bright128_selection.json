@@ -1,0 +1,11 @@
+{
+  "source": "data/baselines/common/tasks/bright_pony.jsonl",
+  "source_task_count": 104,
+  "selected_task_ids": [
+    "bright_pony/0"
+  ],
+  "candidates_per_task": 128,
+  "output": "data/baselines/common/qualification/bright_pony_formal128_selected.jsonl",
+  "selection_reason": "First task in the formal source order, selected without labels to check the full128-candidate workload. The prior development query3 is absent from this disjoint formal split, so this is not a paired accuracy comparison.",
+  "labels_loaded": false
+}

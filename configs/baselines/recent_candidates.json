@@ -1,0 +1,274 @@
+{
+  "candidates": [
+    {
+      "name": "LatentMAS",
+      "citation_key": "zou2026latent",
+      "venue": "ICML 2026 Spotlight",
+      "venue_primary_url": "https://openreview.net/forum?id=syG9I9ofd8",
+      "venue_evidence": "OpenReview API2 exact note syG9I9ofd8 has venue ICML 2026 spotlight and venueid ICML.cc/2026/Conference.",
+      "official_repository": "https://github.com/Gen-Verse/LatentMAS",
+      "repository_evidence": "The accepted OpenReview note links this repository through link_to_code.",
+      "commit": "9a9e4d331eb11430bd9e64754c6b252b06d73031",
+      "source_directory": "JEV/research/jevspawn-paper/external/LatentMAS",
+      "license_file": "LICENSE",
+      "algorithm_core": "Planner, Critic and Refiner generate autoregressive latent embeddings. The same frozen model passes its cache to the next agent. Judger emits the final textual answer. An embedding-weight linear system aligns hidden vectors with the input embedding space without fitting task data.",
+      "entrypoints": [
+        {
+          "file": "run.py",
+          "entry": "main",
+          "interface": "CLI restricts model_name to Qwen3-4B or Qwen3-14B and tasks to its declared benchmarks."
+        },
+        {
+          "file": "methods/latent_mas.py",
+          "entry": "LatentMASMethod.run_batch",
+          "interface": "List of items with question, gold and solution. Gold/solution are used in the returned evaluation records, not in question prompts."
+        },
+        {
+          "file": "models.py",
+          "entry": "ModelWrapper.generate_latent_batch",
+          "interface": "Batched token IDs and attention mask, positive latent_steps and previous model cache."
+        }
+      ],
+      "task_fit": {
+        "mcq": "Supports original GPQA, ARC and MedQA prompts. Our MedXpertQA, SuperGPQA and AQuA require an explicit task formatter and output parser preserving all options.",
+        "bright": "No original retrieval or document-collection interface. Applying the method per candidate relevance decision would be a declared adaptation rather than the original end-to-end retrieval method."
+      },
+      "training": {
+        "llm_weights": "Frozen",
+        "topology_training": false,
+        "extra_learned_checkpoint": false,
+        "alignment": "Computed from the same frozen input/output embedding matrices. Not estimated from evaluation labels."
+      },
+      "qwen35_4b_compatibility": {
+        "direct_unmodified": false,
+        "requirements": [
+          "Remove only the CLI model-name restriction and select the actual Qwen3.5 text-model interface.",
+          "Preserve the original latent realignment and autoregressive hidden-state computation.",
+          "Replace legacy-tuple cache transport with a Qwen3.5 hybrid-cache adapter that preserves attention keys/values and recurrent states.",
+          "Do not use legacy token slicing to pretend recurrent state can be truncated. A compatible full-memory mode must be declared.",
+          "Carry per-sample historical attention masks instead of marking previous padding tokens as valid.",
+          "Set positive latent_steps explicitly. The official CLI default is zero.",
+          "Select one shared-model Transformers execution path. The vLLM plus secondary HF path loads an additional model copy and has a different memory budget.",
+          "Keep the final decoding policy and root batch size matched across methods."
+        ]
+      },
+      "implementation_observations": [
+        {
+          "file": "models.py",
+          "line": 23,
+          "finding": "_past_length indexes past_key_values[0][0], assuming a legacy attention cache."
+        },
+        {
+          "file": "methods/latent_mas.py",
+          "line": 61,
+          "finding": "_truncate_past converts Cache to and from legacy tuples and slices tensors by sequence dimension."
+        },
+        {
+          "file": "models.py",
+          "line": 158,
+          "finding": "Alignment solves (W_out.T W_out + 1e-5 I) A = W_out.T W_in in float32."
+        },
+        {
+          "file": "methods/latent_mas.py",
+          "line": 9,
+          "finding": "Imports vLLM SamplingParams even for the Transformers path."
+        }
+      ],
+      "integration_decision": "Strongest communication-efficiency comparator. Retain actual core, but qualify a faithful Qwen3.5 cache and model adapter before any experiment. No implementation or quality equivalence is claimed here.",
+      "downloaded_files": 13,
+      "downloaded_bytes": 117951
+    },
+    {
+      "name": "DyFlow",
+      "citation_key": "wang2025dyflow",
+      "venue": "NeurIPS 2025 Poster",
+      "venue_primary_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/fe9910d2b03324faeb5371a9658277bb-Abstract-Conference.html",
+      "venue_evidence": "Official NeurIPS 2025 proceedings article and DOI10.52202/085713-5793. OpenReview exact note0pbUfmwNTy independently identifies NeurIPS 2025 poster.",
+      "official_repository": "https://github.com/wyf23187/DyFlow",
+      "repository_evidence": "The accepted paper and official arXiv abstract link this repository.",
+      "commit": "fa6d8286c5bf33a7618510d4b7709ee385a19002",
+      "source_directory": "JEV/research/jevspawn-paper/external/DyFlow",
+      "license_file": "LICENSE",
+      "algorithm_core": "A designer emits a stage with generated operators, descriptions, input keys, output keys and context-dependent parameters. Operators update an explicit state. The designer replans from intermediate outputs until termination.",
+      "entrypoints": [
+        {
+          "file": "scripts/run_workflow.py",
+          "entry": "main",
+          "interface": "Construct WorkflowExecutor with problem_description and designer/executor ModelService objects."
+        },
+        {
+          "file": "dyflow/core/workflow.py",
+          "entry": "WorkflowExecutor.execute",
+          "interface": "Runs generated stages, preserving state and returning the generated final answer."
+        },
+        {
+          "file": "dyflow/core/operator.py",
+          "entry": "InstructExecutorOperator.execute",
+          "interface": "Consumes State and generated operator parameters, invokes real language-model or code-test operations."
+        },
+        {
+          "file": "dyflow/model_service/model_service.py",
+          "entry": "ModelService.generate",
+          "interface": "generate(prompt, temperature, max_tokens, msg) returns response text and usage."
+        }
+      ],
+      "task_fit": {
+        "mcq": "Official PubMedQA and MATH adapters provide the closest source interfaces. MedXpertQA, SuperGPQA and AQuA can use the original problem_description interface with their complete state and choices.",
+        "bright": "Original release has no retrieval-collection operator. A document access tool and ranking contract would be a declared task-interface extension, not an unchanged benchmark."
+      },
+      "training": {
+        "llm_weights": "Can remain frozen when both services point to the same Qwen3.5-4B endpoint.",
+        "topology_training": false,
+        "extra_learned_checkpoint": "Optional DyPlanner is separately trained. The official quick-start also uses an ordinary GPT-4.1 designer, so DyPlanner is not intrinsic to the basic dynamic workflow path.",
+        "checkpoint_policy": "No DyPlanner weights downloaded. A same-model Qwen designer must not be reported as the published DyPlanner checkpoint."
+      },
+      "qwen35_4b_compatibility": {
+        "direct_unmodified": false,
+        "requirements": [
+          "Inject a shared-model generation transport into both original service interfaces.",
+          "Make the same greedy decoding, token budgets and root batching explicit. The original designer uses temperature0.1 and self-consistency can request temperature0.7.",
+          "Record actual designer, executor, ensemble and selector calls within the shared budget.",
+          "Disable model-requested TEST_CODE in a declared text-only task protocol, or connect it to the existing isolated evaluation environment. Never execute generated code in the host process.",
+          "Keep real stage creation, state updates and feedback-driven replanning. Do not replace the core with a fixed parallel map.",
+          "Treat exhausted stages, parse failures and missing final answers as failures."
+        ]
+      },
+      "implementation_observations": [
+        {
+          "file": "dyflow/core/workflow.py",
+          "line": 445,
+          "finding": "Actual execute loop has a maximum of eight stages."
+        },
+        {
+          "file": "dyflow/core/workflow.py",
+          "line": 365,
+          "finding": "Operators inside a stage are executed sequentially in the released core."
+        },
+        {
+          "file": "dyflow/core/operator.py",
+          "line": 306,
+          "finding": "TEST_CODE ultimately calls exec(code, global_namespace). Its import-string filter does not enforce a filesystem boundary."
+        },
+        {
+          "file": "dyflow/core/operator.py",
+          "line": 618,
+          "finding": "SELF_CONSISTENCY_ENSEMBLE performs real multiple generations and a selector call."
+        }
+      ],
+      "integration_decision": "Best near-term source reuse for generated workflow construction. Use the actual original executor and an explicit shared-model transport and text-only operator protocol. Preserve its sequential scheduling unless a separate scheduling ablation is declared.",
+      "downloaded_files": 27,
+      "downloaded_bytes": 242394
+    },
+    {
+      "name": "AgentPrune",
+      "citation_key": "zhang2025agentprune",
+      "venue": "ICLR 2025",
+      "venue_primary_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/bbc461518c59a2a8d64e70e2c38c4a0e-Abstract-Conference.html",
+      "venue_evidence": "Official ICLR 2025 proceedings article and its BibTeX export.",
+      "official_repository": "https://github.com/yanweiyue/AgentPrune",
+      "repository_evidence": "Official proceedings abstract and paper link the source repository.",
+      "commit": "c544dd6a1858c02c6d5d371d23c6e6ff55e0be21",
+      "source_directory": "JEV/research/jevspawn-paper/external/AgentPrune",
+      "license_file": null,
+      "algorithm_core": "Learn Bernoulli spatial and temporal communication-edge logits with a task-reward policy-gradient objective. Periodically remove low-logit edges and execute the resulting communication graph.",
+      "entrypoints": [
+        {
+          "file": "experiments/run_mmlu.py",
+          "entry": "main",
+          "interface": "Constructs Graph, optimizes it on MMLU dev when optimized flags are enabled, and evaluates the learned graph."
+        },
+        {
+          "file": "experiments/train_mmlu.py",
+          "entry": "train",
+          "interface": "Requires task records, ground-truth answers, postprocess_answer, record_to_input and record_to_target_answer."
+        },
+        {
+          "file": "AgentPrune/graph/graph.py",
+          "entry": "Graph.arun",
+          "interface": "Input dictionary and number of communication rounds, returns final answers and sampled-graph log probability."
+        },
+        {
+          "file": "AgentPrune/graph/graph.py",
+          "entry": "Graph.update_masks",
+          "interface": "Prunes spatial and temporal edges according to learned logits and pruning rate."
+        }
+      ],
+      "task_fit": {
+        "mcq": "Original MMLU adapter and prompts assume exactly four choices. Our four-to-ten-choice tasks require an explicit option-preserving prompt adapter.",
+        "bright": "No original retrieval worker interface. Learning a document-worker graph is a new task-specific training protocol, not an available frozen inference configuration."
+      },
+      "training": {
+        "llm_weights": "May remain frozen behind API calls.",
+        "topology_training": true,
+        "objective": "Mean of -graph_log_probability * exact-answer accuracy over original examples.",
+        "optimizer": "Adam over graph.spatial_logits and graph.temporal_logits.",
+        "matching_qwen35_checkpoint_available": false,
+        "checkpoint_evidence": "Pinned repository tree contains no published .pt, .pth or .safetensors topology checkpoint."
+      },
+      "qwen35_4b_compatibility": {
+        "direct_unmodified": false,
+        "requirements": [
+          "Use the actual graph optimizer on a disjoint development set or obtain a matching graph checkpoint.",
+          "Account separately for graph-optimization calls and supervised labels.",
+          "Use an original LLM-registry transport adapter for the frozen Qwen model.",
+          "Preserve original stochastic edge sampling and pruning semantics.",
+          "Do not call a hand-set sparse graph or disabled-optimization dense graph AgentPrune."
+        ]
+      },
+      "implementation_observations": [
+        {
+          "file": "experiments/train_mmlu.py",
+          "line": 32,
+          "finding": "Adam trains spatial_logits and temporal_logits using labeled answer accuracy."
+        },
+        {
+          "file": "AgentPrune/graph/graph.py",
+          "line": 317,
+          "finding": "update_masks removes edges selected from learned logits."
+        },
+        {
+          "file": "AgentPrune/prompt/mmlu_prompt_set.py",
+          "line": 84,
+          "finding": "Original task prompts restrict answers to four letters."
+        },
+        {
+          "file": "AgentPrune/graph/graph.py",
+          "line": 264,
+          "finding": "Async graph execution awaits each ready node serially; the release does not execute all ready nodes as a concurrent batch."
+        }
+      ],
+      "integration_decision": "Retain as a recent learned-communication reference, but defer the infer-only comparison because a trained task/model-specific topology is unavailable. Do not substitute an invented pruning rule.",
+      "downloaded_files": 60,
+      "downloaded_bytes": 213632
+    }
+  ],
+  "venue_corrections": [
+    {
+      "name": "AgentDropout",
+      "citation_key": "wang2025agentdropout",
+      "verified_venue": "ACL 2025 Long Papers",
+      "primary_url": "https://aclanthology.org/2025.acl-long.1170/",
+      "decision": "Do not count toward ICLR/ICML/NeurIPS roster. Published ACL BibTeX is included for correcting the older preprint entry."
+    }
+  ],
+  "additional_citations": [
+    {
+      "name": "FoldAgent",
+      "citation_key": "sun2026scaling",
+      "verified_venue": "ICML 2026 regular",
+      "primary_url": "https://openreview.net/forum?id=lNRgWoGfYg"
+    },
+    {
+      "name": "HiAgent",
+      "citation_key": "hu-etal-2025-hiagent",
+      "verified_venue": "ACL 2025 Long Papers",
+      "primary_url": "https://aclanthology.org/2025.acl-long.1575/"
+    }
+  ],
+  "reference_file": "references/bib/recent_baselines.bib",
+  "existing_keys_to_replace_on_merge": [
+    "zhang2025agentprune",
+    "wang2025agentdropout"
+  ],
+  "measured_results": false
+}

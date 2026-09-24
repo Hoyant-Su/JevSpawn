@@ -1,0 +1,20 @@
+{
+  "zero": 0,
+  "position_step": 1,
+  "row_step": 1,
+  "exclude_last": -1,
+  "last_index": -1,
+  "first_index": 0,
+  "minimum_rows": 1,
+  "record_offset": 1,
+  "cache": {
+    "initial_bytes": 0,
+    "max_entries": 128,
+    "max_bytes": 8589934592
+  },
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  }
+}

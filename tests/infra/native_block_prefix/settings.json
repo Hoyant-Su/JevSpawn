@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "inference_config": "configs/inference/shared_service.json",
+  "max_entries": 32,
+  "include_unlimited_upper_bound": true,
+  "task_glob": "task-*.json",
+  "trace_runs": [
+    "runs/native-ppnl-jevspawn-20260923-055",
+    "runs/native-plancraft-jevspawn-20260923-055"
+  ],
+  "tokenizer": {"local_files_only": true},
+  "output": "results/infra/native_block_prefix_stage063_feasibility.json"
+}

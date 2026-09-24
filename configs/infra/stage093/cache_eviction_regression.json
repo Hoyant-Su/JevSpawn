@@ -1,0 +1,43 @@
+{
+  "cache": {
+    "initial_bytes": 0,
+    "max_entries": 1,
+    "max_bytes": 1024
+  },
+  "root_capacity": 3,
+  "keys": [
+    [
+      17
+    ],
+    [
+      18
+    ],
+    [
+      19
+    ]
+  ],
+  "request_indices": [
+    0,
+    1,
+    2,
+    0,
+    1
+  ],
+  "expected_hits": [
+    true,
+    false,
+    false,
+    true,
+    false
+  ],
+  "resident_index": 0,
+  "last_cached_index": 2,
+  "shape": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "dtype": "float32",
+  "source": "tests/infra/history_cache/finite_checkpoint.py"
+}

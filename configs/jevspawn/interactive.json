@@ -1,0 +1,31 @@
+{
+  "prompts": "jevspawn.interactive",
+  "execution_config": "configs/jevspawn/query_execution.json",
+  "environment": {
+    "tasks": "data/qualification/finite_cache/maze.jsonl",
+    "factory": "configs/environments/maze.json",
+    "directory": "runs/finite-environment-001/tool_scratch",
+    "tool": "move",
+    "argument": "action"
+  },
+  "separator": "\t",
+  "separator_description": "one literal tab character",
+  "minimum_candidates": 2,
+  "field_id": "turn-{turn}-field-{index}",
+  "declaration_frames": [
+    [
+      "```\n",
+      "\n```"
+    ],
+    [
+      "```tsv\n",
+      "\n```"
+    ]
+  ],
+  "dispatch_id": "runtime-dispatch",
+  "argument_id": "runtime-bind-{tool}-{argument}",
+  "revise_value": "revise_fields",
+  "answer_value": "submit_answer",
+  "unbound_value": "unbound",
+  "action_id": "turn-{turn}-action-{name}"
+}

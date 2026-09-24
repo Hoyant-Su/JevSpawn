@@ -1,0 +1,93 @@
+{
+  "stage": "formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/autoplanbench.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/autoplanbench",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/autoplanbench.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/autoplanbench.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/autoplanbench.json",
+          "runs/native-baselines-lats-fidelity-20260924/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/autoplanbench",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_lightsout.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/textarena_lightsout.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/textarena_lightsout.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_lightsout.json",
+          "runs/native-baselines-lats-fidelity-20260924/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/textarena_lightsout",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_sokoban.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/textarena_sokoban",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/textarena_sokoban.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/textarena_sokoban.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_sokoban.json",
+          "runs/native-baselines-lats-fidelity-20260924/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/textarena_sokoban",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/textarena_sokoban.json"
+        ]
+      ]
+    }
+  ]
+}

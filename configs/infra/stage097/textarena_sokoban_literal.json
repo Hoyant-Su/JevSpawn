@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/infra/stage097/textarena_sokoban_literal_spec.json",
+  "entrypoint": "tests/infra/observation_records.py",
+  "run_output": "runs/native-observation-records-stage097/textarena_sokoban/literal",
+  "literal_observations": true,
+  "state_prompt": "jevspawn.state.literal_history_format"
+}

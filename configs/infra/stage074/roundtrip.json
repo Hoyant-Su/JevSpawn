@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "sources": [
+    "runs/native-l2norm-reuse-stage073/plancraft-reference",
+    "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind",
+    "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku"
+  ],
+  "tokenizer": {
+    "local_files_only": true
+  },
+  "output": "results/infra/native_state_context_stage074_roundtrip.json"
+}

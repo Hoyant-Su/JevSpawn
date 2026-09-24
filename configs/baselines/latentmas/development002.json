@@ -1,0 +1,14 @@
+{
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "task_count": 8,
+  "root_batch_size": 8,
+  "latent_steps": 10,
+  "final_tokens": 1024,
+  "final_temperature": 0,
+  "memory_mode": "full",
+  "alignment": true,
+  "stage": "development002_fixed_batch_budget_qualification",
+  "numerical_diagnostic": "runs/baselines/latentmas/runs/first-role-diagnostic-001/comparison_summary.json"
+}

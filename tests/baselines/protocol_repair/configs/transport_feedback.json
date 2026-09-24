@@ -1,0 +1,48 @@
+{
+  "react_prompts": {
+    "invalid_action": "Use ToolName[JSON arguments]."
+  },
+  "invalid_frames": [
+    "Missing action frame",
+    "execute[{]",
+    "execute[{\"actions\":12}]",
+    "unknown[{}]"
+  ],
+  "valid_action": "execute[{\"actions\":\"left\"}]",
+  "valid_payload": {
+    "actions": "left"
+  },
+  "invalid_payload": {
+    "actions": 12
+  },
+  "tool": "execute",
+  "compiler_fields": [
+    "actions"
+  ],
+  "invalid_xml_call": {
+    "function": "finish",
+    "arguments": {
+      "answer": "{"
+    }
+  },
+  "invalid_xml_finish": {
+    "function": "finish",
+    "arguments": {
+      "answer": "[]"
+    }
+  },
+  "unknown_xml_call": {
+    "function": "unknown",
+    "arguments": {}
+  },
+  "valid_xml_call": {
+    "function": "execute",
+    "arguments": {
+      "actions": "left"
+    }
+  },
+  "infra_error": "Native backend unavailable",
+  "compiler_method": "configs/baselines/common/methods/llmcompiler.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "invalid_final": "[]"
+}

@@ -1,0 +1,8 @@
+{
+  "fields": "Answer every supplied question using its original context and candidate descriptions. Return a JSON object mapping each original field ID to its selected original option ID.",
+  "code": "Implement the specified Python function. Return a complete Python module, including required imports, in the code field. Do not invoke the function outside its definition.",
+  "ranking": "Rank the candidate documents by relevance to the query. Read candidate contents with the document tool. Return exactly the requested number of distinct original document IDs in decreasing relevance order.",
+  "answer": "Answer the question using the available evidence corpus. Search and read evidence as needed. Return the concise answer in the answer field. Use Insufficient information. when the evidence does not establish the answer.",
+  "grid": "Solve the complete logic puzzle. Return one row per house in increasing house order. Within each row, use the attribute order given in the puzzle and preserve the original attribute values.",
+  "spans": "Identify hallucinated content in the response relative to the supplied reference. Return the smallest exact response substrings expressing unsupported or contradictory information. Each span contains its exact text and its one-based occurrence number among identical substrings. Return an empty spans list when no hallucination is present."
+}

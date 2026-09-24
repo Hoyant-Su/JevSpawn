@@ -1,0 +1,14 @@
+{
+  "source_run": "runs/common-jevspawn_shape-revision-tuned-noncoding-tp4-v1-001",
+  "task_file": "data/baselines/common/qualification/typed_revision_noncoding.jsonl",
+  "task_id": "lgp-test-6x6-5",
+  "node_ids": ["finite-14", "finite-15", "finite-16", "finite-17", "finite-18", "finite-19"],
+  "source_method": "configs/baselines/common/methods/jevspawn_shape_revision_tuned_noncoding_tp4_v2.json",
+  "candidate_method": "configs/baselines/common/methods/jevspawn_shape_revision_addressed_tuned_noncoding_tp4_v2.json",
+  "specification": "configs/baselines/common/qualification/tp4_v2/jevspawn_shape_revision_addressed_tuned_noncoding.json",
+  "prompt_snapshot": "records/methods/address_namespace/original_prompts.json",
+  "inputs_output": "records/methods/address_namespace/compilation_inputs_001.json",
+  "summary_output": "results/methods/structured_flow/address_namespace_cpu_001.json",
+  "count_step": 1,
+  "scalar_schema": {"type": "string"}
+}

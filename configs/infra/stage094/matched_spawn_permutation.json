@@ -1,0 +1,91 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/action_prefix/matched_permutation.py",
+  "output": "results/infra/native-action-prefix-stage094/matched_spawn/maze_permutation",
+  "repetitions": 3,
+  "modes": [
+    "recompute",
+    "reuse"
+  ],
+  "source_config": "configs/infra/stage094/lmrlgym_maze_candidate.json",
+  "task_files": [
+    "task-00000.json",
+    "task-00001.json",
+    "task-00002.json",
+    "task-00003.json"
+  ],
+  "turn": 0,
+  "fields_per_turn": 1,
+  "field_index": 0,
+  "orders": [
+    {
+      "name": "reference_order",
+      "indices": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "candidate_order",
+      "indices": [
+        0,
+        1,
+        3,
+        2
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "left_mode": "recompute",
+      "right_mode": "recompute",
+      "left_order": "reference_order",
+      "right_order": "candidate_order"
+    },
+    {
+      "left_mode": "reuse",
+      "right_mode": "reuse",
+      "left_order": "reference_order",
+      "right_order": "candidate_order"
+    },
+    {
+      "left_mode": "reuse",
+      "right_mode": "recompute",
+      "left_order": "reference_order",
+      "right_order": "reference_order"
+    },
+    {
+      "left_mode": "reuse",
+      "right_mode": "recompute",
+      "left_order": "candidate_order",
+      "right_order": "candidate_order"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "config": "configs/jevspawn/typed_values.json",
+  "task": {
+    "instruction": "Produce distinct structured records.",
+    "input": {},
+    "answer_schema": {
+      "type": "array"
+    },
+    "hidden_label": "never expose this value"
+  },
+  "path": [
+    "answer"
+  ],
+  "evidence": {},
+  "pair": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "enum": [
+          "same",
+          "other"
+        ]
+      },
+      "occurrence": {
+        "type": "integer",
+        "enum": [
+          1,
+          2
+        ]
+      }
+    },
+    "required": [
+      "text",
+      "occurrence"
+    ],
+    "additionalProperties": false
+  },
+  "same_text": [
+    {
+      "text": "same",
+      "occurrence": 1
+    },
+    {
+      "text": "same",
+      "occurrence": 2
+    }
+  ],
+  "same_occurrence": [
+    {
+      "text": "same",
+      "occurrence": 1
+    },
+    {
+      "text": "other",
+      "occurrence": 1
+    }
+  ],
+  "duplicate": [
+    {
+      "text": "same",
+      "occurrence": 1
+    },
+    {
+      "text": "same",
+      "occurrence": 1
+    }
+  ],
+  "singleton": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "const": "same"
+      },
+      "occurrence": {
+        "enum": [
+          1
+        ]
+      }
+    },
+    "required": [
+      "text",
+      "occurrence"
+    ],
+    "additionalProperties": false
+  },
+  "nested": {
+    "type": "object",
+    "properties": {
+      "record": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "boolean"
+          },
+          "b": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "additionalProperties": false
+      },
+      "tag": {
+        "const": "fixed"
+      }
+    },
+    "required": [
+      "record",
+      "tag"
+    ],
+    "additionalProperties": false
+  },
+  "nested_values": [
+    {
+      "record": {
+        "a": false,
+        "b": false
+      },
+      "tag": "fixed"
+    },
+    {
+      "record": {
+        "a": false,
+        "b": true
+      },
+      "tag": "fixed"
+    }
+  ],
+  "lookahead": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "boolean"
+      },
+      "b": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false
+  },
+  "lookahead_excluded": [
+    {
+      "a": false,
+      "b": false
+    },
+    {
+      "a": true,
+      "b": false
+    },
+    {
+      "a": true,
+      "b": true
+    }
+  ],
+  "lookahead_expected": {
+    "a": false,
+    "b": true
+  },
+  "optional": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "boolean"
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "empty_object_array": {
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    }
+  },
+  "empty_object_expected": [
+    {}
+  ]
+}

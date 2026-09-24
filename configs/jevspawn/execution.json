@@ -1,0 +1,44 @@
+{
+  "structured": {
+    "modes": [
+      "shared",
+      "independent",
+      "streamed",
+      "tiled_shared",
+      "tiled_independent"
+    ],
+    "prefix_batch_modes": [
+      "shared",
+      "streamed"
+    ],
+    "tiled_modes": [
+      "tiled_shared",
+      "tiled_independent"
+    ]
+  },
+  "cache_arena": {
+    "model_type": "qwen3_5_text",
+    "dtype": "bfloat16",
+    "recurrent_dtype": "float32",
+    "layer_types": [
+      "linear_attention",
+      "full_attention"
+    ]
+  },
+  "backend": {
+    "kernels": {
+      "torch": [
+        "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+        "transformers.models.qwen3_5.modeling_qwen3_5.torch_recurrent_gated_delta_rule"
+      ],
+      "fla": [
+        "fla.ops.gated_delta_rule.chunk_gated_delta_rule",
+        "fla.ops.gated_delta_rule.fused_recurrent_gated_delta_rule"
+      ]
+    },
+    "json_constraints": [
+      "finite",
+      "none"
+    ]
+  }
+}

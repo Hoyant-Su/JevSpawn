@@ -1,0 +1,81 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/plancraft",
+      "evaluation": "results/native_baselines/screen/lats/plancraft.json",
+      "progress": "results/native_baselines/progress/lats/plancraft.json",
+      "log": "logs/native_baselines/screen-lats-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/plancraft_lats.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/lats/plancraft",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/plancraft",
+          "--output",
+          "results/native_baselines/screen/lats/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/plancraft",
+      "evaluation": "results/native_baselines/formal/lats/plancraft.json",
+      "progress": "results/native_baselines/progress/formal/lats/plancraft.json",
+      "log": "logs/native_baselines/formal-lats-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/plancraft_lats.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/lats/plancraft",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/plancraft",
+          "--output",
+          "results/native_baselines/formal/lats/plancraft.json"
+        ]
+      ]
+    }
+  ],
+  "physical_devices": "0,1,2,3",
+  "instance": "v26-0916-8-core"
+}

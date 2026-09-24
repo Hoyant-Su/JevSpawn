@@ -1,0 +1,24 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "rollout": "configs/jevspawn/environment_qualification.json",
+  "values": [
+    "True",
+    "False",
+    "Undetermined"
+  ],
+  "positive_value": "True",
+  "padding": "left",
+  "command": "pointwise_action_scores",
+  "task_count": 2,
+  "output": "runs/pointwise-environment-memory-001",
+  "step_file": "turn-{turn:03d}.json",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  }
+}

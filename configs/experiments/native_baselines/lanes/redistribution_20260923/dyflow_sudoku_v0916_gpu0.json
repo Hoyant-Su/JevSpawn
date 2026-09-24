@@ -1,0 +1,79 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/dyflow/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/dyflow/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-dyflow-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/dyflow/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/dyflow/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-dyflow-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/dyflow/agentquest_sudoku.json"
+        ]
+      ]
+    }
+  ]
+}

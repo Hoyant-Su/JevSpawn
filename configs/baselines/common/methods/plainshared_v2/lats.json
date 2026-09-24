@@ -1,0 +1,17 @@
+{
+  "module": "baselines.common.lats",
+  "service": "baselines.common.streaming_service.StreamingBatchService",
+  "prompts": "configs/baselines/common/schema/lats.json",
+  "settings": {
+    "source_directory": "external/LanguageAgentTreeSearch",
+    "upstream_commit": "853d81614607dd27433faf17c7b0a7d660f95d22",
+    "expansion_samples": 5,
+    "evaluation_samples": 1,
+    "max_depth": 7,
+    "rollout_depth": 4,
+    "rollout_samples": 5,
+    "terminal_reward": "original_lats_lm_value",
+    "search_iterations": 36
+  },
+  "python_paths": []
+}

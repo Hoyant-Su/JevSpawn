@@ -1,0 +1,8 @@
+{
+  "reference_key": "$ref",
+  "object_key": "$object",
+  "dictionary_key": "values",
+  "root_key": "root",
+  "minimum_occurrences": 2,
+  "serialization": {"ensure_ascii": false, "allow_nan": false, "separators": [",", ":"]}
+}

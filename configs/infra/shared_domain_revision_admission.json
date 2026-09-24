@@ -1,0 +1,9 @@
+{
+  "source_run": "runs/common-jevspawn_shared_domain_stable-noncoding-tp4-v1-001",
+  "task_file": "task-00010.json",
+  "method": "configs/baselines/common/methods/jevspawn_shared_domain_revision_stable.json",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "input_glob": "finite-inputs/cohort-*.json",
+  "record": "records/methods/shared_domain_revision/admission_inputs_001.json",
+  "result": "results/methods/structured_flow/shared_domain_revision_admission_001.json"
+}

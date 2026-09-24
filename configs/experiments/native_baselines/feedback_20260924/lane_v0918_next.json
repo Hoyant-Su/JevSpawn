@@ -1,0 +1,79 @@
+{
+  "stage": "formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_agentquest_sudoku.json",
+      "run": "runs/native-baselines-feedback-20260924/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/agentquest_sudoku.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/dyflow_agentquest_sudoku.json",
+      "log": "logs/native_baselines/feedback-20260924-dyflow-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/dyflow_agentquest_sudoku.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/dyflow/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/dyflow/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/feedback_20260924/dyflow/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_textarena_sokoban.json",
+      "run": "runs/native-baselines-feedback-20260924/dyflow/textarena_sokoban",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/textarena_sokoban.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/dyflow_textarena_sokoban.json",
+      "log": "logs/native_baselines/feedback-20260924-dyflow-textarena_sokoban.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/dyflow_textarena_sokoban.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/dyflow/textarena_sokoban",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/dyflow/textarena_sokoban",
+          "--output",
+          "results/native_baselines/feedback_20260924/dyflow/textarena_sokoban.json"
+        ]
+      ]
+    }
+  ]
+}

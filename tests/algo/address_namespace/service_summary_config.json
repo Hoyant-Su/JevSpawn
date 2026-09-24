@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "original": {
+      "run": "runs/common-jevspawn_shape_revision_tuned_noncoding-tp4-v2-001",
+      "evaluation": "results/methods/structured_flow/jevspawn_shape_revision_tp4_v2_001.json"
+    },
+    "addressed": {
+      "run": "runs/common-jevspawn_shape_revision_addressed_tuned_noncoding-tp4-v2-001",
+      "evaluation": "results/methods/structured_flow/address_namespace_qualification_001.json"
+    }
+  },
+  "output": "results/methods/structured_flow/address_namespace_service_comparison_001.json"
+}

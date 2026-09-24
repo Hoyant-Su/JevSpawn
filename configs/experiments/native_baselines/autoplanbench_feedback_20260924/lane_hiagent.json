@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "hiagent",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "hiagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/hiagent.json",
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/hiagent",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/hiagent.json",
+      "progress": "results/native_baselines/autoplanbench_feedback_20260924/progress/hiagent.json",
+      "log": "logs/native_baselines/autoplanbench-feedback-20260924-hiagent.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/autoplanbench_feedback_20260924/hiagent.json",
+          "--output",
+          "runs/native-baselines-autoplanbench-feedback-20260924/hiagent",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-autoplanbench-feedback-20260924/hiagent",
+          "--output",
+          "results/native_baselines/autoplanbench_feedback_20260924/hiagent.json"
+        ]
+      ]
+    }
+  ]
+}

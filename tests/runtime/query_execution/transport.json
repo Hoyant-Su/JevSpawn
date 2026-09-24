@@ -1,0 +1,327 @@
+{
+  "task_id": "transport-only",
+  "query": "This fixture tests field transport, not task-solving accuracy.",
+  "batches": [
+    [
+      {
+        "id": "relation",
+        "question": "What is the relation?",
+        "values": [
+          "before",
+          "after"
+        ]
+      },
+      {
+        "id": "validity",
+        "question": "Is the relation consistent?",
+        "values": [
+          true,
+          false
+        ]
+      }
+    ],
+    [
+      {
+        "id": "resolution",
+        "question": "What follows from the completed relations?",
+        "values": [
+          "retain",
+          "revise"
+        ]
+      }
+    ]
+  ],
+  "decisions": [
+    [
+      {
+        "choice": "value-1",
+        "id": "relation"
+      },
+      {
+        "choice": "value-0",
+        "id": "validity"
+      }
+    ],
+    [
+      {
+        "choice": "value-0",
+        "id": "resolution"
+      }
+    ]
+  ],
+  "second_turn_observation": [
+    {
+      "id": "relation",
+      "question": "What is the relation?",
+      "domain": [
+        "before",
+        "after"
+      ],
+      "value": "after"
+    },
+    {
+      "id": "validity",
+      "question": "Is the relation consistent?",
+      "domain": [
+        true,
+        false
+      ],
+      "value": true
+    }
+  ],
+  "answer_template": {
+    "result": "${resolution}",
+    "evidence": [
+      "${relation}",
+      "${validity}"
+    ]
+  },
+  "answer": {
+    "result": "retain",
+    "evidence": [
+      "after",
+      true
+    ]
+  },
+  "output_nodes": [
+    [
+      "[]",
+      "object",
+      "-"
+    ],
+    [
+      "[\"evidence\"]",
+      "array",
+      "-"
+    ],
+    [
+      "[\"evidence\", 0]",
+      "field",
+      "relation"
+    ],
+    [
+      "[\"evidence\", 1]",
+      "field",
+      "validity"
+    ],
+    [
+      "[\"quoted\\\"key\"]",
+      "text",
+      "a \"quoted\" value"
+    ],
+    [
+      "[\"empty\"]",
+      "object",
+      "-"
+    ],
+    [
+      "[\"count\"]",
+      "scalar",
+      "2"
+    ]
+  ],
+  "assembled_answer": {
+    "evidence": [
+      "after",
+      true
+    ],
+    "quoted\"key": "a \"quoted\" value",
+    "empty": {},
+    "count": 2
+  },
+  "tool_calls": [
+    {
+      "id": "observation_event",
+      "tool": "fixture-tool",
+      "arguments": {
+        "relation": "${relation}"
+      }
+    }
+  ],
+  "tool_results": {
+    "observation_event": {
+      "observation": "Changed state supplied by the fixture tool.",
+      "done": false
+    }
+  },
+  "tool_reference": "${observation_event}",
+  "refresh_decisions": [
+    {
+      "id": "relation",
+      "choice": "value-0"
+    },
+    {
+      "id": "validity",
+      "choice": "value-1"
+    }
+  ],
+  "refreshed_values": {
+    "relation": "before",
+    "validity": false
+  },
+  "binding_case": {
+    "query": "The supplied quantity is 12.5 kg and the recipient is Ada.",
+    "bindings": [
+      {
+        "id": "quantity",
+        "question": "supplied quantity",
+        "source_text": "12.5 kg",
+        "value": 12.5
+      },
+      {
+        "id": "recipient",
+        "question": "supplied recipient",
+        "source_text": "Ada",
+        "value": "Ada"
+      }
+    ],
+    "expected": {
+      "quantity": 12.5,
+      "recipient": "Ada"
+    },
+    "missing_source": {
+      "id": "missing",
+      "question": "unavailable recipient",
+      "source_text": "Grace",
+      "value": "Grace"
+    }
+  },
+  "slot_readout_case": {
+    "query": "Keep the text verbatim and determine whether the two stated quantities are equal.",
+    "state": "The quantities are both twelve. Text: Ada \"Q\"\nnext line",
+    "slots": [
+      {
+        "id": "comparison",
+        "question": "Are the supplied quantities equal?",
+        "options": [
+          {
+            "id": "equal",
+            "description": "Equal quantities",
+            "value": true
+          },
+          {
+            "id": "different",
+            "description": "Different quantities",
+            "value": false
+          }
+        ]
+      },
+      {
+        "id": "verbatim",
+        "question": "The supplied text, verbatim",
+        "options": []
+      },
+      {
+        "id": "label",
+        "question": "The name before the quoted letter",
+        "options": []
+      }
+    ],
+    "decisions": [
+      {
+        "id": "comparison",
+        "choice": "equal"
+      }
+    ],
+    "texts": [
+      "Ada \"Q\"\nnext line",
+      "Ada"
+    ],
+    "expected": {
+      "comparison": true,
+      "verbatim": "Ada \"Q\"\nnext line",
+      "label": "Ada"
+    },
+    "budget": {
+      "max_new_tokens": 32,
+      "temperature": 0.0,
+      "stop": []
+    }
+  },
+  "assembly_slot_case": {
+    "query": "Return an object with recipient and confirmed.",
+    "state": "The recipient has been bound; confirmation is true.",
+    "known_values": {
+      "recipient_value": "Ada \"Q\""
+    },
+    "decisions": [
+      [
+        {
+          "id": "slot-0",
+          "choice": "object"
+        }
+      ],
+      [
+        {
+          "id": "slot-1",
+          "choice": "reference"
+        },
+        {
+          "id": "slot-2",
+          "choice": "true"
+        }
+      ]
+    ],
+    "texts": [
+      "recipient\nconfirmed"
+    ],
+    "expected": {
+      "recipient": "Ada \"Q\"",
+      "confirmed": true
+    },
+    "budget": {
+      "max_new_tokens": 32,
+      "temperature": 0.0,
+      "max_turns": 2
+    }
+  },
+  "slot_dependency_case": {
+    "query": "Keep each record value attached to its named subject.",
+    "state": "Subjects and values are supplied in the task.",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string",
+            "depends_on": [
+              "subject"
+            ]
+          }
+        }
+      }
+    },
+    "outputs": [
+      [
+        "2"
+      ],
+      [
+        "Ada",
+        "Grace"
+      ],
+      [
+        "A",
+        "G"
+      ]
+    ],
+    "expected": [
+      {
+        "subject": "Ada",
+        "value": "A"
+      },
+      {
+        "subject": "Grace",
+        "value": "G"
+      }
+    ],
+    "budget": {
+      "max_new_tokens": 32,
+      "temperature": 0.0,
+      "max_turns": 4
+    }
+  }
+}

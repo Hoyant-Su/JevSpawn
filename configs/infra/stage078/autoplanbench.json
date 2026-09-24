@@ -1,0 +1,17 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+  "entrypoint": "tests/infra/native_history_cache/rollout.py",
+  "run_output": "runs/native-history-coverage-stage078/autoplanbench",
+  "history_cache": {
+    "chunk_tokens": 64,
+    "initial_count": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "reference": "results/infra/native_stable_prefix_stage062_reference.json",
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "backend_source": "jevspawn/src/jev_spawn/infra/backend.py",
+  "backend_class": "Backend",
+  "render_method": "_render",
+  "tokenizer": {
+    "local_files_only": true
+  },
+  "profile_sources": [
+    "results/infra/native-rollout-stage059-roots1/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots1/rank0-batch2.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch2.json"
+  ],
+  "trace_runs": [
+    "runs/native-ppnl-jevspawn-20260923-055",
+    "runs/native-plancraft-jevspawn-20260923-055"
+  ],
+  "trace_selection": "first_model_field_per_task",
+  "task_glob": "task-*.json",
+  "output": "results/infra/native_stable_prefix_stage062_tokens.json",
+  "inference_config": "configs/inference/shared_service.json"
+}

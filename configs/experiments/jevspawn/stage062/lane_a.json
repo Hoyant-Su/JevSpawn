@@ -1,0 +1,67 @@
+{
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/jevspawn/stage062/ppnl.json",
+      "run": "runs/native-ppnl-jevspawn-20260923-062",
+      "evaluation": "results/validation/native_stage062_ppnl_20260923.json",
+      "progress": "results/validation/native_stage062_ppnl_progress_20260923.json",
+      "log": "logs/qualification/native-stage062-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/jevspawn/stage062/ppnl.json",
+          "runs/native-ppnl-jevspawn-20260923-062"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-ppnl-jevspawn-20260923-062",
+          "--output",
+          "results/validation/native_stage062_ppnl_20260923.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/jevspawn/stage062/plancraft.json",
+      "run": "runs/native-plancraft-jevspawn-20260923-062",
+      "evaluation": "results/validation/native_stage062_plancraft_20260923.json",
+      "progress": "results/validation/native_stage062_plancraft_progress_20260923.json",
+      "log": "logs/qualification/native-stage062-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/jevspawn/stage062/plancraft.json",
+          "runs/native-plancraft-jevspawn-20260923-062"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-plancraft-jevspawn-20260923-062",
+          "--output",
+          "results/validation/native_stage062_plancraft_20260923.json"
+        ]
+      ]
+    }
+  ]
+}

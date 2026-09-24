@@ -1,0 +1,286 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "instance": "v26-0916-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_action_prefix_screen/plancraft_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/plancraft/candidate_retry",
+      "evaluation": "results/validation/stage094_plancraft_candidate_retry.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/plancraft_candidate_retry.json",
+      "log": "logs/qualification/stage094_plancraft_candidate_retry.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/plancraft_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/plancraft/candidate_retry",
+          "--output",
+          "results/validation/stage094_plancraft_candidate_retry.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_action_prefix_screen/plancraft_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/plancraft/reference",
+      "evaluation": "results/validation/stage094_plancraft_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/plancraft_reference.json",
+      "log": "logs/qualification/stage094_plancraft_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/plancraft_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/plancraft/reference",
+          "--output",
+          "results/validation/stage094_plancraft_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_lightsout_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_lightsout/candidate",
+      "evaluation": "results/validation/stage094_textarena_lightsout_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_lightsout_candidate.json",
+      "log": "logs/qualification/stage094_textarena_lightsout_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_lightsout_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_lightsout/candidate",
+          "--output",
+          "results/validation/stage094_textarena_lightsout_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_lightsout_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_lightsout/reference",
+      "evaluation": "results/validation/stage094_textarena_lightsout_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_lightsout_reference.json",
+      "log": "logs/qualification/stage094_textarena_lightsout_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_lightsout_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_lightsout/reference",
+          "--output",
+          "results/validation/stage094_textarena_lightsout_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_sokoban_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_sokoban/candidate",
+      "evaluation": "results/validation/stage094_textarena_sokoban_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_sokoban_candidate.json",
+      "log": "logs/qualification/stage094_textarena_sokoban_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_sokoban_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_sokoban/candidate",
+          "--output",
+          "results/validation/stage094_textarena_sokoban_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_action_prefix_screen/textarena_sokoban_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/textarena_sokoban/reference",
+      "evaluation": "results/validation/stage094_textarena_sokoban_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/textarena_sokoban_reference.json",
+      "log": "logs/qualification/stage094_textarena_sokoban_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/textarena_sokoban_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/textarena_sokoban/reference",
+          "--output",
+          "results/validation/stage094_textarena_sokoban_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_nullify_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_nullify/candidate",
+      "evaluation": "results/validation/stage094_korgym_nullify_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_nullify_candidate.json",
+      "log": "logs/qualification/stage094_korgym_nullify_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_nullify_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_nullify/candidate",
+          "--output",
+          "results/validation/stage094_korgym_nullify_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_nullify_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_nullify/reference",
+      "evaluation": "results/validation/stage094_korgym_nullify_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_nullify_reference.json",
+      "log": "logs/qualification/stage094_korgym_nullify_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_nullify_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_nullify/reference",
+          "--output",
+          "results/validation/stage094_korgym_nullify_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_2048_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_2048/candidate",
+      "evaluation": "results/validation/stage094_korgym_2048_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_2048_candidate.json",
+      "log": "logs/qualification/stage094_korgym_2048_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_2048_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_2048/candidate",
+          "--output",
+          "results/validation/stage094_korgym_2048_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_2048_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/korgym_2048/reference",
+      "evaluation": "results/validation/stage094_korgym_2048_reference.json",
+      "progress": "results/infra/native-action-prefix-stage094/progress/korgym_2048_reference.json",
+      "log": "logs/qualification/stage094_korgym_2048_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage094/korgym_2048_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/korgym_2048/reference",
+          "--output",
+          "results/validation/stage094_korgym_2048_reference.json"
+        ]
+      ]
+    }
+  ]
+}

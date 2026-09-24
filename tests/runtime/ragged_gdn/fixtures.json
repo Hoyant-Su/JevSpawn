@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "recurrent_dtype": "float32",
+  "model_config": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B/config.json",
+  "execution_settings": "configs/jevspawn/qwen35_execution.json",
+  "world_size": 4,
+  "sharded_head_fields": ["linear_num_key_heads", "linear_num_value_heads"],
+  "layer_index": 0,
+  "singleton": 1,
+  "lengths": [1, 3, 65, 129, 257, 513],
+  "orders": [[0, 1, 2, 3, 4, 5], [5, 0, 3, 1, 4, 2]],
+  "parameter_mean": 0.0,
+  "parameter_std": 0.02,
+  "constant_parameters": {"norm.weight": 1.0, "dt_bias": -3.0},
+  "hidden_std": 0.2,
+  "conv_state_std": 0.1,
+  "recurrent_state_std": 0.1,
+  "tolerances": {"hidden": {"rtol": 0.02, "atol": 0.002}, "conv": {"rtol": 0.02, "atol": 0.002}, "recurrent": {"rtol": 0.02, "atol": 0.002}}
+}

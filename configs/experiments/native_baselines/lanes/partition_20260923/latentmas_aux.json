@@ -1,0 +1,209 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "latentmas",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "latentmas",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/autoplanbench",
+      "evaluation": "results/native_baselines/screen/latentmas/autoplanbench.json",
+      "progress": "results/native_baselines/progress/latentmas/autoplanbench.json",
+      "log": "logs/native_baselines/screen-latentmas-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/autoplanbench_latentmas.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/latentmas/autoplanbench",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/latentmas/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_latentmas.json",
+      "run": "runs/native-baselines-formal-20260923/latentmas/autoplanbench",
+      "evaluation": "results/native_baselines/formal/latentmas/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/latentmas/autoplanbench.json",
+      "log": "logs/native_baselines/formal-latentmas-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/autoplanbench_latentmas.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/latentmas/autoplanbench",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/latentmas/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/latentmas/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/latentmas/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/latentmas/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-latentmas-agentquest_mastermind.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_latentmas.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/latentmas/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_latentmas.json",
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/formal/latentmas/agentquest_mastermind.json",
+      "log": "logs/native_baselines/formal-latentmas-agentquest_mastermind.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/agentquest_mastermind_latentmas.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/latentmas/agentquest_mastermind",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/latentmas/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/formal/latentmas/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/latentmas/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/latentmas/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-latentmas-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_latentmas.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/latentmas/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_latentmas.json",
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/latentmas/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-latentmas-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_latentmas.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/latentmas/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/latentmas/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/latentmas/agentquest_sudoku.json"
+        ]
+      ]
+    }
+  ],
+  "physical_devices": "4,5,6,7",
+  "instance": "v26-0916-8-core"
+}

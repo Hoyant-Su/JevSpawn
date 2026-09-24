@@ -1,0 +1,17 @@
+{
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/zebralogic/development/tasks.jsonl",
+  "schema_directory": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/methods/finite_constraints/schema",
+  "batch_size": 8,
+  "max_new_tokens": 2048,
+  "seed": 42,
+  "arms": [
+    "original_static",
+    "bound_static",
+    "bound_compiled"
+  ],
+  "stage": "Instance-local text-forward wrapper specialization, same original computation. Exact eager static-cache8-row token parity required before fullgraph.",
+  "time_limit_seconds": 1200,
+  "measurement": "Only the compiled measured arm carries a CPU and CUDA profiler for actual graph replay evidence. Its wall time includes profiler overhead. Events occur after token selection, without per-token synchronization except the explicitly synchronizing control.",
+  "resource_policy": "Assigned v26-v0812-4-core GPU1 verified free. Workspace quota checked. Available CLI does not expose priority or reclamation policy."
+}

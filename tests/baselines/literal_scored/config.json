@@ -1,0 +1,40 @@
+{
+  "source": "runs/common-jevspawn-candidate-verification-tp4-v2-001/finite-inputs",
+  "method": "configs/baselines/common/methods/jevspawn_candidate_verification_tp4_v2.json",
+  "result": "results/infra/literal_scored_cpu_001.json",
+  "seed": 42,
+  "request": {
+    "max_tokens": 1,
+    "temperature": 0.0,
+    "submitted": 1.0
+  },
+  "scores": [
+    [
+      -2.0,
+      7.0,
+      1.0
+    ],
+    [
+      9.0,
+      -4.0,
+      2.0
+    ],
+    [
+      6.0,
+      3.0,
+      -1.0
+    ]
+  ],
+  "option_counts": [
+    2,
+    3,
+    1
+  ],
+  "scored_rows": [
+    0,
+    2
+  ],
+  "buffer_overwrite": -100.0,
+  "layout_method": "configs/baselines/common/methods/jevspawn_shape_literal_cohort_tp4_v2.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml"
+}

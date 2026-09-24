@@ -1,0 +1,12 @@
+{
+  "replay_specification": "configs/infra/finite_prefix_independent_zebra011.json",
+  "output": "runs/finite-readout-semantics-zebra011-001",
+  "max_new_tokens": 16,
+  "top_candidates": 20,
+  "do_sample": false,
+  "use_cache": true,
+  "expected_full_head_dtype": "torch.bfloat16",
+  "controller_source": "recorded",
+  "controller_prompt": "jevspawn.controller",
+  "verify_recorded_token_counts": true
+}

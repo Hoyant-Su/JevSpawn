@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source": "runs/finite-environment-direct-001",
+  "task_count": 32,
+  "trace_file": "trace-{index:05d}.json",
+  "values": [
+    "True",
+    "False",
+    "Undetermined"
+  ],
+  "padding": "left",
+  "output": "runs/semantic-readout-b1-001",
+  "readout_batch_size": 1
+}

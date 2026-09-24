@@ -1,0 +1,65 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage103_canonical_branch_identity",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-v0801-4-core",
+  "entries": [
+    {
+      "dataset": "lmrlgym_maze",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/lmrlgym_maze_spec.json",
+      "run": "runs/canonical-branch-stage103/lmrlgym_maze",
+      "evaluation": "results/validation/canonical-branch-stage103/lmrlgym_maze.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/lmrlgym_maze.json",
+      "log": "logs/qualification/canonical-branch-stage103/lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/lmrlgym_maze.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/lmrlgym_maze",
+          "--output",
+          "results/validation/canonical-branch-stage103/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "llfbench_gridworld",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/llfbench_gridworld_spec.json",
+      "run": "runs/canonical-branch-stage103/llfbench_gridworld",
+      "evaluation": "results/validation/canonical-branch-stage103/llfbench_gridworld.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/llfbench_gridworld.json",
+      "log": "logs/qualification/canonical-branch-stage103/llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/llfbench_gridworld.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/llfbench_gridworld",
+          "--output",
+          "results/validation/canonical-branch-stage103/llfbench_gridworld.json"
+        ]
+      ]
+    }
+  ]
+}

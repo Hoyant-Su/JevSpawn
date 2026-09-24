@@ -1,0 +1,15 @@
+{
+  "embedding_model_path": "/inspire/hdd/global_user/suhaoyang-240107100018/LM/Qwen3-Embedding-0.6B",
+  "embedding_dtype": "bfloat16",
+  "embedding_attention": "sdpa",
+  "embedding_batch_size": 8,
+  "embedding_max_input_tokens": 8192,
+  "summary_max_new_tokens": 512,
+  "selection_max_new_tokens": 128,
+  "verdict_max_new_tokens": 128,
+  "reasoning_max_new_tokens": 512,
+  "domains": {
+    "math": {"retrieval_mode": "rerank", "retrieve_p": 20, "select_q": 5, "pass_rate": 0.6, "repair_attempts": 3},
+    "code": {"retrieval_mode": "direct", "retrieve_p": 3, "select_q": 3, "pass_rate": 1.0, "repair_attempts": 3}
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "seed": 42,
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "recurrent_dtype": "float32",
+  "capacity": 8,
+  "lengths": [2, 5],
+  "last_tokens": [71, 83],
+  "cases": [[0], [0, 1], [1, 0]],
+  "singleton": 1,
+  "mutation": 3.0,
+  "copy_settings": {"mode": "scalar", "block_size": 4096, "num_warps": 4},
+  "model": {
+    "num_hidden_layers": 2,
+    "layer_types": ["linear_attention", "full_attention"],
+    "num_key_value_heads": 2,
+    "head_dim": 4,
+    "linear_num_key_heads": 2,
+    "linear_num_value_heads": 2,
+    "linear_key_head_dim": 4,
+    "linear_value_head_dim": 4,
+    "linear_conv_kernel_dim": 3,
+    "mamba_ssm_dtype": "float32"
+  },
+  "output": "results/infra/finite_decoding_loader_cpu_001.json"
+}

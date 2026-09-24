@@ -1,0 +1,39 @@
+{
+  "type_map": {
+    "dict": "object",
+    "string": "string",
+    "integer": "integer",
+    "float": "number",
+    "boolean": "boolean",
+    "array": "array",
+    "tuple": "array"
+  },
+  "object_type": "dict",
+  "array_type": "array",
+  "tuple_type": "tuple",
+  "preserved_keywords": [
+    "title",
+    "description",
+    "default",
+    "enum",
+    "const",
+    "format",
+    "minimum",
+    "maximum",
+    "exclusiveMinimum",
+    "exclusiveMaximum",
+    "minLength",
+    "maxLength",
+    "pattern",
+    "minItems",
+    "maxItems",
+    "uniqueItems",
+    "additionalProperties"
+  ],
+  "unsupported_types": [
+    "any"
+  ],
+  "materialization": {
+    "close_objects": true
+  }
+}

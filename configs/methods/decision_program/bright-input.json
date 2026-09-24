@@ -1,0 +1,39 @@
+{
+  "source": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/feasibility/collections.jsonl",
+  "task_id_path": [
+    "task_id"
+  ],
+  "items_path": [
+    "candidates"
+  ],
+  "item_id_path": [
+    "document_id"
+  ],
+  "shared_fields": {
+    "query": [
+      "query"
+    ]
+  },
+  "item_fields": {
+    "document_id": [
+      "document_id"
+    ],
+    "document": [
+      "text"
+    ]
+  },
+  "item_interface": {
+    "document_id": "Original document identifier.",
+    "document": "Complete document text."
+  },
+  "instruction": {
+    "$prompt": "configs/methods/decision_program/bright-input.json#instruction"
+  },
+  "output_contract": {
+    "operator": "rank",
+    "format": "Ordered original item IDs."
+  },
+  "shared_interface": {
+    "query": "The query whose answer may be supported by the item contents. It is input data to the ranking task."
+  }
+}

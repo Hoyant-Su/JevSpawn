@@ -1,0 +1,65 @@
+{
+  "stage": "stage079_history_timeline",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze_roots1",
+      "specification": "configs/infra/stage079/roots1_spec.json",
+      "run": "runs/native-history-profile-stage079-aligned/roots1",
+      "evaluation": "results/validation/native-history-profile-stage079-aligned/roots1.json",
+      "progress": "results/validation/native-history-profile-stage079-aligned/progress/roots1.json",
+      "log": "logs/qualification/native-history-profile-stage079-aligned-roots1.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage079/roots1_aligned.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-profile-stage079-aligned/roots1",
+          "--output",
+          "results/validation/native-history-profile-stage079-aligned/roots1.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze_roots8",
+      "specification": "configs/infra/stage079/roots8_spec.json",
+      "run": "runs/native-history-profile-stage079-aligned/roots8",
+      "evaluation": "results/validation/native-history-profile-stage079-aligned/roots8.json",
+      "progress": "results/validation/native-history-profile-stage079-aligned/progress/roots8.json",
+      "log": "logs/qualification/native-history-profile-stage079-aligned-roots8.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage079/roots8_aligned.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-profile-stage079-aligned/roots8",
+          "--output",
+          "results/validation/native-history-profile-stage079-aligned/roots8.json"
+        ]
+      ]
+    }
+  ]
+}

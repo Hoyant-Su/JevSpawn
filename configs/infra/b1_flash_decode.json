@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_row": 0,
+  "batch_size": 1,
+  "steps": 32,
+  "num_splits": 1,
+  "causal": false,
+  "output": "results/infra/b1_flash_decode_002.json",
+  "scope": "B1 unpadded decode-only comparison of native grouped KV FlashAttention with masked SDPA. Both arms restore each identical reference trajectory boundary. Full-vocabulary logits retained. Fixed decode steps ignore EOS. No production integration or general padding support claimed."
+}

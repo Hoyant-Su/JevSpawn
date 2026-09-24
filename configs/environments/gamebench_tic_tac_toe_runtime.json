@@ -1,0 +1,67 @@
+{
+  "source_root": "external/GameBench-review",
+  "module_path_index": 0,
+  "game_module": "games.tic_tac_toe",
+  "game_class": "TicTacToe",
+  "opponent_module": "agents.random_agent",
+  "opponent_class": "RandomAgent",
+  "action_module": "api.classes",
+  "action_class": "Action",
+  "starting_agent_id": 0,
+  "reproducibility": "configs/reproducibility.json",
+  "session": "configs/environments/session.json",
+  "prompts": "environments.agentquest",
+  "tool_name": "execute",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "available_actions": {
+        "type": "object"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  },
+  "scores": {
+    "True": 1.0,
+    "False": 0.0,
+    "draw": 0.5,
+    "unfinished": 0.0
+  }
+}

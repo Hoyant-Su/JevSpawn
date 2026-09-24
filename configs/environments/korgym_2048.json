@@ -1,0 +1,6 @@
+{
+  "class": "environments.korgym.KORGymEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/korgym_2048_runtime.json"
+  }
+}

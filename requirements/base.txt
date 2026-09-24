@@ -1,0 +1,4 @@
+-e ../../demo/jev-spawn
+numpy==2.2.6
+pyarrow==22.0.0
+matplotlib==3.11.1

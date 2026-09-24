@@ -1,0 +1,3 @@
+{
+  "decision_constraint": "I will ask you a question. I will also give you answers enumerated by letters. Only one of the offered answers is correct. You must choose the correct answer to the question. Your response must be one of the provided option letters, corresponding to the correct answer. I will give you some other people's answers and analysis. Your reply must only contain one letter and cannot have any other characters. For example, your reply can be A."
+}

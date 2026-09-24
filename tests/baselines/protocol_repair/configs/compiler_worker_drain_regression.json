@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "submission_tool": "finish",
+  "action": "step",
+  "timeout_seconds": 5,
+  "output": "results/validation/compiler_worker_drain_regression_20260924.json",
+  "task_identities": [
+    1,
+    2
+  ]
+}

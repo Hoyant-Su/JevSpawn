@@ -1,0 +1,57 @@
+{
+  "agentprune": {
+    "max_tries": 1,
+    "seed_bits": 63
+  },
+  "lats": {
+    "completion_samples": 1,
+    "value_output_samples": 1,
+    "prompt_sample": "cot"
+  },
+  "dyflow": {
+    "provider_model_label": "gpt-4o-mini",
+    "provider_role": "summary"
+  },
+  "hiagent": {
+    "examples": [],
+    "need_goal": true,
+    "use_parser": true
+  },
+  "foldagent": {
+    "workflow": "search_branch",
+    "enable_summary": false,
+    "process_reward": null
+  },
+  "llmcompiler": {
+    "planner_stream": false,
+    "benchmark": false,
+    "argument_grammar": {
+      "named_separators": [
+        "=",
+        ":"
+      ],
+      "open_brackets": {
+        "(": ")",
+        "[": "]",
+        "{": "}"
+      },
+      "comma": ",",
+      "ignored_tokens": [
+        "ENDMARKER",
+        "NEWLINE",
+        "NL"
+      ],
+      "join_tool": "join"
+    }
+  },
+  "evaluation_fields": {
+    "slow_interval_seconds": 0.1,
+    "slow_interval_metric": "intervals_over_100ms"
+  },
+  "profile_decode": {
+    "operator_row_limit": 20
+  },
+  "completion": {
+    "samples": 1
+  }
+}

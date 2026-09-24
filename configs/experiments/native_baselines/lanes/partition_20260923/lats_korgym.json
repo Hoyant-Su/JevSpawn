@@ -1,0 +1,177 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/korgym_2048",
+      "evaluation": "results/native_baselines/screen/lats/korgym_2048.json",
+      "progress": "results/native_baselines/progress/lats/korgym_2048.json",
+      "log": "logs/native_baselines/screen-lats-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_lats.json",
+          "runs/native-baselines-screen-20260923/lats/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/lats/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_2048",
+      "evaluation": "results/native_baselines/formal/lats/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/lats/korgym_2048.json",
+      "log": "logs/native_baselines/formal-lats-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_lats.json",
+          "runs/native-baselines-formal-20260923/lats/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/lats/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/lats/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/lats/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-lats-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_lats.json",
+          "runs/native-baselines-screen-20260923/lats/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/lats/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/lats/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/lats/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-lats-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_lats.json",
+          "runs/native-baselines-formal-20260923/lats/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/lats/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/lats/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/lats/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-lats-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_lats.json",
+          "runs/native-baselines-screen-20260923/lats/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/lats/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/lats/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/lats/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-lats-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_nullify_lats.json",
+          "runs/native-baselines-formal-20260923/lats/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/lats/korgym_nullify.json"
+        ]
+      ]
+    }
+  ],
+  "physical_devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "instance": "v26-v0709-4-core"
+}

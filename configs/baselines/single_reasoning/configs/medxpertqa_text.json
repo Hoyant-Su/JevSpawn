@@ -1,0 +1,34 @@
+{
+  "dataset": "medxpertqa_text",
+  "task_scope": "Previously frozen seed 0 uniform subset of 256 original MedXpertQA Text test questions from 2450, in source order. The five original development questions are used for warmup.",
+  "task_count": 256,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "medxpertqa_text/Text-2450",
+    "medxpertqa_text/Text-2451",
+    "medxpertqa_text/Text-2452",
+    "medxpertqa_text/Text-2453",
+    "medxpertqa_text/Text-2454"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "interface": "sync_fields",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/prompts.json",
+  "python_paths": [],
+  "budget": {
+    "max_model_calls_per_task": 1,
+    "max_new_tokens": 2048,
+    "max_output_tokens_per_task": 2048,
+    "temperature": 0,
+    "tools": [],
+    "output": "Unconstrained autoregressive JSON containing thought and choice, original strict parser."
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "Existing AQuA single-reasoning computation, system prompt, question/options renderer and strict parser imported unchanged. Formal disjoint development warmup and atomic block resume replace the old whole-workload timing warmup.",
+  "agent_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/reasoning_config.json",
+  "comparison_class": "Authored direct single-agent generative control, not a published agent baseline."
+}

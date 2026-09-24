@@ -1,0 +1,397 @@
+{
+  "stage": "Eight-method14-task qualification; no full datasets",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "task_count": 14,
+  "task_ids": [
+    "aqua/dev/0",
+    "supergpqa/91f13f3c518e40a691069f1283ef21dc",
+    "medxpertqa_text/Text-2450",
+    "processbench_gsm8k/math-0",
+    "SQuAD2/26/3",
+    "race_middle/high10024.txt",
+    "pubmedqa/1571683",
+    "scifact_cited/train/5836",
+    "HumanEval/0",
+    "MBPP/511",
+    "bright_pony/3",
+    "multihoprag/77",
+    "lgp-test-6x6-5",
+    "ragtruth/12824"
+  ],
+  "memory_column": 1,
+  "idle_memory_mib": 16,
+  "lanes": {
+    "lane_a": {
+      "instance": "low26-v0711-4-core",
+      "gpus": "0,1,2,3",
+      "occupancy_command": [
+        "nvidia-smi",
+        "-i",
+        "0,1,2,3",
+        "--query-gpu=index,memory.used",
+        "--format=csv,noheader,nounits"
+      ],
+      "progress": "results/baselines/common/monitoring/tp4_v2_qualification_lane_a_001.json",
+      "methods": [
+        {
+          "method": "react",
+          "specification": "configs/baselines/common/qualification/tp4_v2/react.json",
+          "run": "runs/common-react-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/react-tp4-v2-qualification-001.json",
+          "log": "logs/infra/react_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/react.json",
+              "--output",
+              "runs/common-react-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-react-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/react-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "llmcompiler",
+          "specification": "configs/baselines/common/qualification/tp4_v2/llmcompiler.json",
+          "run": "runs/common-llmcompiler-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/llmcompiler-tp4-v2-qualification-001.json",
+          "log": "logs/infra/llmcompiler_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/llmcompiler.json",
+              "--output",
+              "runs/common-llmcompiler-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-llmcompiler-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/llmcompiler-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "hiagent",
+          "specification": "configs/baselines/common/qualification/tp4_v2/hiagent.json",
+          "run": "runs/common-hiagent-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/hiagent-tp4-v2-qualification-001.json",
+          "log": "logs/infra/hiagent_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/hiagent.json",
+              "--output",
+              "runs/common-hiagent-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-hiagent-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/hiagent-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "latentmas",
+          "specification": "configs/baselines/common/qualification/tp4_v2/latentmas.json",
+          "run": "runs/common-latentmas-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/latentmas-tp4-v2-qualification-001.json",
+          "log": "logs/infra/latentmas_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/latentmas.json",
+              "--output",
+              "runs/common-latentmas-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-latentmas-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/latentmas-tp4-v2-qualification-001.json"
+            ]
+          ]
+        }
+      ]
+    },
+    "lane_b": {
+      "instance": "low26-v0712-4-core",
+      "gpus": "0,1,2,3",
+      "occupancy_command": [
+        "nvidia-smi",
+        "-i",
+        "0,1,2,3",
+        "--query-gpu=index,memory.used",
+        "--format=csv,noheader,nounits"
+      ],
+      "progress": "results/baselines/common/monitoring/tp4_v2_qualification_lane_b_001.json",
+      "methods": [
+        {
+          "method": "lats",
+          "specification": "configs/baselines/common/qualification/tp4_v2/lats.json",
+          "run": "runs/common-lats-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/lats-tp4-v2-qualification-001.json",
+          "log": "logs/infra/lats_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/lats.json",
+              "--output",
+              "runs/common-lats-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-lats-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/lats-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "agentprune",
+          "specification": "configs/baselines/common/qualification/tp4_v2/agentprune.json",
+          "run": "runs/common-agentprune-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/agentprune-tp4-v2-qualification-001.json",
+          "log": "logs/infra/agentprune_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/agentprune.json",
+              "--output",
+              "runs/common-agentprune-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-agentprune-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/agentprune-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "foldagent",
+          "specification": "configs/baselines/common/qualification/tp4_v2/foldagent.json",
+          "run": "runs/common-foldagent-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/foldagent-tp4-v2-qualification-001.json",
+          "log": "logs/infra/foldagent_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/foldagent.json",
+              "--output",
+              "runs/common-foldagent-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-foldagent-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/foldagent-tp4-v2-qualification-001.json"
+            ]
+          ]
+        },
+        {
+          "method": "dyflow",
+          "specification": "configs/baselines/common/qualification/tp4_v2/dyflow.json",
+          "run": "runs/common-dyflow-tp4-v2-qualification-001",
+          "evaluation": "results/baselines/common/evaluation/dyflow-tp4-v2-qualification-001.json",
+          "log": "logs/infra/dyflow_tp4_v2_qualification_001.log",
+          "commands": [
+            [
+              "bash",
+              "scripts/run.sh",
+              "0,1,2,3",
+              "-m",
+              "torch.distributed.run",
+              "--standalone",
+              "--nproc_per_node=4",
+              "-m",
+              "baselines.common.tuned_parallel_run",
+              "--specification",
+              "configs/baselines/common/qualification/tp4_v2/dyflow.json",
+              "--output",
+              "runs/common-dyflow-tp4-v2-qualification-001",
+              "--parallel-settings",
+              "configs/jevspawn/qwen35_parallel.json",
+              "--tuning",
+              "configs/infra/kernel_tuning_production_001.json"
+            ],
+            [
+              "bash",
+              "scripts/run.sh",
+              "",
+              "-m",
+              "baselines.common.evaluate",
+              "--run",
+              "runs/common-dyflow-tp4-v2-qualification-001",
+              "--references",
+              "configs/baselines/common/evaluation/qualification.json",
+              "--settings",
+              "configs/baselines/common/evaluation/settings.json",
+              "--output",
+              "results/baselines/common/evaluation/dyflow-tp4-v2-qualification-001.json"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

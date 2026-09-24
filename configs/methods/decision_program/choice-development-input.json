@@ -1,0 +1,23 @@
+{
+  "contract": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/methods/decision_program/schema/choice-contract.json",
+  "sources": [
+    {
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+      "offset": 0,
+      "count": 8,
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl"
+    },
+    {
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/feasibility/tasks.jsonl",
+      "offset": 0,
+      "count": 16,
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/feasibility/labels.jsonl"
+    },
+    {
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/feasibility/tasks.jsonl",
+      "offset": 0,
+      "count": 5,
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/medxpertqa_text/feasibility/labels.jsonl"
+    }
+  ]
+}

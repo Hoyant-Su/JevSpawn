@@ -1,0 +1,24 @@
+{
+  "task": "{instruction}\n\nInput:\n{input}\n\nAnswer schema:\n{answer_schema}",
+  "tools": "{task}\n\nAvailable tools:\n{tools}",
+  "worker_state": "{context}\n\nWorker input:\n{state}",
+  "tool_input_error": "Tool input error: {error}",
+  "missing_xml_call": "Tool input error: no XML function call found.",
+  "compiler_argument_error": "Tool arguments must be Python literals; quote dependency references.",
+  "compiler_tool_description": "{name}({signature}) - {description}",
+  "lats": {
+    "action_pattern": "([A-Za-z_]+)\\[([\\s\\S]*)\\]",
+    "score_pattern": "Thus the correctness score is (10|[1-9])\\s*\\.?\\s*$",
+    "finish_pattern": "finish\\[([\\s\\S]*)\\]",
+    "trajectory_action": "{trajectory}\nAction: {action}",
+    "invalid_action": "LATS action must be ToolName[JSON arguments].",
+    "invalid_json": "LATS tool arguments are not valid JSON: {error}",
+    "rejected_arguments": "LATS {name} arguments were rejected: {error}"
+  },
+  "react_action_pattern": "([A-Za-z_]+)\\[([\\s\\S]*)\\]",
+  "unavailable_tool": "Unavailable tool: {name}",
+  "document_limit_error": "Document read exceeds the declared per-call limit.",
+  "compiler_expected_arguments": "Expected arguments: {fields}",
+  "compiler_signature_error": "Arguments must match the declared tool signature.",
+  "compiler_joiner_action_pattern": "^Action:\\s*(Finish|Replan)\\((.*)\\)\\s*$"
+}

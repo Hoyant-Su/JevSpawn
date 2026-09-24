@@ -1,0 +1,15 @@
+{
+  "runs": [
+    "runs/native-plancraft-jevspawn-20260923-054",
+    "runs/native-ppnl-jevspawn-20260923-054",
+    "runs/native-autoplanbench-jevspawn-20260923-054",
+    "runs/native-robotouille-jevspawn-20260923-054"
+  ],
+  "reference_builder": "tests/infra/declaration_history/src/declaration_builder_stage054.py",
+  "domain_conflict_error": "Reused role has a different domain: dst",
+  "remaining_errors": {
+    "Declaration field capacity exhausted.": "legitimate_capacity_error",
+    "Duplicate native signature variants.": "duplicate_native_signature_error"
+  },
+  "output": "results/validation/native_stage055_lexical_binding_replay_20260923.json"
+}

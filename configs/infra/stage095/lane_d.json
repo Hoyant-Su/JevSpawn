@@ -1,0 +1,70 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "instance": "v26-0910-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_action_prefix_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-action-prefix-stage095/autoplanbench/candidate",
+      "evaluation": "results/validation/stage095_autoplanbench_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage095/progress/autoplanbench_candidate.json",
+      "log": "logs/qualification/stage095_autoplanbench_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage095/autoplanbench_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage095/autoplanbench/candidate",
+          "--output",
+          "results/validation/stage095_autoplanbench_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_action_prefix_screen/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/native-action-prefix-stage095/korgym_circle_the_cat/candidate",
+      "evaluation": "results/validation/stage095_korgym_circle_the_cat_candidate.json",
+      "progress": "results/infra/native-action-prefix-stage095/progress/korgym_circle_the_cat_candidate.json",
+      "log": "logs/qualification/stage095_korgym_circle_the_cat_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_finite_fences/launch.sh",
+          "configs/infra/stage095/korgym_circle_the_cat_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage095/korgym_circle_the_cat/candidate",
+          "--output",
+          "results/validation/stage095_korgym_circle_the_cat_candidate.json"
+        ]
+      ]
+    }
+  ]
+}

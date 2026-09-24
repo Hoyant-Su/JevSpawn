@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "tests/infra/native_rollout_profile/data/ppnl_1.jsonl",
+  "task_count": 1,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.ppnl.PPNLEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/ppnl_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/jevspawn.json"
+}

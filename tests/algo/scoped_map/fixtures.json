@@ -1,0 +1,34 @@
+{
+  "method": "configs/baselines/common/methods/jevspawn_scoped_communication_tp4_v2.json",
+  "shared": "configs/shared_config_tp4_v2.yaml",
+  "failure": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/session-0000/input_failures.json",
+  "protocol": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/protocol.json",
+  "environment": "configs/baselines/common/environment.json",
+  "directory": "records/methods/scoped_map/tool_work",
+  "result": "results/infra/scoped_map_cpu_001.json",
+  "first_index": 0,
+  "expected_items": 32,
+  "calculator": {
+    "tool": "calculate",
+    "arguments": {
+      "expression": "900/100"
+    },
+    "expected": {
+      "value": 9.0
+    }
+  },
+  "scalar_schema": {
+    "type": "string"
+  },
+  "scalar_path": [
+    "selected_text"
+  ],
+  "document_item_suffix": [
+    0,
+    "text"
+  ],
+  "scalar_choice_index": 0,
+  "role": "answer_candidate_verification",
+  "compact_controller": "results/infra/bright_compact_actions_cpu_001.json",
+  "token_result": "results/infra/scoped_map_token_accounting_001.json"
+}

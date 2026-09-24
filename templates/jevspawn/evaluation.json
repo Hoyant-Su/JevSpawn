@@ -1,0 +1,9 @@
+{
+  "resource": "resource.setrlimit(resource.{name}, ({value}, {value}))",
+  "program": "import resource\n{limits}\nnamespace = {{'__name__': '__main__'}}\nexec(compile({solution}, 'solution.py', 'exec'), namespace)\nexec(compile({tests}, 'tests.py', 'exec'), namespace)\nprint({marker}, flush=True)\n",
+  "preflight": "assert __import__('os').getcwd() == '/work'\n",
+  "duplicate_error": "Solutions must contain exactly one final record per task_id.",
+  "unknown_error": "No evaluation test for task IDs: {ids}",
+  "sandbox_description": "Bubblewrap isolates user, process, network and mount namespaces. Runtime and program mounts are read-only; workspace and home are not mounted. Resource limits apply.",
+  "evaluation_description": "Original HumanEval/MBPP assertions. One final solution per task; no EvalPlus augmentation."
+}

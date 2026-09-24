@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/lmrlgym_maze.json",
+      "run": "runs/native-baselines-lats-fidelity-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/lmrlgym_maze.json",
+      "progress": "results/native_baselines/lats_fidelity_formal_20260924/progress/lmrlgym_maze.json",
+      "log": "logs/native_baselines/lats-fidelity-full-20260924-lmrlgym_maze.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/lats_fidelity_20260924/lmrlgym_maze.json",
+          "--output",
+          "runs/native-baselines-lats-fidelity-20260924/lmrlgym_maze",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-lats-fidelity-20260924/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/lats_fidelity_formal_20260924/lmrlgym_maze.json"
+        ]
+      ]
+    }
+  ]
+}

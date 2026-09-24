@@ -1,0 +1,118 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "react",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "react",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/korgym_2048",
+      "evaluation": "results/native_baselines/screen/react/korgym_2048.json",
+      "progress": "results/native_baselines/progress/react/korgym_2048.json",
+      "log": "logs/native_baselines/screen-react-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_react.json",
+          "runs/native-baselines-screen-20260923/react/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/react/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_react.json",
+      "run": "runs/native-baselines-formal-20260923/react/korgym_2048",
+      "evaluation": "results/native_baselines/formal/react/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/react/korgym_2048.json",
+      "log": "logs/native_baselines/formal-react-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_react.json",
+          "runs/native-baselines-formal-20260923/react/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/react/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/react/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/react/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/react/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-react-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_react.json",
+          "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/react/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_react.json",
+      "run": "runs/native-baselines-formal-20260923/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/react/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/react/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-react-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_react.json",
+          "runs/native-baselines-formal-20260923/react/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/react/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/react/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ]
+}

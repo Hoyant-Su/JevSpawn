@@ -1,0 +1,35 @@
+model:
+  path: /inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B
+  dtype: bfloat16
+  attention: sdpa
+  kernel: fla
+  max_input_tokens: 16384
+  execution: qwen35_optimized
+  decode_attention_splits: 0
+runtime:
+  batch_size: 64
+  root_batch_size: 64
+  branch_batch_size: 64
+  batch_wait_seconds: 0.03
+  cpu_threads: 8
+  world_size: 4
+  seed: 42
+  sample_timeout_seconds: 300
+  max_turns: 16
+  stop_engine: indexed
+  row_delivery: immediate
+  generation_scheduling: cohort
+  decode_engine: cuda_graph
+  graph_cache_size: 5
+  graph_warmup_steps: 3
+  graph_cache_block_tokens: 256
+  cache_allocation: shared_static_cache_arena_v1
+generation:
+  enable_thinking: false
+  max_new_tokens: 2048
+  temperature: 0.0
+evaluation:
+  timeout_score: 0
+  invalid_score: 0
+  preserve_full_denominator: true
+  include_planning_tools_and_aggregation: true

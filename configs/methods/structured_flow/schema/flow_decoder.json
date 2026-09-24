@@ -1,0 +1,718 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "nodes",
+    "output"
+  ],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "node": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input",
+            "question",
+            "options",
+            "branches"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "decide"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input",
+            "system",
+            "max_new_tokens"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "generate"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input",
+            "system",
+            "max_new_tokens"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "expand"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "collect"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input",
+            "items_path",
+            "template"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "map"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "kind",
+            "depends_on",
+            "input",
+            "operator",
+            "field_path",
+            "equals"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "kind": {
+              "const": "reduce"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "input": {
+              "description": "Nested literal input or exact bindings: {$result:ID} with an explicit dependency, {$task:true} or {$task:[path components]}, {$parent:true}, and {$item:true}/{$index:true} only within their nearest map template. {$literal:value} protects literal data from reference interpretation. A result reference may include path:[string or integer components] to select an explicit result field. The full result remains in the trace."
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_new_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            },
+            "items_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside resolved input to the array being mapped. Empty path selects input itself."
+            },
+            "template": {
+              "$ref": "#",
+              "description": "One child program instantiated independently for each real array element."
+            },
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "description": "Explicit path inside each input-array element; empty path compares the element itself."
+            },
+            "equals": {
+              "description": "Literal equality target. References inside this value are never interpreted."
+            }
+          }
+        }
+      ]
+    }
+  }
+}

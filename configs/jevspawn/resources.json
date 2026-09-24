@@ -1,0 +1,21 @@
+{
+  "core": "configs/jevspawn/core.json",
+  "language": "configs/jevspawn/language.json",
+  "execution_policy": "configs/jevspawn/execution.json",
+  "roles": "templates/jevspawn/roles.json",
+  "decisions": "templates/jevspawn/decisions.json",
+  "controller": "templates/jevspawn/controller.json",
+  "benchmark": "templates/jevspawn/benchmark.json",
+  "specialists": "templates/jevspawn/specialists.json",
+  "flow_prompts": "templates/jevspawn/flow_prompts.json",
+  "tool_outputs": "configs/jevspawn/tool_outputs.json",
+  "evaluation": "configs/jevspawn/evaluation.json",
+  "decision_fields": "configs/jevspawn/decision_fields.json",
+  "finite_control": "configs/jevspawn/finite_control.json",
+  "typed_values": "configs/jevspawn/typed_values.json",
+  "readout_labels": "configs/jevspawn/readout_labels.json",
+  "qwen35_execution": "configs/jevspawn/qwen35_execution.json",
+  "reference_transport": "configs/jevspawn/reference_transport.json",
+  "function_signature_bfcl": "configs/jevspawn/function_signature_bfcl.json",
+  "function_signature_bfcl_open": "configs/jevspawn/function_signature_bfcl_open.json"
+}

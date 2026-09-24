@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source": "data/qualification/atomic_obstruction_history",
+  "task_count": 128,
+  "trace_file": "trace-{index:05d}.json",
+  "values": [
+    "True",
+    "False",
+    "Undetermined"
+  ],
+  "padding": "left",
+  "output": "runs/atomic-obstruction-history-001",
+  "readout_batch_size": 8
+}

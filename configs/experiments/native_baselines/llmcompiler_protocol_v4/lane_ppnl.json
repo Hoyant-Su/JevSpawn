@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "llmcompiler",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "llmcompiler",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/ppnl.json",
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/ppnl",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/ppnl.json",
+      "progress": "results/native_baselines/llmcompiler_protocol_v4/progress/ppnl.json",
+      "log": "logs/native_baselines/llmcompiler-protocol-v4-ppnl.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/llmcompiler_protocol_v4/ppnl.json",
+          "--output",
+          "runs/native-baselines-llmcompiler-protocol-v4-20260924/ppnl",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-llmcompiler-protocol-v4-20260924/ppnl",
+          "--output",
+          "results/native_baselines/llmcompiler_protocol_v4/ppnl.json"
+        ]
+      ]
+    }
+  ]
+}

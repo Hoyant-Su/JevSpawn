@@ -1,0 +1,71 @@
+{
+  "source_run": "runs/common-jevspawn_finite_control-bright-compact-references-001",
+  "task_file": "task-00000.json",
+  "task_id": "bright_pony/3",
+  "batches_file": "session-0000/batches.json",
+  "worker_fields": [
+    "value",
+    "evidence"
+  ],
+  "shared_fields": [
+    "evidence"
+  ],
+  "worker_count": 32,
+  "batch_size": 8,
+  "batch_indices": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "seed": 42,
+  "shared_config": "configs/shared_config_optimized_v1.yaml",
+  "controller_prompt": "jevspawn.controller",
+  "cache_capacity": 8,
+  "cache_names": [
+    "task",
+    "state"
+  ],
+  "modes": [
+    "task_only",
+    "two_level"
+  ],
+  "phases": [
+    "cold",
+    "warm"
+  ],
+  "comparisons": [
+    [
+      "task_only",
+      "cold",
+      "task_only",
+      "warm"
+    ],
+    [
+      "two_level",
+      "cold",
+      "two_level",
+      "warm"
+    ],
+    [
+      "task_only",
+      "cold",
+      "two_level",
+      "cold"
+    ],
+    [
+      "task_only",
+      "warm",
+      "two_level",
+      "warm"
+    ]
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "output": "runs/shared-state-prefix-bright32-001"
+}

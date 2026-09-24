@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "builder": "tests/infra/declaration_history/config/builder.json",
+  "inference": "configs/inference/shared_service.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "task_count": 8,
+  "minimum_distinct_candidates": 1,
+  "task_specifications": [
+    "configs/experiments/native_context/llfbench_gridworld_jevspawn.json",
+    "configs/experiments/native_context/agentquest_mastermind_jevspawn.json",
+    "configs/experiments/native_context/agentquest_sudoku_jevspawn.json",
+    "configs/experiments/native_context/autoplanbench_jevspawn.json"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tasks": "data/baselines/common/tasks/aqua.jsonl",
+  "offset": 0,
+  "samples": 8,
+  "repeats": 2,
+  "stop_string": "}",
+  "budget_prefix_tokens": 3
+}

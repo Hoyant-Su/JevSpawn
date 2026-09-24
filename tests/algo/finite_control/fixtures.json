@@ -1,0 +1,150 @@
+{
+  "purpose": "CPU finite-control integration fixture; mocked decisions are not model evidence.",
+  "task": {
+    "task_id": "finite-control-fixture",
+    "instruction": "Choose the declared answer after examining the supplied records.",
+    "input": {
+      "opaque": {
+        "left": {
+          "fact": "first full record"
+        },
+        "right": {
+          "fact": "second full record"
+        }
+      }
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "enum": [
+            "accept",
+            "reject"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "context": "Full original task and output schema in the immutable shared prefix.",
+  "choices": [
+    [
+      "inspect:0"
+    ],
+    [
+      "inspect:2"
+    ],
+    [
+      "spawn:1"
+    ],
+    [
+      "evidence"
+    ],
+    [
+      "include",
+      "support",
+      "contradict"
+    ],
+    [
+      "submit"
+    ],
+    [
+      "value0"
+    ]
+  ],
+  "branch_batch_size": 8,
+  "settings": {
+    "max_nodes": 4096,
+    "max_actions": 16,
+    "action_capacity": 52,
+    "max_new_tokens": 4096,
+    "temperature": 0,
+    "typed_values": {}
+  },
+  "expected_answer": {
+    "decision": "accept"
+  },
+  "expected_sources": [
+    [
+      "input",
+      "opaque",
+      "left"
+    ],
+    [
+      "input",
+      "opaque",
+      "right"
+    ]
+  ],
+  "expected_observations": [
+    {
+      "fact": "first full record"
+    },
+    {
+      "fact": "second full record"
+    }
+  ],
+  "expected_interface": "evidence",
+  "expected_generated_calls": 0,
+  "expected_model_decisions": 9,
+  "tool_feedback": {
+    "qualification_tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+    "task_id": "supergpqa/91f13f3c518e40a691069f1283ef21dc",
+    "environment": "configs/baselines/common/environment.json",
+    "tool": "calculate",
+    "invalid_input_path": [
+      "input",
+      "state"
+    ],
+    "valid_expression": "194 % 11",
+    "expected_value": 7,
+    "invalid_submission": {
+      "task_id": "ragtruth/12824",
+      "answer": {
+        "spans": [
+          {
+            "text": "{\"spans\": []}",
+            "occurrence": 1
+          }
+        ]
+      }
+    }
+  },
+  "dynamic_contract": {
+    "purpose": "CPU transport test with real corpus search/read and mocked model choices; not model evidence.",
+    "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+    "task_id": "multihoprag/77",
+    "environment": "configs/baselines/common/environment.json",
+    "tool_directory": "tests/algo/finite_control/artifacts/dynamic_contract",
+    "request": {
+      "question": "Choose the supplied finite option.",
+      "input": {},
+      "options": [
+        {
+          "id": "observed",
+          "description": "Use the observed evidence."
+        },
+        {
+          "id": "unresolved",
+          "description": "Evidence remains unresolved."
+        }
+      ]
+    },
+    "choice": "observed",
+    "raw_instruction": "Return the requested scalar text.",
+    "raw_text": "CPU scalar transport fixture",
+    "scope": "single"
+  },
+  "mapped_tool": {
+    "tasks": "data/baselines/common/qualification/bright_assignment_contract_v2.jsonl",
+    "environment": "configs/baselines/common/environment.json",
+    "tool_directory": "tests/algo/finite_control/artifacts/dynamic_contract",
+    "interface": "relevance",
+    "verdict": "irrelevant",
+    "scope": "map"
+  }
+}

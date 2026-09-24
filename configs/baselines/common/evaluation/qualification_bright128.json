@@ -1,0 +1,13 @@
+{
+  "stage": "qualification",
+  "datasets": [
+    {
+      "dataset": "bright_pony",
+      "kind": "ranking",
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/evaluation/collections.jsonl",
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/bright_pony/evaluation/relevance.jsonl",
+      "task_count": 104,
+      "metric": "ndcg_at_10"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "source_run": "runs/common-jevspawn_revision-tuned-noncoding-tp4-v1-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "transport": "reference_transport",
+  "labels": "readout_labels",
+  "prompts": "jevspawn.literal_prefix_state",
+  "shared_keys": [
+    "evidence"
+  ],
+  "input_glob": "finite-inputs/cohort-*.json",
+  "serialization": {
+    "ensure_ascii": false,
+    "allow_nan": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "records": "records/infra/communication_literal_prefix_inputs_001.json",
+  "output": "results/infra/communication_literal_prefix_001.json",
+  "scope": "CPU admission and exact token-prefix opportunity analysis on every actual recorded request. Logical token counts do not include padding, cache eviction, GPU kernel costs or quality; this does not establish runtime speed. No source field, candidate or task is omitted."
+}

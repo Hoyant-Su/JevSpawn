@@ -1,0 +1,24 @@
+{
+  "datasets": [
+    {
+      "dataset": "aqua",
+      "tasks": "data/baselines/common/qualification/tp4_persistent_v1/aqua.jsonl",
+      "task_count": 8,
+      "source": "data/baselines/common/tasks/aqua.jsonl",
+      "selection": {
+        "offset": 0,
+        "count": 8
+      }
+    },
+    {
+      "dataset": "humaneval",
+      "tasks": "data/baselines/common/qualification/tp4_persistent_v1/humaneval.jsonl",
+      "task_count": 8,
+      "source": "data/baselines/common/tasks/humaneval.jsonl",
+      "selection": {
+        "offset": 0,
+        "count": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "protocol": "runs/common-jevspawn-joint-domain-cohort-tp4-v2-001/protocol.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "answer_path": ["q0"],
+  "cases": [
+    {
+      "record": "runs/common-jevspawn-joint-domain-cohort-tp4-v2-001/task-00000.json",
+      "task_id": "aqua/dev/0",
+      "observation_path": ["observations", 0],
+      "focus_path": ["observations", 0, "result"]
+    },
+    {
+      "record": "runs/common-jevspawn-joint-domain-cohort-tp4-v2-001/task-00001.json",
+      "task_id": "supergpqa/91f13f3c518e40a691069f1283ef21dc",
+      "observation_path": ["observations", 0],
+      "focus_path": ["observations", 0, "result"]
+    }
+  ]
+}

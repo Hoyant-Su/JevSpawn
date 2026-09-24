@@ -1,0 +1,430 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "lats",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "lats",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/ppnl",
+      "evaluation": "results/native_baselines/screen/lats/ppnl.json",
+      "progress": "results/native_baselines/progress/lats/ppnl.json",
+      "log": "logs/native_baselines/screen-lats-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_lats.json",
+          "runs/native-baselines-screen-20260923/lats/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/ppnl",
+          "--output",
+          "results/native_baselines/screen/lats/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/ppnl",
+      "evaluation": "results/native_baselines/formal/lats/ppnl.json",
+      "progress": "results/native_baselines/progress/formal/lats/ppnl.json",
+      "log": "logs/native_baselines/formal-lats-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/ppnl_lats.json",
+          "runs/native-baselines-formal-20260923/lats/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/ppnl",
+          "--output",
+          "results/native_baselines/formal/lats/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/lats/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/lats/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-lats-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_lats.json",
+          "runs/native-baselines-screen-20260923/lats/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/lats/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_lats_schema_v2.json",
+      "run": "runs/native-baselines-formal-20260923/lats/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/lats/lmrlgym_maze_schema_v2.json",
+      "progress": "results/native_baselines/progress/formal/lats/lmrlgym_maze_schema_v2.json",
+      "log": "logs/native_baselines/formal-lats-lmrlgym_maze_schema_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/lmrlgym_maze_lats_schema_v2.json",
+          "runs/native-baselines-formal-20260923/lats/lmrlgym_maze_schema_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/lmrlgym_maze_schema_v2",
+          "--output",
+          "results/native_baselines/formal/lats/lmrlgym_maze_schema_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/lats/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/lats/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-lats-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_lats.json",
+          "runs/native-baselines-screen-20260923/lats/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/lats/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/lats/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/formal/lats/llfbench_gridworld.json",
+      "log": "logs/native_baselines/formal-lats-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/llfbench_gridworld_lats.json",
+          "runs/native-baselines-formal-20260923/lats/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/formal/lats/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_lats_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/lats/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/lats/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/lats/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-lats-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_lats_state_v2.json",
+          "runs/native-baselines-screen-20260923/lats/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/lats/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_lats_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/lats/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/lats/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/lats/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-lats-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/robotouille_lats_state_v2.json",
+          "runs/native-baselines-formal-20260923/lats/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/lats/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/autoplanbench",
+      "evaluation": "results/native_baselines/screen/lats/autoplanbench.json",
+      "progress": "results/native_baselines/progress/lats/autoplanbench.json",
+      "log": "logs/native_baselines/screen-lats-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_lats.json",
+          "runs/native-baselines-screen-20260923/lats/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/lats/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/autoplanbench",
+      "evaluation": "results/native_baselines/formal/lats/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/lats/autoplanbench.json",
+      "log": "logs/native_baselines/formal-lats-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/autoplanbench_lats.json",
+          "runs/native-baselines-formal-20260923/lats/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/lats/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/lats/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/lats/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-lats-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_lats.json",
+          "runs/native-baselines-screen-20260923/lats/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/lats/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/lats/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/formal/lats/textarena_lightsout.json",
+      "log": "logs/native_baselines/formal-lats-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_lats.json",
+          "runs/native-baselines-formal-20260923/lats/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/textarena_lightsout",
+          "--output",
+          "results/native_baselines/formal/lats/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/lats/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/lats/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-lats-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_lats.json",
+          "runs/native-baselines-screen-20260923/lats/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/lats/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/lats/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/formal/lats/textarena_rushhour.json",
+      "log": "logs/native_baselines/formal-lats-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_lats.json",
+          "runs/native-baselines-formal-20260923/lats/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/textarena_rushhour",
+          "--output",
+          "results/native_baselines/formal/lats/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_lats.json",
+      "run": "runs/native-baselines-screen-20260923/lats/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/lats/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/lats/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-lats-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_lats.json",
+          "runs/native-baselines-screen-20260923/lats/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/lats/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/lats/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_lats.json",
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/lats/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/formal/lats/textarena_sokoban.json",
+      "log": "logs/native_baselines/formal-lats-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_lats.json",
+          "runs/native-baselines-formal-20260923/lats/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/lats/textarena_sokoban",
+          "--output",
+          "results/native_baselines/formal/lats/textarena_sokoban.json"
+        ]
+      ]
+    }
+  ]
+}

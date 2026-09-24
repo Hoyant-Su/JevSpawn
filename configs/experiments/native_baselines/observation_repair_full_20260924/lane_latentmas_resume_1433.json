@@ -1,0 +1,144 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "latentmas",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-0909-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_latentmas.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_lightsout",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_lightsout.json",
+      "method": "latentmas",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/latentmas_textarena_lightsout.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/latentmas/textarena_lightsout.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_latentmas.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_lightsout",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_lightsout",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_latentmas.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_rushhour",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_rushhour.json",
+      "method": "latentmas",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/latentmas_textarena_rushhour.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/latentmas/textarena_rushhour.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_latentmas.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_rushhour",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_rushhour",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_latentmas.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_sokoban",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_sokoban.json",
+      "method": "latentmas",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/latentmas_textarena_sokoban.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/latentmas/textarena_sokoban.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_latentmas.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_sokoban",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/textarena_sokoban",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/latentmas/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_latentmas.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/latentmas/korgym_circle_the_cat.json",
+      "method": "latentmas",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/latentmas_korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/latentmas/korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_latentmas.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_circle_the_cat",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/latentmas/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/latentmas/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ]
+}

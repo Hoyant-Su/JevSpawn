@@ -1,0 +1,100 @@
+{
+  "method_config": "configs/baselines/common/methods/llmcompiler.json",
+  "tool_schema": "configs/baselines/common/schema/tool_inputs.json",
+  "tool_prompts": "configs/baselines/common/schema/tools.json",
+  "actual_plans": [
+    {
+      "run": "runs/common-llmcompiler-all-datasets-gen4096-001",
+      "task_id": "MBPP/511"
+    },
+    {
+      "run": "runs/common-llmcompiler-all-datasets-gen4096-002",
+      "task_id": "processbench_gsm8k/math-0"
+    },
+    {
+      "run": "runs/common-llmcompiler-all-datasets-gen4096-002",
+      "task_id": "HumanEval/0"
+    },
+    {
+      "run": "runs/common-llmcompiler-all-datasets-gen4096-002",
+      "task_id": "MBPP/511"
+    }
+  ],
+  "fields": [
+    "left",
+    "right"
+  ],
+  "valid": [
+    {
+      "source": "left: {\"url\": \"https://host/a:b\", \"items\": [1, {\"key\": \"v,=:()\"}]}, right=\"def f(x: str):\\n    return 'a:b=c'\"",
+      "expected": [
+        {
+          "url": "https://host/a:b",
+          "items": [
+            1,
+            {
+              "key": "v,=:()"
+            }
+          ]
+        },
+        "def f(x: str):\n    return 'a:b=c'"
+      ]
+    },
+    {
+      "source": "right: 'colon: comma, equals= and quote\\' preserved', left='first'",
+      "expected": [
+        "first",
+        "colon: comma, equals= and quote' preserved"
+      ]
+    },
+    {
+      "source": "['a', 'b'], right: {'tag': '$1'},",
+      "expected": [
+        [
+          "a",
+          "b"
+        ],
+        {
+          "tag": "$1"
+        }
+      ]
+    },
+    {
+      "source": "left='same', right='same'",
+      "expected": [
+        "same",
+        "same"
+      ]
+    }
+  ],
+  "invalid": [
+    "left: 'a', left='b', right='c'",
+    "left: 'a', wrong='b'",
+    "left: 'a'",
+    "left: 'a', 'b'",
+    "left: lambda: 'a', right='b'",
+    "left: __import__('os'), right='b'",
+    "left: 'a',, right='b'",
+    "left:: 'a', right='b'",
+    "'left': 'a', right='b'",
+    "left: ['a'}, right='b'",
+    "**{'left':'a', 'right':'b'}"
+  ],
+  "tool_error_case": {
+    "name": "run_tests",
+    "values": [
+      17,
+      "assert True"
+    ],
+    "fields": [
+      "code",
+      "assertions"
+    ]
+  },
+  "scheduler_timeout_seconds": 10,
+  "truncated_joiner": {
+    "run": "runs/common-llmcompiler-all-datasets-gen4096-002",
+    "task_id": "lgp-test-6x6-5",
+    "finish_reason": "length"
+  }
+}

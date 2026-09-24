@@ -1,0 +1,34 @@
+{
+  "phases": [
+    {
+      "name": "bfcl_parallel_multiple_jevspawn_construct_055",
+      "devices": "0,1,2,3",
+      "arguments": [
+        "-m",
+        "torch.distributed.run",
+        "--standalone",
+        "--nproc_per_node=4",
+        "-m",
+        "baselines.common.configured_tuned_run",
+        "--specification",
+        "configs/experiments/action_tasks/bfcl_parallel_multiple_jevspawn_construct_055.json",
+        "--output",
+        "runs/action-tasks-bfcl-multiple-jevspawn-construct-055",
+        "--parallel-settings",
+        "configs/jevspawn/qwen35_parallel.json",
+        "--tuning",
+        "configs/infra/kernel_tuning_production_001.json"
+      ]
+    },
+    {
+      "name": "native_scoring_and_timing_055",
+      "devices": "",
+      "arguments": [
+        "-m",
+        "analysis.action_tasks",
+        "--settings",
+        "configs/analysis/action_tasks/bfcl_parallel_multiple_jevspawn_construct_055.json"
+      ]
+    }
+  ]
+}

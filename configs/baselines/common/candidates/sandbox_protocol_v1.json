@@ -1,0 +1,5 @@
+{
+  "bootstrap_argument_index": -1,
+  "started_marker_prefix": "EVALUATION_BOOTSTRAP_STARTED_",
+  "templates": "configs/baselines/common/candidates/sandbox_protocol_prompt_v1.json"
+}

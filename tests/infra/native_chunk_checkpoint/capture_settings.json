@@ -1,0 +1,8 @@
+{
+  "checkpoint_dtype": "float32",
+  "index_dtype": "int64",
+  "unselected_row": -1,
+  "block_size": 4096,
+  "num_warps": 4,
+  "num_stages": 1
+}

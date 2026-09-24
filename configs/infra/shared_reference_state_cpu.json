@@ -1,0 +1,43 @@
+{
+  "source_run": "runs/common-jevspawn_reference_revision_stable-recorded-noncoding-tp4-v1-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "transport": "configs/jevspawn/reference_transport.json",
+  "shared_keys": [
+    "evidence",
+    "assignment"
+  ],
+  "prompt": "jevspawn.shared_reference_state",
+  "serialization": {
+    "ensure_ascii": false,
+    "allow_nan": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "canonical_serialization": {
+    "ensure_ascii": false,
+    "allow_nan": false,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "sort_keys": true
+  },
+  "input_glob": "finite-inputs/cohort-*.json",
+  "output": "results/infra/shared_reference_state_cpu_001.json",
+  "rewritten_requests": "runs/shared-reference-state-cpu-001/cohorts.json",
+  "original_replay_summary": "results/infra/finite_stable_matched_replay_summary_001.json",
+  "replay_variant": "measured/stable",
+  "tokenizer": {
+    "local_files_only": true,
+    "padding_side": "left",
+    "add_special_tokens": false,
+    "add_generation_prompt": true
+  },
+  "state_template_key": "worker_state",
+  "buckets": [
+    1,
+    8
+  ]
+}

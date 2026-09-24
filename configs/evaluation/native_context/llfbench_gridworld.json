@@ -1,0 +1,174 @@
+{
+  "family": "LLF-Bench",
+  "track": "Gridworld",
+  "scope": "Official LLF-Bench external evaluator connection used by the shared inference runner.",
+  "source_root": "external/LLF-Bench-review",
+  "native_class": "llfbench.envs.gridworld.gridworld.Gridworld",
+  "native_wrapper": "llfbench.envs.gridworld.wrapper.GridworldWrapper",
+  "wrapper_parameters": {
+    "instruction_type": "b",
+    "feedback_type": "r"
+  },
+  "paraphrase_method": 0,
+  "tasks": "data/native_context/llfbench_gridworld/tasks.jsonl",
+  "sample_count": 2,
+  "instances": [
+    {
+      "task_id": "llfbench_gridworld_20rooms_seed42",
+      "native_parameters": {
+        "num_rooms": 20,
+        "horizon": 30,
+        "fixed": true,
+        "instruction_type": "b",
+        "feedback_type": "r",
+        "min_goal_dist": 4
+      },
+      "seed": 42,
+      "reset_options": {}
+    },
+    {
+      "task_id": "llfbench_gridworld_30rooms_seed42",
+      "native_parameters": {
+        "num_rooms": 30,
+        "horizon": 30,
+        "fixed": true,
+        "instruction_type": "b",
+        "feedback_type": "r",
+        "min_goal_dist": 4
+      },
+      "seed": 42,
+      "reset_options": {}
+    }
+  ],
+  "public_contract": {
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "tools": {
+      "execute": {
+        "description": "Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.",
+        "arguments": {
+          "action": "integer"
+        },
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "finish": {
+        "description": "Submit the final answer in the declared answer schema.",
+        "arguments": {
+          "actions": "array"
+        },
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              }
+            }
+          },
+          "required": [
+            "actions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "model_input_fields": [
+      "context"
+    ],
+    "initial_observation_fields": [
+      "instruction",
+      "observation",
+      "feedback"
+    ],
+    "step_observation_fields": [
+      "instruction",
+      "observation",
+      "feedback"
+    ],
+    "hidden_info_fields": [
+      "expert_action"
+    ]
+  },
+  "native_api": {
+    "construct": "GridworldWrapper(Gridworld(**native_parameters), **wrapper_parameters)",
+    "configure": "set_paraphrase_method(paraphrase_method)",
+    "reset": "reset(seed=seed, options=reset_options) -> (observation_dict, info)",
+    "step": "step(action: int) -> (observation_dict, reward, terminated, truncated, info)",
+    "fork": "deepcopy(native_environment); reward-only feedback and fixed paraphrase mode avoid random feedback after reset.",
+    "judge": "Replay submitted actions from the original native state; use native goal_prev_visited, the source of info.success. Actions beyond native horizon are invalid.",
+    "native_termination": "Native Gridworld keeps terminated=False and only sets truncated when the horizon is exhausted; goal attainment is recorded separately in info.success."
+  },
+  "readiness": {
+    "native_reset_step_verified": true,
+    "native_fork_verified": true,
+    "native_success_control_verified": true,
+    "context_records_prepared": true,
+    "shared_execution_bridge_present": true,
+    "common_inference_ready": true,
+    "model_inference_performed": false,
+    "common_entry_cpu_evidence": "results/validation/llfbench_common_20260923.json"
+  },
+  "protocol_notes": [
+    "Basic instruction mode is official. Complete instruction mode includes a solved path and is not selected.",
+    "Reward-only feedback and the same paraphrase mode apply to every compared method.",
+    "The two records are genuine procedural instances with different room-count settings and seed 42, not a published fixed test split.",
+    "Private info.expert_action is used only for the evaluator control and never included in model context."
+  ],
+  "session": "configs/environments/session.json",
+  "module_path_index": 0,
+  "tool_name": "execute",
+  "action_field": "action",
+  "answer_field": "actions",
+  "initial_text_fields": [
+    "instruction",
+    "observation"
+  ],
+  "initial_separator": "\n\n",
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "calculator": {
+    "max_characters": 512,
+    "max_nodes": 128,
+    "max_exponent": 20,
+    "max_magnitude": 1e+100
+  },
+  "documents_per_read": 8,
+  "evaluation_script": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/src/baselines/common/sandbox_protocol.py",
+  "sandbox": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/runtime/tools/bubblewrap/usr/bin/bwrap",
+  "code_timeout_seconds": 10,
+  "code_memory_mb": 512,
+  "evidence": {
+    "corpus_path": "../../data/research_v1/multihoprag/corpus.jsonl",
+    "source_units_path": "../../data/research_v1/multihoprag/source_units.jsonl",
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "token_pattern": "[A-Za-z0-9_]+",
+    "metadata_fields": [
+      "title",
+      "author",
+      "source",
+      "published_at",
+      "category",
+      "url"
+    ],
+    "search_limit": 32,
+    "read_limit": 128
+  }
+}

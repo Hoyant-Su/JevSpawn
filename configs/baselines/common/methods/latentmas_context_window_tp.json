@@ -1,0 +1,14 @@
+{
+  "module": "baselines.common.latentmas",
+  "python_paths": [],
+  "service": "baselines.latentmas.context_window_service.WindowedLatentMASService",
+  "prompts": "configs/baselines/common/schema/latentmas.json",
+  "settings": {
+    "latent_steps": 10,
+    "memory_mode": "full",
+    "alignment": true,
+    "padding_transport": "native_segments",
+    "padding_workspace_reserve_bytes": 2147483648,
+    "alignment_config": "configs/baselines/latentmas/alignment.json"
+  }
+}

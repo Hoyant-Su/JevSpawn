@@ -1,0 +1,6 @@
+{
+  "continuation_prefix": "Thought (?P<step>[0-9]+): ",
+  "complete_frame": "(?:Thought|Action) {step}:",
+  "source_run": "runs/common-lats-search-read-id-qualification-001",
+  "source_directory": "external/LanguageAgentTreeSearch"
+}

@@ -1,0 +1,210 @@
+{
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "$ref": "#/$defs/step"
+  },
+  "$defs": {
+    "step": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "decide"
+            },
+            "input": {},
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 26,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "branches": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "input",
+            "question",
+            "options",
+            "branches"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "generate"
+            },
+            "input": {},
+            "system": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "input",
+            "system"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "generate_json"
+            },
+            "input": {},
+            "system": {
+              "type": "string",
+              "minLength": 1
+            },
+            "output_schema": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "kind",
+            "input",
+            "system",
+            "output_schema"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "expand"
+            },
+            "input": {},
+            "system": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "input",
+            "system"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "map"
+            },
+            "input": {},
+            "items_path": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              }
+            },
+            "template": {
+              "$ref": "#"
+            }
+          },
+          "required": [
+            "kind",
+            "input",
+            "items_path",
+            "template"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "collect"
+            },
+            "input": {}
+          },
+          "required": [
+            "kind",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "reduce"
+            },
+            "input": {},
+            "operator": {
+              "enum": [
+                "all_equal",
+                "any_equal",
+                "count_equal"
+              ]
+            },
+            "field_path": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              }
+            },
+            "equals": {}
+          },
+          "required": [
+            "kind",
+            "input",
+            "operator",
+            "field_path",
+            "equals"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

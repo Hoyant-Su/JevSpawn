@@ -1,0 +1,11 @@
+{
+  "ranking_cutoff": 10,
+  "multihoprag_upstream": "../../data/research_v1/multihoprag/sources/qa_evaluate.py",
+  "code": {
+    "evaluation_script": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/jevspawn/src/jev_spawn/cli/evaluate.py",
+    "sandbox": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/runtime/tools/bubblewrap/usr/bin/bwrap",
+    "timeout_seconds": 10,
+    "memory_mb": 512,
+    "workers": 8
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage105_production_history_rollout",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-0910-8-core",
+  "entries": [
+    {
+      "dataset": "textarena_sokoban",
+      "method": "production_history",
+      "specification": "configs/infra/stage105/textarena_sokoban_spec.json",
+      "run": "runs/production-history-stage105/textarena_sokoban",
+      "evaluation": "results/validation/production-history-stage105/textarena_sokoban.json",
+      "progress": "results/validation/production-history-stage105/progress/textarena_sokoban.json",
+      "log": "logs/qualification/production-history-stage105/textarena_sokoban.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/infra/stage105/textarena_sokoban_spec.json",
+          "--output",
+          "runs/production-history-stage105/textarena_sokoban",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/production-history-stage105/textarena_sokoban",
+          "--output",
+          "results/validation/production-history-stage105/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "method": "production_history",
+      "specification": "configs/infra/stage105/textarena_rushhour_spec.json",
+      "run": "runs/production-history-stage105/textarena_rushhour",
+      "evaluation": "results/validation/production-history-stage105/textarena_rushhour.json",
+      "progress": "results/validation/production-history-stage105/progress/textarena_rushhour.json",
+      "log": "logs/qualification/production-history-stage105/textarena_rushhour.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/infra/stage105/textarena_rushhour_spec.json",
+          "--output",
+          "runs/production-history-stage105/textarena_rushhour",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/production-history-stage105/textarena_rushhour",
+          "--output",
+          "results/validation/production-history-stage105/textarena_rushhour.json"
+        ]
+      ]
+    }
+  ]
+}

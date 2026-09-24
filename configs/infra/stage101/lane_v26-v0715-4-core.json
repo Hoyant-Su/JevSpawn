@@ -1,0 +1,215 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage101_history_cache_quality",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-v0715-4-core",
+  "entries": [
+    {
+      "dataset": "lmrlgym_maze",
+      "method": "history",
+      "specification": "configs/infra/stage101/lmrlgym_maze_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/lmrlgym_maze/current_history",
+      "evaluation": "results/validation/native-history-prefix-stage101/lmrlgym_maze/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/lmrlgym_maze_current_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/lmrlgym_maze/current_history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/lmrlgym_maze_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/lmrlgym_maze/current_history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/lmrlgym_maze/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "lmrlgym_maze",
+      "method": "reference",
+      "specification": "configs/infra/stage101/lmrlgym_maze_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/lmrlgym_maze/current_reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/lmrlgym_maze/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/lmrlgym_maze_current_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/lmrlgym_maze/current_reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/lmrlgym_maze_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/lmrlgym_maze/current_reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/lmrlgym_maze/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "robotouille",
+      "method": "history",
+      "specification": "configs/infra/stage101/robotouille_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/robotouille/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/robotouille/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/robotouille_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/robotouille/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/robotouille_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/robotouille/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/robotouille/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "robotouille",
+      "method": "reference",
+      "specification": "configs/infra/stage101/robotouille_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/robotouille/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/robotouille/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/robotouille_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/robotouille/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/robotouille_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/robotouille/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/robotouille/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "method": "history",
+      "specification": "configs/infra/stage101/korgym_nullify_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/korgym_nullify/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/korgym_nullify/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/korgym_nullify_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/korgym_nullify/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/korgym_nullify_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/korgym_nullify/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/korgym_nullify/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "method": "reference",
+      "specification": "configs/infra/stage101/korgym_nullify_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/korgym_nullify/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/korgym_nullify/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/korgym_nullify_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/korgym_nullify/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/korgym_nullify_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/korgym_nullify/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/korgym_nullify/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "method": "history",
+      "specification": "configs/infra/stage101/textarena_rushhour_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_rushhour/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_rushhour/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_rushhour_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_rushhour/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_rushhour_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_rushhour/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_rushhour/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "method": "reference",
+      "specification": "configs/infra/stage101/textarena_rushhour_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_rushhour/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_rushhour/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_rushhour_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_rushhour/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_rushhour_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_rushhour/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_rushhour/reference.json"
+        ]
+      ]
+    }
+  ]
+}

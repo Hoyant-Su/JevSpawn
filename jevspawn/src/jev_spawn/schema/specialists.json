@@ -1,0 +1,6 @@
+{
+  "strings": "Implement string, character, parsing, and text-processing functions. Check empty strings, boundaries, and formatting requirements.",
+  "collections": "Implement functions over lists, tuples, dictionaries, sets, and sequences. Preserve the requested ordering, multiplicity, and mutation behavior.",
+  "numeric": "Implement numeric, arithmetic, combinatorial, and mathematical functions. Check boundary values and the exact requested return type.",
+  "general": "Implement the specified Python function directly, choosing an appropriate algorithm and following all stated constraints."
+}

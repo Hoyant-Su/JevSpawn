@@ -1,0 +1,101 @@
+{
+  "operators": [
+    "map",
+    "decide",
+    "generate_json",
+    "generate",
+    "expand",
+    "observe",
+    "rank"
+  ],
+  "bindings": [
+    "$task",
+    "$parent",
+    "$item",
+    "$index",
+    "$result",
+    "$literal"
+  ],
+  "path_bindings": [
+    "$task",
+    "$item",
+    "$parent"
+  ],
+  "reserved_names": [
+    "task",
+    "input"
+  ],
+  "source_bindings": {
+    "task": {
+      "$task": true
+    },
+    "input": {
+      "$parent": [
+        "input"
+      ]
+    }
+  },
+  "required_arguments": {
+    "decide": [
+      "input",
+      "context",
+      "question",
+      "options"
+    ],
+    "generate": [
+      "input",
+      "instruction"
+    ],
+    "generate_json": [
+      "input",
+      "instruction",
+      "schema"
+    ],
+    "expand": [
+      "input",
+      "instruction"
+    ],
+    "observe": [
+      "node"
+    ],
+    "rank": [
+      "input",
+      "key_path",
+      "limit",
+      "descending"
+    ]
+  },
+  "optional_arguments": {
+    "decide": [
+      "branches"
+    ],
+    "generate": [],
+    "generate_json": [],
+    "expand": [],
+    "observe": [],
+    "rank": []
+  },
+  "node_id": "{prefix}n{index}",
+  "branch_prefix": "{prefix}b{index}_",
+  "map_arguments": 2,
+  "lambda_parameters": 1,
+  "literal_types": [
+    "builtins.str",
+    "builtins.int",
+    "builtins.float",
+    "builtins.bool",
+    "types.NoneType"
+  ],
+  "numeric_types": [
+    "builtins.int",
+    "builtins.float"
+  ],
+  "index_types": [
+    "builtins.str",
+    "builtins.int"
+  ],
+  "lexical_source_bindings": [
+    "input"
+  ],
+  "empty_branches_literal": null
+}

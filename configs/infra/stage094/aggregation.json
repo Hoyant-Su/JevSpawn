@@ -1,0 +1,28 @@
+{
+  "active_stage": "configs/infra/stage094/stage.json",
+  "completed_stage_pairs": [],
+  "evaluation_globs": [
+    "results/validation/stage094_*.json"
+  ],
+  "arm_fields": [
+    "run_output",
+    "action_prefix"
+  ],
+  "arm_selector": "action_prefix",
+  "history_metrics": false,
+  "finite_metrics": {
+    "reference": [],
+    "candidate": ["action_prefix_hit_rows", "action_prefix_reused_tokens"]
+  },
+  "output": "results/infra/native-action-prefix-stage094/paired_summary.json",
+  "notes": [
+    "Both arms use the same fixed task records, shared configuration, native evaluator and adaptive policy.",
+    "All declared samples, including timeouts and invalid outputs, remain in the denominator.",
+    "The candidate changes action-local message layout; available information is preserved but model outputs need not be identical.",
+    "Report each task native score separately; heterogeneous native scores are not a pooled accuracy.",
+    "All-sample latency includes incorrect results and timeouts; both-correct latency reports its selected denominator.",
+    "Recorded contexts and protocols must match before comparing complete evaluated pairs.",
+    "Finite wall includes cold capture; unfenced host phases are not device kernel timings or inter-decision latency.",
+    "Both arms use the same explicit allocator configuration."
+  ]
+}

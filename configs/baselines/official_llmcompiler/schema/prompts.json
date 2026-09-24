@@ -1,0 +1,7 @@
+{
+  "calculator": "calculator(expression: str) -> str:\n - Evaluate a numeric arithmetic expression using +, -, *, /, **, parentheses, or sqrt(number).\n - Return the actual numeric result, or an explicit tool error.\n - Reference a previous tool result with $id when required.\n - This tool does not solve word problems, access files, or access the network.",
+  "planner_examples": "",
+  "question": "{state}\n\n{question}\n\nAnswer options:\n{options}",
+  "joiner": "Solve the question using the actual tool observations and the supplied answer options. Write a Thought line followed by an Action line. Use Action: Finish(option_id) when the answer is determined. Use Action: Replan(description of the additional computation needed) when another plan is necessary. A final answer must be exactly one supplied option ID. Do not invent tool observations.",
+  "joiner_final": "Solve the question using the actual tool observations and the supplied answer options. Write a Thought line followed by Action: Finish(option_id). A final answer must be exactly one supplied option ID. No further planning round is available. Do not invent tool observations."
+}

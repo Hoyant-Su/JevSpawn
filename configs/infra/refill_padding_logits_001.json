@@ -1,0 +1,41 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source_batches": "runs/shared-refill-service-tp4-003/cohort/batches.json",
+  "request_id": "long",
+  "first_difference_index": 99,
+  "reference_token": 9,
+  "candidate_token": 262,
+  "capacity": 12288,
+  "active_rows": 1,
+  "target_row": 0,
+  "topk": 8,
+  "arms": [
+    {
+      "name": "native_b1",
+      "physical_rows": 1,
+      "padding": false
+    },
+    {
+      "name": "native_b8",
+      "physical_rows": 8,
+      "padding": false
+    },
+    {
+      "name": "padded_b8",
+      "physical_rows": 8,
+      "padding": true
+    }
+  ],
+  "comparisons": [
+    [
+      "native_b1",
+      "native_b8"
+    ],
+    [
+      "native_b8",
+      "padded_b8"
+    ]
+  ],
+  "output": "results/infra/tp4_refill_padding_logits_001.json"
+}

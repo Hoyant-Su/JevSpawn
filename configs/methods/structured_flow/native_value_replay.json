@@ -1,0 +1,5 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_batches": "runs/common-jevspawn_finite_control-all-datasets-gen4096-004/session-0000/batches.json",
+  "source_batch_index": 78
+}

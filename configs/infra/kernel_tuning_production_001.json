@@ -1,0 +1,5 @@
+{
+  "cache_directory": "records/infra/kernel_tuning_001",
+  "cache_file": "rank{rank}.json",
+  "settings": "configs/jevspawn/kernel_tuning.json"
+}

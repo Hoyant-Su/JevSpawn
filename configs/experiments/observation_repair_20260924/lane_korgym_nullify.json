@@ -1,0 +1,79 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "qualification",
+  "world_size": 4,
+  "instance": "low26-v0712-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/observation_repair_20260924/korgym_nullify_jevspawn.json",
+      "run": "runs/observation-repair-20260924/korgym_nullify/jevspawn",
+      "evaluation": "results/validation/observation_repair_20260924/korgym_nullify/jevspawn.json",
+      "method": "jevspawn",
+      "progress": "results/validation/observation_repair_20260924/korgym_nullify/jevspawn_progress.json",
+      "log": "logs/observation_repair_20260924/korgym_nullify/jevspawn.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/observation_repair_20260924/korgym_nullify_jevspawn.json",
+          "--output",
+          "runs/observation-repair-20260924/korgym_nullify/jevspawn",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/observation-repair-20260924/korgym_nullify/jevspawn",
+          "--output",
+          "results/validation/observation_repair_20260924/korgym_nullify/jevspawn.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/observation_repair_20260924/korgym_nullify_react.json",
+      "run": "runs/observation-repair-20260924/korgym_nullify/react",
+      "evaluation": "results/validation/observation_repair_20260924/korgym_nullify/react.json",
+      "method": "react",
+      "progress": "results/validation/observation_repair_20260924/korgym_nullify/react_progress.json",
+      "log": "logs/observation_repair_20260924/korgym_nullify/react.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/observation_repair_20260924/korgym_nullify_react.json",
+          "--output",
+          "runs/observation-repair-20260924/korgym_nullify/react",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/observation-repair-20260924/korgym_nullify/react",
+          "--output",
+          "results/validation/observation_repair_20260924/korgym_nullify/react.json"
+        ]
+      ]
+    }
+  ]
+}

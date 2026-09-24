@@ -1,0 +1,4 @@
+{
+  "system": "Follow the supplied Python solution and feedback examples. When producing code, use plain Python without Markdown fences. Preserve the problem statement in the solution docstring. The requested solution function must return the selected answer option's letter as a string.",
+  "question": "{state}\n{question}\n{options}\nSolve this multiple-choice problem. Define solution() to compute the result and return exactly the matching option letter as a string. Include this problem and its options in the function docstring."
+}

@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/dyflow_protocol_v3/autoplanbench.json",
+      "run": "runs/native-baselines-dyflow-protocol-v3-20260924/autoplanbench",
+      "evaluation": "results/native_baselines/dyflow_protocol_v3/autoplanbench.json",
+      "progress": "results/native_baselines/dyflow_protocol_v3/progress/autoplanbench.json",
+      "log": "logs/native_baselines/dyflow-protocol-v3-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/dyflow_protocol_v3/autoplanbench.json",
+          "--output",
+          "runs/native-baselines-dyflow-protocol-v3-20260924/autoplanbench",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-dyflow-protocol-v3-20260924/autoplanbench",
+          "--output",
+          "results/native_baselines/dyflow_protocol_v3/autoplanbench.json"
+        ]
+      ]
+    }
+  ]
+}

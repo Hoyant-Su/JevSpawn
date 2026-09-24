@@ -1,0 +1,12 @@
+{
+  "sample_count": 16,
+  "minimum_candidates": 2,
+  "question": "Which available API should be called next to satisfy the latest user request?",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "native_config": "configs/native.json",
+  "stage": "configs/methods/evidence_interfaces/stage.json",
+  "prompts": "configs/methods/evidence_interfaces/schema/prompts.json",
+  "field_schema": "configs/methods/evidence_interfaces/schema/field.json",
+  "direct_prompts": "configs/methods/generated_map/schema/prompts.json",
+  "task": {
+    "$prompt": "configs/methods/evidence_interfaces/development.json#task"
+  },
+  "arms": [
+    "streamed",
+    "tiled_independent",
+    "json",
+    "direct"
+  ],
+  "worker_tokens": 128,
+  "require_eos": true,
+  "ranking_length": 10,
+  "option_letters": "ABCDEFGH",
+  "failure_policy": "An incomplete or semantically invalid generated interface or ranking fails the original query. No substitute values. Runtime and infrastructure failures terminate the run.",
+  "resume_policy": "Retain completed query-arm outcomes. A new process repeats the full warmup. Interrupted query-arm attempts remain recorded and restart from their original inputs in a new attempt directory. Complete latency is never stitched across interrupted attempts."
+}

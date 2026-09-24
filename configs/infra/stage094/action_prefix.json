@@ -1,0 +1,10 @@
+{
+  "prompts": "jevspawn.action_prefix",
+  "request_types": [
+    "tests.infra.action_prefix.runtime.ActionRequest"
+  ],
+  "finite_tail": {
+    "module": "tests.infra.action_prefix.runtime",
+    "class": "ActionPrefixTail"
+  }
+}

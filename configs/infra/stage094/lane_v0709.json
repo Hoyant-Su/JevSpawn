@@ -1,0 +1,230 @@
+{
+  "stage": "qualification",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_action_prefix_screen/ppnl_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/ppnl/reference",
+      "evaluation": "results/validation/stage094_ppnl_reference.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/ppnl_reference.json",
+      "log": "logs/qualification/stage094_ppnl_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/ppnl_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/ppnl/reference",
+          "--output",
+          "results/validation/stage094_ppnl_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_action_prefix_screen/ppnl_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/ppnl/candidate_retry",
+      "evaluation": "results/validation/stage094_ppnl_candidate_retry.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/ppnl_candidate_retry.json",
+      "log": "logs/qualification/stage094_ppnl_candidate_retry.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/ppnl_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/ppnl/candidate_retry",
+          "--output",
+          "results/validation/stage094_ppnl_candidate_retry.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_action_prefix_screen/robotouille_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/robotouille/reference",
+      "evaluation": "results/validation/stage094_robotouille_reference.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/robotouille_reference.json",
+      "log": "logs/qualification/stage094_robotouille_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/robotouille_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/robotouille/reference",
+          "--output",
+          "results/validation/stage094_robotouille_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_action_prefix_screen/robotouille_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/robotouille/candidate",
+      "evaluation": "results/validation/stage094_robotouille_candidate.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/robotouille_candidate.json",
+      "log": "logs/qualification/stage094_robotouille_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/robotouille_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/robotouille/candidate",
+          "--output",
+          "results/validation/stage094_robotouille_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_action_prefix_screen/llfbench_gridworld_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/llfbench_gridworld/reference",
+      "evaluation": "results/validation/stage094_llfbench_gridworld_reference.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/llfbench_gridworld_reference.json",
+      "log": "logs/qualification/stage094_llfbench_gridworld_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/llfbench_gridworld_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/llfbench_gridworld/reference",
+          "--output",
+          "results/validation/stage094_llfbench_gridworld_reference.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_action_prefix_screen/llfbench_gridworld_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/llfbench_gridworld/candidate",
+      "evaluation": "results/validation/stage094_llfbench_gridworld_candidate.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/llfbench_gridworld_candidate.json",
+      "log": "logs/qualification/stage094_llfbench_gridworld_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/llfbench_gridworld_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/llfbench_gridworld/candidate",
+          "--output",
+          "results/validation/stage094_llfbench_gridworld_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_action_prefix_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/lmrlgym_maze/candidate",
+      "evaluation": "results/validation/stage094_lmrlgym_maze_candidate.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/lmrlgym_maze_candidate.json",
+      "log": "logs/qualification/stage094_lmrlgym_maze_candidate.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/lmrlgym_maze_candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/lmrlgym_maze/candidate",
+          "--output",
+          "results/validation/stage094_lmrlgym_maze_candidate.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_action_prefix_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-action-prefix-stage094/lmrlgym_maze/reference",
+      "evaluation": "results/validation/stage094_lmrlgym_maze_reference.json",
+      "progress": "results/infra/native-history-adaptive-stage094/progress/lmrlgym_maze_reference.json",
+      "log": "logs/qualification/stage094_lmrlgym_maze_reference.log",
+      "commands": [
+        [
+          "env",
+          "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage094/lmrlgym_maze_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-action-prefix-stage094/lmrlgym_maze/reference",
+          "--output",
+          "results/validation/stage094_lmrlgym_maze_reference.json"
+        ]
+      ]
+    }
+  ]
+}

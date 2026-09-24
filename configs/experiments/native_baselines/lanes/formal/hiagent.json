@@ -1,0 +1,378 @@
+{
+  "stage": "formal",
+  "method": "hiagent",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "hiagent",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/ppnl",
+      "evaluation": "results/native_baselines/formal/hiagent/ppnl.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/ppnl.json",
+      "log": "logs/native_baselines/formal-hiagent-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/ppnl_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/ppnl",
+          "--output",
+          "results/native_baselines/formal/hiagent/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_hiagent_schema_v2.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/lmrlgym_maze_schema_v2.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/lmrlgym_maze_schema_v2.json",
+      "log": "logs/native_baselines/formal-hiagent-lmrlgym_maze_schema_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/lmrlgym_maze_hiagent_schema_v2.json",
+          "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze_schema_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze_schema_v2",
+          "--output",
+          "results/native_baselines/formal/hiagent/lmrlgym_maze_schema_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/hiagent/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/llfbench_gridworld.json",
+      "log": "logs/native_baselines/formal-hiagent-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/llfbench_gridworld_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/formal/hiagent/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/plancraft",
+      "evaluation": "results/native_baselines/formal/hiagent/plancraft.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/plancraft.json",
+      "log": "logs/native_baselines/formal-hiagent-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/plancraft_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/plancraft",
+          "--output",
+          "results/native_baselines/formal/hiagent/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-hiagent-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json",
+          "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/hiagent/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/autoplanbench",
+      "evaluation": "results/native_baselines/formal/hiagent/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/autoplanbench.json",
+      "log": "logs/native_baselines/formal-hiagent-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/autoplanbench_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/hiagent/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/hiagent/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/agentquest_mastermind.json",
+      "log": "logs/native_baselines/formal-hiagent-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_mastermind_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/formal/hiagent/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/hiagent/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-hiagent-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/hiagent/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/textarena_lightsout.json",
+      "log": "logs/native_baselines/formal-hiagent-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_lightsout_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_lightsout",
+          "--output",
+          "results/native_baselines/formal/hiagent/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/textarena_rushhour.json",
+      "log": "logs/native_baselines/formal-hiagent-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_rushhour_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_rushhour",
+          "--output",
+          "results/native_baselines/formal/hiagent/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/textarena_sokoban.json",
+      "log": "logs/native_baselines/formal-hiagent-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/textarena_sokoban_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/textarena_sokoban",
+          "--output",
+          "results/native_baselines/formal/hiagent/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/korgym_2048.json",
+      "log": "logs/native_baselines/formal-hiagent-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/hiagent/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-hiagent-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/hiagent/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_hiagent.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-hiagent-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_nullify_hiagent.json",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/hiagent/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

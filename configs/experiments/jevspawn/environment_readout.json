@@ -1,0 +1,30 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "source": "runs/finite-environment-003",
+  "selections": [
+    {
+      "task": 0,
+      "turn": 2
+    },
+    {
+      "task": 0,
+      "turn": 6
+    },
+    {
+      "task": 1,
+      "turn": 4
+    },
+    {
+      "task": 1,
+      "turn": 8
+    }
+  ],
+  "task_file": "task-{index:05d}.json",
+  "output": "runs/finite-environment-readout-native-001",
+  "result_file": "reference.json",
+  "padding": "left",
+  "top_tokens": 5,
+  "model_operators": "native"
+}

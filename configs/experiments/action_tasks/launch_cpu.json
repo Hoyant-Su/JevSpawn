@@ -1,0 +1,45 @@
+{
+  "phases": [
+    {
+      "name": "action_interface_parity",
+      "devices": "",
+      "arguments": [
+        "tests/runtime/action_tasks/test_interfaces.py"
+      ]
+    },
+    {
+      "name": "bfcl_original_scoring",
+      "devices": "",
+      "arguments": [
+        "tests/data/bfcl/test_bfcl.py"
+      ]
+    },
+    {
+      "name": "maze_native_transitions",
+      "devices": "",
+      "arguments": [
+        "-m",
+        "pytest",
+        "tests/environments/maze_test.py",
+        "-q"
+      ]
+    },
+    {
+      "name": "react_episode_budget",
+      "devices": "",
+      "arguments": [
+        "tests/baselines/react_configured/test_configured_react.py"
+      ]
+    },
+    {
+      "name": "maze_native_trajectory_scoring",
+      "devices": "",
+      "arguments": [
+        "-m",
+        "pytest",
+        "tests/environments/maze_evaluation_test.py",
+        "-q"
+      ]
+    }
+  ]
+}

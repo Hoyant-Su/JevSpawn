@@ -1,0 +1,44 @@
+{
+  "run": "runs/action-tasks-bfcl-jevspawn-construct-015",
+  "protocol_file": "protocol.json",
+  "completion_file": "completion.json",
+  "task_file": "task-{index:05d}.json",
+  "batch_glob": "session-*/batches.json",
+  "next_index": 1,
+  "indent": 2,
+  "text_operation": "text",
+  "finite_operation": "finite",
+  "finite_components": [
+    "prefix_seconds",
+    "suffix_prefill_seconds",
+    "cache_load_seconds",
+    "graph_replay_seconds",
+    "capture_seconds",
+    "readout_seconds"
+  ],
+  "timing": {
+    "batch_sizes": [
+      1,
+      8
+    ],
+    "session_glob": "session-*",
+    "files": {
+      "completion": "completion.json",
+      "runtime": "runtime.json",
+      "batches": "batches.json",
+      "elapsed": "elapsed.json"
+    },
+    "scope": "Measured autoregressive token intervals and finite request timings."
+  },
+  "scorer": {
+    "class": "data.bfcl_run_score.BFCLRunScorer",
+    "settings": "configs/data/bfcl_run_score.json"
+  },
+  "references": "data/compositional/bfcl_parallel/development/labels.jsonl",
+  "output": "results/qualification/action_tasks/bfcl_parallel_jevspawn_construct_015.json",
+  "metric_definitions": {
+    "quality": "Original BFCL AST validity, failed tasks score zero.",
+    "finite_request_to_delivery": "Submission through finite result delivery; includes queue, input preparation, GPU work and delivery.",
+    "ordinary_itl": "Adjacent autoregressive token intervals, never a decision-to-token conversion."
+  }
+}

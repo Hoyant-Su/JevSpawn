@@ -1,0 +1,18 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "validation_timeout_seconds": 1200,
+  "workspace_reserve_bytes": 8589934592,
+  "stage": "native_upstream_prefix_oracle",
+  "role_count": 2,
+  "variants": [
+    "source_literal_b8",
+    "mask_preserving_native_b8",
+    "source_literal_unpadded_b1"
+  ],
+  "scope": "Use the exact upstream generate_latent_batch method for the full planner and critic prompts and every configured latent transition. Source-literal native B8 forwards preserve the original past-mask replacement and default physical positions. Mask-preserving native B8 uses boundary-segmented HF prefill and valid-token positions. Independent unpadded B1 is the no-padding semantic reference. Compare full-vocabulary logits, greedy IDs, hidden trajectories and realigned vectors. This is transport-reference qualification, not task accuracy. Existing rejected tokenwise-reference tolerance and evidence remain unchanged."
+}

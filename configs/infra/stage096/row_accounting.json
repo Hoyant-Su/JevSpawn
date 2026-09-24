@@ -1,0 +1,8 @@
+{
+  "prepared": "results/infra/native-shared-prefix-stage096/production_prepared.json",
+  "output": "results/infra/native-shared-prefix-stage096/row_opportunity.json",
+  "capacities": [
+    8,
+    64
+  ]
+}

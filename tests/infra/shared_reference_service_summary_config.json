@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "original_recorded": {
+      "run": "runs/common-jevspawn_reference_revision_stable-recorded-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/reference_revision_stable_recorded_tp4_001.json"
+    },
+    "shared_reference": {
+      "run": "runs/common-jevspawn_shared_reference_stable-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/shared_reference_stable_tp4_001.json"
+    }
+  },
+  "output": "results/infra/shared_reference_service_comparison_001.json"
+}

@@ -1,0 +1,80 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "jevspawn",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-0910-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/agentquest_mastermind.json",
+      "run": "runs/native-jevspawn-full-20260924/agentquest_mastermind",
+      "evaluation": "results/native_jevspawn/formal_20260924/agentquest_mastermind.json",
+      "method": "jevspawn",
+      "progress": "results/native_jevspawn/formal_20260924/progress/agentquest_mastermind.json",
+      "log": "logs/native_jevspawn/formal_20260924/agentquest_mastermind.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_full_20260924/agentquest_mastermind.json",
+          "--output",
+          "runs/native-jevspawn-full-20260924/agentquest_mastermind",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-full-20260924/agentquest_mastermind",
+          "--output",
+          "results/native_jevspawn/formal_20260924/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/korgym_2048.json",
+      "run": "runs/native-jevspawn-full-20260924/korgym_2048",
+      "evaluation": "results/native_jevspawn/formal_20260924/korgym_2048.json",
+      "method": "jevspawn",
+      "progress": "results/native_jevspawn/formal_20260924/progress/korgym_2048.json",
+      "log": "logs/native_jevspawn/formal_20260924/korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_full_20260924/korgym_2048.json",
+          "--output",
+          "runs/native-jevspawn-full-20260924/korgym_2048",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-full-20260924/korgym_2048",
+          "--output",
+          "results/native_jevspawn/formal_20260924/korgym_2048.json"
+        ]
+      ]
+    }
+  ]
+}

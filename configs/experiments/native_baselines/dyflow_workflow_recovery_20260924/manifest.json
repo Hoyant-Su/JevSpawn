@@ -1,0 +1,19 @@
+{
+  "scope": "Restore upstream stage-error continuation; generation and task budgets unchanged.",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "qualification_samples_per_track": 8,
+  "qualification": [
+    {
+      "dataset": "agentquest_mastermind",
+      "lane": "configs/experiments/native_baselines/dyflow_workflow_recovery_20260924/qualification_lane_agentquest_mastermind.json",
+      "devices": "0,1,2,3",
+      "tasks": 8
+    },
+    {
+      "dataset": "autoplanbench",
+      "lane": "configs/experiments/native_baselines/dyflow_workflow_recovery_20260924/qualification_lane_autoplanbench.json",
+      "devices": "4,5,6,7",
+      "tasks": 8
+    }
+  ]
+}

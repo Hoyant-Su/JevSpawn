@@ -1,0 +1,9 @@
+{
+  "planner_system": "Partition the response into short contiguous units for factual verification against the reference. Put separate factual details in separate units when possible. Preserve all response text, including connective language. Return strictly increasing exclusive word endpoints. The final endpoint must equal the total word count. Do not classify factuality or omit any words. Return only the requested JSON.",
+  "planner_user": "Reference and response:\n{state}\nIndexed words, with zero-based indices:\n{words}\nWord count: {count}\nOutput schema:\n{schema}",
+  "worker_question": "Determine the status of the response span in its complete context. Unsupported information and statements contradicting the reference are hallucinations. A supported span introduces no unsupported factual content. Choose refinement if only part of a multiword span is hallucinated or a finer judgment is needed.\nWord interval: [{start}, {end})\nExact span: {text}",
+  "direct_system": "Identify every hallucinated span in the response relative to the reference. Hallucinations include information not supported by the reference and statements that contradict it. Return the smallest exact response substrings expressing these errors. Each item must include its exact text and its one-based occurrence number among identical substrings in the response. Return an empty list when no hallucinated content is present. Do not reproduce supported content or give an explanation. Return the requested JSON.",
+  "direct_user": "Reference and response:\n{state}\nOutput schema:\n{schema}",
+  "json_instruction": "Return a JSON object with the single key choice and the letter of the selected option as its string value.",
+  "option_template": "{label}: {description}"
+}

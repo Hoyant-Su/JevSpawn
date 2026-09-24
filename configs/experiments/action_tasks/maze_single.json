@@ -1,0 +1,14 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "task_count": 25,
+  "tasks": "data/environments/maze/tasks.jsonl",
+  "method": "configs/methods/finite_actions/single.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "environments.maze.MazeEnvironment",
+    "parameters": {
+      "configuration": "configs/data/maze/runtime.json"
+    }
+  }
+}

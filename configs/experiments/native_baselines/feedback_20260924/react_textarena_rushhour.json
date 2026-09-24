@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/textarena_rushhour/tasks.jsonl",
+  "task_count": 100,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.textarena.TextArenaEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/textarena_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/react.json"
+}

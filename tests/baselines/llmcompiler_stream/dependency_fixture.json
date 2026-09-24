@@ -1,0 +1,24 @@
+{
+  "source": "runs/common-llmcompiler-tp4-v2-matrix-001-aqua/session-0000/batches.json",
+  "invalid_plan": {
+    "task_id": "aqua/test/97",
+    "batch_index": 38,
+    "text": "autos1. calculate(expression: \"8600 / (5 * 5 + 4 * 4 + 2 * 1)\")\n2. calculate(expression: \"$1 * 4\")\n3. join()\n"
+  },
+  "valid_plan": {
+    "task_id": "aqua/test/7",
+    "batch_index": 0,
+    "text": "1. calculate(expression: \"100 * 10\")\n2. calculate(expression: \"$1 / 4\")\n3. calculate(expression: \"$2 / 100\")\n4. calculate(expression: \"$1 - $2\")\n5. calculate(expression: \"$4 / 75\")\n6. calculate(expression: \"$3 + $5\")\n7. join()\n"
+  },
+  "method": "configs/baselines/common/methods/llmcompiler_stream.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tool_name": "calculate",
+  "tool_fields": [
+    "expression"
+  ],
+  "missing_dependency": 1,
+  "timeout_seconds": 10,
+  "seed": 42,
+  "output": "results/baselines/common/monitoring/llmcompiler_stream_dependency_regression_001.json",
+  "result_key": "value"
+}

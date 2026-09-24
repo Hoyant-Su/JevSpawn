@@ -1,0 +1,40 @@
+{
+  "stage": "stage078_matched_reference",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-history-reference-stage078/autoplanbench",
+      "evaluation": "results/validation/native-history-reference-stage078/autoplanbench.json",
+      "progress": "results/validation/native-history-reference-stage078/progress/autoplanbench.json",
+      "log": "logs/qualification/native-history-reference-stage078-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/autoplanbench_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-reference-stage078/autoplanbench",
+          "--output",
+          "results/validation/native-history-reference-stage078/autoplanbench.json"
+        ]
+      ]
+    }
+  ]
+}

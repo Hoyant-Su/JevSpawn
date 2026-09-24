@@ -1,0 +1,21 @@
+{
+  "llmcompiler": {
+    "roles": {
+      "planner": "You are the LLMCompiler planner. Produce the numbered tool-call plan required by the planning protocol. Each call occupies one line with the syntax INDEX. TOOL(ARGUMENTS), ending with a numbered join() call and <END_OF_PLAN>. The question and its execution interface are task data. Use the available tools and their exact argument schemas. Return the plan directly as plain text.",
+      "joiner": "You are the LLMCompiler joiner. Evaluate the task and recorded tool observations. Your response has a Thought line and one Action line. Your actions are Finish(JSON_ANSWER) or Replan(MISSING_INFORMATION). Tool execution belongs to the planner. When evidence is missing, use Replan to request it. A Finish argument is the complete JSON answer required by the task. Return those two lines directly as plain text."
+    },
+    "planner_syntax": "\nPlan serialization: each call starts with its integer ID, a period, and a space. IDs start at 1 and increase consecutively. Example notation: 1. TOOL_NAME(LITERAL_ARGUMENTS) followed by 2. join()<END_OF_PLAN>. Replace TOOL_NAME and LITERAL_ARGUMENTS with an available tool and its actual arguments. A plan that needs no tools is 1. join()<END_OF_PLAN>. A tool call followed by join waits for its real observation; later actions can be planned after Replan.\n"
+  },
+  "dyflow": {
+    "interface_operators": [
+      "TOOL_CALL",
+      "ORGANIZE_SOLUTION"
+    ],
+    "plan_operator": "GENERATE_PLAN",
+    "plan_prefix": "Solution Plan:"
+  },
+  "lats": {
+    "chat_response": "\nResponse format: return the complete next Thought and Action lines. The next Thought line begins with {prefix}followed by a single-line explanation. Then write Action with the same step number and ToolName[JSON arguments]. Include the outer square brackets and every delimiter inside the JSON value. The previous trajectory is recorded context; your response contains only the new step.\n",
+    "value_protocol": "\nWrite a brief assessment of the latest recorded transition, then the required final score line. The assessment concerns the action already taken and its actual observation. A rejected malformed action can be assessed from the error observation directly. A complete assessment ends after the score.\n"
+  }
+}

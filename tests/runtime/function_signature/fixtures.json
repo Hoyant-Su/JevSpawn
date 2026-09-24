@@ -1,0 +1,32 @@
+{
+  "dialect": "configs/jevspawn/function_signature_bfcl.json",
+  "signature": {
+    "name": "weather.lookup",
+    "description": "Look up weather.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "location": {"type": "string"},
+        "coordinates": {"type": "tuple", "items": {"type": "float"}},
+        "filters": {
+          "type": "dict",
+          "properties": {"days": {"type": "array", "items": {"type": "integer"}}},
+          "required": ["days"]
+        },
+        "units": {"type": "string", "default": "metric"}
+      },
+      "required": ["location", "coordinates", "filters"],
+      "optional": ["units"]
+    }
+  },
+  "expected": {
+    "type": "object",
+    "properties": {
+      "location": {"type": "string"},
+      "coordinates": {"type": "array", "items": {"type": "number"}},
+      "filters": {"type": "object", "properties": {"days": {"type": "array", "items": {"type": "integer"}}}, "required": ["days"]},
+      "units": {"type": "string", "default": "metric"}
+    },
+    "required": ["coordinates", "filters", "location"]
+  }
+}

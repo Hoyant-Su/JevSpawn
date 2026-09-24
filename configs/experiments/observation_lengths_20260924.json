@@ -1,0 +1,7 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "run": "runs/native-baselines-formal-20260923/react",
+  "datasets": ["ppnl", "lmrlgym_maze_schema_v2", "llfbench_gridworld", "plancraft", "robotouille_state_v2", "autoplanbench", "agentquest_mastermind", "agentquest_sudoku", "textarena_lightsout", "textarena_rushhour", "textarena_sokoban", "korgym_2048", "korgym_circle_the_cat", "korgym_nullify"],
+  "candidate_limits": [2048,4096,16384],
+  "output": "results/validation/observation_lengths_20260924.json"
+}

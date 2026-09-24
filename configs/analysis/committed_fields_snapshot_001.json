@@ -1,0 +1,103 @@
+{
+  "references": "configs/baselines/common/evaluation/formal.json",
+  "settings": "configs/baselines/common/evaluation/settings.json",
+  "workers": 8,
+  "indent": 2,
+  "protocol_file": "protocol.json",
+  "result_pattern": "task-*.json",
+  "kind": "fields",
+  "input_keys": [
+    "state",
+    "fields"
+  ],
+  "scope": "Partial committed-outcome snapshot. All saved failures are scored zero; unfinished tasks are not evaluated. Completion-time selection means this is not an unbiased estimate of full-dataset accuracy.",
+  "cells": [
+    {
+      "method": "react",
+      "dataset": "aqua",
+      "run": "runs/common-react-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "react",
+      "dataset": "supergpqa",
+      "run": "runs/common-react-tp4-v2-matrix-001-supergpqa"
+    },
+    {
+      "method": "lats",
+      "dataset": "aqua",
+      "run": "runs/common-lats-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "aqua",
+      "run": "runs/common-llmcompiler-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "aqua",
+      "run": "runs/common-agentprune-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "aqua",
+      "run": "runs/common-hiagent-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "supergpqa",
+      "run": "runs/common-hiagent-tp4-v2-matrix-001-supergpqa"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "aqua",
+      "run": "runs/common-foldagent-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "aqua",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-aqua"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "supergpqa",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-supergpqa"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "medxpertqa_text",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-medxpertqa_text"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "processbench_gsm8k",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-processbench_gsm8k"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "squad2_answerability",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-squad2_answerability"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "race_middle",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-race_middle"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "pubmedqa",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-pubmedqa"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "scifact_cited",
+      "run": "runs/common-latentmas-tp4-v2-matrix-001-scifact_cited"
+    }
+  ],
+  "display_keys": [
+    "method",
+    "dataset",
+    "declared_tasks",
+    "summary"
+  ],
+  "output": "results/baselines/common/partial_evaluation/fields_snapshot_001.json"
+}

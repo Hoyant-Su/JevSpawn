@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "source_batches": "runs/common-foldagent-search-read-id-qualification-001/session-0000/batches.json",
+  "result": "results/infra/shared_tokenizer_cpu_001.json",
+  "chat_options": {"add_generation_prompt": true, "tokenize": true},
+  "render_options": {"add_generation_prompt": true, "tokenize": false},
+  "tokenize_options": [
+    {"padding": false, "truncation": false, "add_special_tokens": false},
+    {"padding": "max_length", "truncation": true, "max_length": 32, "add_special_tokens": false},
+    {"padding": false, "truncation": true, "max_length": 64, "add_special_tokens": false}
+  ],
+  "decode_options": {"skip_special_tokens": true}
+}

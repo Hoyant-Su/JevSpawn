@@ -1,0 +1,18 @@
+{
+  "stage": "stage087_single_frontier_control",
+  "method": "jevspawn",
+  "world_size": 4,
+  "seed": 42,
+  "entries": [
+    {
+      "dataset": "ppnl",
+      "config": "configs/infra/stage087/ppnl_routing.json",
+      "run": "runs/native-routing-stage087/ppnl"
+    },
+    {
+      "dataset": "lmrlgym_maze",
+      "config": "configs/infra/stage087/lmrlgym_maze_routing.json",
+      "run": "runs/native-routing-stage087/lmrlgym_maze"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "reference": "reference",
+  "candidate": "direct",
+  "scope": "Sequential same-device full-task comparison. Service totals are cohort work, not per-token ITL. The candidate computes the complete native suffix and selected-head readout; no prompt or task-budget changes.",
+  "arms": {
+    "reference": {
+      "run": "runs/native-direct-finite-stage070-ppnl8-reference",
+      "evaluation": "results/infra/native-direct-finite-stage070-ppnl8-reference_evaluation.json"
+    },
+    "direct": {
+      "run": "runs/native-direct-finite-stage070-ppnl8-direct",
+      "evaluation": "results/infra/native-direct-finite-stage070-ppnl8-direct_evaluation.json"
+    }
+  },
+  "output": "results/infra/native_direct_finite_stage070_ppnl_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

@@ -1,0 +1,58 @@
+{
+  "dataset": "supergpqa",
+  "task_scope": "Previously frozen seed0 uniform subset of256 original SuperGPQA rows, in source order. Not the full benchmark.",
+  "task_count": 256,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "supergpqa/91f13f3c518e40a691069f1283ef21dc",
+    "supergpqa/3d5e0dd421cd4f8085896c8fca1f8427",
+    "supergpqa/d2a769aaada640ffb7687050b801f0ca",
+    "supergpqa/000e8e0a7fd84b6c8fa6a82dd110076c",
+    "supergpqa/ca565f775f484f65a8e8a125aaeff6de",
+    "supergpqa/db0f9a154ea04468aa74d7a91ebd467b",
+    "supergpqa/87e03ba4afc44c4d9a868ead052612cb",
+    "supergpqa/4fabe4c083f94c3d926bb9cc6ec167df"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.dyflow.adapter",
+  "interface": "sync_fields",
+  "adapter_config": {
+    "upstream": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/DyFlow",
+    "upstream_commit": "fa6d8286c5bf33a7618510d4b7709ee385a19002",
+    "default_max_tokens": 2048,
+    "default_temperature": 0.01,
+    "allowed_operators": [
+      "DECOMPOSE_PROBLEM",
+      "GENERATE_PLAN",
+      "GENERATE_ANSWER",
+      "REFINE_ANSWER",
+      "SELF_CONSISTENCY_ENSEMBLE",
+      "REVIEW_SOLUTION",
+      "ORGANIZE_SOLUTION",
+      "TERMINATE"
+    ]
+  },
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/dyflow/schema/prompts.json",
+  "python_paths": [],
+  "budget": {
+    "default_per_call_max_tokens": 2048,
+    "designer_temperature": 0.1,
+    "ordinary_executor_temperature": 0.1,
+    "summary_temperature": 0.01,
+    "ensemble_temperature": 0.7,
+    "default_ensemble_samples": 5,
+    "selector_temperature": 0,
+    "selector_max_tokens": "min(ensemble_max_tokens,1024)",
+    "max_workflow_iterations": 8,
+    "model_call_ceiling": null,
+    "model_generated_overrides": "Original supported ensemble sample counts, ensemble token limits and executor temperatures are preserved.",
+    "tools": []
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "All original option IDs and text retained, including 4 to 10 choices. Existing text-choice role prompts and tool inventory are unchanged."
+}

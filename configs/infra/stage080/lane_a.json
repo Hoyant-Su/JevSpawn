@@ -1,0 +1,115 @@
+{
+  "stage": "stage080_chunk_graph_rollout",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-chunk-graph-rollout-stage080/lmrlgym_maze/eager",
+      "evaluation": "results/validation/native-chunk-graph-rollout-stage080/lmrlgym_maze/eager.json",
+      "progress": "results/validation/native-chunk-graph-rollout-stage080/progress/lmrlgym_maze_eager.json",
+      "log": "logs/qualification/native-chunk-graph-stage080-lmrlgym_maze-eager.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage080/lmrlgym_maze_eager.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-chunk-graph-rollout-stage080/lmrlgym_maze/eager",
+          "--output",
+          "results/validation/native-chunk-graph-rollout-stage080/lmrlgym_maze/eager.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-chunk-graph-rollout-stage080/lmrlgym_maze/chunk_graph",
+      "evaluation": "results/validation/native-chunk-graph-rollout-stage080/lmrlgym_maze/chunk_graph.json",
+      "progress": "results/validation/native-chunk-graph-rollout-stage080/progress/lmrlgym_maze_chunk_graph.json",
+      "log": "logs/qualification/native-chunk-graph-stage080-lmrlgym_maze-chunk_graph.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage080/lmrlgym_maze_chunk_graph.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-chunk-graph-rollout-stage080/lmrlgym_maze/chunk_graph",
+          "--output",
+          "results/validation/native-chunk-graph-rollout-stage080/lmrlgym_maze/chunk_graph.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-chunk-graph-rollout-stage080/ppnl/eager",
+      "evaluation": "results/validation/native-chunk-graph-rollout-stage080/ppnl/eager.json",
+      "progress": "results/validation/native-chunk-graph-rollout-stage080/progress/ppnl_eager.json",
+      "log": "logs/qualification/native-chunk-graph-stage080-ppnl-eager.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage080/ppnl_eager.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-chunk-graph-rollout-stage080/ppnl/eager",
+          "--output",
+          "results/validation/native-chunk-graph-rollout-stage080/ppnl/eager.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-chunk-graph-rollout-stage080/ppnl/chunk_graph",
+      "evaluation": "results/validation/native-chunk-graph-rollout-stage080/ppnl/chunk_graph.json",
+      "progress": "results/validation/native-chunk-graph-rollout-stage080/progress/ppnl_chunk_graph.json",
+      "log": "logs/qualification/native-chunk-graph-stage080-ppnl-chunk_graph.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage080/ppnl_chunk_graph.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-chunk-graph-rollout-stage080/ppnl/chunk_graph",
+          "--output",
+          "results/validation/native-chunk-graph-rollout-stage080/ppnl/chunk_graph.json"
+        ]
+      ]
+    }
+  ]
+}

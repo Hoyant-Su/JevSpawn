@@ -1,0 +1,17 @@
+{
+  "scope": "Stage072 observed-field presentation vs canonical: same stored task and shared runtime protocol, with explicitly changed generic field prompt and state rendering. Stored protocol equality does not imply identical field prompts.",
+  "reference": "canonical",
+  "candidate": "observed_fields",
+  "arms": {
+    "canonical": {
+      "run": "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/agentquest_mastermind.json"
+    },
+    "observed_fields": {
+      "run": "runs/native-observed-fields-stage072/agentquest_mastermind",
+      "evaluation": "results/validation/native-observed-fields-stage072/agentquest_mastermind.json"
+    }
+  },
+  "output": "results/validation/native_observed_fields_stage072_agentquest_mastermind_comparison.json",
+  "idl_definition": "Model-decision ready-to-delivery wall latency including admission/queue/context computation/readout; excludes deterministic singleton choices. It is not per-token autoregressive ITL."
+}

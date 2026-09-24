@@ -1,0 +1,40 @@
+{
+  "stage": "stage075_stall_diagnosis",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+      "run": "runs/native-stall-trace-stage075/agentquest_sudoku",
+      "evaluation": "results/validation/native-stall-trace-stage075/agentquest_sudoku.json",
+      "progress": "results/validation/native-stall-trace-stage075/progress/agentquest_sudoku.json",
+      "log": "logs/qualification/native-stall-trace-stage075.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage075/agentquest_sudoku.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-stall-trace-stage075/agentquest_sudoku",
+          "--output",
+          "results/validation/native-stall-trace-stage075/agentquest_sudoku.json"
+        ]
+      ]
+    }
+  ]
+}

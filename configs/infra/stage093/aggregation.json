@@ -1,0 +1,21 @@
+{
+  "active_stage": "configs/infra/stage093/stage.json",
+  "completed_stage_pairs": [
+    {"track": "ppnl", "configs": ["configs/infra/stage092/ppnl_root.json", "configs/infra/stage092/ppnl_history.json"]},
+    {"track": "lmrlgym_maze", "configs": ["configs/infra/stage092/lmrlgym_maze_root.json", "configs/infra/stage092/lmrlgym_maze_history.json"]}
+  ],
+  "evaluation_globs": ["results/validation/stage092_*.json", "results/validation/stage093_*.json"],
+  "arm_fields": ["run_output", "same_pass_history"],
+  "arm_selector": "same_pass_history",
+  "history_metrics": true,
+  "finite_metrics": {"reference": [], "candidate": []},
+  "output": "results/infra/native-history-adaptive-stage093/paired_summary.json",
+  "notes": [
+    "Each task compares the same declared samples under the same adaptive policy and shared configuration.",
+    "All-sample latency includes timeouts and incorrect results; it is not a claim of useful speedup.",
+    "Both-correct latency conditions on success in both arms; its count is reported and it is not the full-task accuracy metric.",
+    "Finite wall includes cold graph capture. Phase timers are unfenced host intervals, not isolated GPU timings.",
+    "Only complete evaluated pairs receive a comparison; pending and infrastructure-failed attempts are not imputed as model scores.",
+    "Allocator retry arms share the same explicit allocator setting and retain their separate run identity."
+  ]
+}

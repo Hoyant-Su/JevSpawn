@@ -1,0 +1,37 @@
+{
+  "dataset": "supergpqa",
+  "task_scope": "Previously frozen seed0 uniform subset of256 original SuperGPQA rows, in source order. Not the full benchmark.",
+  "task_count": 256,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/evaluation/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/supergpqa/feasibility/tasks.jsonl",
+  "warmup_task_ids": [
+    "supergpqa/91f13f3c518e40a691069f1283ef21dc",
+    "supergpqa/3d5e0dd421cd4f8085896c8fca1f8427",
+    "supergpqa/d2a769aaada640ffb7687050b801f0ca",
+    "supergpqa/000e8e0a7fd84b6c8fa6a82dd110076c",
+    "supergpqa/ca565f775f484f65a8e8a125aaeff6de",
+    "supergpqa/db0f9a154ea04468aa74d7a91ebd467b",
+    "supergpqa/87e03ba4afc44c4d9a868ead052612cb",
+    "supergpqa/4fabe4c083f94c3d926bb9cc6ec167df"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "interface": "sync_fields",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/prompts.json",
+  "python_paths": [],
+  "budget": {
+    "max_model_calls_per_task": 1,
+    "max_new_tokens": 2048,
+    "max_output_tokens_per_task": 2048,
+    "temperature": 0,
+    "tools": [],
+    "output": "Unconstrained autoregressive JSON containing thought and choice, original strict parser."
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "Existing AQuA single-reasoning computation, system prompt, question/options renderer and strict parser imported unchanged. Formal disjoint development warmup and atomic block resume replace the old whole-workload timing warmup.",
+  "agent_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tool_agents/schemas/reasoning_config.json",
+  "comparison_class": "Authored direct single-agent generative control, not a published agent baseline."
+}

@@ -1,0 +1,57 @@
+{
+  "source_tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "tasks": "data/baselines/common/qualification/all_datasets_14_contract_v2.jsonl",
+  "changes": [
+    {
+      "task_id": "ragtruth/12824",
+      "before": {
+        "spans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "text",
+              "occurrence"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "after": {
+        "spans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "text",
+              "occurrence"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  ],
+  "scope": "Shared task contract for every method. Existing exact-substring evaluator already rejects duplicate intervals; expose this requirement in the supplied schema. Original task input, answer content definition and official evaluator are unchanged."
+}

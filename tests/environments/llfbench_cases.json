@@ -1,0 +1,19 @@
+{
+  "specifications": [
+    "configs/experiments/native_context/llfbench_gridworld_jevspawn.json",
+    "configs/experiments/native_context/llfbench_gridworld_react.json",
+    "configs/experiments/native_context/llfbench_gridworld_single.json"
+  ],
+  "output": "results/validation/llfbench_common_20260923",
+  "report": "results/validation/llfbench_common_20260923.json",
+  "action_tool": "execute",
+  "action_field": "action",
+  "submission_tool": "finish",
+  "answer_field": "actions",
+  "expert_key": "expert_action",
+  "success_key": "success",
+  "empty_actions": [],
+  "artifact_name": "control_answer.json",
+  "status": "completed",
+  "incorrect_artifact_name": "incorrect_control_answer.json"
+}

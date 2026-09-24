@@ -1,0 +1,24 @@
+{
+  "prompts": "jevspawn.declaration_builder",
+  "max_fields": 8,
+  "min_candidates": 1,
+  "max_candidates": 64,
+  "min_array_items": 1,
+  "max_array_items": 64,
+  "max_tree_depth": 8,
+  "initial_depth": 0,
+  "max_construction_decisions": 1024,
+  "field_id": "f{index}",
+  "decision_id": "declaration-{index}",
+  "field_reference": "${{{identity}}}",
+  "submission_tool": "finish",
+  "action_root": [
+    "action",
+    "arguments"
+  ],
+  "max_variants": 64,
+  "variant_role": "Native command variant for {path}",
+  "signature_prompt": "signature",
+  "min_repeat": 1,
+  "indexed_role": "{role}[{index}]"
+}

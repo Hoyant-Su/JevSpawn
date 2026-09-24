@@ -1,0 +1,22 @@
+{
+  "stage": "cached_single_token_graph_transport_bf16_validation",
+  "shared_config": "configs/shared_config.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "critic_prefix_tokens": 300,
+  "minimum_internal_padding_boundaries": 2,
+  "minimum_rows_with_valid_prefix_tokens": 3,
+  "validation_timeout_seconds": 1200,
+  "tolerance": {
+    "rtol": 0.05,
+    "atol": 0.05
+  },
+  "scope": "Full real first-eight-task planner and all ten latent transitions once, then identical cached initial state for original eager B8x1 critic prefix and captured B8x1 critic prefix. Every configured token and batch row is retained. Both paths use the original single-token convolution and fused recurrent kernels. Compare all valid hidden outputs, valid attention KV, recurrent and convolution states, physical masks and positions. No answer quality claim.",
+  "workspace_reserve_bytes": 8589934592,
+  "snapshot_storage": "GPU only: initial cache clone and original final cache clone. Release initial clone after exact GPU restoration before graph capture; candidate final state uses views. No CPU snapshots or offload.",
+  "candidate_transport": "cuda_graph_single_token",
+  "graph_workspace_reserve_bytes": 2147483648
+}

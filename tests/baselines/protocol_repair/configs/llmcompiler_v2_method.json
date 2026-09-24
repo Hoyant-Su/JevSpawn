@@ -1,0 +1,17 @@
+{
+  "module": "llmcompiler_v2",
+  "python_paths": [
+    "tests/baselines/protocol_repair",
+    "../../runtime/official_llmcompiler/deps",
+    "external/LLMCompiler"
+  ],
+  "prompts": "configs/baselines/common/schema/llmcompiler.json",
+  "settings": {
+    "planner_stop": [
+      "<END_OF_PLAN>"
+    ],
+    "planning_rounds": 36,
+    "qualification_templates": "tests/baselines/protocol_repair/template/prompts_v2.json"
+  },
+  "inference_service": "shared"
+}

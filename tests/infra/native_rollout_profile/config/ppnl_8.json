@@ -1,0 +1,34 @@
+{
+  "specification": "tests/infra/native_rollout_profile/config/ppnl_8_spec.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "run_output": "runs/native-profile-jevspawn-stage059-roots8",
+  "profile_output": "results/infra/native-rollout-stage059-roots8",
+  "initial_batch_index": 0,
+  "request_type": "baselines.common.jevspawn_service.DecisionRequest",
+  "profiled_batches": [
+    1,
+    2
+  ],
+  "profiler": {
+    "record_shapes": true,
+    "profile_memory": false,
+    "with_stack": false
+  },
+  "trace_file": "rank{rank}-batch{batch}.trace.json",
+  "summary_file": "rank{rank}-batch{batch}.json",
+  "scope": "jev.finite_service",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "measurement_scope": "Actual native PPNL rollout with canonical inference, tools, actions and task budgets. Only the second and third numerical finite cohorts are profiled on all TP ranks. Instrumented wall time is diagnostic and excluded from comparative task results. Root count is explicit; finite cohort size is recorded per call.",
+  "recorded_fields": [
+    "task_id",
+    "field",
+    "input_ids",
+    "root_tokens",
+    "messages"
+  ]
+}

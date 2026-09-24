@@ -1,0 +1,91 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "execution": "configs/jevspawn/query_execution.json",
+  "prompts": "jevspawn.action_prefix",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "controller_prompts": "templates/jevspawn/controller.json",
+  "source": "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00000.json",
+  "protocol": "runs/native-history-adaptive-stage093/agentquest_mastermind/root/protocol.json",
+  "turn": 0,
+  "parent": "root",
+  "output": "results/infra/native-history-adaptive-stage094/field_replay",
+  "selected_indices": [
+    0,
+    1,
+    9
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "singleton_field": {
+    "id": "fixed_binding",
+    "question": "CPU branch-lifecycle fixture: deterministic field",
+    "values": [
+      "fixed"
+    ]
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "entrypoint": "tests/infra/action_prefix/replay.py",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sources": [
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00000.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00001.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00002.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00003.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00004.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00005.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00006.json",
+    "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00007.json"
+  ],
+  "task_counts": [
+    1,
+    8
+  ],
+  "finite_new_tokens": 1,
+  "modes": [
+    {
+      "name": "reference",
+      "message_index": 0,
+      "reuse_action_prefix": false
+    },
+    {
+      "name": "candidate",
+      "message_index": 1,
+      "reuse_action_prefix": true
+    },
+    {
+      "name": "candidate_recompute",
+      "message_index": 1,
+      "reuse_action_prefix": false
+    }
+  ],
+  "cache_comparison": [
+    "candidate",
+    "candidate_recompute"
+  ],
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True"
+}

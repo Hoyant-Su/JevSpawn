@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_korgym_2048.json",
+      "run": "runs/native-baselines-feedback-20260924/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/korgym_2048.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/dyflow_korgym_2048.json",
+      "log": "logs/native_baselines/feedback-20260924-dyflow-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/dyflow_korgym_2048.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/dyflow/korgym_2048",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/dyflow/korgym_2048",
+          "--output",
+          "results/native_baselines/feedback_20260924/dyflow/korgym_2048.json"
+        ]
+      ]
+    }
+  ]
+}

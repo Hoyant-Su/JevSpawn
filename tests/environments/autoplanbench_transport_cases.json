@@ -1,0 +1,11 @@
+{
+  "configuration": "configs/environments/autoplanbench.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/autoplanbench/tasks.jsonl",
+  "task_id": "autoplanbench_blocksworld_instance_16",
+  "gold_plan": "data/context_datasets/autoplanbench/extracted/apb1.0_dataset/data_main/blocksworld/gold_plans/instance-16_gold_plan.txt",
+  "rejected_actions": ["pick-up object_3", "stack object_3 object_0"],
+  "initial_depth": 0,
+  "directory": "results/validation/autoplanbench_val_20260924/transport",
+  "output": "results/validation/autoplanbench_transport_20260924.json"
+}

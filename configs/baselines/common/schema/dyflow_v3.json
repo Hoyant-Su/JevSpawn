@@ -1,0 +1,80 @@
+{
+  "designer": "Task interface: all datasets use the answer schema in the original problem. ORGANIZE_SOLUTION must return ONLY the answer JSON object for this schema, including for code tasks. This overrides the code-block output convention above. A TOOL_CALL operator calls any listed task tool except finish. It takes input_keys and input_usage like every other operator, generates the tool and arguments as JSON, and saves the actual tool observation to output_key. Use TOOL_CALL to retrieve documents/evidence and to run tests with public or self-generated assertions. TEST_CODE executes extracted code in the shared sandbox; it does not access hidden tests. Do not use TEST_CODE for non-code tasks. Ensemble size is fixed by the experiment configuration.",
+  "tool": "Recorded task interface and selected workflow state:\n<context>\n{context}\n</context>\n\nRecorded operator guidance:\n<guidance>\n{guidance}\n</guidance>\n\nCurrent TOOL_CALL assignment: select one declared execution tool and supply its exact argument object. The finish tool belongs to the final ORGANIZE_SOLUTION operator. Return a complete JSON object whose keys are \"tool\" and \"arguments\". The first character of the response is the opening brace of that object; the last character is its closing brace. The complete response is the JSON object itself.\n",
+  "organize": "Recorded task interface and selected workflow state:\n<context>\n{context}\n</context>\n\nRecorded operator guidance:\n<guidance>\n{guidance}\n</guidance>\n\nCurrent ORGANIZE_SOLUTION assignment: return the complete final answer JSON object matching the original task answer schema. This object terminates the workflow. Its values contain the actual requested answer, including complete code in the task field when required. The first character of the response is the opening brace of that object; the last character is its closing brace. The complete response is the JSON object itself.\n",
+  "tool_schema": {
+    "type": "object",
+    "required": [
+      "tool",
+      "arguments"
+    ],
+    "properties": {
+      "tool": {
+        "type": "string"
+      },
+      "arguments": {
+        "type": "object"
+      }
+    },
+    "additionalProperties": false
+  },
+  "stage_schema": {
+    "type": "object",
+    "required": [
+      "stage_id",
+      "stage_description",
+      "operators"
+    ],
+    "properties": {
+      "stage_id": {
+        "type": "string"
+      },
+      "stage_description": {
+        "type": "string"
+      },
+      "operators": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": [
+            "operator_id",
+            "operator_description",
+            "params"
+          ],
+          "properties": {
+            "operator_id": {
+              "type": "string"
+            },
+            "operator_description": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "required": [
+                "instruction_type",
+                "input_keys",
+                "output_key"
+              ],
+              "properties": {
+                "instruction_type": {
+                  "type": "string"
+                },
+                "input_keys": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "output_key": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

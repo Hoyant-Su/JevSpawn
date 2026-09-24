@@ -1,0 +1,59 @@
+{
+  "config": "configs/jevspawn/typed_values.json",
+  "task": {
+    "instruction": "Select one supplied material for each output position.",
+    "input": {
+      "catalog": "Materials: `copper`, `ceramic`, `basalt`\n"
+    },
+    "answer_schema": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "schema": {
+    "type": "string"
+  },
+  "first_path": [
+    0,
+    0
+  ],
+  "next_path": [
+    1,
+    0
+  ],
+  "shapes": [
+    {
+      "path": [],
+      "length": 2
+    },
+    {
+      "path": [
+        0
+      ],
+      "length": 1
+    },
+    {
+      "path": [
+        1
+      ],
+      "length": 1
+    }
+  ],
+  "first_excluded": [
+    "copper"
+  ],
+  "first_expected": "ceramic",
+  "next_expected": "copper",
+  "members": [
+    "copper",
+    "ceramic",
+    "basalt"
+  ],
+  "description": "Materials: `copper`, `ceramic`, `basalt`\n",
+  "evidence": {}
+}

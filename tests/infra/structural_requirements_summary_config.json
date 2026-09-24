@@ -1,0 +1,21 @@
+{
+  "runs": {
+    "hiagent": {
+      "run": "runs/common-hiagent-matched-noncoding-tp4-v1-001",
+      "evaluation": "results/baselines/common/evaluation/hiagent-matched-noncoding-tp4-v1-001.json"
+    },
+    "latentmas": {
+      "run": "runs/common-latentmas-matched-noncoding-tp4-v1-001",
+      "evaluation": "results/baselines/common/evaluation/latentmas-matched-noncoding-tp4-v1-001.json"
+    },
+    "jevspawn_shared_domain_revision": {
+      "run": "runs/common-jevspawn_shared_domain_revision_stable-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/shared_domain_revision_stable_tp4_001.json"
+    },
+    "jevspawn_structural_requirements": {
+      "run": "runs/common-jevspawn_structural_requirements_stable-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/structural_requirements_stable_tp4_001.json"
+    }
+  },
+  "output": "results/infra/structural_requirements_baseline_comparison_001.json"
+}

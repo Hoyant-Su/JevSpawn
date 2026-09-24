@@ -1,0 +1,11 @@
+{
+  "native_shared_config": "configs/shared_config_arena_v2.yaml",
+  "optimized_shared_config": "configs/shared_config_optimized_v1.yaml",
+  "single_source": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "single_row": 0,
+  "batch_source": "runs/common-react-all-datasets-gen4096-001/session-0000/batches.json",
+  "batch_index": 0,
+  "decode_steps": 32,
+  "output": "runs/qwen35-fullstack-decode-001",
+  "scope": "Matched fresh native and optimized full-stack static CUDA-graph decode on one complete 737-token real prompt and eight distinct recorded requests. Optimized replay uses the same native token trajectory; no truncation or EOS termination in this fixed-step infrastructure diagnostic. Prefill/capture/setup reported separately. Full logits remain GPU resident for numerical comparison. No dataset accuracy or end-to-end speedup claim."
+}

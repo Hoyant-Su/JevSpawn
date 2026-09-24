@@ -1,0 +1,7 @@
+{
+  "module": "baselines.common.single",
+  "python_paths": [],
+  "prompts": "baselines.common.native_terminal.single",
+  "settings": {},
+  "service": "baselines.common.service.BatchService"
+}

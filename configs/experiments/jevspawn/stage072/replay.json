@@ -1,0 +1,11 @@
+{
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "prompt": "jevspawn.query_execution.observed_fields",
+  "tasks": [
+    "runs/native-jev-current-stage071-screen-20260923/plancraft/task-00000.json",
+    "runs/native-jev-current-stage071-screen-20260923/autoplanbench/task-00000.json",
+    "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind/task-00000.json",
+    "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku/task-00000.json"
+  ],
+  "output": "results/validation/native_observed_fields_stage072_inputs.json"
+}

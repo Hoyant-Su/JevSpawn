@@ -1,0 +1,151 @@
+{
+  "stage": "stage071_current_jevspawn_screen",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_screen/plancraft_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/plancraft",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/plancraft.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/plancraft.json",
+      "log": "logs/qualification/native-jev-current-stage071-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_screen/plancraft_jevspawn.json",
+          "--output",
+          "runs/native-jev-current-stage071-screen-20260923/plancraft",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/plancraft",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/agentquest_sudoku.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/agentquest_sudoku.json",
+      "log": "logs/qualification/native-jev-current-stage071-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+          "--output",
+          "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_screen/textarena_rushhour_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/textarena_rushhour",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/textarena_rushhour.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/textarena_rushhour.json",
+      "log": "logs/qualification/native-jev-current-stage071-textarena_rushhour.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_screen/textarena_rushhour_jevspawn.json",
+          "--output",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_rushhour",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_rushhour",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_screen/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/korgym_circle_the_cat",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/korgym_circle_the_cat.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/korgym_circle_the_cat.json",
+      "log": "logs/qualification/native-jev-current-stage071-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_screen/korgym_circle_the_cat_jevspawn.json",
+          "--output",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_circle_the_cat",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_circle_the_cat",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ],
+  "instance": "v26-0918-8-core",
+  "physical_devices": [
+    4,
+    5,
+    6,
+    7
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "tasks": "data/baselines/common/qualification/all_datasets_14_contract_v2.jsonl",
+  "task_count": 14,
+  "method": "configs/baselines/common/methods/dyflow.json",
+  "environment": "configs/baselines/common/environment.json",
+  "environment_execution": {
+    "class": "baselines.common.display_contract.DisplayContractEnvironment",
+    "parameters": {
+      "read_id_schema": {
+        "$prompt": "configs/baselines/common/observations/search_schema_v1.json"
+      },
+      "display_policy": {
+        "enum_reference_key": "x-enum-source",
+        "reference_key": "$ref",
+        "definitions_key": "$defs",
+        "answer_definition": "answer",
+        "answer_reference": "#/$defs/answer",
+        "references_key": "display_references"
+      },
+      "display_prompts": {
+        "$prompt": "configs/baselines/common/observations/display_contract_v1.json"
+      }
+    }
+  }
+}

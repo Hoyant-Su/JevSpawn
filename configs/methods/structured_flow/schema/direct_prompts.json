@@ -1,0 +1,4 @@
+{
+  "system": "Solve the supplied task using its input and instruction. Your final answer must be a JSON value satisfying the supplied answer_contract.",
+  "user": "Task\n{task}"
+}

@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_count": 14,
+  "method": "configs/baselines/common/methods/dyflow.json",
+  "environment": "configs/baselines/common/environment.json"
+}

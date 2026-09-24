@@ -1,0 +1,144 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "react",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-v0801-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_lightsout.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/react/textarena_lightsout",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/react/textarena_lightsout.json",
+      "method": "react",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/react_textarena_lightsout.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/react/textarena_lightsout.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_textarena_lightsout.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_lightsout",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_lightsout",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/react/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_rushhour.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/react/textarena_rushhour",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/react/textarena_rushhour.json",
+      "method": "react",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/react_textarena_rushhour.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/react/textarena_rushhour.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_textarena_rushhour.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_rushhour",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_rushhour",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/react/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_sokoban.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/react/textarena_sokoban",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/react/textarena_sokoban.json",
+      "method": "react",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/react_textarena_sokoban.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/react/textarena_sokoban.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_textarena_sokoban.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_sokoban",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/react/textarena_sokoban",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/react/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_korgym_circle_the_cat.json",
+      "run": "runs/native-baselines-observation-repair-full-20260924/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/observation_repair_full_20260924/react/korgym_circle_the_cat.json",
+      "method": "react",
+      "progress": "results/native_baselines/observation_repair_full_20260924/progress/react_korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/observation_repair_full_20260924/react/korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_korgym_circle_the_cat.json",
+          "--output",
+          "runs/native-baselines-observation-repair-full-20260924/react/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-observation-repair-full-20260924/react/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/observation_repair_full_20260924/react/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ]
+}

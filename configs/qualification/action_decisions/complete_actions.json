@@ -1,0 +1,27 @@
+{
+  "scope": "Exhaustive full-command applicability requests at unchanged recorded parent states. No native executable labels, private state, target answers or candidate filtering in model inputs.",
+  "prompts": "qualification.action_applicability",
+  "sources": [
+    {
+      "artifact": "runs/native-autoplanbench-jevspawn-20260923-027/task-00000.json",
+      "protocol": "runs/native-autoplanbench-jevspawn-20260923-027/protocol.json",
+      "round_index": 1,
+      "parent_id": "n1",
+      "computation_index": 2,
+      "request_index": 0,
+      "declaration_round": 0,
+      "fixture_path": "data/qualification/action_decisions/apb_stage027_ferry_complete_actions.json"
+    },
+    {
+      "artifact": "runs/native-autoplanbench-jevspawn-20260923-027/task-00001.json",
+      "protocol": "runs/native-autoplanbench-jevspawn-20260923-027/protocol.json",
+      "round_index": 1,
+      "parent_id": "n0",
+      "computation_index": 2,
+      "request_index": 0,
+      "declaration_round": 1,
+      "fixture_path": "data/qualification/action_decisions/apb_stage027_blocksworld_complete_actions.json"
+    }
+  ],
+  "manifest": "data/qualification/action_decisions/complete_actions_manifest.json"
+}

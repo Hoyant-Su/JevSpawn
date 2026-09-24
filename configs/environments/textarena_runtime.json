@@ -1,0 +1,33 @@
+{
+  "session": "configs/environments/session.json",
+  "prompts": "environments.agentquest",
+  "num_players": 1,
+  "observation_separator": "\n\n",
+  "tool_name": "execute",
+  "unfinished_score": 0.0,
+  "invalid_sequence_score": 0.0,
+  "action_schema": {
+    "type": "object",
+    "properties": {"action": {"type": "string"}},
+    "required": ["action"],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Complete action sequence from the initial state, using the official action syntax in the task instructions."
+      }
+    },
+    "required": ["actions"],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {"observation": {"type": "string"}, "done": {"type": "boolean"}},
+    "required": ["observation", "done"],
+    "additionalProperties": false
+  }
+}

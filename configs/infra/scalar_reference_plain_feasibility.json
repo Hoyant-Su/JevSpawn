@@ -1,0 +1,12 @@
+{
+  "source_run": "runs/common-jevspawn_shared_shape_stable-noncoding-tp4-v1-001",
+  "task_file": "task-00010.json",
+  "input_directory": "finite-inputs",
+  "input_glob": "cohort-*.json",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "control_prompts": "jevspawn.shared_shape",
+  "value_prompts": "jevspawn.shared_shape_values",
+  "expected_requests": 36,
+  "record": "records/methods/shared_child_shape/scalar_reference_plain_inputs_001.json",
+  "result": "results/methods/structured_flow/scalar_reference_plain_feasibility_001.json"
+}

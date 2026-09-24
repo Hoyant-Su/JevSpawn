@@ -1,0 +1,61 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds",
+    "reused_state_tokens"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/shared_prefix/replay.py",
+  "output": "results/infra/native-shared-prefix-stage096",
+  "prepared": "results/infra/native-action-prefix-stage094/matched_spawn/prepared.json",
+  "repetitions": 3,
+  "modes": [
+    "recompute",
+    "reuse"
+  ],
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "summary_file": "summary.json",
+  "implementations": {
+    "recompute": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail",
+      "caches": [
+        "prefix_cache"
+      ]
+    },
+    "reuse": {
+      "module": "tests.infra.shared_prefix.runtime",
+      "class": "SharedPrefixTail",
+      "caches": [
+        "prefix_cache",
+        "shared_cache"
+      ]
+    }
+  }
+}

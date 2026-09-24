@@ -1,0 +1,378 @@
+{
+  "stage": "qualification",
+  "method": "latentmas",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "latentmas",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/ppnl",
+      "evaluation": "results/native_baselines/screen/latentmas/ppnl.json",
+      "progress": "results/native_baselines/progress/latentmas/ppnl.json",
+      "log": "logs/native_baselines/screen-latentmas-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/ppnl",
+          "--output",
+          "results/native_baselines/screen/latentmas/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/plancraft",
+      "evaluation": "results/native_baselines/screen/latentmas/plancraft.json",
+      "progress": "results/native_baselines/progress/latentmas/plancraft.json",
+      "log": "logs/native_baselines/screen-latentmas-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/plancraft_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/plancraft",
+          "--output",
+          "results/native_baselines/screen/latentmas/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/latentmas/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/latentmas/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-latentmas-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/latentmas/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/latentmas/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/latentmas/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-latentmas-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/latentmas/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_latentmas_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/latentmas/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/latentmas/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-latentmas-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_latentmas_state_v2.json",
+          "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/latentmas/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/autoplanbench",
+      "evaluation": "results/native_baselines/screen/latentmas/autoplanbench.json",
+      "progress": "results/native_baselines/progress/latentmas/autoplanbench.json",
+      "log": "logs/native_baselines/screen-latentmas-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/latentmas/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/latentmas/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/latentmas/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-latentmas-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/latentmas/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/latentmas/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/latentmas/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-latentmas-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/latentmas/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/latentmas/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/latentmas/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-latentmas-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/latentmas/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/latentmas/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/latentmas/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-latentmas-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/latentmas/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/latentmas/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/latentmas/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-latentmas-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/latentmas/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/korgym_2048",
+      "evaluation": "results/native_baselines/screen/latentmas/korgym_2048.json",
+      "progress": "results/native_baselines/progress/latentmas/korgym_2048.json",
+      "log": "logs/native_baselines/screen-latentmas-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/latentmas/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/latentmas/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/latentmas/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-latentmas-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/latentmas/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_latentmas.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/latentmas/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/latentmas/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-latentmas-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_latentmas.json",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/latentmas/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

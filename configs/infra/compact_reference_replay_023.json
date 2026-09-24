@@ -1,0 +1,15 @@
+{
+  "source": "runs/common-jevspawn_finite_control-bright-factorized-expansion-001/session-0000/input_failures.json",
+  "failure_index": 0,
+  "user_message_index": 1,
+  "prompts": "template/prompts.json",
+  "prompt_group": "jevspawn.finite_control",
+  "policy": "configs/jevspawn/finite_control.json",
+  "state_start": "\n\nWorker input:\n",
+  "state_end": "\n\nCurrent Question:\n",
+  "model": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B",
+  "enable_thinking": false,
+  "json_indent": 2,
+  "output": "results/methods/structured_flow/compact_table_reference_replay_023.json",
+  "scope": "Same complete failed request; exact judgment/binding tables, reconstructible reference metadata and compact JSON. All original options remain unchanged for this conservative length check. This is a serialization check, not model quality evidence."
+}

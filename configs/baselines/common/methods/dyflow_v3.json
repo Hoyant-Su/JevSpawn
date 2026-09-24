@@ -1,0 +1,23 @@
+{
+  "module": "baselines.common.dyflow_v3",
+  "prompts": "configs/baselines/common/schema/dyflow_v3.json",
+  "settings": {
+    "source_directory": "external/DyFlow",
+    "upstream_commit": "fa6d8286c5bf33a7618510d4b7709ee385a19002",
+    "ensemble_samples": 5,
+    "allowed_operators": [
+      "DECOMPOSE_PROBLEM",
+      "GENERATE_PLAN",
+      "GENERATE_ANSWER",
+      "REFINE_ANSWER",
+      "SELF_CONSISTENCY_ENSEMBLE",
+      "REVIEW_SOLUTION",
+      "ORGANIZE_SOLUTION",
+      "TEST_CODE",
+      "TOOL_CALL"
+    ],
+    "protocol_templates": "configs/baselines/common/templates/dyflow_v3.json"
+  },
+  "python_paths": [],
+  "inference_service": "shared"
+}

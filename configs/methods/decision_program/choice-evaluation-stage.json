@@ -1,0 +1,21 @@
+{
+  "stage": "Frozen generic decision program held-out choice evaluation",
+  "computation": "Unchanged contract compiler, original provided answer options resolved through model-selected input_path, unchanged finite execution and collect reducer.",
+  "development_roots": {},
+  "training": false,
+  "heldout_evaluation": true,
+  "required_evidence": [
+    "Generated candidate binding preserves all original option IDs and descriptions.",
+    "All assigned roots remain in quality denominators, with compilation failures recorded.",
+    "Warmup and measured programs and discrete outputs are compared.",
+    "Compiler-inclusive cost and actual physical batch sizes are recorded."
+  ],
+  "boundary": "No new semantic program prompt or algorithm is selected from these outputs.",
+  "evaluation_roots": {
+    "aqua": 254,
+    "supergpqa": 256,
+    "medxpertqa_text": 256
+  },
+  "scope": "Independent question quality and execution controls. This is not the single-query large-spawn scaling experiment.",
+  "timing_scope": "Sum of compiler/model/reducer timings; model startup and CPU task preparation are excluded. No full end-to-end speed claim uses this timing."
+}

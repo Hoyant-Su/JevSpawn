@@ -1,0 +1,30 @@
+{
+  "analysis_protocol": "Preserve your assigned AgentPrune analysis role and critically assess predecessor outputs. Write your analysis and proposed answer as ordinary text; your response is passed verbatim to successor agents. The task answer schema describes the final decision, not an analysis-node wrapper. If you need an available task tool, your entire response must instead be ToolCall: followed by exactly one JSON object {\"tool\":\"tool_name\",\"arguments\":{...}}. ToolCall: is reserved for executing a tool; it cannot begin an ordinary analysis. The real observation will be returned before you continue. Use actual evidence tools when evidence is needed; never invent observations. The finish tool is unavailable to nodes. After collecting enough information, return your complete analysis as ordinary text.",
+  "decision_constraint": "Use the complete task answer schema and all predecessor analyses to decide the final answer. Return the final answer JSON object exactly matching that schema. The task may require fields, a grid, spans, code, a ranking, or an evidence-grounded answer. Do not add an analysis wrapper, tool wrapper, Markdown fences or explanatory text around the final answer.",
+  "decision_protocol": "Return the final answer directly as the task-schema JSON object. If verification requires an available task tool, your entire response must instead be ToolCall: followed by exactly one JSON object {\"tool\":\"tool_name\",\"arguments\":{...}}. ToolCall: is reserved for executing a tool. Its real observation will be returned before you continue. The finish tool is unavailable to nodes; the adapter submits your direct final answer after schema validation. Never invent observations.",
+  "evaluation_adaptations": [
+    "The checkpoint topology was optimized on disjoint SuperGPQA development16 for ten iterations (80 training episodes); it is frozen and transferred across all normalized evaluation domains, without test-label access or per-domain retraining.",
+    "The original five AnalyzeAgent roles, role constraints, predecessor messages, learned edge logits and masks, stochastic acyclic spatial sampling, temporal sampling, memory updates and FinalRefer aggregation are preserved. One round matches the checkpoint training configuration.",
+    "The original MMLU decision-letter prompt and first-character parser are replaced by the task answer schema. AnalyzeAgent responses remain unrestricted text and are passed verbatim; FinalRefer returns its direct answer as task-schema JSON, which is validated and submitted without answer extraction or rewriting. A response beginning with the explicit reserved ToolCall: prefix invokes a real common TaskEnvironment tool; malformed control messages fail. This optional tool dialogue can require additional model calls and is not the upstream MMLU-only evaluation protocol.",
+    "All analysis and decision generation uses the shared inference configuration and batched GPU service. The inference model may differ from the checkpoint's Qwen3.5-4B training model; no model parameters or topology are trained during evaluation.",
+    "Original graph methods are instrumented only to use a deterministic task-local torch random generator and propagate node failures immediately instead of swallowing exhausted retries or manufacturing a missing final answer. Serialized upstream node scheduling within a root is preserved; compatible requests across roots are batched by the shared service.",
+    "Checkpoint node outputs, memories, connections and conversation histories are cleared before each task. Evidence access uses only the task environment's allowed tools; model filesystem and shell tools are unavailable."
+  ],
+  "tool_prefix": "ToolCall:",
+  "tool_schema": {
+    "type": "object",
+    "required": [
+      "tool",
+      "arguments"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "tool": {
+        "type": "string"
+      },
+      "arguments": {
+        "type": "object"
+      }
+    }
+  }
+}

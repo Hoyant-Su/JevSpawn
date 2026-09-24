@@ -1,0 +1,27 @@
+{
+  "authorization": "User temporarily allows all currently running H-series GPU instances. Verify current identity, hardware and occupancy before each new use; do not displace existing workloads.",
+  "observed_date_utc": "2026-09-20",
+  "verified_H100_instances": [
+    "v26-0813-4-core",
+    "v26-v0715-4-core",
+    "low26-v0712-4-core",
+    "low26-v0711-4-core"
+  ],
+  "missing_on_recheck": [
+    "low26-v0710-4-core"
+  ],
+  "active_work": [
+    {
+      "instance": "v26-0813-4-core",
+      "gpu": 0,
+      "handle": "qzcli_7739bdc2_1789919517_1f079ecc",
+      "run": "runs/common-jevspawn_finite_control-all-datasets-gen4096-010"
+    },
+    {
+      "instance": "v26-0813-4-core",
+      "gpu": 1,
+      "handle": "qzcli_e853a02f_1789919620_42c9adb2",
+      "result": "results/infra/boundary_finite_calls_001.json"
+    }
+  ]
+}

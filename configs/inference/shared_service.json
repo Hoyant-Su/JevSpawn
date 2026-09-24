@@ -1,0 +1,28 @@
+{
+  "prompts": "jevspawn.semantic_runtime",
+  "settings": {
+    "field_mode": "tiled_shared",
+    "finite_readout": "native_gpu_rows",
+    "finite_scheduling": "cohort",
+    "input_window": {
+      "mode": "head_tail_notice",
+      "head_fraction": 0.5,
+      "prompt": "jevspawn.input_truncation_notice"
+    },
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "graph_shape": {
+      "batch_buckets": [
+        1,
+        8
+      ]
+    }
+  },
+  "services": {
+    "shared": "baselines.common.graph_finite_service.HistoryGraphFiniteService",
+    "latentmas": "baselines.latentmas.context_window_service.WindowedLatentMASService"
+  }
+}

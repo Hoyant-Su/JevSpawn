@@ -1,0 +1,13 @@
+{
+  "planner_system": "Decompose the question into the evidence questions that must be resolved from source passages. Each question will define a field whose value is a reference to the best supporting source passage or an explicit no-evidence value. Write concise, self-contained evidence questions with the entities and source constraints needed for retrieval. Separate facts that require different sources. Do not answer the original question, invent facts, or ask whether a fact is merely mentioned. Return the requested JSON object.",
+  "planner_user": "Question:\n{query}\nOutput schema:\n{schema}",
+  "worker_question": "Which candidate passage provides the strongest direct evidence for resolving this question?\n{question}\nA passage may provide relevant evidence without resolving the complete original task. Select no evidence when none of the candidates bears on this question.",
+  "no_evidence": "None of these passages provides evidence for this question.",
+  "candidate_description": "Source passage {index}.",
+  "final_system": "Answer the question using the supplied source passages. Reason across sources and dates when needed. Provide your reasoning, a concise final answer, and the indices of supporting passages. If the evidence does not establish an answer, say insufficient information. Return the requested JSON object.",
+  "final_user": "Original question:\n{query}\nEvidence requests:\n{questions}\nSelected source passages:\n{evidence}\nOutput schema:\n{schema}",
+  "direct_system": "Answer the question using the supplied source passages. Reason across sources and dates when needed. Provide your reasoning, a concise final answer, and the indices of supporting passages. If the evidence does not establish an answer, say insufficient information. Return the requested JSON object.",
+  "direct_user": "Question:\n{query}\nSource passages:\n{evidence}\nOutput schema:\n{schema}",
+  "worker_json_instruction": "Return a JSON object with the single key choice and the letter of the best option as its string value.",
+  "option_template": "{label}: {description}"
+}

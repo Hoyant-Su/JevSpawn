@@ -1,0 +1,18 @@
+{
+  "tasks": "../../data/research_v1/zebralogic/development/tasks.jsonl",
+  "labels": "../../data/research_v1/zebralogic/development/labels.jsonl",
+  "native_config": "configs/native.json",
+  "task_count": 8,
+  "compiler_tokens": 2048,
+  "max_factor_entries": 8192,
+  "max_solver_nodes": 10000,
+  "root_batch_size": 1,
+  "branch_batch_size": 128,
+  "adaptive_execution_mode": "tiled_shared",
+  "methods": ["finite_adaptive", "finite_shared", "finite_independent", "symbolic", "direct"],
+  "phases": ["warmup", "measured"],
+  "scope": "Single original puzzle per request. Model-derived clue scopes define finite assignment predicates. Adaptive execution grounds later predicates only over domains surviving earlier model judgments and exact constraint propagation. Eager controls evaluate all local assignments first. Each model wave is recorded separately from symbolic propagation rounds.",
+  "controls": "Same model, precision, kernel, context limit, compiler token cap and exact solver node cap. Finite execution modes share one frozen scope compilation per puzzle and phase, with its measured cost charged to each. Symbolic compilation and direct solving receive independent model calls. Source variable domains and uniqueness rules are read from the original puzzle only. No solution metadata enters inference.",
+  "promotion": "Retain every assigned task, including invalid scopes, contradictions and search-budget failures. Evaluate exact whole-puzzle and cell accuracy offline after both phases. Promote a speed claim only at comparable quality with full compilation, preparation, predicate execution and solving costs included. Do not treat a large number of probes as an advantage by itself.",
+  "limitations": "Finite factors use a Boolean predicate type. Attribute domains follow the original benchmark input grammar; the model generates clue scopes, not new benchmark variables. Symbolic propagation and search are classical computation. Adaptive waves have synchronization barriers and do not demonstrate elimination of pipeline bubbles or maximal prefix reuse. These are mechanism controls, not the eight published agent baselines."
+}

@@ -1,0 +1,78 @@
+{
+  "source_root": "external/Plancraft-package",
+  "module_path_index": 0,
+  "session": "configs/environments/session.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "prompts": "environments.agentquest",
+  "tool_name": "execute",
+  "handlers": [
+    "MoveActionHandler",
+    "SmeltActionHandler",
+    "ImpossibleActionHandler"
+  ],
+  "environment": {
+    "resolution": "low",
+    "use_text_inventory": true
+  },
+  "system_prompt": {
+    "use_multimodal_content_format": false
+  },
+  "context_separator": "\n\n",
+  "shared_native_objects": [
+    "example",
+    "environment.recipes",
+    "environment.crafting_recipes",
+    "environment.smelting_recipes",
+    "environment.table.overlay_images",
+    "environment.table.font",
+    "environment.table.base_table"
+  ],
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "reward": {
+        "type": "number"
+      },
+      "terminated": {
+        "type": "boolean"
+      },
+      "truncated": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation"
+    ],
+    "additionalProperties": false
+  }
+}

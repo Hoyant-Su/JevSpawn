@@ -1,0 +1,16 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "execution_settings": "configs/jevspawn/qwen35_execution.json",
+  "replay_specification": "configs/infra/finite_prefix_independent_zebra011.json",
+  "output": "runs/qwen35-execution-qualified-001",
+  "requests": [[0, 0], [1, 0]],
+  "gdn_module": "layers.0.linear_attn",
+  "rms_module": "layers.0.input_layernorm",
+  "projection_input": "in_proj_qkv",
+  "input_index": 0,
+  "decode_steps": 8,
+  "optimized_execution": "qwen35_optimized",
+  "tolerance": {"absolute_tolerance": 0.03125, "relative_tolerance": 0.01},
+  "gate_tolerance": {"absolute_tolerance": 0.00001, "relative_tolerance": 0.00001},
+  "logit_tolerance": {"absolute_tolerance": 1.0, "relative_tolerance": 0.02}
+}

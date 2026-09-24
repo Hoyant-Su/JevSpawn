@@ -1,0 +1,11 @@
+{
+  "language_model_path": "model.language_model",
+  "gdn_projections": ["in_proj_qkv", "in_proj_z", "in_proj_b", "in_proj_a"],
+  "attention_projections": ["q_proj", "k_proj", "v_proj"],
+  "norm_launch": {"num_warps": 4, "num_stages": 2, "enable_fp_fusion": false},
+  "gates": {
+    "block_size": 256,
+    "softplus_threshold": 20.0,
+    "launch": {"num_warps": 4, "num_stages": 2, "enable_fp_fusion": false}
+  }
+}

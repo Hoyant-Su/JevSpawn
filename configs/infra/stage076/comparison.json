@@ -1,0 +1,17 @@
+{
+  "reference": "reference",
+  "candidate": "runtime_length",
+  "scope": "Same-task diagnostic comparison with matched JIT/cache instrumentation; finite gating only changes compile-time token-count specialization to a runtime bound. Dynamic scheduling can change cohort composition. Neither arm is an uninstrumented throughput benchmark.",
+  "arms": {
+    "reference": {
+      "run": "runs/native-stall-trace-stage075/agentquest_sudoku",
+      "evaluation": "results/validation/native-stall-trace-stage075/agentquest_sudoku.json"
+    },
+    "runtime_length": {
+      "run": "runs/native-runtime-gates-stage076/agentquest_sudoku",
+      "evaluation": "results/validation/native-runtime-gates-stage076/agentquest_sudoku.json"
+    }
+  },
+  "output": "results/infra/native_runtime_gates_stage076_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

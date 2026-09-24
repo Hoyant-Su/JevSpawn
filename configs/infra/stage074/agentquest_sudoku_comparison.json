@@ -1,0 +1,17 @@
+{
+  "reference": "reference",
+  "candidate": "execution_context",
+  "scope": "Same task/context/shared-config and canonical GPU inference. Candidate compacts compiler feedback only in finite decision context; full compiler feedback remains available for schema revision. Stored protocol equality does not mean the method state representation is identical.",
+  "arms": {
+    "reference": {
+      "run": "runs/native-jev-current-stage071-screen-20260923/agentquest_sudoku",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/agentquest_sudoku.json"
+    },
+    "execution_context": {
+      "run": "runs/native-execution-context-stage074/agentquest_sudoku",
+      "evaluation": "results/validation/native-execution-context-stage074/agentquest_sudoku.json"
+    }
+  },
+  "output": "results/validation/native_execution_context_stage074_agentquest_sudoku_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

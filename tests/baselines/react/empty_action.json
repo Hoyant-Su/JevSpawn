@@ -1,0 +1,21 @@
+{
+  "notebook": "external/react_core/hotpotqa.ipynb",
+  "prompts": "configs/baselines/common/schema/react.json",
+  "task_id": "empty-action-boundary",
+  "question": "CPU protocol fixture. No model inference.",
+  "valid_output": "Finish[{\"answer\":\"fixture\"}]",
+  "empty_output": "",
+  "first_response": "No action syntax.",
+  "valid_response": "Done.\nAction 1: Finish[{\"answer\":\"fixture\"}]",
+  "second_response": "Done.\nAction 2: Finish[{\"answer\":\"fixture\"}]",
+  "expected_answer": {
+    "answer": "fixture"
+  },
+  "reward": 0,
+  "remaining_seconds": 300,
+  "expected_calls_empty": 3,
+  "expected_retries_empty": 1,
+  "expected_calls_valid": 1,
+  "expected_retries_valid": 0,
+  "result": "results/baselines/common/monitoring/react_empty_action_cpu_001.json"
+}

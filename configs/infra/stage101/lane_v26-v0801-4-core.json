@@ -1,0 +1,215 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage101_history_cache_quality",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-v0801-4-core",
+  "entries": [
+    {
+      "dataset": "ppnl",
+      "method": "reference",
+      "specification": "configs/infra/stage101/ppnl_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/ppnl/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/ppnl/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/ppnl_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/ppnl/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/ppnl_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/ppnl/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/ppnl/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "ppnl",
+      "method": "history",
+      "specification": "configs/infra/stage101/ppnl_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/ppnl/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/ppnl/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/ppnl_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/ppnl/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/ppnl_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/ppnl/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/ppnl/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "llfbench_gridworld",
+      "method": "reference",
+      "specification": "configs/infra/stage101/llfbench_gridworld_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/llfbench_gridworld/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/llfbench_gridworld/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/llfbench_gridworld_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/llfbench_gridworld/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/llfbench_gridworld_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/llfbench_gridworld/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/llfbench_gridworld/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "llfbench_gridworld",
+      "method": "history",
+      "specification": "configs/infra/stage101/llfbench_gridworld_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/llfbench_gridworld/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/llfbench_gridworld/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/llfbench_gridworld_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/llfbench_gridworld/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/llfbench_gridworld_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/llfbench_gridworld/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/llfbench_gridworld/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_lightsout",
+      "method": "reference",
+      "specification": "configs/infra/stage101/textarena_lightsout_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_lightsout/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_lightsout/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_lightsout_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_lightsout/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_lightsout_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_lightsout/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_lightsout/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_lightsout",
+      "method": "history",
+      "specification": "configs/infra/stage101/textarena_lightsout_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_lightsout/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_lightsout/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_lightsout_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_lightsout/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_lightsout_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_lightsout/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_lightsout/history.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "method": "reference",
+      "specification": "configs/infra/stage101/textarena_sokoban_reference_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_sokoban/reference",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_sokoban/reference.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_sokoban_reference.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_sokoban/reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_sokoban_reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_sokoban/reference",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_sokoban/reference.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "method": "history",
+      "specification": "configs/infra/stage101/textarena_sokoban_history_spec.json",
+      "run": "runs/native-history-prefix-stage101/textarena_sokoban/history",
+      "evaluation": "results/validation/native-history-prefix-stage101/textarena_sokoban/history.json",
+      "progress": "results/validation/native-history-prefix-stage101/progress/textarena_sokoban_history.json",
+      "log": "logs/qualification/native-history-prefix-stage101/textarena_sokoban/history.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage101/textarena_sokoban_history.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-prefix-stage101/textarena_sokoban/history",
+          "--output",
+          "results/validation/native-history-prefix-stage101/textarena_sokoban/history.json"
+        ]
+      ]
+    }
+  ]
+}

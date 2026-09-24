@@ -1,0 +1,15 @@
+{
+  "prompts.json": {
+    "planner_examples": 0,
+    "scope": "Zero-shot task-format qualification."
+  },
+  "prompts_fewshot.json": {
+    "planner_examples": 3,
+    "sources": [
+      "Official LLMCompiler src/chains/llm_math_chain.py arithmetic examples for37593*67 and123*1.1.",
+      "Self-contained arithmetic dependency example12*7 minus9*5 and parse-error example25*8."
+    ],
+    "adaptation": "Examples use the calculator environment and supplied option IDs. The original planner prompt constructor, parser, scheduler and joiner loop remain unchanged.",
+    "benchmark_examples_used": 0
+  }
+}

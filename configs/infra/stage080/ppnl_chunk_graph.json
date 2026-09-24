@@ -1,0 +1,34 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+  "entrypoint": "tests/infra/native_chunk_graph/rollout.py",
+  "run_output": "runs/native-chunk-graph-rollout-stage080/ppnl/chunk_graph",
+  "chunk_graph": {
+    "capacity": 4,
+    "warmup_steps": 3,
+    "initial_count": 0,
+    "tensor_arguments": [
+      "g",
+      "beta",
+      "initial_state",
+      "cu_seqlens"
+    ],
+    "chunk_tokens": 64,
+    "copy_arguments": [
+      "q",
+      "k",
+      "v",
+      "g",
+      "beta",
+      "initial_state"
+    ]
+  },
+  "operator_file": "chunk-graphs-rank{rank}.json"
+}

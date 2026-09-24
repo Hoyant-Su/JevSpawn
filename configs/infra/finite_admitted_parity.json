@@ -1,0 +1,22 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source": "configs/infra/shared_state_prefix_bright32.json",
+  "method": "configs/baselines/common/methods/jevspawn_shared_state.json",
+  "controller_prompt": "jevspawn.controller",
+  "archive": "records/infra/admitted_finite_inputs/code_before",
+  "reference_variant": "reference",
+  "candidate_variant": "admitted",
+  "variants": [
+    "reference",
+    "admitted"
+  ],
+  "phases": [
+    "prime",
+    "measured"
+  ],
+  "command": "qualified_finite_admission",
+  "decision_tokens": 1,
+  "output": "runs/finite-admitted-parity-001",
+  "scope": "Exact32 recorded BRIGHT finite requests; both variants include identical real admission and full numerical scoring, with separate prefix caches. Prime waves establish runtime and prefix residency; measured waves retain full original prompts and masks. No task-quality or end-to-end agent speedup claim."
+}

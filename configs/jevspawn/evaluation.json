@@ -1,0 +1,123 @@
+{
+  "seed_config": "configs/reproducibility.json",
+  "command": [
+    "{sandbox}",
+    "--unshare-all",
+    "--die-with-parent",
+    "--new-session",
+    "--clearenv",
+    "--cap-drop",
+    "ALL",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--ro-bind",
+    "/lib",
+    "/lib",
+    "--ro-bind",
+    "/lib64",
+    "/lib64",
+    "--dir",
+    "/dev",
+    "--ro-bind",
+    "/dev/null",
+    "/dev/null",
+    "--ro-bind",
+    "/dev/urandom",
+    "/dev/urandom",
+    "--dir",
+    "/tmp",
+    "--dir",
+    "/work",
+    "--ro-bind",
+    "{program}",
+    "/work/check.py",
+    "--chdir",
+    "/work",
+    "--remount-ro",
+    "/",
+    "--setenv",
+    "HOME",
+    "/tmp",
+    "--setenv",
+    "PATH",
+    "/usr/bin",
+    "--setenv",
+    "PYTHONHASHSEED",
+    "{seed}",
+    "/usr/bin/python3",
+    "-s",
+    "-B",
+    "-c",
+    "import runpy,sys; sys.path = [p for p in sys.path if p and p != \"/work\"]; runpy.run_path(\"/work/check.py\", run_name=\"__main__\")"
+  ],
+  "memory_unit_bytes": 1048576,
+  "memory_resource": "RLIMIT_AS",
+  "cpu_resource": "RLIMIT_CPU",
+  "fixed_resources": {
+    "RLIMIT_FSIZE": 1048576,
+    "RLIMIT_NPROC": 32,
+    "RLIMIT_NOFILE": 64,
+    "RLIMIT_CORE": 0
+  },
+  "success_returncode": 0,
+  "process_grace_seconds": 2,
+  "diagnostic_characters": 4000,
+  "preflight_timeout_seconds": 10,
+  "marker_prefix": "EVALUATION_PASSED_",
+  "run_prefix": "evaluation-",
+  "preflight_prefix": "preflight-",
+  "program_name": "check.py",
+  "stdout_name": "stdout",
+  "stderr_name": "stderr",
+  "summary_suffix": ".summary.json",
+  "statuses": {
+    "passed": "passed",
+    "failed": "failed",
+    "timeout": "timeout"
+  },
+  "description": "Evaluate complete Python solutions using original tests in a read-only sandbox.",
+  "arguments": [
+    {
+      "flag": "--solutions",
+      "type": "path",
+      "required": true
+    },
+    {
+      "flag": "--tests",
+      "type": "path",
+      "required": true
+    },
+    {
+      "flag": "--sandbox",
+      "type": "path",
+      "required": true
+    },
+    {
+      "flag": "--output",
+      "type": "path",
+      "required": true
+    },
+    {
+      "flag": "--work-dir",
+      "type": "path",
+      "required": true
+    },
+    {
+      "flag": "--workers",
+      "type": "int",
+      "required": true
+    },
+    {
+      "flag": "--timeout",
+      "type": "float",
+      "required": true
+    },
+    {
+      "flag": "--memory-mb",
+      "type": "int",
+      "required": true
+    }
+  ],
+  "templates": "templates/jevspawn/evaluation.json"
+}

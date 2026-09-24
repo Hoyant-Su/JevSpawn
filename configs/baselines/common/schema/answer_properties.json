@@ -1,0 +1,51 @@
+{
+  "code": {
+    "code": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "answer": {
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "grid": {
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "spans": {
+    "spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "occurrence": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "text",
+          "occurrence"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    }
+  }
+}

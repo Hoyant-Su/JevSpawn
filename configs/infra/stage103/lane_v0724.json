@@ -1,0 +1,65 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage103_canonical_branch_identity",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-v0724-4-core",
+  "entries": [
+    {
+      "dataset": "ppnl",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/ppnl_spec.json",
+      "run": "runs/canonical-branch-stage103/ppnl",
+      "evaluation": "results/validation/canonical-branch-stage103/ppnl.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/ppnl.json",
+      "log": "logs/qualification/canonical-branch-stage103/ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/ppnl.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/ppnl",
+          "--output",
+          "results/validation/canonical-branch-stage103/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "robotouille",
+      "method": "canonical_history",
+      "specification": "configs/infra/stage103/robotouille_spec.json",
+      "run": "runs/canonical-branch-stage103/robotouille",
+      "evaluation": "results/validation/canonical-branch-stage103/robotouille.json",
+      "progress": "results/validation/canonical-branch-stage103/progress/robotouille.json",
+      "log": "logs/qualification/canonical-branch-stage103/robotouille.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage103/robotouille.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/canonical-branch-stage103/robotouille",
+          "--output",
+          "results/validation/canonical-branch-stage103/robotouille.json"
+        ]
+      ]
+    }
+  ]
+}

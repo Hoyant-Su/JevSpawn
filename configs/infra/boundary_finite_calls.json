@@ -1,0 +1,10 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "method": "configs/baselines/common/methods/jevspawn_finite_control.json",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "field_mode": "tiled_shared",
+  "repeats": 4,
+  "orders": [["full_prompt", "atomic_suffix"], ["atomic_suffix", "full_prompt"]],
+  "output": "results/infra/boundary_finite_calls_001.json",
+  "scope": "Same-process alternating comparison on three recorded real fields, with a warm exact prefix cache and unchanged GPU computation. Measure complete finite calls, not entire tasks."
+}

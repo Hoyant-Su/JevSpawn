@@ -1,0 +1,17 @@
+{
+  "reference": "root_cache",
+  "candidate": "history_cache",
+  "scope": "Same official tasks, prompts, shared budgets and promoted runtime-length finite gates on the same four GPUs. History caching is the only implementation change. Dynamic batching can change realized cohort composition.",
+  "arms": {
+    "root_cache": {
+      "run": "runs/native-history-reference-stage077/ppnl",
+      "evaluation": "results/validation/native-history-reference-stage077/ppnl.json"
+    },
+    "history_cache": {
+      "run": "runs/native-history-cache-stage077/ppnl",
+      "evaluation": "results/validation/native-history-cache-stage077/ppnl.json"
+    }
+  },
+  "output": "results/infra/native_history_stage077_ppnl_comparison.json",
+  "idl_definition": "Elapsed from logical decision readiness to finite readout delivery, including preparation, queue and state suffix computation. Direct singleton decisions are excluded; repeated references to an event are counted once."
+}

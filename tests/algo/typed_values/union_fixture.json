@@ -1,0 +1,153 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "calls": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "const": "move"
+                },
+                "arguments": {
+                  "type": "object",
+                  "properties": {
+                    "direction": {
+                      "enum": [
+                        "north",
+                        "south"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "direction"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "arguments"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "const": "turn"
+                },
+                "arguments": {
+                  "type": "object",
+                  "properties": {
+                    "direction": {
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "direction"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "arguments"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    "required": [
+      "calls"
+    ],
+    "additionalProperties": false
+  },
+  "choices": {
+    "[\"answer\", \"calls\", 0]": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "turn"
+        },
+        "arguments": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "enum": [
+                "left",
+                "right"
+              ]
+            }
+          },
+          "required": [
+            "direction"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "additionalProperties": false
+    },
+    "[\"answer\", \"calls\", 1]": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "move"
+        },
+        "arguments": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "enum": [
+                "north",
+                "south"
+              ]
+            }
+          },
+          "required": [
+            "direction"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "additionalProperties": false
+    },
+    "[\"answer\", \"calls\", 0, \"arguments\", \"direction\"]": "right",
+    "[\"answer\", \"calls\", 1, \"arguments\", \"direction\"]": "south"
+  },
+  "raw": null,
+  "expected": {
+    "calls": [
+      {
+        "name": "turn",
+        "arguments": {
+          "direction": "right"
+        }
+      },
+      {
+        "name": "move",
+        "arguments": {
+          "direction": "south"
+        }
+      }
+    ]
+  }
+}

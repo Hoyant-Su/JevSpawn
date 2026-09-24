@@ -1,0 +1,14 @@
+{
+  "transport": "configs/jevspawn/reference_transport.json",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "method": "configs/baselines/common/methods/jevspawn_typed_revision.json",
+  "typed_settings": "configs/jevspawn/typed_values.json",
+  "prompts": "jevspawn.reference_transport",
+  "label_separator": ": ",
+  "split_count": 1,
+  "sources": [
+    {"path": "runs/common-jevspawn_typed_revision-noncoding-tp4-v1-002/session-0000/input_failures.json", "candidate_encoding": "typed_json"},
+    {"path": "runs/common-jevspawn_typed_revision-noncoding-tp4-v1-001/session-0000/input_failures.json", "candidate_encoding": "literal_description", "options_key": "revision_options"}
+  ],
+  "output": "results/methods/structured_flow/reference_transport_cpu_001.json"
+}

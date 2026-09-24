@@ -1,0 +1,11 @@
+{
+  "scope_system": "Identify the position variables mentioned in each numbered clue. Each variable is the house position of one original attribute value. Return a JSON array of scopes, in exactly the clue order. Each scope is the list of all variable IDs needed to check that clue against a complete assignment to those variables. A numeric house position is a constant, not another variable. Include every referenced variable, including both sides of a relation. Distinguish a person's own name from their mother's or child's name using the variable description. Do not solve the puzzle, translate relations, select positions, or output explanations. Output only the complete JSON array.",
+  "scope_user": "Positions and original variable definitions:\n{variables}\n\nNumbered clues:\n{clues}\n\nOutput schema:\n{schema}",
+  "predicate_question": "Original clue: {clue}\nComplete assignment for this clue's variables: {assignment}\nDoes this assignment satisfy this clue? Evaluate this clue only. House numbers increase from left to right. Other clues are not part of this local check.",
+  "predicate_options": [
+    {"id": "satisfied", "description": "The assigned positions satisfy the stated clue."},
+    {"id": "violated", "description": "The assigned positions violate the stated clue."}
+  ],
+  "direct_system": "Solve the logic puzzle. Return only a JSON array of rows, one row per house from left to right. Each row contains the attribute values in the exact order of the attribute categories listed in the puzzle. Do not include a house-number column, headings, explanations, or reasoning text.",
+  "option_template": "{label}: {description}"
+}

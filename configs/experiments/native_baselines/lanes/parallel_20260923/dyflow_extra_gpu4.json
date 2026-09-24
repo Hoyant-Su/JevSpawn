@@ -1,0 +1,207 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits",
+    "--id=4,5,6,7"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/plancraft",
+      "evaluation": "results/native_baselines/screen/dyflow/plancraft.json",
+      "progress": "results/native_baselines/progress/dyflow/plancraft.json",
+      "log": "logs/native_baselines/screen-dyflow-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/plancraft_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/plancraft",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/plancraft",
+          "--output",
+          "results/native_baselines/screen/dyflow/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/plancraft",
+      "evaluation": "results/native_baselines/formal/dyflow/plancraft.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/plancraft.json",
+      "log": "logs/native_baselines/formal-dyflow-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/plancraft_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/plancraft",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/plancraft",
+          "--output",
+          "results/native_baselines/formal/dyflow/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/autoplanbench",
+      "evaluation": "results/native_baselines/screen/dyflow/autoplanbench.json",
+      "progress": "results/native_baselines/progress/dyflow/autoplanbench.json",
+      "log": "logs/native_baselines/screen-dyflow-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/autoplanbench_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/autoplanbench",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/dyflow/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/autoplanbench",
+      "evaluation": "results/native_baselines/formal/dyflow/autoplanbench.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/autoplanbench.json",
+      "log": "logs/native_baselines/formal-dyflow-autoplanbench.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/autoplanbench_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/autoplanbench",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/autoplanbench",
+          "--output",
+          "results/native_baselines/formal/dyflow/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/dyflow/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/dyflow/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-dyflow-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/dyflow/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/dyflow/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-dyflow-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/dyflow/agentquest_sudoku.json"
+        ]
+      ]
+    }
+  ]
+}

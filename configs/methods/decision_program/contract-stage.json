@@ -1,0 +1,18 @@
+{
+  "stage": "S5 separate program construction from runtime data binding",
+  "predecessor": "S4 complete negative result in runs/decision-program-development-001/stage-decision.json",
+  "evidence": "S4 generated ranking options requiring a complete solution to the query, although the actual task asks for useful evidence. Eight per-query programs also fragmented root batches into5,2,1 and charged separate program output generation.",
+  "change": "Compile from the task instruction, shared/item interfaces, and output contract, without exposing input values or collection size. Bind the real query and item at execution. Deduplicate only exactly equal serialized contracts, without semantic matching or a manually selected task class.",
+  "unchanged": [
+    "Compiler system prompt and program JSON type",
+    "All original queries and documents",
+    "Frozen Qwen3.5 model and original readout kernels",
+    "512 compiler output tokens",
+    "All generated candidate descriptions retained without rewriting",
+    "All root quality outcomes included",
+    "Compiler time charged in full task cost"
+  ],
+  "scope": "A bounded program-construction correction, not a claim of automatic semantic equivalence. Runtime task values remain available to every worker.",
+  "controls": "Retain instance-conditioned S4 as the declared predecessor. Same generated S5 program and prompts across independent, shared and streamed execution. Report compiler batch1 and worker root batch8 separately.",
+  "promotion": "One warm and measured dev8x32 run. Require valid outputs and compare quality plus compiler-inclusive time against direct S3e before heldout expansion. Do not launch extra variants before this evidence."
+}

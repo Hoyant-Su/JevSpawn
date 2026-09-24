@@ -1,0 +1,15 @@
+{
+  "module": "baselines.common.react",
+  "prompts": "baselines.common.native_terminal.react",
+  "settings": {
+    "notebook": "external/react_core/hotpotqa.ipynb",
+    "episode_action_limit": 51,
+    "original_episode_range": [
+      1,
+      8
+    ],
+    "max_model_calls": 102
+  },
+  "python_paths": [],
+  "service": "baselines.common.service.BatchService"
+}

@@ -1,0 +1,20 @@
+{
+  "lane": "tests/infra/native_finite_fences/lane.json",
+  "arms": [
+    "reference",
+    "unfenced"
+  ],
+  "finite_operation": "finite",
+  "shared_protocol_fields": [
+    "specification",
+    "method",
+    "prompts",
+    "tools",
+    "tasks",
+    "shared_config_text",
+    "inference",
+    "environment_execution"
+  ],
+  "scope": "Sequential same-device full PPNL8 pair. Task time includes initial declaration and all environment operations. Finite timings include changing-state suffix computation and output delivery, not single autoregressive token ITL. Component host timings without fences are not compared with synchronized phase timers.",
+  "output": "results/infra/native_finite_fences_stage068_rollout_comparison.json"
+}

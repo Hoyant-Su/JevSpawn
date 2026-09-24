@@ -1,0 +1,94 @@
+{
+  "execution": {
+    "candidate_id": "value-{index}",
+    "serialization": {
+      "ensure_ascii": false,
+      "separators": [
+        ",",
+        ":"
+      ]
+    },
+    "prompts": "jevspawn.query_execution",
+    "tool_observation_source": "tool",
+    "history_reference": "$history",
+    "join_reference": "$join"
+  },
+  "task": {
+    "task_id": "llfbench_gridworld_20rooms_seed42",
+    "context": "You are in a house with multiple rooms. Each room can have objects that will be visible to you only if you are in that room. Each room can have a door along the North, South, East and West direction. You can follow a direction to go from one room to another. If there is no door along that direction, then you will remain in the room. You will start in a room. Your goal is to navigate to another room which has the treasure. There is only one such room which contains treasure. You have an action space of size 4. Action 0 leads to going North. Action 1 leads to going East. Action 2 leads going west. Action 3 leads to going South.\n\nYou are in kitchen-2 room. You have a door to the north of you that takes you to the lobby-1 room.\n\nExecution interface:\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"integer\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":3}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":3}}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema:\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":3}}},\"required\":[\"actions\"],\"additionalProperties\":false}\nUse the declared execution interface to obtain observations. Return the final answer in the required format.",
+    "source": {
+      "native_parameters": {
+        "num_rooms": 20,
+        "horizon": 30,
+        "fixed": true,
+        "instruction_type": "b",
+        "feedback_type": "r",
+        "min_goal_dist": 4
+      },
+      "seed": 42,
+      "reset_options": {}
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "tools": {
+    "execute": {
+      "description": "Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.",
+      "arguments": {
+        "action": "integer"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "finish": {
+      "description": "Submit the final answer in the declared answer schema.",
+      "arguments": {
+        "actions": "array"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            }
+          }
+        },
+        "required": [
+          "actions"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

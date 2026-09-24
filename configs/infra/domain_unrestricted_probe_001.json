@@ -1,0 +1,21 @@
+{
+  "source_run": "runs/common-jevspawn_shape_revision_tuned_noncoding-tp4-v2-001",
+  "task_id": "lgp-test-6x6-5",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "tuning_settings": "configs/jevspawn/kernel_tuning.json",
+  "cache_directory": "records/infra/kernel_tuning_001",
+  "cache_file": "rank{rank}.json",
+  "input_glob": "finite-inputs/cohort-*.json",
+  "domain_marker": "admissible_members",
+  "expected_requests": 6,
+  "generation_tokens": 32,
+  "top_predictions": 12,
+  "command": "domain_unrestricted_probe",
+  "output": "runs/domain-unrestricted-probe-001",
+  "result": "results/infra/domain_unrestricted_probe_001.json",
+  "rank_file": "rank{rank}.json",
+  "inputs_file": "recorded-inputs.json",
+  "scope": "Six complete recorded domain-compilation requests. Same actual prefill hidden state for finite FP32 selected-row logits and native unrestricted greedy first token. Configured32 output tokens is diagnostic only; no full-task accuracy or speed claim.",
+  "do_sample": false
+}

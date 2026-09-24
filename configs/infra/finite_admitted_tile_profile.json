@@ -1,0 +1,116 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/baselines/common/methods/jevspawn_shared_state.json",
+  "source_protocol": "runs/finite-admitted-parity-001/protocol.json",
+  "reference_run": "runs/finite-admitted-parity-001",
+  "source_settings": "configs/infra/shared_state_prefix_bright32.json",
+  "output": "runs/finite-admitted-tile-profile-001",
+  "phases": [
+    "prime",
+    "unprofiled",
+    "profiled"
+  ],
+  "command": "profile_finite_tile",
+  "decision_tokens": 1,
+  "profile_phase": "profiled",
+  "summary_output": "results/infra/finite_admitted_tile_profile_001.json",
+  "scopes": {
+    "clone": "finite.cache_clone",
+    "expand": "finite.branch_expand",
+    "model": "finite.model"
+  },
+  "trace": {
+    "microseconds_per_ms": 1000,
+    "device_categories": [
+      "kernel",
+      "gpu_memcpy",
+      "gpu_memset"
+    ],
+    "unmatched_category": "other",
+    "kernel_groups": [
+      {
+        "name": "collectives",
+        "patterns": [
+          "nccl"
+        ]
+      },
+      {
+        "name": "matrix_projections",
+        "patterns": [
+          "gemm",
+          "gemv",
+          "matmul"
+        ]
+      },
+      {
+        "name": "gdn_chunk_and_state",
+        "patterns": [
+          "chunk_",
+          "gated_delta",
+          "wy_fast",
+          "solve_tril",
+          "cumsum"
+        ]
+      },
+      {
+        "name": "recurrent_delta_rule",
+        "patterns": [
+          "recurrent_gated_delta_rule"
+        ]
+      },
+      {
+        "name": "full_attention",
+        "patterns": [
+          "flash",
+          "fmha",
+          "attention"
+        ]
+      },
+      {
+        "name": "rms_normalization",
+        "patterns": [
+          "rms_kernel"
+        ]
+      },
+      {
+        "name": "gdn_gates",
+        "patterns": [
+          "gates_kernel"
+        ]
+      },
+      {
+        "name": "causal_convolution",
+        "patterns": [
+          "causal_conv"
+        ]
+      },
+      {
+        "name": "elementwise",
+        "patterns": [
+          "elementwise",
+          "silu"
+        ]
+      },
+      {
+        "name": "reductions",
+        "patterns": [
+          "reduce"
+        ]
+      },
+      {
+        "name": "copies_and_fills",
+        "patterns": [
+          "copy",
+          "memcpy",
+          "memset",
+          "fill",
+          "index",
+          "scatter"
+        ]
+      }
+    ],
+    "profile_steps": 1
+  },
+  "scope": "Unchanged full32BRIGHT finite fields, TP4 B8. Unprofiled rankmax/admission/dispatch timing separated from instrumented GPU attribution. No new execution kernel or workload variant."
+}

@@ -1,0 +1,80 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "jevspawn",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-0910-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/agentquest_sudoku.json",
+      "run": "runs/native-jevspawn-full-20260924/agentquest_sudoku",
+      "evaluation": "results/native_jevspawn/formal_20260924/agentquest_sudoku.json",
+      "method": "jevspawn",
+      "progress": "results/native_jevspawn/formal_20260924/progress/agentquest_sudoku.json",
+      "log": "logs/native_jevspawn/formal_20260924/agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_full_20260924/agentquest_sudoku.json",
+          "--output",
+          "runs/native-jevspawn-full-20260924/agentquest_sudoku",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-full-20260924/agentquest_sudoku",
+          "--output",
+          "results/native_jevspawn/formal_20260924/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/textarena_rushhour.json",
+      "run": "runs/native-jevspawn-full-20260924/textarena_rushhour",
+      "evaluation": "results/native_jevspawn/formal_20260924/textarena_rushhour.json",
+      "method": "jevspawn",
+      "progress": "results/native_jevspawn/formal_20260924/progress/textarena_rushhour.json",
+      "log": "logs/native_jevspawn/formal_20260924/textarena_rushhour.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_full_20260924/textarena_rushhour.json",
+          "--output",
+          "runs/native-jevspawn-full-20260924/textarena_rushhour",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-full-20260924/textarena_rushhour",
+          "--output",
+          "results/native_jevspawn/formal_20260924/textarena_rushhour.json"
+        ]
+      ]
+    }
+  ]
+}

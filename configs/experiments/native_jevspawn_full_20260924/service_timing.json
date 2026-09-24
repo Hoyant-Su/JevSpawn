@@ -1,0 +1,17 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "comparison": "results/native_jevspawn/formal_20260924/comparison.json",
+  "output": "results/native_jevspawn/formal_20260924/service_timing.json",
+  "interpretation": [
+    "Only fully evaluated cells from the current comparison matrix are included.",
+    "Text inter-token intervals are row-weighted recorded decode intervals, including graph capture effects. They exclude prefill and queue waiting.",
+    "Admitted batch size is the number of requests in a recorded batch, not the number of rows still decoding at each token step.",
+    "Finite service latency includes prefill, cache operations and readout. It is neither text ITL nor GPU kernel time.",
+    "All saved sessions are included. After preemption, service work can include interrupted attempts whose task result was not committed; these aggregates must not be treated as unique-task throughput.",
+    "Missing intervals remain null. These observations compare executed workloads; they are not matched-input kernel speedup measurements.",
+    "TTFT uses recorded per-call backend first-token latency; request queue time is recorded separately. LatentMAS includes latent-role computation before its first visible token.",
+    "Lifecycle throughput divides total work by summed completed inference-session runtime on one shared-config TP replica. Sessions include tools, queue waits and graph capture; model loading is separate. Concurrent replicas are accounted by summed replica-seconds, not summed sample latencies.",
+    "Full-cell lifecycle throughput remains null when any session timing is missing or completed task identities do not match the evaluated task set exactly once.",
+    "Logical input tokens include reused context; they are not actual prefill computation. Text output tokens exclude program-rendered structure and finite choices. Finite model-scored fields are counted separately; deterministic single-option dispatch is excluded."
+  ]
+}

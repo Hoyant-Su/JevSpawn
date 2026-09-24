@@ -1,0 +1,17 @@
+{
+  "module": "baselines.common.lats_frames",
+  "prompts": "configs/baselines/common/schema/lats.json",
+  "settings": {
+    "source_directory": "external/LanguageAgentTreeSearch",
+    "upstream_commit": "853d81614607dd27433faf17c7b0a7d660f95d22",
+    "expansion_samples": 5,
+    "evaluation_samples": 1,
+    "rollout_depth": 4,
+    "rollout_samples": 5,
+    "terminal_reward": "original_lats_lm_value",
+    "search_iterations": 36,
+    "frame_grammar": "configs/baselines/common/candidates/lats_frame_boundary_v1.json"
+  },
+  "python_paths": [],
+  "inference_service": "shared"
+}

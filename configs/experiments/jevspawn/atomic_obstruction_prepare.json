@@ -1,0 +1,11 @@
+{
+  "tasks": "data/environments/maze/tasks.jsonl",
+  "factory": "configs/environments/maze.json",
+  "output": "data/qualification/atomic_obstruction",
+  "trace_file": "trace-{index:05d}.json",
+  "tool": "move",
+  "argument": "action",
+  "prompts": "jevspawn.query",
+  "timeout_seconds": 300,
+  "mode": "initial"
+}

@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/native_expanded/korgym_circle_the_cat/tasks.jsonl",
+  "task_count": 16,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.korgym.KORGymEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/korgym_circle_the_cat_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/jevspawn.json"
+}

@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "label_config": "configs/jevspawn/readout_labels.json",
+  "states": ["Complete task context: select the supported value for an unfamiliar structured field.", "问题上下文：根据实际证据选择一个有效字段值。"],
+  "question": "Which option satisfies the current task?",
+  "option_id": "candidate{index}",
+  "description": "Candidate value {index}",
+  "count_increment": 1,
+  "impossible_pool": {"alphabet": "A", "minimum_characters": 1, "maximum_characters": 1, "requested_count": 2},
+  "changed_prefix_token": 0
+}

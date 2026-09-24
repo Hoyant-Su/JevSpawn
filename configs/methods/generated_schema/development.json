@@ -1,0 +1,14 @@
+{
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "task_count": 8,
+  "root_batch_size": 8,
+  "budgets": {
+    "max_nodes": 16,
+    "min_candidates": 2,
+    "max_candidates": 8,
+    "max_depth": 4,
+    "planner_tokens": 1024
+  }
+}

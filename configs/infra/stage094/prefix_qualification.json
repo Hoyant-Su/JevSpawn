@@ -1,0 +1,37 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "action_prefix_settings": "configs/infra/stage094/action_prefix.json",
+  "execution": "configs/jevspawn/query_execution.json",
+  "prompts": "jevspawn.action_prefix",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "controller_prompts": "templates/jevspawn/controller.json",
+  "source": "runs/native-history-adaptive-stage093/agentquest_mastermind/root/task-00000.json",
+  "protocol": "runs/native-history-adaptive-stage093/agentquest_mastermind/root/protocol.json",
+  "turn": 0,
+  "parent": "root",
+  "output": "results/infra/native-history-adaptive-stage094/prefix_qualification.json",
+  "selected_indices": [
+    0,
+    1,
+    9
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "singleton_field": {
+    "id": "fixed_binding",
+    "question": "CPU branch-lifecycle fixture: deterministic field",
+    "values": [
+      "fixed"
+    ]
+  }
+}

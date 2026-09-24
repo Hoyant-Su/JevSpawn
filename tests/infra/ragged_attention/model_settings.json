@@ -1,0 +1,9 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "requests": "tests/infra/ragged_attention/requests.json",
+  "split_divisor": 2,
+  "logit_max_absolute_error": 0.5,
+  "required_choice_agreement": 1.0,
+  "output": "results/infra/ragged_attention_model_047"
+}

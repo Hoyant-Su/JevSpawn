@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/context_native/gamebench_tic_tac_toe/tasks.jsonl",
+  "task_count": 2,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.gamebench.GameBenchEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/gamebench_tic_tac_toe_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/jevspawn.json"
+}

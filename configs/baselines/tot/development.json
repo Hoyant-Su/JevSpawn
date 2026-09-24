@@ -1,0 +1,19 @@
+{
+  "upstream": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/TreeOfThoughts",
+  "model_name": "Qwen3.5-4B",
+  "steps": 2,
+  "temperature": 0.7,
+  "max_new_tokens": 512,
+  "n_generate_sample": 2,
+  "n_evaluate_sample": 1,
+  "n_select_sample": 2,
+  "batch_size": 8,
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "formal_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl",
+  "task_count": 8,
+  "batch_wait_seconds": 0.03,
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/tot/schema/prompts.json",
+  "adapter_module": "baselines.tot.adapter"
+}

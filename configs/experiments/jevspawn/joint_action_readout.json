@@ -1,0 +1,16 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source": "runs/joint-action-input-001",
+  "task_count": 30,
+  "trace_file": "trace-{index:05d}.json",
+  "values": [
+    "move left",
+    "move right",
+    "move up",
+    "move down"
+  ],
+  "padding": "left",
+  "output": "runs/joint-action-readout-001",
+  "readout_batch_size": 8
+}

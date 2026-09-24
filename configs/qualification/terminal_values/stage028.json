@@ -1,0 +1,54 @@
+{
+  "scope": "Exact public terminal contexts and real branch observations from Stage028. No labels, private evaluator state, model-target answers or fabricated observations included.",
+  "sources": [
+    {
+      "task_id": "agentquest_mastermind_4 digits_0",
+      "source": "runs/native-agentquest_mastermind-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 224,
+      "row_index": 0,
+      "fixture_path": "data/qualification/terminal_values/mastermind_0.json",
+      "source_experiment_specification": "configs/experiments/native_context/agentquest_mastermind_jevspawn.json"
+    },
+    {
+      "task_id": "agentquest_mastermind_4 digits_1",
+      "source": "runs/native-agentquest_mastermind-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 224,
+      "row_index": 1,
+      "fixture_path": "data/qualification/terminal_values/mastermind_1.json",
+      "source_experiment_specification": "configs/experiments/native_context/agentquest_mastermind_jevspawn.json"
+    },
+    {
+      "task_id": "agentquest_sudoku_easy_0",
+      "source": "runs/native-agentquest_sudoku-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 187,
+      "row_index": 0,
+      "fixture_path": "data/qualification/terminal_values/sudoku_0.json",
+      "source_experiment_specification": "configs/experiments/native_context/agentquest_sudoku_jevspawn.json"
+    },
+    {
+      "task_id": "textarena_lightsout_0_seed42",
+      "source": "runs/native-textarena_lightsout-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 123,
+      "row_index": 0,
+      "fixture_path": "data/qualification/terminal_values/lightsout_0.json",
+      "source_experiment_specification": "configs/experiments/native_context/textarena_lightsout_jevspawn.json"
+    },
+    {
+      "task_id": "plancraft_TEST0003",
+      "source": "runs/native-plancraft-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 256,
+      "row_index": 0,
+      "fixture_path": "data/qualification/terminal_values/plancraft_TEST0003.json",
+      "source_experiment_specification": "configs/experiments/native_context/plancraft_jevspawn.json"
+    },
+    {
+      "task_id": "plancraft_TEST0000",
+      "source": "runs/native-plancraft-jevspawn-20260923-028/session-0000/batches.json",
+      "batch_index": 256,
+      "row_index": 1,
+      "fixture_path": "data/qualification/terminal_values/plancraft_TEST0000.json",
+      "source_experiment_specification": "configs/experiments/native_context/plancraft_jevspawn.json"
+    }
+  ],
+  "manifest": "data/qualification/terminal_values/manifest.json"
+}

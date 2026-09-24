@@ -1,0 +1,47 @@
+{
+  "native_config": "configs/native.json",
+  "prompts": "configs/methods/latent_readout/schema/prompts.json",
+  "model_path": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.5-4B",
+  "dtype": "bfloat16",
+  "batch_size": 8,
+  "max_input_tokens": 8192,
+  "seed": 42,
+  "task_count": 32,
+  "readout_suffix": "\nFinal option:\n",
+  "conditions": [
+    {
+      "mode": "latent",
+      "steps": 0
+    },
+    {
+      "mode": "latent",
+      "steps": 10
+    },
+    {
+      "mode": "latent",
+      "steps": 30
+    },
+    {
+      "mode": "text",
+      "max_new_tokens": 2048,
+      "temperature": 0,
+      "require_eos": true
+    }
+  ],
+  "sources": [
+    {
+      "dataset": "aqua",
+      "count": 16,
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+      "evaluation_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl"
+    },
+    {
+      "dataset": "processbench_gsm8k",
+      "count": 16,
+      "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/processbench_gsm8k/feasibility/first_error/tasks.jsonl",
+      "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/processbench_gsm8k/feasibility/first_error/labels.jsonl",
+      "evaluation_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/processbench_gsm8k/evaluation/first_error/tasks.jsonl"
+    }
+  ]
+}

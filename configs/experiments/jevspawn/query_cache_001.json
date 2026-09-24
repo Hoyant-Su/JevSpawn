@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "rollout": "configs/experiments/jevspawn/query_cache_rollout.json",
+  "sources": [
+    "data/qualification/query_cache/tasks.jsonl"
+  ],
+  "task_count": 2,
+  "trace_file": "trace-{index:05d}.json",
+  "result_file": "task-{index:05d}.json",
+  "mode": "replay"
+}

@@ -1,0 +1,43 @@
+{
+  "settings": "configs/jevspawn/action_catalog.json",
+  "template_name": "inspect_option",
+  "template": "Inspect the complete value at {path}; type={kind}; size={count}.",
+  "rows": [
+    {
+      "id": "inspect:first",
+      "path": [
+        "input",
+        "*",
+        "a\"b",
+        "键"
+      ],
+      "kind": "object",
+      "count": 3
+    },
+    {
+      "id": "inspect:second",
+      "path": [
+        "input",
+        "*",
+        2,
+        "not/an/index"
+      ],
+      "kind": "array",
+      "count": 7
+    },
+    {
+      "id": "inspect:third",
+      "path": [
+        "other",
+        "*"
+      ],
+      "kind": "object",
+      "count": 3
+    }
+  ],
+  "literal": {
+    "id": "literal",
+    "description": "Preserve a literal string with {braces}, [references], quotes and unicode 键."
+  },
+  "result": "results/infra/action_catalog_cpu_001.json"
+}

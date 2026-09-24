@@ -1,0 +1,48 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "latentmas",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "latentmas",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_latentmas.json",
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_2048",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/latentmas/korgym_2048.json",
+      "log": "logs/native_baselines/formal-latentmas-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/formal/korgym_2048_latentmas.json",
+          "runs/native-baselines-formal-20260923/latentmas/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/latentmas/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/latentmas/korgym_2048.json"
+        ]
+      ]
+    }
+  ],
+  "instance": "low26-v0712-4-core",
+  "physical_devices": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

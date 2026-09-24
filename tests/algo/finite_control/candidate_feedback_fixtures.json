@@ -1,0 +1,13 @@
+{
+  "purpose": "CPU replay of actual saved verdicts; no model inference or quality claim.",
+  "method": "configs/baselines/common/methods/jevspawn_candidate_feedback_tp4_v2.json",
+  "protocol": "runs/common-jevspawn-candidate-verification-tp4-v2-001/protocol.json",
+  "record": "runs/common-jevspawn-candidate-verification-tp4-v2-001/task-00003.json",
+  "sibling_record": "runs/common-jevspawn-candidate-verification-tp4-v2-001/task-00004.json",
+  "controller_node": "finite-7",
+  "shared": "configs/shared_config_tp4_v2.yaml",
+  "dtype": "float32",
+  "target_path": ["q0"],
+  "sibling_field": "q1",
+  "changed_value": "no"
+}

@@ -1,0 +1,33 @@
+{
+  "scope": "Numerical isolation of exact recorded turn13 prefill; timings include diagnostic hooks",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source_result": "results/qualification/native_continuation_equivalence_002/rank-0.json",
+  "diagnostic_turn": 13,
+  "modes": [
+    {
+      "name": "fla_without_cache",
+      "kernel": "fla",
+      "use_cache": false
+    },
+    {
+      "name": "fla_with_cache",
+      "kernel": "fla",
+      "use_cache": true
+    },
+    {
+      "name": "torch_without_cache",
+      "kernel": "torch",
+      "use_cache": false
+    },
+    {
+      "name": "torch_with_cache",
+      "kernel": "torch",
+      "use_cache": true
+    }
+  ],
+  "output": "results/qualification/native_prefill_isolation_003",
+  "serialization": {
+    "indent": 2
+  }
+}

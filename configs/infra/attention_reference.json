@@ -1,0 +1,12 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_row": 0,
+  "batch_size": 1,
+  "inspect_steps": [1, 30, 31],
+  "reference_dtype": "float64",
+  "causal": false,
+  "num_splits": 1,
+  "output": "results/infra/attention_reference_001.json",
+  "scope": "Compare native grouped KV FlashAttention and SDPA against explicit float64 attention on identical Q/K/V from the SDPA reference trajectory. Inspect all full-attention layers at the three observed finite-choice mismatch boundaries. Diagnostic compute is excluded from speed comparisons."
+}

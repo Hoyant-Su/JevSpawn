@@ -1,0 +1,9 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "label_config": "configs/jevspawn/readout_labels.json",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "fixture": "tests/infra/readout_labels/fixtures.json",
+  "repeats": 5,
+  "output": "results/infra/boundary_profile_001.json",
+  "scope": "CPU-only paired boundary-validation timings; recorded real fields and the complete-label tokenizer qualification fixture. Model inputs, candidate labels and all label boundaries are unchanged. Not model inference or full-task latency."
+}

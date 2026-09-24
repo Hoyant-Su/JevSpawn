@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "react",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "react",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_robotouille.json",
+      "run": "runs/native-baselines-feedback-20260924/react/robotouille",
+      "evaluation": "results/native_baselines/feedback_20260924/react/robotouille.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/react_robotouille.json",
+      "log": "logs/native_baselines/feedback-20260924-react-robotouille.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/react_robotouille.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/react/robotouille",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/react/robotouille",
+          "--output",
+          "results/native_baselines/feedback_20260924/react/robotouille.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+  "run_output": "runs/native-stall-trace-stage075/agentquest_sudoku",
+  "entrypoint": "tests/infra/native_stall_trace/rollout.py",
+  "profile_output": "results/infra/native-stall-trace-stage075",
+  "profiling": {
+    "slow_seconds": 1.0,
+    "count_increment": 1,
+    "cache_methods": [
+      "__init__",
+      "get_group",
+      "get_file",
+      "put",
+      "put_group"
+    ],
+    "jit_methods": [
+      "run"
+    ]
+  },
+  "finite_gate_kernel": "native"
+}

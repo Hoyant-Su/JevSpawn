@@ -1,0 +1,10 @@
+{
+  "settings": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/resource_budget/validation_remaining/single-settings.json",
+  "study": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/resource_budget/validation_remaining/study.json",
+  "policy": "single_reasoning",
+  "memory_gib": 8,
+  "deadline_seconds": 600,
+  "startup_timeout_seconds": 1800,
+  "poll_seconds": 0.1,
+  "join_timeout_seconds": 30
+}

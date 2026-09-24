@@ -1,0 +1,21 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+  "entrypoint": "tests/infra/history_cache/rollout_checkpoint.py",
+  "run_output": "runs/native-history-adaptive-stage093-allocator/agentquest_sudoku/root",
+  "history_cache": {
+    "chunk_tokens": 64,
+    "initial_count": 0,
+    "manager": "configs/infra/history_cache.json",
+    "capture_settings": "tests/infra/native_chunk_checkpoint/capture_settings.json"
+  },
+  "same_pass_history": false,
+  "allocator": "expandable_segments:True"
+}

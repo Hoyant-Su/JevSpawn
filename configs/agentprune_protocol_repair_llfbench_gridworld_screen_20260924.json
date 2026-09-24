@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/native_screen/llfbench_gridworld/tasks.jsonl",
+  "task_count": 8,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.llfbench.LLFEnvironment",
+    "parameters": {
+      "configuration": "configs/evaluation/native_context/llfbench_gridworld.json"
+    }
+  },
+  "method": "configs/agentprune_protocol_repair_method_20260924.json"
+}

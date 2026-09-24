@@ -1,0 +1,29 @@
+{
+  "module": "baselines.common.latentmas",
+  "python_paths": [],
+  "prompts": "configs/baselines/common/schema/latentmas.json",
+  "settings": {
+    "latent_steps": 10,
+    "memory_mode": "full",
+    "alignment": true,
+    "padding_transport": "cuda_graph_single_token",
+    "padding_workspace_reserve_bytes": 2147483648,
+    "alignment_config": "configs/baselines/latentmas/alignment.json",
+    "role_window": {
+      "allocation": "weighted_capped",
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "inference_service": "latentmas"
+}

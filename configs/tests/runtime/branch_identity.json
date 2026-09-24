@@ -1,0 +1,40 @@
+{
+  "query": "Conditional beam identity permutation test.",
+  "task_id": "identity-test",
+  "root_id": "root",
+  "node_format": "node-{index}",
+  "initial_node_index": 0,
+  "host_workers": 2,
+  "full_width": 6,
+  "limited_width": 2,
+  "cases": [
+    {
+      "operator": [
+        0.6,
+        0.4
+      ],
+      "object": [
+        0.5,
+        0.5
+      ],
+      "target": [
+        0.75,
+        0.25
+      ]
+    },
+    {
+      "operator": [
+        0.2,
+        0.8
+      ],
+      "object": [
+        0.3,
+        0.7
+      ],
+      "target": [
+        0.4,
+        0.6
+      ]
+    }
+  ]
+}

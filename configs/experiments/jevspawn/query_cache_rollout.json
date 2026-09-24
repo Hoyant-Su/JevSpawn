@@ -1,0 +1,16 @@
+{
+  "prompts": "jevspawn.query",
+  "execution_config": "configs/jevspawn/query_execution.json",
+  "control_id": "turn-{turn}-control",
+  "field_id": "turn-{turn}-field-{index}",
+  "finish_action": "answer",
+  "separator": "\t",
+  "separator_description": "one literal tab character",
+  "minimum_candidates": 2,
+  "structured_finish_action": "assemble",
+  "node_columns_before_payload": 4,
+  "replay_traces": {
+    "lgp-test-4x5-34": "runs/query-001/trace-00000.json",
+    "bfcl_parallel_multiple/parallel_multiple_129": "runs/query-001/trace-00004.json"
+  }
+}

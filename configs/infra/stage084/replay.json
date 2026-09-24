@@ -1,0 +1,51 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "service": "configs/inference/shared_service.json",
+  "sequences": [
+    [
+      "results/infra/native-history-profile-stage079/roots1/rank0-batch5.json",
+      "results/infra/native-history-profile-stage079/roots1/rank0-batch6.json"
+    ],
+    [
+      "results/infra/native-history-profile-stage079/roots8/rank0-batch5.json",
+      "results/infra/native-history-profile-stage079/roots8/rank0-batch6.json"
+    ]
+  ],
+  "arms": [
+    "continuation_uncached",
+    "continuation_cached"
+  ],
+  "repetitions": 5,
+  "measurements_per_cohort": 1,
+  "workload_fields": [
+    "batch_size",
+    "physical_batch_size",
+    "logical_field_count",
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "reused_state_tokens",
+    "reused_root_tokens"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "output": "results/infra/native-decision-continuation-stage084",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "entrypoint": "tests/infra/native_history_cache/replay_continuation.py",
+  "continuation": {
+    "reset_field": "frontier",
+    "anchors": [
+      "frontier",
+      "operation"
+    ],
+    "parents": {
+      "operation": "frontier"
+    },
+    "field_parent": "operation",
+    "prompts": "jevspawn.decision_continuation"
+  }
+}

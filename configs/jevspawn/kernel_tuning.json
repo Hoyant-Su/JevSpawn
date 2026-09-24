@@ -1,0 +1,6 @@
+{
+  "module_prefixes": ["fla.", "jev_spawn."],
+  "singleton_count": 1,
+  "first_index": 0,
+  "serialization": {"ensure_ascii": false, "indent": 2, "allow_nan": false}
+}

@@ -1,0 +1,13 @@
+{
+  "source": "runs/interactive-006",
+  "trace_glob": "trace-*.json",
+  "field_ids": [
+    "turn-0-field-0"
+  ],
+  "device": "cuda:0",
+  "branch_budget": 4,
+  "warmup_steps": 3,
+  "timing_repetitions": 20,
+  "probability_atol": 1e-06,
+  "output": "runs/probability-frontier-replay-001"
+}

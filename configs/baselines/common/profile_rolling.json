@@ -1,0 +1,7 @@
+{
+  "requests": "runs/common-react-aqua-development-001/session-0000/batches.json",
+  "batch_index": 0,
+  "tokens": 64,
+  "refill_step": 16,
+  "replaced_rows": 4
+}

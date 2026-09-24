@@ -1,0 +1,9 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_row": 0,
+  "batch_size": 1,
+  "steps": 32,
+  "output": "results/infra/b1_fused_norm_001.json",
+  "scope": "B1 same-cache-state paired CUDA Graph comparison of native RMSNorm and Triton fused RMSNorm, including gated norms. Attention, weights, precision and full-vocabulary readout are unchanged. Fixed profiling steps ignore EOS; no production or task-quality claim."
+}

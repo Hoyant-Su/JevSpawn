@@ -1,0 +1,15 @@
+{
+  "method": "configs/baselines/common/methods/dyflow_v3.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "problem": "Workflow recovery regression with simulated model transport.",
+  "response": "Recorded model response used by the parser test double.",
+  "format_error": "Stage design is missing a required field.",
+  "stage": {"stage_id": "recovered_stage", "stage_description": "Continue after visible format feedback", "operators": []},
+  "termination": "Workflow terminated by operator",
+  "answer": "Recorded test completion",
+  "required_failure": "Required execution boundary failure",
+  "expected_errors": 1,
+  "expected_calls": 2,
+  "expected_successful_stages": 1,
+  "output": "results/validation/dyflow_workflow_recovery_20260924.json"
+}

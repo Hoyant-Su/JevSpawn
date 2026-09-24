@@ -1,0 +1,103 @@
+{
+  "stage": "qualification",
+  "datasets": [
+    {
+      "dataset": "aqua",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/aqua/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/aqua/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "supergpqa",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/supergpqa/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/supergpqa/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "medxpertqa_text",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/medxpertqa_text/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/medxpertqa_text/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "processbench_gsm8k",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/processbench_gsm8k/feasibility/first_error/tasks.jsonl",
+      "labels": "../../data/research_v1/processbench_gsm8k/feasibility/first_error/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "squad2_answerability",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/squad2_answerability/ablation/tasks.jsonl",
+      "labels": "../../data/research_v1/squad2_answerability/ablation/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "race_middle",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/race_middle/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/race_middle/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "pubmedqa",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/pubmedqa/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/pubmedqa/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "scifact_cited",
+      "kind": "fields",
+      "tasks": "../../data/research_v1/scifact_cited/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/scifact_cited/feasibility/labels.jsonl",
+      "metric": "field_accuracy"
+    },
+    {
+      "dataset": "humaneval",
+      "kind": "code",
+      "tasks": "../../data/research_v1/coding/humaneval/tasks.jsonl",
+      "labels": "../../data/research_v1/coding/humaneval/tests.jsonl",
+      "metric": "pass_at_1"
+    },
+    {
+      "dataset": "mbpp",
+      "kind": "code",
+      "tasks": "../../data/research_v1/coding/feasibility/tasks.jsonl",
+      "labels": "../../data/research_v1/coding/feasibility/tests.jsonl",
+      "metric": "pass_at_1"
+    },
+    {
+      "dataset": "bright_pony",
+      "kind": "ranking",
+      "tasks": "../../data/research_v1/bright_pony/feasibility/collections.jsonl",
+      "labels": "../../data/research_v1/bright_pony/feasibility/relevance.jsonl",
+      "metric": "ndcg_at_10"
+    },
+    {
+      "dataset": "multihoprag",
+      "kind": "answer",
+      "tasks": "../../data/research_v1/multihoprag/development/tasks.jsonl",
+      "labels": "../../data/research_v1/multihoprag/development/labels.jsonl",
+      "metric": "exact_match_and_token_f1"
+    },
+    {
+      "dataset": "zebralogic",
+      "kind": "grid",
+      "tasks": "../../data/research_v1/zebralogic/development/tasks.jsonl",
+      "labels": "../../data/research_v1/zebralogic/development/labels.jsonl",
+      "metric": "puzzle_and_cell_accuracy"
+    },
+    {
+      "dataset": "ragtruth",
+      "kind": "spans",
+      "tasks": "../../data/research_v1/ragtruth/development/tasks.jsonl",
+      "labels": "../../data/research_v1/ragtruth/development/labels.jsonl",
+      "metric": "character_f1"
+    }
+  ]
+}

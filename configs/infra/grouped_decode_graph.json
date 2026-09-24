@@ -1,0 +1,21 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "initial_rows": [
+    0,
+    1,
+    2
+  ],
+  "survivor_rows": [
+    2,
+    0
+  ],
+  "incoming_rows": [
+    1
+  ],
+  "padding_side": "left",
+  "steps_per_phase": 32,
+  "num_splits": 1,
+  "output": "runs/grouped-decode-graph-001",
+  "scope": "Full real native model CUDA graph decode with grouped KV and GPU cache lengths on initial left-padded B3 and B3 after reordered survivors plus a new prefill of different cache age. Both kernels restore each identical SDPA trajectory boundary. Fixed diagnostic steps intentionally ignore EOS; label probes at arbitrary continuation positions are not task accuracy. No production integration."
+}

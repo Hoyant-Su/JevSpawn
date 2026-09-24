@@ -1,0 +1,48 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "dyflow",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-0918-8-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/dyflow_workflow_recovery_20260924/full_plancraft.json",
+      "run": "runs/native-dyflow-workflow-recovery-full-20260924/plancraft",
+      "evaluation": "results/native_baselines/dyflow_workflow_recovery_20260924/full/plancraft.json",
+      "method": "dyflow",
+      "progress": "results/native_baselines/dyflow_workflow_recovery_20260924/full/progress/plancraft.json",
+      "log": "logs/native_baselines/dyflow_workflow_recovery_20260924/full/plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/dyflow_workflow_recovery_20260924/full_plancraft.json",
+          "--output",
+          "runs/native-dyflow-workflow-recovery-full-20260924/plancraft",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-dyflow-workflow-recovery-full-20260924/plancraft",
+          "--output",
+          "results/native_baselines/dyflow_workflow_recovery_20260924/full/plancraft.json"
+        ]
+      ]
+    }
+  ]
+}

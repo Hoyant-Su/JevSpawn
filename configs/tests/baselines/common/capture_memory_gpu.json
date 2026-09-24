@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_batches": "runs/common-single-seed42-matrix-001-squad2_answerability/session-0000/batches.json",
+  "source_batch_index": 54,
+  "required_capacity": 12288,
+  "replay_batch_order": [8, 3, 8, 3],
+  "latent_text_replays": 2,
+  "snapshot_reserve_bytes": 2147483648,
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "latent_source_batches": "runs/common-latentmas-all-datasets-seed42-001/session-0000/batches.json",
+  "latent_source_batch_index": 0,
+  "latent_roles_to_encode": 2,
+  "padding_tokens": 300,
+  "padding_check_offsets": [0, 149, 299]
+}

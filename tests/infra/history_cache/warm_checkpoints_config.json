@@ -1,0 +1,130 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "history_settings": "configs/infra/stage085/history_checkpoints.json",
+  "tuning_settings": "configs/jevspawn/kernel_tuning.json",
+  "cache_directory": "records/infra/kernel_tuning_001",
+  "cache_file": "rank{rank}.json",
+  "source": "runs/native-baselines-screen-20260923/react/lmrlgym_maze/session-0000/batches.json",
+  "workloads": [
+    {
+      "name": "cold_b8",
+      "batch": 0,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "seed",
+      "measurement": false
+    },
+    {
+      "name": "append_warmup_0",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "restore",
+      "measurement": false
+    },
+    {
+      "name": "append_warmup_1",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "restore",
+      "measurement": false
+    },
+    {
+      "name": "append_measure_0",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "restore",
+      "measurement": true
+    },
+    {
+      "name": "append_measure_1",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "restore",
+      "measurement": true
+    },
+    {
+      "name": "append_measure_2",
+      "batch": 1,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cache_action": "restore",
+      "measurement": true
+    }
+  ],
+  "generation_tokens": 64,
+  "row_budgets": [
+    64,
+    64,
+    8,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "do_sample": false,
+  "command": "history_cache_qualification",
+  "output": "results/infra/shared-history-checkpoints-warm-stage085",
+  "result": "results/infra/shared-history-checkpoints-warm-stage085/report.json",
+  "rank_file": "{name}-rank{rank}.json",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "entrypoint": "tests/infra/history_cache/qualify_warm_checkpoints.py"
+}

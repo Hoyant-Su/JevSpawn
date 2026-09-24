@@ -1,0 +1,7 @@
+{
+  "task_id": "lgp-test-6x6-5",
+  "candidate_file": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/finite-inputs/cohort-00055.json",
+  "candidate_node": "finite-84",
+  "controller_file": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/finite-inputs/cohort-00056.json",
+  "controller_node": "finite-86"
+}

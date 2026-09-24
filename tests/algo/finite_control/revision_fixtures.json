@@ -1,0 +1,151 @@
+{
+  "purpose": "CPU control semantics only; supplied choices are mocked, not inference evidence.",
+  "base": "tests/algo/finite_control/fixtures.json",
+  "method": "configs/baselines/common/methods/jevspawn_typed_revision.json",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "matrix": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/$defs/symbol"
+          }
+        }
+      },
+      "stable": {
+        "const": "unchanged"
+      }
+    },
+    "required": [
+      "matrix",
+      "stable"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "symbol": {
+        "type": "string",
+        "enum": [
+          "red",
+          "green",
+          "blue"
+        ]
+      }
+    }
+  },
+  "proposal": {
+    "matrix": [
+      [
+        "red",
+        "blue"
+      ],
+      [
+        "green",
+        "red"
+      ]
+    ],
+    "stable": "unchanged"
+  },
+  "expected_positions": [
+    [
+      "matrix"
+    ],
+    [
+      "matrix",
+      0,
+      0
+    ],
+    [
+      "matrix",
+      0,
+      1
+    ],
+    [
+      "matrix",
+      1,
+      0
+    ],
+    [
+      "matrix",
+      1,
+      1
+    ]
+  ],
+  "choices": [
+    [
+      "keep",
+      "revise",
+      "keep",
+      "keep",
+      "keep"
+    ],
+    [
+      "value1"
+    ]
+  ],
+  "selected_paths": [
+    [
+      "matrix",
+      0,
+      0
+    ]
+  ],
+  "expected": {
+    "matrix": [
+      [
+        "green",
+        "blue"
+      ],
+      [
+        "green",
+        "red"
+      ]
+    ],
+    "stable": "unchanged"
+  },
+  "ancestor_paths": [
+    [
+      "matrix"
+    ],
+    [
+      "matrix",
+      0,
+      0
+    ]
+  ],
+  "expected_ancestor_paths": [
+    [
+      "matrix"
+    ]
+  ],
+  "unique_schema": {
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "type": "integer"
+    }
+  },
+  "unique_value": [
+    3,
+    5
+  ],
+  "optional_schema": {
+    "type": "object",
+    "properties": {
+      "slot": {
+        "type": "integer"
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "optional_value": {},
+  "root_path": [],
+  "singleton_positions": [
+    []
+  ]
+}

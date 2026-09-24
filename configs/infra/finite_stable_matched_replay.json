@@ -1,0 +1,36 @@
+{
+  "source_run": "runs/common-jevspawn_reference_revision_stable-recorded-noncoding-tp4-v1-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "batches_glob": "session-*/batches.json",
+  "input_directory": "finite-inputs",
+  "input_glob": "cohort-*.json",
+  "output": "runs/finite-stable-matched-replay-001",
+  "result": "results/infra/finite_stable_matched_replay_001.json",
+  "rank_file": "rank{rank}-{phase}-{variant}.json",
+  "variants": {
+    "ragged": "ragged",
+    "stable": "stable"
+  },
+  "caches": [
+    "base",
+    "state"
+  ],
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  },
+  "graph_shape": {
+    "batch_buckets": [
+      1,
+      8
+    ]
+  },
+  "command": "replay_recorded_finite",
+  "phases": [
+    "warm",
+    "measured"
+  ],
+  "timing_scope": "Each phase replays every recorded finite cohort in order. Warm executes all original shapes for both variants. All numerical prefix caches and graphs are cleared before each phase/variant; measured includes cold captures and prefix computation. Preparation verifies original rendered prompts and all tokens separately. Ordinary text generations are not part of finite replay."
+}

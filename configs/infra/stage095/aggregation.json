@@ -1,0 +1,35 @@
+{
+  "active_stage": "configs/infra/stage095/stage.json",
+  "completed_stage_pairs": [],
+  "evaluation_globs": [
+    "results/validation/stage094_*.json",
+    "results/validation/stage095_*.json"
+  ],
+  "arm_fields": [
+    "run_output",
+    "post_readout",
+    "action_prefix_settings",
+    "devices"
+  ],
+  "arm_selector": "post_readout",
+  "history_metrics": false,
+  "finite_metrics": {
+    "reference": [
+      "action_prefix_hit_rows",
+      "action_prefix_reused_tokens"
+    ],
+    "candidate": [
+      "action_prefix_hit_rows",
+      "action_prefix_reused_tokens"
+    ]
+  },
+  "output": "results/infra/native-action-prefix-stage095/paired_summary.json",
+  "notes": [
+    "Both arms use identical task records, contexts, prompt construction, shared configuration and native evaluation.",
+    "Reference action-prefix trajectories are reused from stage094; the candidate adds real post-readout state retention.",
+    "Report every declared sample including timeouts and invalid outputs.",
+    "Task-level latency may reflect different branches and is not a pure infrastructure speed comparison.",
+    "Candidate logit differences and top-k changes were observed under fixed requests; this evaluation checks downstream quality.",
+    "Physical GPU ordinal mapping differs across instances; every arm retains the same four-rank tensor parallelism."
+  ]
+}

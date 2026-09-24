@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "configs/experiments/native_baselines/observation_repair_cat_shards_20260924/tasks_1.jsonl",
+  "task_count": 23,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.korgym.KORGymEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/korgym_circle_the_cat_runtime.json"
+    }
+  },
+  "method": "configs/experiments/native_baselines/lats_fidelity_20260924/method.json"
+}

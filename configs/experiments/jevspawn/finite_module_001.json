@@ -1,0 +1,10 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "method": "configs/experiments/jevspawn/finite_cache_method.json",
+  "source": "data/qualification/finite_module/requests.jsonl",
+  "task_count": 16,
+  "field_id": "rotation-{rotation}",
+  "state": "",
+  "result_file": "task-{index:05d}.json",
+  "profile_file": "cache_split.prof"
+}

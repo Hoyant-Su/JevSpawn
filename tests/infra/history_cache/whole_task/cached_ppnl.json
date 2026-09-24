@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "specification": "configs/experiments/native_baselines/screen/ppnl_react.json",
+  "run_output": "runs/history-terminal-stage085-cached-ppnl",
+  "entrypoint": "tests/infra/history_cache/rollout_terminal.py",
+  "inference_settings": "tests/infra/history_cache/whole_task/cached_service.json",
+  "parallel_source_service": "baselines.common.history_service.HistoryBatchService"
+}

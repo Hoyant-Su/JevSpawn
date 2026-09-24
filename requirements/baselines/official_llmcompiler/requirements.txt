@@ -1,0 +1,15 @@
+langchain==0.2.6
+langchain-community==0.2.6
+langchain-core==0.2.43
+langchain-text-splitters==0.2.4
+langsmith==0.1.147
+jsonpatch==1.33
+jsonpointer==3.0.0
+tenacity==8.5.0
+requests-toolbelt==1.0.0
+SQLAlchemy==2.0.43
+dataclasses-json==0.6.7
+marshmallow==3.26.1
+typing-inspect==0.9.0
+mypy-extensions==1.1.0
+greenlet==3.2.4

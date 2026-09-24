@@ -1,0 +1,1026 @@
+{
+  "stage": "formal",
+  "selection": "Explicit experiment replacement order; original formal, protocol repair, recoverable feedback, AutoPlan feedback, Compiler RushHour feedback, and LATS fidelity. No score-based selection.",
+  "baseline_inventory_observed_unix": 1790238544.139034,
+  "methods": [
+    "react",
+    "lats",
+    "llmcompiler",
+    "agentprune",
+    "hiagent",
+    "foldagent",
+    "dyflow",
+    "latentmas",
+    "jevspawn"
+  ],
+  "cells": [
+    {
+      "method": "react",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-feedback-20260924/react/ppnl",
+      "evaluation": "results/native_baselines/feedback_20260924/react/ppnl.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_ppnl.json"
+    },
+    {
+      "method": "react",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-feedback-20260924/react/lmrlgym_maze",
+      "evaluation": "results/native_baselines/feedback_20260924/react/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_lmrlgym_maze.json"
+    },
+    {
+      "method": "react",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/react/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_react.json"
+    },
+    {
+      "method": "react",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-feedback-20260924/react/plancraft",
+      "evaluation": "results/native_baselines/feedback_20260924/react/plancraft.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_plancraft.json"
+    },
+    {
+      "method": "react",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-feedback-20260924/react/robotouille",
+      "evaluation": "results/native_baselines/feedback_20260924/react/robotouille.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_robotouille.json"
+    },
+    {
+      "method": "react",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/react",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/react.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/react.json"
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/react/agentquest_mastermind",
+      "evaluation": "results/native_baselines/feedback_20260924/react/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_agentquest_mastermind.json"
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/react/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/react/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_react.json"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/react/textarena_lightsout",
+      "evaluation": "results/native_baselines/feedback_20260924/react/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_lightsout.json"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/react/textarena_rushhour",
+      "evaluation": "results/native_baselines/feedback_20260924/react/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_rushhour.json"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/react/textarena_sokoban",
+      "evaluation": "results/native_baselines/feedback_20260924/react/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_textarena_sokoban.json"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/korgym_2048",
+      "evaluation": "results/native_baselines/formal/react/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_react.json"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/feedback_20260924/react/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_korgym_circle_the_cat.json"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/react/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/react/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/react_korgym_nullify.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-lats-fidelity-20260924/ppnl",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/ppnl.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/ppnl.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-lats-fidelity-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/lmrlgym_maze.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/llfbench_gridworld",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/llfbench_gridworld.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-lats-fidelity-20260924/plancraft",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/plancraft.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/plancraft.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-lats-fidelity-20260924/robotouille",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/robotouille.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/robotouille.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-lats-fidelity-20260924/autoplanbench",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/autoplanbench.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/autoplanbench.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-lats-fidelity-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/agentquest_mastermind.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-lats-fidelity-20260924/agentquest_sudoku",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/agentquest_sudoku.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_lightsout.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/textarena_rushhour",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_rushhour.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/textarena_sokoban",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/textarena_sokoban.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/korgym_2048",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/korgym_2048.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/korgym_circle_the_cat.json"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-lats-fidelity-20260924/korgym_nullify",
+      "evaluation": "results/native_baselines/lats_fidelity_formal_20260924/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/lats_fidelity_20260924/korgym_nullify.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/ppnl",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/ppnl.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/ppnl.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/lmrlgym_maze.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/llfbench_gridworld",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/llfbench_gridworld.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/plancraft",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/plancraft.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/plancraft.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/robotouille",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/robotouille.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/robotouille.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/llmcompiler",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/llmcompiler.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/llmcompiler.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/agentquest_mastermind.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/agentquest_sudoku",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/agentquest_sudoku.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/textarena_lightsout.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-llmcompiler-feedback-20260924/textarena_rushhour",
+      "evaluation": "results/native_baselines/llmcompiler_feedback_20260924/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_feedback_20260924/textarena_rushhour.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-llmcompiler-protocol-v4-20260924/textarena_sokoban",
+      "evaluation": "results/native_baselines/llmcompiler_protocol_v4/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/llmcompiler_protocol_v4/textarena_sokoban.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/llmcompiler/korgym_2048",
+      "evaluation": "results/native_baselines/feedback_20260924/llmcompiler/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/llmcompiler_korgym_2048.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/llmcompiler/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/feedback_20260924/llmcompiler/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/llmcompiler_korgym_circle_the_cat.json"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/llmcompiler/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/llmcompiler/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/llmcompiler_korgym_nullify.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/lmrlgym_maze",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_lmrlgym_maze.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/llfbench_gridworld",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_llfbench_gridworld.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/plancraft",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/plancraft.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_plancraft.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/robotouille",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/robotouille.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_robotouille.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/agentprune",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/agentprune.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/agentprune.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/agentquest_sudoku",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_agentquest_sudoku.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_lightsout.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/textarena_rushhour",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_textarena_rushhour.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_sokoban",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_sokoban.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/korgym_2048",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_korgym_2048.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/agentprune/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/agentprune/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/agentprune_korgym_nullify.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/hiagent/ppnl",
+      "evaluation": "results/native_baselines/formal/hiagent/ppnl.json",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/lmrlgym_maze_schema_v2.json",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_hiagent_schema_v2.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/hiagent/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/hiagent/plancraft",
+      "evaluation": "results/native_baselines/formal/hiagent/plancraft.json",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/robotouille_state_v2.json",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/hiagent",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/hiagent.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/hiagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/feedback_20260924/hiagent/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/hiagent_agentquest_mastermind.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/hiagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/feedback_20260924/hiagent/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/hiagent_agentquest_sudoku.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/hiagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/feedback_20260924/hiagent/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/hiagent_textarena_lightsout.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_hiagent.json"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_hiagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/ppnl",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/ppnl.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_ppnl.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/lmrlgym_maze",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_lmrlgym_maze.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/foldagent/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/plancraft",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/plancraft.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_plancraft.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/foldagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/foldagent/robotouille_state_v2.json",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_foldagent_state_v2.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/foldagent",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/foldagent.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_agentquest_mastermind.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_korgym_circle_the_cat.json"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/foldagent/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_korgym_nullify.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/ppnl",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow_ppnl.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_ppnl.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/lmrlgym_maze",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_lmrlgym_maze.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/llfbench_gridworld",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_llfbench_gridworld.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/plancraft",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/plancraft.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_plancraft.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/robotouille",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/robotouille.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_robotouille.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/dyflow",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/dyflow.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/dyflow.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/agentquest_mastermind",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_agentquest_mastermind.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_agentquest_sudoku.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/textarena_lightsout",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_textarena_lightsout.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/textarena_rushhour",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_textarena_rushhour.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/textarena_sokoban",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_textarena_sokoban.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_korgym_2048.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_korgym_circle_the_cat.json"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-feedback-20260924/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/feedback_20260924/dyflow/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/dyflow_korgym_nullify.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/latentmas/ppnl",
+      "evaluation": "results/native_baselines/formal/latentmas/ppnl.json",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/latentmas/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/latentmas/lmrlgym_maze_schema_v2.json",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_latentmas_schema_v2.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/latentmas/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/latentmas/plancraft",
+      "evaluation": "results/native_baselines/formal/latentmas/plancraft.json",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/latentmas/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/latentmas/robotouille_state_v2.json",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_latentmas_state_v2.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-baselines-autoplanbench-feedback-20260924/latentmas",
+      "evaluation": "results/native_baselines/autoplanbench_feedback_20260924/latentmas.json",
+      "specification": "configs/experiments/native_baselines/autoplanbench_feedback_20260924/latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_lightsout.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_rushhour.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_sokoban.json",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_2048",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_2048.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_latentmas.json"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_nullify.json",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_latentmas.json"
+    },
+    {
+      "dataset": "ppnl",
+      "tasks": 168,
+      "run": "runs/native-jevspawn-full-20260924/ppnl",
+      "evaluation": "results/native_jevspawn/formal_20260924/ppnl.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/ppnl.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "lmrlgym_maze",
+      "tasks": 25,
+      "run": "runs/native-jevspawn-full-20260924/lmrlgym_maze",
+      "evaluation": "results/native_jevspawn/formal_20260924/lmrlgym_maze.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/lmrlgym_maze.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "llfbench_gridworld",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/llfbench_gridworld",
+      "evaluation": "results/native_jevspawn/formal_20260924/llfbench_gridworld.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/llfbench_gridworld.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "plancraft",
+      "tasks": 580,
+      "run": "runs/native-jevspawn-full-20260924/plancraft",
+      "evaluation": "results/native_jevspawn/formal_20260924/plancraft.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/plancraft.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "robotouille",
+      "tasks": 45,
+      "run": "runs/native-jevspawn-full-20260924/robotouille",
+      "evaluation": "results/native_jevspawn/formal_20260924/robotouille.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/robotouille.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "autoplanbench",
+      "tasks": 240,
+      "run": "runs/native-jevspawn-full-20260924/autoplanbench",
+      "evaluation": "results/native_jevspawn/formal_20260924/autoplanbench.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/autoplanbench.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "agentquest_mastermind",
+      "tasks": 200,
+      "run": "runs/native-jevspawn-full-20260924/agentquest_mastermind",
+      "evaluation": "results/native_jevspawn/formal_20260924/agentquest_mastermind.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/agentquest_mastermind.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "agentquest_sudoku",
+      "tasks": 200,
+      "run": "runs/native-jevspawn-full-20260924/agentquest_sudoku",
+      "evaluation": "results/native_jevspawn/formal_20260924/agentquest_sudoku.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/agentquest_sudoku.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "textarena_lightsout",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/textarena_lightsout",
+      "evaluation": "results/native_jevspawn/formal_20260924/textarena_lightsout.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/textarena_lightsout.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/textarena_rushhour",
+      "evaluation": "results/native_jevspawn/formal_20260924/textarena_rushhour.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/textarena_rushhour.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/textarena_sokoban",
+      "evaluation": "results/native_jevspawn/formal_20260924/textarena_sokoban.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/textarena_sokoban.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "korgym_2048",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/korgym_2048",
+      "evaluation": "results/native_jevspawn/formal_20260924/korgym_2048.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/korgym_2048.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "korgym_circle_the_cat",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_jevspawn/formal_20260924/korgym_circle_the_cat.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/korgym_circle_the_cat.json",
+      "method": "jevspawn"
+    },
+    {
+      "dataset": "korgym_nullify",
+      "tasks": 100,
+      "run": "runs/native-jevspawn-full-20260924/korgym_nullify",
+      "evaluation": "results/native_jevspawn/formal_20260924/korgym_nullify.json",
+      "specification": "configs/experiments/native_jevspawn_full_20260924/korgym_nullify.json",
+      "method": "jevspawn"
+    }
+  ]
+}

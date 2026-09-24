@@ -1,0 +1,13 @@
+{
+  "interface_operators": [
+    "TOOL_CALL",
+    "ORGANIZE_SOLUTION"
+  ],
+  "plan_operator": "GENERATE_PLAN",
+  "plan_prefix": "Solution Plan:",
+  "submission_tool": "finish",
+  "execution_feedback": "\n\nRecorded execution errors from earlier operators (source, error message, and attempted parameters):\n{errors}\nUse this feedback and the available state outputs when designing the next stage. Failed operators have no successful result to reference.\n",
+  "upstream_stage_limit": "   - Maximum 7 stages total",
+  "stage_limit": "   - Maximum {max_stages} stages total",
+  "stage_budget": "\n\nRuntime stage budget: {completed_stages} stages have already been created; at most {max_stages} stages are available in this run. Use the recorded state to decide whether further computation or a final ORGANIZE_SOLUTION stage is needed. The task transition and time limits supplied in the runtime contract also apply.\n"
+}

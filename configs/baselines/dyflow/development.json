@@ -1,0 +1,25 @@
+{
+  "batch_size": 8,
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/dyflow/schema/prompts.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "formal_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl",
+  "task_count": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.dyflow.adapter",
+  "upstream": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/DyFlow",
+  "upstream_commit": "fa6d8286c5bf33a7618510d4b7709ee385a19002",
+  "default_max_tokens": 2048,
+  "default_temperature": 0.01,
+  "allowed_operators": [
+    "DECOMPOSE_PROBLEM",
+    "GENERATE_PLAN",
+    "GENERATE_ANSWER",
+    "REFINE_ANSWER",
+    "SELF_CONSISTENCY_ENSEMBLE",
+    "REVIEW_SOLUTION",
+    "ORGANIZE_SOLUTION",
+    "TERMINATE"
+  ]
+}

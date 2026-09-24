@@ -1,0 +1,65 @@
+{
+  "stage": "qualification",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl_roots8_reference",
+      "specification": "tests/infra/native_rollout_profile/config/ppnl_8_spec.json",
+      "run": "runs/native-dynamic-gates-stage063-ppnl8-reference",
+      "evaluation": "results/infra/native-dynamic-gates-stage063-ppnl8-reference_evaluation.json",
+      "progress": "results/infra/native-dynamic-gates-stage063-ppnl8-reference_progress.json",
+      "log": "logs/infra/native-dynamic-gates-stage063-ppnl8-reference.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_dynamic_gates/launch_rollout.sh",
+          "tests/infra/native_dynamic_gates/rollout_config/reference.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-dynamic-gates-stage063-ppnl8-reference",
+          "--output",
+          "results/infra/native-dynamic-gates-stage063-ppnl8-reference_evaluation.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl_roots8_candidate",
+      "specification": "tests/infra/native_rollout_profile/config/ppnl_8_spec.json",
+      "run": "runs/native-dynamic-gates-stage063-ppnl8-candidate",
+      "evaluation": "results/infra/native-dynamic-gates-stage063-ppnl8-candidate_evaluation.json",
+      "progress": "results/infra/native-dynamic-gates-stage063-ppnl8-candidate_progress.json",
+      "log": "logs/infra/native-dynamic-gates-stage063-ppnl8-candidate.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_dynamic_gates/launch_rollout.sh",
+          "tests/infra/native_dynamic_gates/rollout_config/candidate.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-dynamic-gates-stage063-ppnl8-candidate",
+          "--output",
+          "results/infra/native-dynamic-gates-stage063-ppnl8-candidate_evaluation.json"
+        ]
+      ]
+    }
+  ]
+}

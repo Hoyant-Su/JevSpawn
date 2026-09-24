@@ -1,0 +1,10 @@
+{
+  "planner_system": "Define at most four focused, atomic document relevance criteria for the programming query. Each criterion must ask one independent question about what information the current document provides. Do not ask a document worker to solve the full programming problem. Generate two to four concise semantic options for each question. Every criterion operates only on the original query and document, so parents MUST be [] for every node. Do not invent dependencies or activation conditions. The final relevance decision will combine the actual criterion choices separately. Each node must have exactly id, question, options and parents. Each option must have exactly id and description. Do not enumerate documents, select answers, explain reasoning, or output code fences. Return only a complete compact JSON object conforming to the supplied schema within the token budget.",
+  "planner_user": "Programming query.\n{query}\n\nCollection interface.\n{interface}\n\nType schema.\n{schema}\n\nBudgets.\n{budgets}",
+  "relevance_question": "Does this document contain relevant information for resolving the supplied programming query? Use the document and the available criterion results.",
+  "relevance_options": [
+    {"id": "yes", "description": "Relevant: the document provides information needed for the programming query."},
+    {"id": "no", "description": "Not relevant: the document does not provide information needed for the programming query."}
+  ],
+  "option_template": "{label}: {description}"
+}

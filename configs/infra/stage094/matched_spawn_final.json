@@ -1,0 +1,65 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/action_prefix/matched_spawn.py",
+  "output": "results/infra/native-action-prefix-stage094/matched_spawn/final",
+  "prepared": "results/infra/native-action-prefix-stage094/matched_spawn/final/prepared.json",
+  "task_file": "task-00000.json",
+  "complete_turn_index": 0,
+  "repetitions": 3,
+  "modes": [
+    "recompute",
+    "reuse"
+  ],
+  "sources": [
+    {
+      "track": "korgym_2048",
+      "config": "configs/infra/stage094/korgym_2048_candidate.json"
+    },
+    {
+      "track": "textarena_rushhour",
+      "config": "configs/infra/stage094/textarena_rushhour_candidate.json"
+    }
+  ],
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "summary_file": "summary.json",
+  "implementations": {
+    "recompute": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail"
+    },
+    "reuse": {
+      "module": "tests.infra.action_prefix.runtime",
+      "class": "ActionPrefixTail"
+    }
+  }
+}

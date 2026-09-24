@@ -1,0 +1,140 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "catalog_group_size": 8,
+  "templates": "tests/infra/template/field_catalog.json",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "feasibility_output": "runs/finite-field-catalog-001/feasibility.json",
+  "output": "runs/finite-field-catalog-001",
+  "summary_output": "results/infra/finite_field_catalog_001.json",
+  "sources": [
+    {
+      "snapshot": "runs/finite-admitted-parity-001/protocol.json",
+      "calls": "runs/common-jevspawn_finite_control-bright-compact-references-001/task-00000.json",
+      "serialization": {
+        "ensure_ascii": false,
+        "separators": [
+          ",",
+          ":"
+        ]
+      },
+      "field_sets": [
+        {
+          "id": "bright_document_relevance",
+          "ids": [
+            "finite-3",
+            "finite-4",
+            "finite-5",
+            "finite-6",
+            "finite-7",
+            "finite-8",
+            "finite-9",
+            "finite-10",
+            "finite-11",
+            "finite-12",
+            "finite-13",
+            "finite-14",
+            "finite-15",
+            "finite-16",
+            "finite-17",
+            "finite-18",
+            "finite-19",
+            "finite-20",
+            "finite-21",
+            "finite-22",
+            "finite-23",
+            "finite-24",
+            "finite-25",
+            "finite-26",
+            "finite-27",
+            "finite-28",
+            "finite-29",
+            "finite-30",
+            "finite-31",
+            "finite-32",
+            "finite-33",
+            "finite-34"
+          ]
+        }
+      ],
+      "leading_input_keys": [
+        "evidence"
+      ]
+    },
+    {
+      "snapshot": "runs/finite-prefix-independent-zebra011-001/protocol.json",
+      "calls": "runs/common-jevspawn_finite_control-all-datasets-gen4096-011/task-00012.json",
+      "serialization": {
+        "ensure_ascii": false
+      },
+      "field_sets": [
+        {
+          "id": "zebra_binding_fields",
+          "ids": [
+            "finite-5",
+            "finite-6",
+            "finite-7",
+            "finite-8",
+            "finite-9",
+            "finite-10"
+          ]
+        },
+        {
+          "id": "zebra_value_fields",
+          "ids": [
+            "finite-27",
+            "finite-28",
+            "finite-29",
+            "finite-30",
+            "finite-31",
+            "finite-32",
+            "finite-33",
+            "finite-34"
+          ]
+        }
+      ],
+      "leading_input_keys": []
+    }
+  ],
+  "command": "qualify_field_catalog",
+  "mode": "tiled_shared",
+  "cache_capacity": 8,
+  "phases": [
+    {
+      "name": "prime_reference",
+      "variant": "reference",
+      "clear": true
+    },
+    {
+      "name": "prime_catalog",
+      "variant": "catalog",
+      "clear": true
+    },
+    {
+      "name": "cold_reference",
+      "variant": "reference",
+      "clear": true
+    },
+    {
+      "name": "cold_catalog",
+      "variant": "catalog",
+      "clear": true
+    },
+    {
+      "name": "warm_reference",
+      "variant": "reference",
+      "clear": false
+    },
+    {
+      "name": "warm_catalog",
+      "variant": "catalog",
+      "clear": false
+    }
+  ]
+}

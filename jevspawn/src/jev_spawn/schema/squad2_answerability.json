@@ -1,0 +1,20 @@
+{
+  "id": "{field_id}",
+  "question": {
+    "$prompt": "configs/jevspawn/squad2_answerability.json#question"
+  },
+  "options": [
+    {
+      "id": "yes",
+      "description": {
+        "$prompt": "configs/jevspawn/squad2_answerability.json#options/0/description"
+      }
+    },
+    {
+      "id": "no",
+      "description": {
+        "$prompt": "configs/jevspawn/squad2_answerability.json#options/1/description"
+      }
+    }
+  ]
+}

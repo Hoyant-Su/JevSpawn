@@ -1,0 +1,378 @@
+{
+  "stage": "qualification",
+  "method": "react",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "react",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/screen/ppnl_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/ppnl",
+      "evaluation": "results/native_baselines/screen/react/ppnl.json",
+      "progress": "results/native_baselines/progress/react/ppnl.json",
+      "log": "logs/native_baselines/screen-react-ppnl.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/ppnl_react.json",
+          "runs/native-baselines-screen-20260923/react/ppnl"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/ppnl",
+          "--output",
+          "results/native_baselines/screen/react/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/screen/plancraft_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/plancraft",
+      "evaluation": "results/native_baselines/screen/react/plancraft.json",
+      "progress": "results/native_baselines/progress/react/plancraft.json",
+      "log": "logs/native_baselines/screen-react-plancraft.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/plancraft_react.json",
+          "runs/native-baselines-screen-20260923/react/plancraft"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/plancraft",
+          "--output",
+          "results/native_baselines/screen/react/plancraft.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/screen/lmrlgym_maze_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/lmrlgym_maze",
+      "evaluation": "results/native_baselines/screen/react/lmrlgym_maze.json",
+      "progress": "results/native_baselines/progress/react/lmrlgym_maze.json",
+      "log": "logs/native_baselines/screen-react-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/lmrlgym_maze_react.json",
+          "runs/native-baselines-screen-20260923/react/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/screen/react/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/screen/llfbench_gridworld_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/llfbench_gridworld",
+      "evaluation": "results/native_baselines/screen/react/llfbench_gridworld.json",
+      "progress": "results/native_baselines/progress/react/llfbench_gridworld.json",
+      "log": "logs/native_baselines/screen-react-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/llfbench_gridworld_react.json",
+          "runs/native-baselines-screen-20260923/react/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/llfbench_gridworld",
+          "--output",
+          "results/native_baselines/screen/react/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_react_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/react/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/react/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/react/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-react-robotouille_state_v2.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/robotouille_react_state_v2.json",
+          "runs/native-baselines-screen-20260923/react/robotouille_state_v2"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/react/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/screen/autoplanbench_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/autoplanbench",
+      "evaluation": "results/native_baselines/screen/react/autoplanbench.json",
+      "progress": "results/native_baselines/progress/react/autoplanbench.json",
+      "log": "logs/native_baselines/screen-react-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/autoplanbench_react.json",
+          "runs/native-baselines-screen-20260923/react/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/autoplanbench",
+          "--output",
+          "results/native_baselines/screen/react/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_mastermind_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/agentquest_mastermind",
+      "evaluation": "results/native_baselines/screen/react/agentquest_mastermind.json",
+      "progress": "results/native_baselines/progress/react/agentquest_mastermind.json",
+      "log": "logs/native_baselines/screen-react-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_mastermind_react.json",
+          "runs/native-baselines-screen-20260923/react/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/agentquest_mastermind",
+          "--output",
+          "results/native_baselines/screen/react/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/react/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/react/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-react-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_react.json",
+          "runs/native-baselines-screen-20260923/react/agentquest_sudoku"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/react/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/screen/textarena_lightsout_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/textarena_lightsout",
+      "evaluation": "results/native_baselines/screen/react/textarena_lightsout.json",
+      "progress": "results/native_baselines/progress/react/textarena_lightsout.json",
+      "log": "logs/native_baselines/screen-react-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_lightsout_react.json",
+          "runs/native-baselines-screen-20260923/react/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/textarena_lightsout",
+          "--output",
+          "results/native_baselines/screen/react/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/screen/textarena_rushhour_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/textarena_rushhour",
+      "evaluation": "results/native_baselines/screen/react/textarena_rushhour.json",
+      "progress": "results/native_baselines/progress/react/textarena_rushhour.json",
+      "log": "logs/native_baselines/screen-react-textarena_rushhour.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_rushhour_react.json",
+          "runs/native-baselines-screen-20260923/react/textarena_rushhour"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/textarena_rushhour",
+          "--output",
+          "results/native_baselines/screen/react/textarena_rushhour.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/screen/textarena_sokoban_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/textarena_sokoban",
+      "evaluation": "results/native_baselines/screen/react/textarena_sokoban.json",
+      "progress": "results/native_baselines/progress/react/textarena_sokoban.json",
+      "log": "logs/native_baselines/screen-react-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/textarena_sokoban_react.json",
+          "runs/native-baselines-screen-20260923/react/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/textarena_sokoban",
+          "--output",
+          "results/native_baselines/screen/react/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/korgym_2048",
+      "evaluation": "results/native_baselines/screen/react/korgym_2048.json",
+      "progress": "results/native_baselines/progress/react/korgym_2048.json",
+      "log": "logs/native_baselines/screen-react-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_2048_react.json",
+          "runs/native-baselines-screen-20260923/react/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/react/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/react/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/react/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-react-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_react.json",
+          "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/react/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_react.json",
+      "run": "runs/native-baselines-screen-20260923/react/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/react/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/react/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-react-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_baselines/screen/korgym_nullify_react.json",
+          "runs/native-baselines-screen-20260923/react/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/react/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/react/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

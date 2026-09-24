@@ -1,0 +1,111 @@
+{
+  "stage": "formal",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/ppnl.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-ppnl.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/ppnl.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/robotouille.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/robotouille",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/robotouille.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/robotouille.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-robotouille.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/robotouille.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/robotouille",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/robotouille",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/robotouille.json"
+        ]
+      ]
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/lmrlgym_maze.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-lmrlgym_maze.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json"
+        ]
+      ]
+    }
+  ]
+}

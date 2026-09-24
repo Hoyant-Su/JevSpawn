@@ -1,0 +1,207 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "robotouille_state_v2_rerun",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits",
+    "--id=0,1,2,3"
+  ],
+  "entries": [
+    {
+      "method": "llmcompiler",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_llmcompiler_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/llmcompiler/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/llmcompiler/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/llmcompiler/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-llmcompiler-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/robotouille_llmcompiler_state_v2.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/llmcompiler/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/llmcompiler/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/llmcompiler/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_llmcompiler_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/llmcompiler/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/llmcompiler/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-llmcompiler-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/robotouille_llmcompiler_state_v2.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/llmcompiler/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/llmcompiler/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/llmcompiler/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_hiagent_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/hiagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/hiagent/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/hiagent/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-hiagent-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/robotouille_hiagent_state_v2.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/hiagent/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/hiagent/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/hiagent/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "hiagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/hiagent/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-hiagent-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/hiagent/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/screen/robotouille_latentmas_state_v2.json",
+      "run": "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2",
+      "evaluation": "results/native_baselines/screen/latentmas/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/latentmas/robotouille_state_v2.json",
+      "log": "logs/native_baselines/screen-latentmas-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/robotouille_latentmas_state_v2.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/latentmas/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/screen/latentmas/robotouille_state_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "latentmas",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_latentmas_state_v2.json",
+      "run": "runs/native-baselines-formal-20260923/latentmas/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/latentmas/robotouille_state_v2.json",
+      "progress": "results/native_baselines/progress/formal/latentmas/robotouille_state_v2.json",
+      "log": "logs/native_baselines/formal-latentmas-robotouille_state_v2.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/robotouille_latentmas_state_v2.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/latentmas/robotouille_state_v2",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/latentmas/robotouille_state_v2",
+          "--output",
+          "results/native_baselines/formal/latentmas/robotouille_state_v2.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "jevspawn",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "low26-v0711-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "llfbench_gridworld",
+      "method": "jevspawn",
+      "specification": "configs/experiments/native_jevspawn_history_full_20260924/llfbench_gridworld.json",
+      "run": "runs/native-jevspawn-history-full-20260924/llfbench_gridworld",
+      "evaluation": "results/native_jevspawn/history_full_20260924/llfbench_gridworld.json",
+      "progress": "results/native_jevspawn/history_full_20260924/progress/llfbench_gridworld.json",
+      "log": "logs/native_jevspawn/history_full_20260924/llfbench_gridworld.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_history_full_20260924/llfbench_gridworld.json",
+          "--output",
+          "runs/native-jevspawn-history-full-20260924/llfbench_gridworld",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-history-full-20260924/llfbench_gridworld",
+          "--output",
+          "results/native_jevspawn/history_full_20260924/llfbench_gridworld.json"
+        ]
+      ]
+    }
+  ]
+}

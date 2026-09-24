@@ -1,0 +1,9 @@
+{
+  "base": "tests/algo/typed_values/fixtures.json",
+  "selection": {"mode": "hierarchical", "fanout": 3},
+  "schema": {"type": "integer", "enum": [17, 9, 43, 21, 6, 55, 28, 32, 11, 3, 98, 20, 7]},
+  "expected": 98,
+  "expected_calls": 7,
+  "expected_nodes": 9,
+  "insufficient_node_budget": 3
+}

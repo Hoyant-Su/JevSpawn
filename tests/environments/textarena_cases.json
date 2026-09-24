@@ -1,0 +1,23 @@
+{
+  "tracks": {
+    "lightsout": "0 0",
+    "sokoban": "up",
+    "rushhour": "A+"
+  },
+  "methods": [
+    "jevspawn",
+    "react",
+    "single"
+  ],
+  "invalid_action": "invalid",
+  "terminal_case": {
+    "specification": "configs/experiments/native_context/textarena_lightsout_jevspawn.json",
+    "task_id": "textarena_lightsout_1_seed42",
+    "actions": [
+      "invalid",
+      "invalid"
+    ],
+    "directory": "runs/textarena-terminal-feedback-cpu-039",
+    "evidence": "results/validation/textarena_terminal_feedback_stage039_20260923.json"
+  }
+}

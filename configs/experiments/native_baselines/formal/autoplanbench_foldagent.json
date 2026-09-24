@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/autoplanbench/tasks.jsonl",
+  "task_count": 240,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.autoplanbench.AutoPlanBenchEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/autoplanbench.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/foldagent.json"
+}

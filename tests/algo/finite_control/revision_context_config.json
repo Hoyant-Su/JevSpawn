@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "method": "configs/baselines/common/methods/jevspawn_typed_revision.json",
+  "input_failures": "runs/common-jevspawn_typed_revision-noncoding-tp4-v1-001/session-0000/input_failures.json",
+  "output": "results/methods/structured_flow/typed_revision_context_001.json",
+  "packed_keys": [
+    "evidence",
+    "path",
+    "schema"
+  ]
+}

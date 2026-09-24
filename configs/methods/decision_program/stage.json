@@ -1,0 +1,23 @@
+{
+  "stage": "S4 model defined direct decision programs",
+  "predecessor": "S3f rejected because generated intermediate criteria add cost and reduce development quality.",
+  "change": "Generate the executable leaf decision space once per root, instantiate it over the actual item collection, and reduce the typed outputs directly. No redundant criterion interpretation call.",
+  "generality": "Compiler and execution modules contain no dataset names or manually authored semantic options. Task inputs describe the requested operation and their real payload interface. Structural operators rank and collect are runtime primitives.",
+  "current_scope": "Independent item decisions followed by a deterministic reducer. This stage does not establish arbitrary dependent program synthesis or unrestricted generative reasoning.",
+  "controls": [
+    "Same frozen generated program and exact rendered prompts for independent, shared and streamed execution",
+    "Same complete item set and root batch cap",
+    "Separate successful direct S3e task baseline, without replacing its predictions",
+    "Compiler cost included in full task time, raw item scores retained",
+    "Report invalid programs and all assigned roots; no semantic fallback"
+  ],
+  "promotion": "First qualify exact prompt grouped execution. Then run one generated program warm and measured pass on disjoint development roots. Require valid outputs, competitive direct task quality, and measured full task cost before heldout expansion.",
+  "pending": [
+    "Exact prompt grouping qualification",
+    "Generated program complete task qualification",
+    "Cross task validation",
+    "Dependent generated programs and their ablations"
+  ],
+  "program_completion": "Accept only a complete JSON value satisfying the declared program type and input bindings. Record output token-limit flags. A complete valid program at the token limit remains executable; incomplete JSON fails. Never infer, repair or substitute missing program content.",
+  "role_conditioning": "The generated worker role is included in each actual model state, alongside the shared task and real item."
+}

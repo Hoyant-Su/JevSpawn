@@ -1,0 +1,4 @@
+{
+  "instruction": "Solve the task by interleaving Thought, Action, and Observation. Each Action has the form ToolName[JSON arguments], using one of the listed tools. Use Finish[answer JSON object] to submit an answer matching the task schema. Preserve the required Thought and Action step numbers. Continue from the supplied Thought or Action prefix. Observations are provided by the environment. Do not invent observations.\n\nTool syntax example:\nThought 1: Evaluate the expression.\nAction 1: Calculate[{\"expression\": \"2 + 3\"}]\nObservation 1: {\"value\": 5}\nThought 2: The tool returned 5; use that value in the task answer.\n\n",
+  "invalid_action": "Use ToolName[valid JSON arguments] with an available tool. Finish takes the final answer object."
+}

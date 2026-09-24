@@ -1,0 +1,6 @@
+{
+  "question": "Question: {state}\n{question}\nOptions:\n{options}",
+  "generate": "Solve the multiple-choice problem below. Develop a concise, self-contained solution and finish with a separate line Answer: X, replacing X with the selected option identifier. If previous reasoning is supplied, check it and continue with a corrected or completed solution. Do not copy the previous text.\n\n{question}\n\nPrevious reasoning:\n{previous}\n\nNext reasoning:\n",
+  "vote": "Given a problem and candidate reasoning trajectories, decide which trajectory is most promising for reaching the correct answer. Check the reasoning against the problem. Analyze the choices briefly, then conclude in the last line The best choice is N, replacing N with the integer identifier of the best trajectory.\n\n{question}\n\n{candidates}",
+  "answer_pattern": "(?m)^Answer:\\s*([A-Z])\\s*$"
+}

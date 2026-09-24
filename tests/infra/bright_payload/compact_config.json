@@ -1,0 +1,15 @@
+{
+  "failure": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/session-0000/input_failures.json",
+  "protocol": "runs/common-jevspawn-candidate-feedback-tp4-v2-002/protocol.json",
+  "shared": "configs/shared_config_tp4_v2.yaml",
+  "catalog": "configs/jevspawn/action_catalog.json",
+  "literal_prompts": "jevspawn.literal_root_prefix_state",
+  "compact_prompts": "jevspawn.compact_action_state",
+  "tools_marker": "Available tools:\n",
+  "raw_observation_keys": [
+    "tool",
+    "execution",
+    "arguments"
+  ],
+  "result": "results/infra/bright_compact_actions_cpu_001.json"
+}

@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+  "run_output": "runs/native-observed-fields-stage072/ppnl",
+  "entrypoint": "tests/methods/observed_fields/rollout.py",
+  "replaced_prompt": "jevspawn.query_execution",
+  "prompt": "jevspawn.query_execution.observed_fields"
+}

@@ -1,0 +1,337 @@
+{
+  "method": "agentprune",
+  "version": "protocol_v2",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": 2158,
+  "promoted_module": "src/baselines/common/agentprune_v2.py",
+  "promoted_templates": "configs/baselines/common/schema/agentprune_v2.json",
+  "short_evidence": "results/validation/agentprune_protocol_repair_20260924",
+  "cells": [
+    {
+      "method": "agentprune",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/plancraft.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/plancraft",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/plancraft.json",
+      "status": "running",
+      "instance": "v26-0910-8-core",
+      "devices": "4,5,6,7",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/plancraft.json",
+      "job_id": "qzcli_fb15c87d_1790210291_eb3c9f94"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/robotouille.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/robotouille",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/robotouille.json",
+      "status": "completed",
+      "superseded": {
+        "method": "agentprune",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_agentprune.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/agentprune/robotouille",
+        "evaluation": "results/native_baselines/formal/agentprune/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation.",
+      "instance": "v26-0909-8-core",
+      "devices": "4,5,6,7",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/robotouille_state_v2.json",
+      "job_id": "qzcli_9be3a328_1790210325_3a5d2c42"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/agentquest_sudoku.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_sudoku",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/agentquest_sudoku.json",
+      "status": "running",
+      "instance": "v26-v0726-4-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/agentquest_sudoku.json",
+      "job_id": "qzcli_91fea62b_1790210295_8c87128a"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_sokoban.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_sokoban",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_sokoban.json",
+      "status": "completed",
+      "instance": "v26-v0709-4-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/textarena_sokoban.json",
+      "job_id": "qzcli_694fc016_1790210311_64ed4abb"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_rushhour.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_rushhour",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_rushhour.json",
+      "status": "completed",
+      "instance": "sm26-v0708-2-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/textarena_rushhour.json",
+      "job_id": "qzcli_12495adc_1790210314_cdb22d86"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/llfbench_gridworld.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/llfbench_gridworld",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/llfbench_gridworld.json",
+      "status": "completed",
+      "instance": "v26-0909-8-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/llfbench_gridworld.json",
+      "job_id": "qzcli_8258dd10_1790210321_6fa4c75b"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/autoplanbench.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/autoplanbench",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/autoplanbench.json",
+      "status": "running",
+      "instance": "low26-v0710-4-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/autoplanbench.json",
+      "job_id": "qzcli_10ef65a7_1790210298_be792314"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/textarena_lightsout",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/textarena_lightsout.json",
+      "status": "completed",
+      "instance": "low26-v0709-4-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/textarena_lightsout.json",
+      "job_id": "qzcli_041375d4_1790210318_9360a310"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_nullify.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_nullify",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_nullify.json",
+      "status": "completed",
+      "instance": "v26-0909-8-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/korgym_nullify.json",
+      "job_id": "qzcli_8258dd10_1790210321_6fa4c75b"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/ppnl",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/ppnl.json",
+      "status": "completed",
+      "instance": "v26-0909-8-core",
+      "job_id": "qzcli_9be3a328_1790210325_3a5d2c42",
+      "devices": "4,5,6,7",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/ppnl.json"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "status": "completed",
+      "instance": "v26-v0725-4-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/korgym_circle_the_cat.json",
+      "job_id": "qzcli_1c0a8279_1790210301_0d001ba1"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_2048.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_2048",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_2048.json",
+      "status": "completed",
+      "instance": "v26-0916-8-core",
+      "devices": "4,5,6,7",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/korgym_2048.json",
+      "job_id": "qzcli_49a50ca0_1790210308_054f4528"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/agentquest_mastermind",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/agentquest_mastermind.json",
+      "status": "completed",
+      "instance": "v26-0918-8-core",
+      "devices": "0,1,2,3",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/agentquest_mastermind.json",
+      "job_id": "qzcli_b6256625_1790210305_b83078b9"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/lmrlgym_maze",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/lmrlgym_maze.json",
+      "status": "completed",
+      "superseded": {
+        "method": "agentprune",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_agentprune.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/agentprune/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/agentprune/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "instance": "v26-0909-8-core",
+      "devices": "4,5,6,7",
+      "superseded_evaluation": "results/native_baselines/formal/agentprune/lmrlgym_maze_schema_v2.json",
+      "job_id": "qzcli_9be3a328_1790210325_3a5d2c42"
+    }
+  ],
+  "lanes": [
+    {
+      "instance": "v26-0910-8-core",
+      "devices": "4,5,6,7",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_0.json",
+      "datasets": [
+        "plancraft"
+      ],
+      "job_id": "qzcli_fb15c87d_1790210291_eb3c9f94",
+      "status": "submitted"
+    },
+    {
+      "instance": "v26-v0726-4-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_1.json",
+      "datasets": [
+        "agentquest_sudoku"
+      ],
+      "job_id": "qzcli_91fea62b_1790210295_8c87128a",
+      "status": "submitted"
+    },
+    {
+      "instance": "low26-v0710-4-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_2.json",
+      "datasets": [
+        "autoplanbench"
+      ],
+      "job_id": "qzcli_10ef65a7_1790210298_be792314",
+      "status": "submitted"
+    },
+    {
+      "instance": "v26-v0725-4-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_3.json",
+      "datasets": [
+        "korgym_circle_the_cat"
+      ],
+      "job_id": "qzcli_1c0a8279_1790210301_0d001ba1",
+      "status": "completed",
+      "release": "Held for shared-cache qualification; exact handle exit 0 and GPUs 0-3 idle."
+    },
+    {
+      "instance": "v26-0918-8-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_4.json",
+      "datasets": [
+        "agentquest_mastermind"
+      ],
+      "job_id": "qzcli_b6256625_1790210305_b83078b9",
+      "status": "completed"
+    },
+    {
+      "instance": "v26-0916-8-core",
+      "devices": "4,5,6,7",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_5.json",
+      "datasets": [
+        "korgym_2048"
+      ],
+      "job_id": "qzcli_49a50ca0_1790210308_054f4528",
+      "status": "completed",
+      "release": "Held for shared-cache qualification; exact handle exit 0 and assigned GPUs idle."
+    },
+    {
+      "instance": "v26-v0709-4-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_6.json",
+      "datasets": [
+        "textarena_sokoban"
+      ],
+      "job_id": "qzcli_694fc016_1790210311_64ed4abb",
+      "status": "completed",
+      "release": "Held for shared-cache qualification; exact handle exit 0 and GPUs 0-3 idle."
+    },
+    {
+      "instance": "sm26-v0708-2-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_7.json",
+      "datasets": [
+        "textarena_rushhour"
+      ],
+      "job_id": "qzcli_12495adc_1790210314_cdb22d86",
+      "status": "completed",
+      "release": "Held for shared-cache qualification; exact handle exit 0 and GPUs 0-3 idle."
+    },
+    {
+      "instance": "low26-v0709-4-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_8.json",
+      "datasets": [
+        "textarena_lightsout"
+      ],
+      "job_id": "qzcli_041375d4_1790210318_9360a310",
+      "status": "completed",
+      "release": "Held for shared-cache qualification; exact handle exit 0 and assigned GPUs idle."
+    },
+    {
+      "instance": "v26-0909-8-core",
+      "devices": "0,1,2,3",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_9.json",
+      "datasets": [
+        "llfbench_gridworld",
+        "korgym_nullify"
+      ],
+      "job_id": "qzcli_8258dd10_1790210321_6fa4c75b",
+      "status": "completed",
+      "release": "Held for shared-cache short tests; exact handle exit 0 and GPUs 0-3 idle."
+    },
+    {
+      "instance": "v26-0909-8-core",
+      "devices": "4,5,6,7",
+      "config": "configs/experiments/native_baselines/agentprune_protocol_v2/parallel_lane_10.json",
+      "datasets": [
+        "ppnl",
+        "robotouille",
+        "lmrlgym_maze"
+      ],
+      "job_id": "qzcli_9be3a328_1790210325_3a5d2c42",
+      "status": "completed"
+    }
+  ],
+  "launch_initial_failure": "Four initial jobs terminated before samples: missing central prompt registry entry, now registered and checked through actual loader.",
+  "infrastructure_status": "old_cache_version",
+  "dispatch_status": "hold_new_tracks_pending_shared_cache_repair",
+  "results_policy": "Preserve this run version. Rerun the full comparison after the shared cross-call cache repair is qualified."
+}

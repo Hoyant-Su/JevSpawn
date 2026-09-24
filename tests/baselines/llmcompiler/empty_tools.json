@@ -1,0 +1,9 @@
+{
+  "method_config": "configs/baselines/common/methods/llmcompiler.json",
+  "replan_modes": [false, true],
+  "examples": ["", "Fixture examples.\n"],
+  "tool_counts": [1, 3],
+  "tool_description": "fixture_tool_{index}(value) returns its supplied value",
+  "join_number": 1,
+  "plan": "1. join()\n<END_OF_PLAN>"
+}

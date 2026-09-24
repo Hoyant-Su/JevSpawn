@@ -1,0 +1,49 @@
+{
+  "dataset": "development_capacity",
+  "task_scope": "Fixed development-only capacity comparison, preserving full original options.",
+  "task_count": 53,
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/labels.jsonl",
+  "warmup_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/data/baselines/model_capacity/warmup.jsonl",
+  "warmup_task_ids": [
+    "aqua/dev/32",
+    "aqua/dev/33",
+    "aqua/dev/34",
+    "aqua/dev/35",
+    "aqua/dev/36",
+    "aqua/dev/37",
+    "aqua/dev/38",
+    "aqua/dev/39"
+  ],
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/model_capacity/native-4B.json",
+  "block_size": 8,
+  "batch_wait_seconds": 0.03,
+  "adapter_module": "baselines.official_react.adapter",
+  "interface": "sync_fields",
+  "adapter_config": {
+    "max_new_tokens": 512,
+    "temperature": 0,
+    "max_model_calls": 32,
+    "tool_limits": {
+      "max_characters": 512,
+      "max_nodes": 128,
+      "max_exponent": 20,
+      "max_magnitude": 1e+100
+    },
+    "notebook": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/react_core/hotpotqa.ipynb"
+  },
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/formal_choices/schema/react_choice_prompts.json",
+  "python_paths": [],
+  "budget": {
+    "per_call_max_tokens": 512,
+    "model_call_ceiling": 32,
+    "temperature": 0,
+    "upstream_loop": "Original ReAct webthink loop, including its format-retry calls.",
+    "tools": [
+      "bounded arithmetic calculator"
+    ]
+  },
+  "restart": "Complete block boundaries only. Every new process warms the explicitly listed disjoint development tasks. Block seed is native.seed + block_index + 1. Incomplete attempts remain excluded.",
+  "sampling_reproducibility": "Fixed task identities, source order and per-block seeds. Sampled predictions need not be bitwise identical when dynamic microbatch arrival order differs.",
+  "task_adaptation": "Unchanged direct reasoning and original ReAct algorithms. Only model size and development inputs differ from the existing configurations."
+}

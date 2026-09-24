@@ -1,0 +1,6 @@
+{
+  "class": "environments.plancraft.PlancraftEnvironment",
+  "parameters": {
+    "configuration": "configs/environments/plancraft_runtime.json"
+  }
+}

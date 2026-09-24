@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "shared_shape": {
+      "run": "runs/common-jevspawn_shared_shape_stable-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/shared_shape_stable_tp4_001.json"
+    },
+    "shared_domain": {
+      "run": "runs/common-jevspawn_shared_domain_stable-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/shared_domain_stable_tp4_001.json"
+    }
+  },
+  "output": "results/infra/shared_domain_service_comparison_001.json"
+}

@@ -1,0 +1,18 @@
+{
+  "seed": 42,
+  "lengths": [2, 5, 3],
+  "reorder": [2, 0, 2, 1],
+  "layers": ["linear_attention", "full_attention", "linear_attention", "full_attention"],
+  "batch_size": 1,
+  "heads": 2,
+  "key_dim": 3,
+  "value_dim": 4,
+  "conv_channels": 6,
+  "conv_width": 3,
+  "states_per_linear_layer": 2,
+  "dtype": "float32",
+  "device": "cpu",
+  "mutation": 7.0,
+  "record_past": [false, true],
+  "output": "results/infra/native_cache_batch_cpu_001.json"
+}

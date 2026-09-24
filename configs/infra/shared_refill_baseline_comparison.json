@@ -1,0 +1,60 @@
+{
+  "methods": [
+    {
+      "method": "agentprune",
+      "reference_run": "runs/common-agentprune-all-datasets-gen4096-001",
+      "candidate_run": "runs/common-agentprune-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/agentprune-all-datasets-gen4096-001.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/agentprune-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "react",
+      "reference_run": "runs/common-react-all-datasets-gen4096-001",
+      "candidate_run": "runs/common-react-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/react-all-datasets-gen4096-001.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/react-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "dyflow",
+      "reference_run": "runs/common-dyflow-all-datasets-gen4096-001",
+      "candidate_run": "runs/common-dyflow-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/dyflow-all-datasets-gen4096-001.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/dyflow-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "lats",
+      "reference_run": "runs/common-lats-all-datasets-gen4096-001",
+      "candidate_run": "runs/common-lats-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/lats-all-datasets-gen4096-001.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/lats-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "hiagent",
+      "reference_run": "runs/common-hiagent-all-datasets-gen4096-002",
+      "candidate_run": "runs/common-hiagent-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/hiagent-all-datasets-gen4096-002.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/hiagent-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "llmcompiler",
+      "reference_run": "runs/common-llmcompiler-all-datasets-gen4096-003",
+      "candidate_run": "runs/common-llmcompiler-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/llmcompiler-all-datasets-gen4096-003.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/llmcompiler-all-datasets-gen4096-refill-001.json"
+    },
+    {
+      "method": "foldagent",
+      "reference_run": "runs/common-foldagent-all-datasets-gen4096-001",
+      "candidate_run": "runs/common-foldagent-all-datasets-gen4096-refill-001",
+      "reference_evaluation": "results/baselines/common/evaluation/foldagent-all-datasets-gen4096-001.json",
+      "candidate_evaluation": "results/baselines/common/evaluation/foldagent-all-datasets-gen4096-refill-001.json"
+    }
+  ],
+  "latency_quantiles": [
+    0.5,
+    0.95,
+    0.99
+  ],
+  "output": "results/infra/shared_refill_baseline_001_comparison.json",
+  "scope": "Historical cohort versus new shared-refill qualification, one original task per dataset. Timing is descriptive, not a randomized paired performance estimate. Completion is distinct from task correctness."
+}

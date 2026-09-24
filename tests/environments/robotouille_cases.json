@@ -1,0 +1,4 @@
+{
+  "methods": ["jevspawn", "react", "single"],
+  "invalid_action": "not a native Robotouille action"
+}

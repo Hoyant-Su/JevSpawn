@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "batch": 8,
+  "heads": 2,
+  "head_dim": 4,
+  "capacity": 16,
+  "position": 4,
+  "vocabulary": 12
+}

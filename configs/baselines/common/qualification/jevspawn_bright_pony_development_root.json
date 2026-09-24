@@ -1,0 +1,33 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config.yaml",
+  "tasks": "data/baselines/common/qualification/bright_pony_development_root.jsonl",
+  "task_count": 1,
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "environment": "configs/baselines/common/environment.json",
+  "source_provenance": {
+    "task_id": "bright_pony/3",
+    "development_collections": "../../data/research_v1/decision_program/bright-development-128-collections.jsonl",
+    "retrieved_pool": "../../data/research_v1/bright_pony/retrieved_pools.jsonl",
+    "original_corpus": "../../data/research_v1/bright_pony/corpus.jsonl",
+    "offline_labels": "../../data/research_v1/bright_pony/feasibility/relevance.jsonl",
+    "metric": "ndcg_at_10",
+    "ranking_cutoff": 10,
+    "candidate_count": 128,
+    "selection": "The first already-declared BRIGHT development root, using its complete existing 128-candidate collection. Selection does not use relevance values or model outcomes.",
+    "preserved": "Original query, every candidate ID and complete text, BM25 order and score, and original relevance labels. The source collection exactly equals its existing retrieved-pool row. Labels are excluded from the normalized task.",
+    "scope": "One original ranking task with distinct candidate evidence. The model chooses graph contents, finite questions, tool calls, refinements and whether to map. No supplied graph, worker count, duplication or minimum fanout.",
+    "limitations": [
+      "The existing retrieved pool contains 128 documents; this supports many distinct document judgments but does not establish useful hundreds of model nodes.",
+      "This is a development interface qualification, not a held-out benchmark comparison or a scaling result.",
+      "Earlier evidence-interface and structured-flow stages were rejected; their programs, repeated questions and positive claims are not reused."
+    ],
+    "cpu_prompt_check": {
+      "model_path": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B",
+      "coordinator_input_tokens": 6990,
+      "max_input_tokens": 8192,
+      "fits": true,
+      "scope": "Exact current TaskExecutor coordinator message serialization and local model chat template; no model inference. Recheck if planner transport changes."
+    }
+  }
+}

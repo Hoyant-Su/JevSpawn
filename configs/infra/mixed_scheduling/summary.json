@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "cohort": {
+      "run": "runs/common-jevspawn-mixed-scheduling-cohort-001",
+      "evaluation": "results/infra/mixed_scheduling_cohort_evaluation_001.json"
+    },
+    "decode_step": {
+      "run": "runs/common-jevspawn-mixed-scheduling-decode_step-001",
+      "evaluation": "results/infra/mixed_scheduling_decode_step_evaluation_001.json"
+    }
+  },
+  "output": "results/infra/mixed_scheduling_comparison_001.json"
+}

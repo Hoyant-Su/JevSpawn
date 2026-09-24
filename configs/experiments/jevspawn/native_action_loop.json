@@ -1,0 +1,30 @@
+{
+  "scope": "Real native-action tool-feedback closed loop; both arms use persistent structured streams, not ReAct",
+  "tasks": "data/qualification/finite_cache/maze.jsonl",
+  "environment": "configs/baselines/common/environment.json",
+  "maze_configuration": "configs/data/maze/runtime.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "prompts": "qualification.native_action_stream",
+  "output": "results/qualification/native_action_loop_001",
+  "terminator": "eos_token_id",
+  "variants": [
+    "full_head",
+    "candidate_head"
+  ],
+  "stream": {
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "transition": {
+      "num_warps": 4
+    }
+  },
+  "serialization": {
+    "ensure_ascii": false,
+    "indent": 2
+  },
+  "feedback_prompts": "qualification.native_action_feedback"
+}

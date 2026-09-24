@@ -1,0 +1,17 @@
+{
+  "temperature": 0,
+  "planner_max_tokens": 512,
+  "joiner_max_tokens": 512,
+  "planner_stop": [
+    "<END_OF_PLAN>"
+  ],
+  "max_plans": 2,
+  "task_timeout_seconds": 300,
+  "calculator": {
+    "max_characters": 512,
+    "max_nodes": 128,
+    "max_exponent": 20,
+    "max_magnitude": 1e+100
+  },
+  "prompt_schema": "prompts.json"
+}

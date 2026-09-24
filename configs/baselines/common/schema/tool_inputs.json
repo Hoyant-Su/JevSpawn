@@ -1,0 +1,79 @@
+{
+  "calculate": {
+    "type": "object",
+    "properties": {
+      "expression": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "expression"
+    ],
+    "additionalProperties": false
+  },
+  "read_documents": {
+    "type": "object",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "additionalProperties": false
+  },
+  "search": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string"
+      },
+      "k": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "query",
+      "k"
+    ],
+    "additionalProperties": false
+  },
+  "read": {
+    "type": "object",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "ids"
+    ],
+    "additionalProperties": false
+  },
+  "run_tests": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "string"
+      },
+      "assertions": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "code",
+      "assertions"
+    ],
+    "additionalProperties": false
+  }
+}

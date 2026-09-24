@@ -1,0 +1,259 @@
+{
+  "seed": 42,
+  "device": "cuda:0",
+  "repetitions": 4,
+  "settings": "configs/jevspawn/finite_state_copy.json",
+  "cases": [
+    {
+      "name": "kv_strided_source_and_padded_destination",
+      "dtype": "bfloat16",
+      "source_shape": [
+        1,
+        2,
+        10,
+        8
+      ],
+      "source_slices": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          10,
+          2
+        ],
+        [
+          0,
+          8,
+          2
+        ]
+      ],
+      "source_permutation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "destination_shape": [
+        3,
+        2,
+        13,
+        4
+      ],
+      "destination_slices": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          3,
+          8,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "convolution_strided_source",
+      "dtype": "bfloat16",
+      "source_shape": [
+        1,
+        4,
+        12
+      ],
+      "source_slices": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          12,
+          3
+        ]
+      ],
+      "source_permutation": [
+        0,
+        1,
+        2
+      ],
+      "destination_shape": [
+        3,
+        4,
+        4
+      ],
+      "destination_slices": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "recurrent_transposed_source",
+      "dtype": "float32",
+      "source_shape": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "source_slices": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          6,
+          1
+        ]
+      ],
+      "source_permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "destination_shape": [
+        3,
+        3,
+        6,
+        4
+      ],
+      "destination_slices": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          6,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "kv_multiple_tiles_and_partial_tail",
+      "dtype": "bfloat16",
+      "source_shape": [
+        1,
+        2,
+        2050,
+        8
+      ],
+      "source_slices": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2050,
+          1
+        ],
+        [
+          0,
+          8,
+          2
+        ]
+      ],
+      "source_permutation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "destination_shape": [
+        3,
+        2,
+        2057,
+        4
+      ],
+      "destination_slices": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          3,
+          2053,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ]
+    }
+  ]
+}

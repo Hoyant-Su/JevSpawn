@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/native_formal_20260923/plancraft/tasks.jsonl",
+  "task_count": 580,
+  "stage": "formal",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.plancraft.PlancraftEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/plancraft_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/agentprune.json"
+}

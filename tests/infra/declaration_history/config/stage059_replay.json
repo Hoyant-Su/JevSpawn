@@ -1,0 +1,12 @@
+{
+  "stage": "059",
+  "runs": [
+    "runs/native-plancraft-jevspawn-20260923-052",
+    "runs/native-plancraft-jevspawn-20260923-055",
+    "runs/native-autoplanbench-jevspawn-20260923-055",
+    "runs/native-robotouille-jevspawn-20260923-055",
+    "runs/native-ppnl-jevspawn-20260923-055"
+  ],
+  "capacity_error": "Declaration field capacity exhausted.",
+  "output": "results/validation/native_stage059_field_capacity_replay_20260923.json"
+}

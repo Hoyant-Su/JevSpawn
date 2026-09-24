@@ -1,0 +1,115 @@
+{
+  "stage": "stage078_history_cache_coverage",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/lmrlgym_maze_history_contract_v2",
+      "evaluation": "results/validation/native-history-coverage-stage078/lmrlgym_maze_history_contract_v2.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/lmrlgym_maze_history_contract_v2.json",
+      "log": "logs/qualification/native-history-coverage-stage078-lmrlgym_maze_history_contract_v2.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/lmrlgym_maze.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/lmrlgym_maze_history_contract_v2",
+          "--output",
+          "results/validation/native-history-coverage-stage078/lmrlgym_maze_history_contract_v2.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_screen/llfbench_gridworld_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/llfbench_gridworld",
+      "evaluation": "results/validation/native-history-coverage-stage078/llfbench_gridworld.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/llfbench_gridworld.json",
+      "log": "logs/qualification/native-history-coverage-stage078-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/llfbench_gridworld.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/llfbench_gridworld",
+          "--output",
+          "results/validation/native-history-coverage-stage078/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_screen/robotouille_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/robotouille",
+      "evaluation": "results/validation/native-history-coverage-stage078/robotouille.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/robotouille.json",
+      "log": "logs/qualification/native-history-coverage-stage078-robotouille.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/robotouille.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/robotouille",
+          "--output",
+          "results/validation/native-history-coverage-stage078/robotouille.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-history-coverage-stage078/autoplanbench",
+      "evaluation": "results/validation/native-history-coverage-stage078/autoplanbench.json",
+      "progress": "results/validation/native-history-coverage-stage078/progress/autoplanbench.json",
+      "log": "logs/qualification/native-history-coverage-stage078-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/infra/stage078/autoplanbench.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-history-coverage-stage078/autoplanbench",
+          "--output",
+          "results/validation/native-history-coverage-stage078/autoplanbench.json"
+        ]
+      ]
+    }
+  ]
+}

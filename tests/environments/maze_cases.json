@@ -1,0 +1,32 @@
+{
+  "configuration": "configs/data/maze/runtime.json",
+  "tasks": "data/environments/maze/tasks.jsonl",
+  "identities": "data/environments/maze/agentgym_eval_ids.json",
+  "comparison_actions": [
+    "move left",
+    "move up"
+  ],
+  "blocked": {
+    "task_id": "lmrlgym_maze_0",
+    "choice_id": "c"
+  },
+  "success": {
+    "task_id": "lmrlgym_maze_18",
+    "choice_id": "d",
+    "action": "move down",
+    "answer": {
+      "success": true
+    }
+  },
+  "failure_answer": {
+    "success": false
+  },
+  "frame_keys": [
+    "context",
+    "state",
+    "question",
+    "options"
+  ],
+  "forbidden_tool": "finish",
+  "evaluation": "configs/data/maze/evaluation.json"
+}

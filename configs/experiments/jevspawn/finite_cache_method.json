@@ -1,0 +1,169 @@
+{
+  "service": "baselines.common.graph_finite_service.StableGraphFiniteService",
+  "python_paths": [],
+  "prompts": "jevspawn.semantic_runtime",
+  "settings": {
+    "field_mode": "tiled_shared",
+    "finite_readout": "native_gpu_rows",
+    "finite_context": "task_and_node",
+    "finite_scheduling": "cohort",
+    "shared_state_fields": [
+      "evidence"
+    ],
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "graph_shape": {
+      "batch_buckets": [
+        1,
+        8
+      ]
+    },
+    "execution": {
+      "candidate_id": "candidate-{index}",
+      "serialization": {
+        "ensure_ascii": false,
+        "separators": [
+          ",",
+          ":"
+        ]
+      },
+      "max_new_tokens": 2048,
+      "temperature": 0.0,
+      "tool_operator": "tool:{name}",
+      "finish_tool": "finish",
+      "generate_operator": "generate",
+      "read_operator": "read",
+      "finite_operator": "finite",
+      "host_workers": 8,
+      "prompts": "jevspawn.semantic_runtime",
+      "collect_operator": "collect",
+      "slice_operator": "slice",
+      "initial_offset": 0
+    },
+    "state": {
+      "root_id": "task",
+      "node_id": "node-{index}",
+      "initial_index": 0,
+      "status_pending": "pending",
+      "status_complete": "complete",
+      "serialization": {
+        "ensure_ascii": false,
+        "separators": [
+          ",",
+          ":"
+        ]
+      }
+    },
+    "node_schema": {
+      "type": "object",
+      "required": [
+        "id",
+        "goal",
+        "operator",
+        "inputs",
+        "depends_on",
+        "result_schema",
+        "candidates",
+        "parent",
+        "supersedes",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "source",
+              "path"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "path": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "integer"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "result_schema": {
+          "type": "object"
+        },
+        "candidates": {
+          "type": "array"
+        },
+        "parent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supersedes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "complete"
+          ]
+        }
+      }
+    },
+    "boundary": {
+      "selection": {
+        "mode": "hierarchical",
+        "fanout": 64
+      }
+    },
+    "trace": {
+      "directory": "records/methods/finite_cache_qualification",
+      "file": "{task}.json",
+      "safe_characters": "",
+      "serialization": {
+        "ensure_ascii": false,
+        "indent": 2
+      }
+    },
+    "typed_values": {
+      "unbound_scalar_policy": "generate"
+    },
+    "input_window": {
+      "mode": "head_tail_notice",
+      "head_fraction": 0.5,
+      "prompt": "jevspawn.input_truncation_notice"
+    }
+  }
+}

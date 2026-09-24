@@ -1,0 +1,207 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "dyflow",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_2048.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_2048.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/korgym_2048_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_2048",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_2048.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_2048_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/screen/korgym_nullify_dyflow.json",
+      "run": "runs/native-baselines-screen-20260923/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/screen/dyflow/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/dyflow/korgym_nullify.json",
+      "log": "logs/native_baselines/screen-dyflow-korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/korgym_nullify_dyflow.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_nullify",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/dyflow/korgym_nullify",
+          "--output",
+          "results/native_baselines/screen/dyflow/korgym_nullify.json"
+        ]
+      ]
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_dyflow.json",
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_nullify.json",
+      "progress": "results/native_baselines/progress/formal/dyflow/korgym_nullify.json",
+      "log": "logs/native_baselines/formal-dyflow-korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_nullify_dyflow.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+          "--output",
+          "results/native_baselines/formal/dyflow/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

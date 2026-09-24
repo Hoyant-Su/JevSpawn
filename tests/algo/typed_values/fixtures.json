@@ -1,0 +1,278 @@
+{
+  "config": "configs/jevspawn/typed_values.json",
+  "task": {
+    "instruction": "Complete the requested structured result.",
+    "input": {
+      "opaque": {
+        "query": "exact source string",
+        "count": 17
+      }
+    },
+    "answer_schema": {
+      "type": "string"
+    },
+    "hidden_label": "must never reach the model"
+  },
+  "evidence": {
+    "observed": "source observation"
+  },
+  "object": {
+    "schema": {
+      "type": "object",
+      "$defs": {
+        "colour": {
+          "type": "string",
+          "enum": [
+            "violet",
+            "amber",
+            "cyan"
+          ]
+        }
+      },
+      "properties": {
+        "a": {
+          "$ref": "#/$defs/colour"
+        },
+        "b": {
+          "type": "boolean"
+        },
+        "c": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    "choices": {
+      "[\"answer\", \"a\"]": "amber",
+      "[\"answer\", \"b\"]": true,
+      "[\"answer\", \"c\"]": false
+    },
+    "expected": {
+      "a": "amber",
+      "b": true
+    }
+  },
+  "unique": {
+    "schema": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "violet",
+          "amber",
+          "cyan"
+        ]
+      }
+    },
+    "choices": {
+      "[\"answer\"]": 3,
+      "[\"answer\", 0]": "cyan",
+      "[\"answer\", 1]": "violet"
+    },
+    "expected": [
+      "cyan",
+      "violet",
+      "amber"
+    ]
+  },
+  "unbounded": {
+    "schema": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "boolean"
+      }
+    },
+    "choices": {
+      "[\"answer\", 0]": true,
+      "[\"answer\"]": 2
+    },
+    "expected": [
+      true,
+      false
+    ]
+  },
+  "source": {
+    "schema": {
+      "type": "string"
+    },
+    "choices": {
+      "[\"answer\"]": {
+        "source": [
+          "input",
+          "opaque",
+          "query"
+        ],
+        "value": "exact source string"
+      }
+    },
+    "expected": "exact source string"
+  },
+  "scalar": {
+    "schema": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "raw": "3.5",
+    "expected": 3.5
+  },
+  "invalid_scalar": {
+    "schema": {
+      "type": "integer"
+    },
+    "choices": {
+      "[\"answer\"]": {
+        "action": "generate"
+      }
+    },
+    "raw": "\"not an integer\""
+  },
+  "escaped_ref": {
+    "$defs": {
+      "a/b~c": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    "$ref": "#/$defs/a~1b~0c"
+  },
+  "escaped_ref_choices": {
+    "[\"answer\"]": "right"
+  },
+  "invalid_schemas": [
+    {
+      "type": "string",
+      "$id": "urn:other"
+    },
+    {
+      "$ref": "https://example.org/schema.json"
+    },
+    {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "$ref": "#/$defs/missing"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "$defs": {
+        "recursive": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/recursive"
+          }
+        }
+      },
+      "$ref": "#/$defs/recursive"
+    },
+    {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "boolean"
+      }
+    }
+  ],
+  "budget": {
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "null"
+      }
+    },
+    "choices": {
+      "[\"answer\"]": {
+        "exceeds_node_budget": 6
+      }
+    },
+    "node_budget": 6
+  },
+  "parallel": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "boolean"
+        },
+        "b": {
+          "type": "boolean"
+        },
+        "c": {
+          "type": "boolean"
+        },
+        "d": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "additionalProperties": false
+    },
+    "workers": 4,
+    "timeout_seconds": 5,
+    "expected": {
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true
+    }
+  },
+  "path": [
+    "answer"
+  ],
+  "qualification_tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "bounded_integer": {
+    "schema": {
+      "type": "integer",
+      "exclusiveMinimum": 1,
+      "maximum": 7,
+      "multipleOf": 2
+    },
+    "choices": {
+      "[\"answer\"]": 4
+    },
+    "expected": 4
+  },
+  "assignment_metadata": {
+    "purpose": "array of source unit IDs",
+    "tool": {
+      "arguments": {
+        "ids": "array of source unit IDs"
+      }
+    }
+  },
+  "large_array": {
+    "schema": {
+      "type": "array",
+      "items": {
+        "const": null
+      }
+    },
+    "length": 300
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "source_run": "runs/bfcl-typed-calls-001",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "output": "results/qualification/bfcl_cache_equivalence_001",
+  "phases": [
+    "cold",
+    "warm"
+  ],
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  },
+  "graph_shape": {
+    "batch_buckets": [
+      1,
+      8
+    ]
+  },
+  "padding_side": "left",
+  "last_position": -1,
+  "cache_names": [
+    "base",
+    "state"
+  ],
+  "serialization": {
+    "indent": 2
+  }
+}

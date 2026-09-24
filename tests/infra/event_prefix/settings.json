@@ -1,0 +1,47 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/baselines/common/methods/jevspawn.json",
+  "requests": "tests/infra/event_prefix/requests.json",
+  "expected_batch_size": 8,
+  "expected_turns": [
+    2,
+    3
+  ],
+  "expected_world_size": 4,
+  "root_cache_capacity": 8,
+  "history_cache_capacity": 8,
+  "logit_max_absolute_error": 0.5,
+  "required_choice_agreement": 1.0,
+  "phases": [
+    {
+      "name": "warmup",
+      "measured": false,
+      "order": [
+        "root",
+        "history"
+      ]
+    },
+    {
+      "name": "measured_forward",
+      "measured": true,
+      "order": [
+        "root",
+        "history"
+      ]
+    },
+    {
+      "name": "measured_reverse",
+      "measured": true,
+      "order": [
+        "history",
+        "root"
+      ]
+    }
+  ],
+  "output": "results/infra/event_prefix_049_diagnostic",
+  "rank_file": "rank-{rank}.json",
+  "summary_file": "summary.json",
+  "progress_directory": "attempt-{run_id}",
+  "progress_file": "rank-{rank}-{phase}-{variant}-turn-{turn}.json"
+}

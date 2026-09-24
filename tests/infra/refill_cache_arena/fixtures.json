@@ -1,0 +1,87 @@
+{
+  "batch_size": 4,
+  "capacity": 12,
+  "first_admission": 3,
+  "prefill_width": 4,
+  "second_admission": 2,
+  "survivors": [
+    1
+  ],
+  "survivors_after_refill": [
+    1,
+    2
+  ],
+  "dtype": "bfloat16",
+  "device": "cpu",
+  "text_config": {
+    "model_type": "qwen3_5_text",
+    "hidden_size": 16,
+    "intermediate_size": 32,
+    "num_hidden_layers": 2,
+    "num_attention_heads": 2,
+    "num_key_value_heads": 1,
+    "head_dim": 8,
+    "vocab_size": 32,
+    "layer_types": [
+      "linear_attention",
+      "full_attention"
+    ],
+    "linear_conv_kernel_dim": 3,
+    "linear_key_head_dim": 4,
+    "linear_value_head_dim": 4,
+    "linear_num_key_heads": 1,
+    "linear_num_value_heads": 2,
+    "mamba_ssm_dtype": "float32"
+  },
+  "requests": [
+    {
+      "task_id": "request-a",
+      "max_tokens": 7,
+      "stop": [
+        "END-A"
+      ],
+      "deadline": 12.5
+    },
+    {
+      "task_id": "request-b",
+      "max_tokens": 9,
+      "stop": [],
+      "deadline": 41.0
+    },
+    {
+      "task_id": "request-c",
+      "max_tokens": 5,
+      "stop": [
+        "END-C"
+      ],
+      "deadline": 23.75
+    },
+    {
+      "task_id": "request-d",
+      "max_tokens": 6,
+      "stop": [
+        "END-A"
+      ],
+      "deadline": 91.5
+    },
+    {
+      "task_id": "request-e",
+      "max_tokens": 8,
+      "stop": [
+        "END-E"
+      ],
+      "deadline": 105.25
+    }
+  ],
+  "generation_capacity": 10,
+  "pad_token_id": 0,
+  "pending_token_ids": [
+    3,
+    7,
+    11
+  ],
+  "backend": {
+    "execution": "native",
+    "decode_attention_splits": 1
+  }
+}

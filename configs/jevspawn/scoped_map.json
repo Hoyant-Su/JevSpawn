@@ -1,0 +1,11 @@
+{
+  "prompts": "jevspawn.scoped_map",
+  "descriptor_fields": [
+    "reference",
+    "kind",
+    "count",
+    "keys"
+  ],
+  "view_key": "communication_view",
+  "read_key": "inspected_evidence"
+}

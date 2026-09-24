@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/context_native/agentquest_mastermind/tasks.jsonl",
+  "task_count": 2,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.agentquest.AgentQuestEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/agentquest_mastermind_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/single.json"
+}

@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "tokenizer": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B",
+  "timeout_seconds": 10,
+  "max_tokens": 2048,
+  "temperature": 0.0,
+  "task_id": "streaming-cpu-protocol",
+  "question": "Read the first value, then inspect its returned value.",
+  "tool_name": "lookup",
+  "tool_fields": [
+    "value"
+  ],
+  "tool_description": "lookup(value: str): inspect a supplied value",
+  "plan": "1. lookup('alpha')\n2. lookup('$1')\n3. join()\n",
+  "first_line": "1. lookup('alpha')\n",
+  "first_result": "beta",
+  "second_result": "complete",
+  "expected_tool_inputs": [
+    "alpha",
+    "beta"
+  ],
+  "stop": "<END_OF_PLAN>",
+  "texts": [
+    "1. lookup('alpha')\n2. lookup('\u4e2d\u6587')\n<END_OF_PLAN>",
+    "One word then end."
+  ],
+  "method": "configs/baselines/common/methods/llmcompiler_stream.json",
+  "output": "results/infra/llmcompiler_stream_cpu_001.json",
+  "keyword_plan": "1. lookup(value='alpha')\n2. lookup(value='$1')\n3. join()\n",
+  "keyword_first_line": "1. lookup(value='alpha')\n"
+}

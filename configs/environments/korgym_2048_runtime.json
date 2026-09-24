@@ -1,0 +1,57 @@
+{
+  "session": "configs/environments/session.json",
+  "prompts": "environments.korgym",
+  "tool_name": "execute",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "score": {
+        "type": "number"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "score",
+      "done"
+    ],
+    "additionalProperties": false
+  },
+  "native_source": "external/KORGym-review/game_lib/3-2048/game_lib.py",
+  "native_module": "korgym_native_2048",
+  "native_state": {},
+  "episode": "configs/environments/korgym_episode.json",
+  "observation_template": "problem_2048_prompt"
+}

@@ -1,0 +1,48 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "method": "jevspawn",
+  "stage": "formal",
+  "world_size": 4,
+  "instance": "v26-v0715-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "textarena_sokoban",
+      "method": "jevspawn",
+      "specification": "configs/experiments/native_jevspawn_history_full_20260924/textarena_sokoban.json",
+      "run": "runs/native-jevspawn-history-full-20260924/textarena_sokoban",
+      "evaluation": "results/native_jevspawn/history_full_20260924/textarena_sokoban.json",
+      "progress": "results/native_jevspawn/history_full_20260924/progress/textarena_sokoban.json",
+      "log": "logs/native_jevspawn/history_full_20260924/textarena_sokoban.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_jevspawn_history_full_20260924/textarena_sokoban.json",
+          "--output",
+          "runs/native-jevspawn-history-full-20260924/textarena_sokoban",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jevspawn-history-full-20260924/textarena_sokoban",
+          "--output",
+          "results/native_jevspawn/history_full_20260924/textarena_sokoban.json"
+        ]
+      ]
+    }
+  ]
+}

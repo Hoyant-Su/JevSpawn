@@ -1,0 +1,25 @@
+{
+  "purpose": "CPU execution-contract tests with explicit synthetic logits; not model quality or GPU evidence.",
+  "method": "configs/baselines/common/methods/jevspawn_candidate_verification_tp4_v2.json",
+  "protocol": "runs/common-jevspawn-tool-evidence-tp4-v2-001/protocol.json",
+  "shared": "configs/shared_config_tp4_v2.yaml",
+  "task_id": "processbench_gsm8k/math-0",
+  "answer_path": [],
+  "field": "q0",
+  "dtype": "float32",
+  "logits": [[10, 20, 0], [2, 0, 0], [1, 0, 0]],
+  "selected_index": 1,
+  "raw_supported_argmax": 0,
+  "tie_logits": [[2, 0, 0], [2, 0, 0], [1, 0, 0]],
+  "tie_selected_index": 0,
+  "rtol": 0.000001,
+  "atol": 0.000001,
+  "array_schema": {
+    "type": "array", "minItems": 1, "maxItems": 2,
+    "items": {"type": "boolean"}
+  },
+  "shape_choice": "value0",
+  "boolean_logits": [[10, 20, 0], [2, 0, 0]],
+  "tool_root": ["tool", "fixture"],
+  "scalar_schema": {"type": "boolean"}
+}

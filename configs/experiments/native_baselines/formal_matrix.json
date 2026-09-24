@@ -1,0 +1,1217 @@
+{
+  "stage": "formal",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "methods": [
+    "react",
+    "lats",
+    "llmcompiler",
+    "agentprune",
+    "hiagent",
+    "foldagent",
+    "dyflow",
+    "latentmas"
+  ],
+  "tracks": 14,
+  "tasks_per_method": 2158,
+  "total_method_tasks": 17264,
+  "source_inventory": "results/validation/native_formal_inventory_20260923.json",
+  "cells": [
+    {
+      "method": "react",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_react.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/react/ppnl",
+      "evaluation": "results/native_baselines/formal/react/ppnl.json",
+      "status": "completed",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/react/ppnl.json",
+      "instance": "v26-0816-4-core",
+      "job_id": "qzcli_b720c2b4_1790180210_86cc8e93"
+    },
+    {
+      "method": "react",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_react_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/react/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/react/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "react",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_react.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/react/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/react/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "react",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/react/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_react.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/react/plancraft",
+      "evaluation": "results/native_baselines/formal/react/plancraft.json",
+      "status": "launched",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/react/plancraft.json",
+      "instance": "v26-0816-4-core",
+      "job_id": "qzcli_4e401e27_1790180541_24bfd0e7"
+    },
+    {
+      "method": "react",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_react_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/react/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/react/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "react",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_react.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/react/robotouille",
+        "evaluation": "results/native_baselines/formal/react/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "react",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_react.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/react/autoplanbench",
+      "evaluation": "results/native_baselines/formal/react/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_react.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/react/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/react/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_react.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/react/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/react/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/react/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/react/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/react/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/korgym_2048",
+      "evaluation": "results/native_baselines/formal/react/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/react/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "react",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_react.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/react/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/react/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_lats.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/lats/ppnl",
+      "evaluation": "results/native_baselines/formal/lats/ppnl.json",
+      "status": "launched",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/lats/ppnl.json",
+      "instance": "v26-v0715-4-core",
+      "job_id": "qzcli_039a999e_1790180584_e5e36d68"
+    },
+    {
+      "method": "lats",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_lats_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/lats/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/lats/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "lats",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_lats.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/lats/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/lats/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "lats",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/lats/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_lats.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/lats/plancraft",
+      "evaluation": "results/native_baselines/formal/lats/plancraft.json",
+      "status": "qualification_resuming_before_formal",
+      "instance": "v26-v0709-4-core",
+      "job_id": "qzcli_b1e15d18_1790180795_0cad96ef"
+    },
+    {
+      "method": "lats",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_lats_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/lats/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/lats/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "lats",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_lats.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/lats/robotouille",
+        "evaluation": "results/native_baselines/formal/lats/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "lats",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_lats.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/lats/autoplanbench",
+      "evaluation": "results/native_baselines/formal/lats/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_lats.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/lats/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/lats/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_lats.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/lats/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/lats/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/lats/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/lats/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/lats/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_2048",
+      "evaluation": "results/native_baselines/formal/lats/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/lats/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "lats",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_lats.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/lats/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/lats/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_llmcompiler.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/ppnl",
+      "evaluation": "results/native_baselines/formal/llmcompiler/ppnl.json",
+      "status": "launched",
+      "instance": "sm26-v0708-2-core",
+      "job_id": "qzcli_081b5251_1790180546_b1fd9ba4"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_llmcompiler_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/llmcompiler/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "llmcompiler",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_llmcompiler.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/llmcompiler/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/llmcompiler/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/llmcompiler/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_llmcompiler.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/plancraft",
+      "evaluation": "results/native_baselines/formal/llmcompiler/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_llmcompiler_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/llmcompiler/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "llmcompiler",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_llmcompiler.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/llmcompiler/robotouille",
+        "evaluation": "results/native_baselines/formal/llmcompiler/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_llmcompiler.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/autoplanbench",
+      "evaluation": "results/native_baselines/formal/llmcompiler/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_llmcompiler.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/llmcompiler/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_llmcompiler.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/llmcompiler/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/llmcompiler/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_2048",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "llmcompiler",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_llmcompiler.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/llmcompiler/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/llmcompiler/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_agentprune.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/agentprune/ppnl",
+      "evaluation": "results/native_baselines/formal/agentprune/ppnl.json",
+      "status": "launched",
+      "instance": "low26-v0710-4-core",
+      "job_id": "qzcli_f63b7b31_1790180544_43c3a8eb"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_agentprune_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/agentprune/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/agentprune/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "agentprune",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_agentprune.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/agentprune/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/agentprune/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "agentprune",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/agentprune/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_agentprune.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/agentprune/plancraft",
+      "evaluation": "results/native_baselines/formal/agentprune/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_agentprune_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/agentprune/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/agentprune/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "agentprune",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_agentprune.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/agentprune/robotouille",
+        "evaluation": "results/native_baselines/formal/agentprune/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "agentprune",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_agentprune.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/agentprune/autoplanbench",
+      "evaluation": "results/native_baselines/formal/agentprune/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_agentprune.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/agentprune/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/agentprune/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_agentprune.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/agentprune/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/agentprune/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/agentprune/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/agentprune/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/agentprune/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/korgym_2048",
+      "evaluation": "results/native_baselines/formal/agentprune/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/agentprune/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "agentprune",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_agentprune.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/agentprune/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/agentprune/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_hiagent.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/hiagent/ppnl",
+      "evaluation": "results/native_baselines/formal/hiagent/ppnl.json",
+      "status": "completed",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/hiagent/ppnl.json",
+      "instance": "low26-v0709-4-core",
+      "job_id": "qzcli_81f31e97_1790180542_05208227"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_hiagent_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "instance": "low26-v0709-4-core",
+      "job_id": "qzcli_e44885e5_1790180825_d1769062",
+      "superseded": {
+        "method": "hiagent",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_hiagent.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/hiagent/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/hiagent/lmrlgym_maze.json",
+        "status": "launched",
+        "instance": "low26-v0709-4-core",
+        "job_id": "qzcli_e44885e5_1790180825_d1769062"
+      }
+    },
+    {
+      "method": "hiagent",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/hiagent/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_hiagent.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/hiagent/plancraft",
+      "evaluation": "results/native_baselines/formal/hiagent/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_hiagent_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/hiagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/hiagent/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "hiagent",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_hiagent.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/hiagent/robotouille",
+        "evaluation": "results/native_baselines/formal/hiagent/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "hiagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_hiagent.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/hiagent/autoplanbench",
+      "evaluation": "results/native_baselines/formal/hiagent/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_hiagent.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/hiagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/hiagent/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_hiagent.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/hiagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/hiagent/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/hiagent/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "hiagent",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_hiagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/hiagent/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/hiagent/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_foldagent.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/foldagent/ppnl",
+      "evaluation": "results/native_baselines/formal/foldagent/ppnl.json",
+      "status": "launched",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/foldagent/ppnl.json",
+      "instance": "v26-v0801-4-core",
+      "job_id": "qzcli_b3642800_1790180543_749f4f49"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_foldagent_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/foldagent/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/foldagent/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "foldagent",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_foldagent.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/foldagent/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/foldagent/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "foldagent",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/foldagent/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_foldagent.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/foldagent/plancraft",
+      "evaluation": "results/native_baselines/formal/foldagent/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_foldagent_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/foldagent/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/foldagent/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "foldagent",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_foldagent.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/foldagent/robotouille",
+        "evaluation": "results/native_baselines/formal/foldagent/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "foldagent",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_foldagent.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/foldagent/autoplanbench",
+      "evaluation": "results/native_baselines/formal/foldagent/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_foldagent.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/foldagent/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_foldagent.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_dyflow.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/dyflow/ppnl",
+      "evaluation": "results/native_baselines/formal/dyflow/ppnl.json",
+      "status": "launched",
+      "readiness": "Eight real sample artifacts and native evaluation; method-specific invalid outputs/limits retained as measured failures. No remaining adapter exception in this cell.",
+      "short_evaluation": "results/native_baselines/screen/dyflow/ppnl.json",
+      "instance": "low26-v0711-4-core",
+      "job_id": "qzcli_8e6d77b9_1790180554_1504d413"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_dyflow_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/dyflow/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/dyflow/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "dyflow",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_dyflow.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/dyflow/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/dyflow/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "dyflow",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/dyflow/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_dyflow.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/dyflow/plancraft",
+      "evaluation": "results/native_baselines/formal/dyflow/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_dyflow_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/dyflow/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/dyflow/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "dyflow",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_dyflow.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/dyflow/robotouille",
+        "evaluation": "results/native_baselines/formal/dyflow/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "dyflow",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_dyflow.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/dyflow/autoplanbench",
+      "evaluation": "results/native_baselines/formal/dyflow/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_dyflow.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/dyflow/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/dyflow/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_dyflow.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/dyflow/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/dyflow/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/dyflow/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_2048",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "dyflow",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_dyflow.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/dyflow/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/dyflow/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_baselines/formal/ppnl_latentmas.json",
+      "tasks": 168,
+      "run": "runs/native-baselines-formal-20260923/latentmas/ppnl",
+      "evaluation": "results/native_baselines/formal/latentmas/ppnl.json",
+      "status": "launched",
+      "instance": "v26-v0726-4-core",
+      "job_id": "qzcli_0e17e053_1790180554_83565d72"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_latentmas_schema_v2.json",
+      "tasks": 25,
+      "run": "runs/native-baselines-formal-20260923/latentmas/lmrlgym_maze_schema_v2",
+      "evaluation": "results/native_baselines/formal/latentmas/lmrlgym_maze_schema_v2.json",
+      "status": "awaiting_corrected_schema_run",
+      "superseded": {
+        "method": "latentmas",
+        "dataset": "lmrlgym_maze",
+        "specification": "configs/experiments/native_baselines/formal/lmrlgym_maze_latentmas.json",
+        "tasks": 25,
+        "run": "runs/native-baselines-formal-20260923/latentmas/lmrlgym_maze",
+        "evaluation": "results/native_baselines/formal/latentmas/lmrlgym_maze.json",
+        "status": "awaiting_short_run_readiness"
+      }
+    },
+    {
+      "method": "latentmas",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_baselines/formal/llfbench_gridworld_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/llfbench_gridworld",
+      "evaluation": "results/native_baselines/formal/latentmas/llfbench_gridworld.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/formal/plancraft_latentmas.json",
+      "tasks": 580,
+      "run": "runs/native-baselines-formal-20260923/latentmas/plancraft",
+      "evaluation": "results/native_baselines/formal/latentmas/plancraft.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_baselines/formal/robotouille_latentmas_state_v2.json",
+      "tasks": 45,
+      "run": "runs/native-baselines-formal-20260923/latentmas/robotouille_state_v2",
+      "evaluation": "results/native_baselines/formal/latentmas/robotouille_state_v2.json",
+      "status": "awaiting_isolated_state_v2",
+      "superseded": {
+        "method": "latentmas",
+        "dataset": "robotouille",
+        "specification": "configs/experiments/native_baselines/formal/robotouille_latentmas.json",
+        "tasks": 45,
+        "run": "runs/native-baselines-formal-20260923/latentmas/robotouille",
+        "evaluation": "results/native_baselines/formal/latentmas/robotouille.json",
+        "status": "awaiting_short_run_readiness"
+      },
+      "readiness": "Fresh run required after cross-task special-effects state isolation."
+    },
+    {
+      "method": "latentmas",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_baselines/formal/autoplanbench_latentmas.json",
+      "tasks": 240,
+      "run": "runs/native-baselines-formal-20260923/latentmas/autoplanbench",
+      "evaluation": "results/native_baselines/formal/latentmas/autoplanbench.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_mastermind_latentmas.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_mastermind",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_mastermind.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_latentmas.json",
+      "tasks": 200,
+      "run": "runs/native-baselines-formal-20260923/latentmas/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/latentmas/agentquest_sudoku.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_baselines/formal/textarena_lightsout_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_lightsout",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_lightsout.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_rushhour",
+      "specification": "configs/experiments/native_baselines/formal/textarena_rushhour_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_rushhour",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_rushhour.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_baselines/formal/textarena_sokoban_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/textarena_sokoban",
+      "evaluation": "results/native_baselines/formal/latentmas/textarena_sokoban.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_2048",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_2048.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_circle_the_cat.json",
+      "status": "awaiting_short_run_readiness"
+    },
+    {
+      "method": "latentmas",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_baselines/formal/korgym_nullify_latentmas.json",
+      "tasks": 100,
+      "run": "runs/native-baselines-formal-20260923/latentmas/korgym_nullify",
+      "evaluation": "results/native_baselines/formal/latentmas/korgym_nullify.json",
+      "status": "awaiting_short_run_readiness"
+    }
+  ],
+  "scope": "Full declared retained experimental pools. Official-source subsets and procedural seeded pools are identified in source inventory; this is not a claim to cover every published benchmark variant."
+}

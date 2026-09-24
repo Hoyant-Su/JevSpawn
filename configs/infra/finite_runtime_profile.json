@@ -1,0 +1,294 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "run": "runs/common-jevspawn_reference_revision-noncoding-tp4-v1-001",
+  "output": "runs/finite-runtime-profile-001",
+  "result": "results/infra/finite_runtime_profile_001.json",
+  "task_file": "task-{index:05d}.json",
+  "rank_file": "rank{rank}-{phase}-{variant}.json",
+  "variants": [
+    "mixed"
+  ],
+  "reference_variant": "reference",
+  "candidate_variant": "mixed",
+  "caches": [
+    "base",
+    "state"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "mode": "tiled_shared",
+  "command": "profile_mixed_finite",
+  "workloads": {
+    "initial": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "reordered": [
+      [
+        7,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "new_nodes": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "branches": [
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        1
+      ]
+    ]
+  },
+  "phases": [
+    {
+      "name": "prime",
+      "workload": "initial",
+      "clear": true
+    },
+    {
+      "name": "cached_unprofiled",
+      "workload": "reordered",
+      "clear": false
+    },
+    {
+      "name": "cached_profiled",
+      "workload": "reordered",
+      "clear": false
+    },
+    {
+      "name": "fresh_profiled",
+      "workload": "new_nodes",
+      "clear": false
+    }
+  ],
+  "profile": {
+    "phases": [
+      "cached_profiled",
+      "fresh_profiled"
+    ],
+    "trace_file": "trace-rank{rank}-{phase}.json",
+    "scopes": {
+      "model": "finite.model",
+      "functions": {
+        "pack_native_caches": "finite.cache_pack",
+        "split_native_cache": "finite.cache_split"
+      }
+    },
+    "trace": {
+      "microseconds_per_ms": 1000,
+      "device_categories": [
+        "kernel",
+        "gpu_memcpy",
+        "gpu_memset"
+      ],
+      "unmatched_category": "other",
+      "kernel_groups": [
+        {
+          "name": "collectives",
+          "patterns": [
+            "nccl"
+          ]
+        },
+        {
+          "name": "matrix_projections",
+          "patterns": [
+            "gemm",
+            "gemv",
+            "matmul"
+          ]
+        },
+        {
+          "name": "gdn_chunk_and_state",
+          "patterns": [
+            "chunk_",
+            "gated_delta",
+            "wy_fast",
+            "solve_tril",
+            "cumsum"
+          ]
+        },
+        {
+          "name": "recurrent_delta_rule",
+          "patterns": [
+            "recurrent_gated_delta_rule"
+          ]
+        },
+        {
+          "name": "full_attention",
+          "patterns": [
+            "flash",
+            "fmha",
+            "attention"
+          ]
+        },
+        {
+          "name": "rms_normalization",
+          "patterns": [
+            "rms_kernel"
+          ]
+        },
+        {
+          "name": "gdn_gates",
+          "patterns": [
+            "gates_kernel"
+          ]
+        },
+        {
+          "name": "causal_convolution",
+          "patterns": [
+            "causal_conv"
+          ]
+        },
+        {
+          "name": "elementwise",
+          "patterns": [
+            "elementwise",
+            "silu"
+          ]
+        },
+        {
+          "name": "reductions",
+          "patterns": [
+            "reduce"
+          ]
+        },
+        {
+          "name": "copies_and_fills",
+          "patterns": [
+            "copy",
+            "memcpy",
+            "memset",
+            "fill",
+            "index",
+            "scatter"
+          ]
+        }
+      ],
+      "profile_steps": 1
+    }
+  },
+  "graph_variants": {}
+}

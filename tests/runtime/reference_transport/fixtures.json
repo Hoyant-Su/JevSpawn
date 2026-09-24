@@ -1,0 +1,7 @@
+[
+  {"$ref": 0, "$object": [["$ref", 1]], "values": [], "root": {}},
+  [{"$ref": 0}, {"$ref": 0}, {"$object": [["x", true]]}, {"$object": [["x", true]]}],
+  [true, 1, 1.0, false, 0, 0.0, -0.0, null, "1", "true"],
+  {"input": {"a": ["same", {"nested": "same"}], "b": ["same", {"nested": "same"}]}, "candidates": [{"id": "first", "value": ["same", {"nested": "same"}]}, {"id": "second", "value": ["same", {"nested": "same"}]}]},
+  {"unicode": "你好", "empty": [[], [], {}, {}, "", ""], "escaped": "line\n\"quote\"\\backslash"}
+]

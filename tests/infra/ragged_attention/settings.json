@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "dtype": "bfloat16",
+  "warmup": 3,
+  "repeats": 5,
+  "rtol": 0.02,
+  "atol": 0.02,
+  "cases": [
+    {"prefix_lengths": [5, 9], "suffix_lengths": [7, 3]},
+    {"prefix_lengths": [9, 3, 5, 7, 11, 4, 10, 2], "suffix_lengths": [1, 7, 3, 9, 2, 4, 5, 11]},
+    {"prefix_lengths": [4096, 8192, 2048, 6144, 8192, 2048, 4096, 8192], "suffix_lengths": [2048, 4096, 1024, 8192, 6144, 512, 2048, 8192]}
+  ],
+  "output": "results/infra/ragged_attention_047"
+}

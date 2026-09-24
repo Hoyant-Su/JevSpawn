@@ -1,0 +1,52 @@
+{
+  "session": "configs/environments/session.json",
+  "prompts": "environments.agentquest",
+  "feedback_prompts": "environments.robotouille",
+  "tool_name": "execute",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Complete sequence of action descriptions from the initial state, matching the official Valid Actions in each observation."
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  },
+  "source_root": "external/Robotouille-native-pinned",
+  "domain": "external/Robotouille-native-pinned/domain/robotouille.json"
+}

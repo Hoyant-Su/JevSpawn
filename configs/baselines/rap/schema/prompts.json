@@ -1,0 +1,6 @@
+{
+  "generate_system": "Continue the supplied worked-example prompt at its final unfinished question or answer. Produce only the continuation of that one line, without repeating the prefix or adding a new line. For an answer, conclude with The answer is followed by the numeric result and a period. The final problem asks for the numeric index of the correct option.",
+  "reward_system": "Judge whether the proposed subquestion helps solve the original question. Respond with exactly Yes or No.",
+  "question": "{state} {question} Options numbered by their indices: {options} What is the numeric index of the correct option?",
+  "answer_pattern": "The answer is\\s+([1-9][0-9]*)\\."
+}

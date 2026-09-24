@@ -1,0 +1,19 @@
+{
+  "scope": "Synthetic GPU kernel correctness only; no model inference or performance measurement",
+  "seed": 42,
+  "device": "cuda:0",
+  "num_warps": 4,
+  "paths": [[11, 21], [11, 22, 31], [12, 41], [12, 42, 51]],
+  "initial_prefixes": [[], [], [12], [11, 21]],
+  "initial_output": -1,
+  "base_score": 0.0,
+  "steps": [
+    [{"51": 100.0}, {"12": 2.0}, {"42": 2.0}, {"51": 100.0}],
+    [{"22": 2.0}, {"41": 2.0}, {"51": 2.0}, {"11": 100.0}],
+    [{"31": 2.0}, {"11": 100.0}, {"12": 100.0}, {}],
+    [{"51": 100.0}, {}, {}, {}]
+  ],
+  "expected_emissions": [[11, 22, 31], [12, 41], [42, 51], []],
+  "warmup_steps": 3,
+  "output": "results/qualification/token_transitions_synthetic.json"
+}

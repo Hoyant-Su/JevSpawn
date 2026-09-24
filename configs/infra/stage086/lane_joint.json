@@ -1,0 +1,65 @@
+{
+  "stage": "stage086_joint_control",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "ppnl",
+      "specification": "configs/experiments/native_screen/ppnl_jevspawn.json",
+      "run": "runs/native-joint-control-stage086/ppnl/joint",
+      "evaluation": "results/validation/native-joint-control-stage086/ppnl/joint.json",
+      "progress": "results/validation/native-joint-control-stage086/progress/ppnl_joint.json",
+      "log": "logs/qualification/native-joint-control-stage086-ppnl-joint.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_chunk_checkpoint/launch.sh",
+          "configs/infra/stage086/ppnl_joint.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-joint-control-stage086/ppnl/joint",
+          "--output",
+          "results/validation/native-joint-control-stage086/ppnl/joint.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-joint-control-stage086/lmrlgym_maze/joint",
+      "evaluation": "results/validation/native-joint-control-stage086/lmrlgym_maze/joint.json",
+      "progress": "results/validation/native-joint-control-stage086/progress/lmrlgym_maze_joint.json",
+      "log": "logs/qualification/native-joint-control-stage086-lmrlgym_maze-joint.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_chunk_checkpoint/launch.sh",
+          "configs/infra/stage086/lmrlgym_maze_joint.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-joint-control-stage086/lmrlgym_maze/joint",
+          "--output",
+          "results/validation/native-joint-control-stage086/lmrlgym_maze/joint.json"
+        ]
+      ]
+    }
+  ]
+}

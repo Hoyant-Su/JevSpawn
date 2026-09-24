@@ -1,0 +1,13 @@
+{
+  "config": "configs/jevspawn/typed_values.json",
+  "task": {"instruction": "Assign each field from its established domain.", "input": {}, "answer_schema": {"type": "object"}},
+  "root_path": ["answer"],
+  "schema": {"type": "object", "properties": {"left": {"type": "string"}, "right": {"type": "string"}}, "required": ["left", "right"], "additionalProperties": false},
+  "evidence": {"observation": "Independent fields have established domains."},
+  "members": ["amber", "cyan", "violet"],
+  "fields": [
+    {"name": "left", "excluded": ["amber"], "expected_candidates": ["cyan", "violet"], "expected": "violet"},
+    {"name": "right", "excluded": ["violet"], "expected_candidates": ["amber", "cyan"], "expected": "amber"}
+  ],
+  "barrier_timeout_seconds": 5
+}

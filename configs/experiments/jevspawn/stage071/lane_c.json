@@ -1,0 +1,120 @@
+{
+  "stage": "stage071_current_jevspawn_screen",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "autoplanbench",
+      "specification": "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/autoplanbench",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/autoplanbench.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/autoplanbench.json",
+      "log": "logs/qualification/native-jev-current-stage071-autoplanbench.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/autoplanbench_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/autoplanbench"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/autoplanbench",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/autoplanbench.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_lightsout",
+      "specification": "configs/experiments/native_screen/textarena_lightsout_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/textarena_lightsout",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/textarena_lightsout.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/textarena_lightsout.json",
+      "log": "logs/qualification/native-jev-current-stage071-textarena_lightsout.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/textarena_lightsout_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_lightsout"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_lightsout",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "textarena_sokoban",
+      "specification": "configs/experiments/native_screen/textarena_sokoban_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/textarena_sokoban",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/textarena_sokoban.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/textarena_sokoban.json",
+      "log": "logs/qualification/native-jev-current-stage071-textarena_sokoban.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/textarena_sokoban_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_sokoban"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/textarena_sokoban",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/textarena_sokoban.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_screen/korgym_2048_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/korgym_2048",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/korgym_2048.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/korgym_2048.json",
+      "log": "logs/qualification/native-jev-current-stage071-korgym_2048.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/korgym_2048_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_2048"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_2048",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/korgym_2048.json"
+        ]
+      ]
+    }
+  ]
+}

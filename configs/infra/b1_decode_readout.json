@@ -1,0 +1,11 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_row": 0,
+  "batch_size": 1,
+  "steps": 128,
+  "paired_repeats": 20,
+  "output": "results/infra/b1_decode_readout_001.json",
+  "stage_output": "configs/methods/structured_flow/b1-decode-stage.json",
+  "scope": "B1 native CUDA graph decode and matched one-step readout comparison on the same complete real prompt. Fixed-step decode intentionally ignores EOS for infrastructure measurement. No task accuracy or end-to-end speedup claim."
+}

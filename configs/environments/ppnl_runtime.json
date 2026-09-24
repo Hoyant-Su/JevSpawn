@@ -1,0 +1,59 @@
+{
+  "native_source": "external/PPNL/ICL/react.py",
+  "native_function": "execute",
+  "prompts": "environments.ppnl",
+  "start_marker": 2,
+  "success_status": 1,
+  "executed_slice_stop": {
+    "-1": -1,
+    "0": null,
+    "1": null,
+    "2": -1
+  },
+  "action_separator": " ",
+  "tool_name": "execute",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "serialization": {
+    "ensure_ascii": false
+  },
+  "session": "configs/environments/session.json",
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  }
+}

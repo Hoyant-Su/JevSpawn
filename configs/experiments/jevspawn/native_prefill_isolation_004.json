@@ -1,0 +1,33 @@
+{
+  "scope": "Exact turn13 prefill numerical comparison: FLA versus unwrapped native Torch GDN; callable code identities recorded",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "source_result": "results/qualification/native_continuation_equivalence_002/rank-0.json",
+  "diagnostic_turn": 13,
+  "modes": [
+    {
+      "name": "fla_without_cache",
+      "kernel": "fla",
+      "use_cache": false
+    },
+    {
+      "name": "fla_with_cache",
+      "kernel": "fla",
+      "use_cache": true
+    },
+    {
+      "name": "native_torch_without_cache",
+      "kernel": "torch_native",
+      "use_cache": false
+    },
+    {
+      "name": "native_torch_with_cache",
+      "kernel": "torch_native",
+      "use_cache": true
+    }
+  ],
+  "output": "results/qualification/native_prefill_isolation_004",
+  "serialization": {
+    "indent": 2
+  }
+}

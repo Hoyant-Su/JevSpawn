@@ -1,0 +1,291 @@
+{
+  "moves": [
+    {
+      "source": "src/baselines/test_resource_trials.py",
+      "destination": "tests/baselines/test_resource_trials.py",
+      "module": "tests.baselines.test_resource_trials"
+    },
+    {
+      "source": "src/methods/finite_constraints/qualify.py",
+      "destination": "tests/methods/finite_constraints/qualify.py",
+      "module": "tests.methods.finite_constraints.qualify"
+    },
+    {
+      "source": "src/methods/program_execution/qualify.py",
+      "destination": "tests/methods/program_execution/qualify.py",
+      "module": "tests.methods.program_execution.qualify"
+    },
+    {
+      "source": "src/methods/structured_flow/test_expression.py",
+      "destination": "tests/methods/structured_flow/test_expression.py",
+      "module": "tests.methods.structured_flow.test_expression"
+    },
+    {
+      "source": "src/methods/structured_flow/test_flow.py",
+      "destination": "tests/methods/structured_flow/test_flow.py",
+      "module": "tests.methods.structured_flow.test_flow"
+    },
+    {
+      "source": "src/methods/structured_flow/test_lexical.py",
+      "destination": "tests/methods/structured_flow/test_lexical.py",
+      "module": "tests.methods.structured_flow.test_lexical"
+    },
+    {
+      "source": "src/methods/structured_flow/test_grounded.py",
+      "destination": "tests/methods/structured_flow/test_grounded.py",
+      "module": "tests.methods.structured_flow.test_grounded"
+    },
+    {
+      "source": "src/methods/structured_flow/qualify_prefix_cache.py",
+      "destination": "tests/methods/structured_flow/qualify_prefix_cache.py",
+      "module": "tests.methods.structured_flow.qualify_prefix_cache"
+    },
+    {
+      "source": "src/methods/structured_flow/test_collection_refs.py",
+      "destination": "tests/methods/structured_flow/test_collection_refs.py",
+      "module": "tests.methods.structured_flow.test_collection_refs"
+    },
+    {
+      "source": "src/methods/structured_flow/test_deterministic.py",
+      "destination": "tests/methods/structured_flow/test_deterministic.py",
+      "module": "tests.methods.structured_flow.test_deterministic"
+    },
+    {
+      "source": "src/methods/structured_flow/test_grammar.py",
+      "destination": "tests/methods/structured_flow/test_grammar.py",
+      "module": "tests.methods.structured_flow.test_grammar"
+    },
+    {
+      "source": "src/baselines/lats/qualify.py",
+      "destination": "tests/baselines/lats/qualify.py",
+      "module": "tests.baselines.lats.qualify"
+    },
+    {
+      "source": "src/baselines/lats/test_common_interface.py",
+      "destination": "tests/baselines/lats/test_common_interface.py",
+      "module": "tests.baselines.lats.test_common_interface"
+    },
+    {
+      "source": "src/baselines/official_llmcompiler/qualify.py",
+      "destination": "tests/baselines/official_llmcompiler/qualify.py",
+      "module": "tests.baselines.official_llmcompiler.qualify"
+    },
+    {
+      "source": "src/baselines/official/qualify_choices.py",
+      "destination": "tests/baselines/official/qualify_choices.py",
+      "module": "tests.baselines.official.qualify_choices"
+    },
+    {
+      "source": "src/baselines/official/test_model_service.py",
+      "destination": "tests/baselines/official/test_model_service.py",
+      "module": "tests.baselines.official.test_model_service"
+    },
+    {
+      "source": "src/baselines/official_adv2/qualify.py",
+      "destination": "tests/baselines/official_adv2/qualify.py",
+      "module": "tests.baselines.official_adv2.qualify"
+    },
+    {
+      "source": "src/baselines/hiagent/qualify.py",
+      "destination": "tests/baselines/hiagent/qualify.py",
+      "module": "tests.baselines.hiagent.qualify"
+    },
+    {
+      "source": "src/baselines/agentprune/qualify_cpu.py",
+      "destination": "tests/baselines/agentprune/qualify_cpu.py",
+      "module": "tests.baselines.agentprune.qualify_cpu"
+    },
+    {
+      "source": "src/baselines/tool_agents/test_tools.py",
+      "destination": "tests/baselines/tool_agents/test_tools.py",
+      "module": "tests.baselines.tool_agents.test_tools"
+    },
+    {
+      "source": "src/baselines/latentmas/qualify.py",
+      "destination": "tests/baselines/latentmas/qualify.py",
+      "module": "tests.baselines.latentmas.qualify"
+    },
+    {
+      "source": "src/baselines/latentmas/qualify_batched.py",
+      "destination": "tests/baselines/latentmas/qualify_batched.py",
+      "module": "tests.baselines.latentmas.qualify_batched"
+    },
+    {
+      "source": "src/baselines/formal_choices/test_run.py",
+      "destination": "tests/baselines/formal_choices/test_run.py",
+      "module": "tests.baselines.formal_choices.test_run"
+    },
+    {
+      "source": "src/baselines/resource_budget/test_runner.py",
+      "destination": "tests/baselines/resource_budget/test_runner.py",
+      "module": "tests.baselines.resource_budget.test_runner"
+    },
+    {
+      "source": "src/baselines/formal_collections/qualify_inputs.py",
+      "destination": "tests/baselines/formal_collections/qualify_inputs.py",
+      "module": "tests.baselines.formal_collections.qualify_inputs"
+    },
+    {
+      "source": "src/baselines/foldagent/qualify.py",
+      "destination": "tests/baselines/foldagent/qualify.py",
+      "module": "tests.baselines.foldagent.qualify"
+    },
+    {
+      "source": "src/baselines/foldagent/qualify_tokenizer.py",
+      "destination": "tests/baselines/foldagent/qualify_tokenizer.py",
+      "module": "tests.baselines.foldagent.qualify_tokenizer"
+    },
+    {
+      "source": "src/baselines/official_react/qualify.py",
+      "destination": "tests/baselines/official_react/qualify.py",
+      "module": "tests.baselines.official_react.qualify"
+    },
+    {
+      "source": "src/baselines/dyflow/qualify.py",
+      "destination": "tests/baselines/dyflow/qualify.py",
+      "module": "tests.baselines.dyflow.qualify"
+    },
+    {
+      "source": "src/baselines/dyflow/test_interface.py",
+      "destination": "tests/baselines/dyflow/test_interface.py",
+      "module": "tests.baselines.dyflow.test_interface"
+    },
+    {
+      "source": "src/baselines/dyflow/test_common_interface.py",
+      "destination": "tests/baselines/dyflow/test_common_interface.py",
+      "module": "tests.baselines.dyflow.test_common_interface"
+    },
+    {
+      "source": "src/baselines/rap/qualify.py",
+      "destination": "tests/baselines/rap/qualify.py",
+      "module": "tests.baselines.rap.qualify"
+    },
+    {
+      "source": "src/baselines/common/test_scheduler.py",
+      "destination": "tests/baselines/common/test_scheduler.py",
+      "module": "tests.baselines.common.test_scheduler"
+    },
+    {
+      "source": "src/baselines/common/qualify_cache_arena.py",
+      "destination": "tests/baselines/common/qualify_cache_arena.py",
+      "module": "tests.baselines.common.qualify_cache_arena"
+    },
+    {
+      "source": "src/methods/request_routing/check.py",
+      "destination": "tests/methods/request_routing/check.py",
+      "module": "tests.methods.request_routing.check"
+    },
+    {
+      "source": "src/methods/source_sets/check.py",
+      "destination": "tests/methods/source_sets/check.py",
+      "module": "tests.methods.source_sets.check"
+    },
+    {
+      "source": "src/methods/source_interfaces/check.py",
+      "destination": "tests/methods/source_interfaces/check.py",
+      "module": "tests.methods.source_interfaces.check"
+    },
+    {
+      "source": "src/methods/source_interfaces/diagnose.py",
+      "destination": "tests/methods/source_interfaces/diagnose.py",
+      "module": "tests.methods.source_interfaces.diagnose"
+    },
+    {
+      "source": "src/methods/latent_readout/check.py",
+      "destination": "tests/methods/latent_readout/check.py",
+      "module": "tests.methods.latent_readout.check"
+    },
+    {
+      "source": "src/methods/evidence_interfaces/check.py",
+      "destination": "tests/methods/evidence_interfaces/check.py",
+      "module": "tests.methods.evidence_interfaces.check"
+    },
+    {
+      "source": "src/methods/hallucination_localization/check.py",
+      "destination": "tests/methods/hallucination_localization/check.py",
+      "module": "tests.methods.hallucination_localization.check"
+    },
+    {
+      "source": "src/methods/evidence_qa/check.py",
+      "destination": "tests/methods/evidence_qa/check.py",
+      "module": "tests.methods.evidence_qa.check"
+    },
+    {
+      "source": "src/baselines/latentmas/check_padding_gpu.py",
+      "destination": "tests/baselines/latentmas/check_padding_gpu.py",
+      "module": "tests.baselines.latentmas.check_padding_gpu"
+    },
+    {
+      "source": "src/baselines/latentmas/diagnose_first_role.py",
+      "destination": "tests/baselines/latentmas/diagnose_first_role.py",
+      "module": "tests.baselines.latentmas.diagnose_first_role"
+    },
+    {
+      "source": "src/baselines/latentmas/check_padding_chunks.py",
+      "destination": "tests/baselines/latentmas/check_padding_chunks.py",
+      "module": "tests.baselines.latentmas.check_padding_chunks"
+    },
+    {
+      "source": "src/baselines/latentmas/check_deadline_delivery.py",
+      "destination": "tests/baselines/latentmas/check_deadline_delivery.py",
+      "module": "tests.baselines.latentmas.check_deadline_delivery"
+    },
+    {
+      "source": "src/baselines/common/profile_tail.py",
+      "destination": "tests/baselines/common/profile_tail.py",
+      "module": "tests.baselines.common.profile_tail"
+    },
+    {
+      "source": "src/baselines/common/profile_service.py",
+      "destination": "tests/baselines/common/profile_service.py",
+      "module": "tests.baselines.common.profile_service"
+    },
+    {
+      "source": "src/baselines/common/profile_rolling.py",
+      "destination": "tests/baselines/common/profile_rolling.py",
+      "module": "tests.baselines.common.profile_rolling"
+    },
+    {
+      "source": "src/baselines/common/profile_norm.py",
+      "destination": "tests/baselines/common/profile_norm.py",
+      "module": "tests.baselines.common.profile_norm"
+    },
+    {
+      "source": "src/baselines/common/profile_stops.py",
+      "destination": "tests/baselines/common/profile_stops.py",
+      "module": "tests.baselines.common.profile_stops"
+    },
+    {
+      "source": "src/baselines/common/check_readout.py",
+      "destination": "tests/baselines/common/check_readout.py",
+      "module": "tests.baselines.common.check_readout"
+    },
+    {
+      "source": "src/baselines/common/profile_decode.py",
+      "destination": "tests/baselines/common/profile_decode.py",
+      "module": "tests.baselines.common.profile_decode"
+    }
+  ],
+  "shared_helpers": [
+    "baselines/official/phases.py",
+    "baselines/lats/stages.py",
+    "baselines/latentmas/io.py"
+  ],
+  "retained_real_runners": [
+    {
+      "path": "src/infra/benchmark_server.py",
+      "reason": "Real HTTP model endpoint workload and measured server latency; no mocked model or synthetic output."
+    }
+  ],
+  "checks": {
+    "all_relocated_files_parse": true,
+    "production_imports_tests": false,
+    "active_qualification_processes_before_move": [],
+    "instances_checked": [
+      "v26-v0812-4-core",
+      "v26-0813-4-core",
+      "v26-0816-4-core"
+    ],
+    "lats_fixture": "tests/fixtures/baselines/lats/common_interface.json"
+  }
+}

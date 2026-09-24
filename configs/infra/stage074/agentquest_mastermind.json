@@ -1,0 +1,21 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "specification": "configs/experiments/native_screen/agentquest_mastermind_jevspawn.json",
+  "run_output": "runs/native-execution-context-stage074/agentquest_mastermind",
+  "entrypoint": "tests/infra/native_state_context/rollout.py",
+  "context_view": {
+    "compiler_payload_fields": [
+      "declaration",
+      "proposed_declaration",
+      "source_signatures"
+    ],
+    "prompt": "jevspawn.state.execution_history_format"
+  }
+}

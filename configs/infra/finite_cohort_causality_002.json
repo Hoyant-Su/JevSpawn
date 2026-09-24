@@ -1,0 +1,69 @@
+{
+  "source_run": "runs/common-jevspawn-mixed-scheduling-cohort-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "batches_glob": "session-*/batches.json",
+  "input_directory": "finite-inputs",
+  "input_glob": "cohort-*.json",
+  "output": "runs/finite-cohort-causality-002",
+  "result": "results/infra/finite_cohort_causality_002.json",
+  "rank_file": "{workload}-{mode}-{phase}-rank{rank}.json",
+  "variants": {
+    "stable": "stable"
+  },
+  "caches": [
+    "base",
+    "state"
+  ],
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  },
+  "graph_shape": {
+    "batch_buckets": [
+      1,
+      8
+    ]
+  },
+  "command": "finite_cohort_causality",
+  "timing_scope": "Exact first recorded eight-request cohort. Cold instrumentation includes initialization/compilation, GPU kernels and graph capture. Two unprofiled repeats separate warm-kernel uncached work from resident-prefix work. This is a diagnostic workload, not an end-to-end task speed result.",
+  "variant": "stable",
+  "cohort_indices": [
+    0
+  ],
+  "tuning_settings": "configs/jevspawn/kernel_tuning.json",
+  "cache_directory": "records/infra/kernel_tuning_001",
+  "cache_file": "rank{rank}.json",
+  "mode": "restore",
+  "phases": [
+    "warm",
+    "measured"
+  ],
+  "modes": [
+    "independent",
+    "stable"
+  ],
+  "workloads": [
+    {
+      "name": "original_first",
+      "source_run": "runs/common-jevspawn_shared_domain_revision_stable-noncoding-tp4-v1-001",
+      "cohort": 0
+    },
+    {
+      "name": "tuned_first",
+      "source_run": "runs/common-jevspawn_revision-tuned-noncoding-tp4-v1-001",
+      "cohort": 0
+    },
+    {
+      "name": "original_bright",
+      "source_run": "runs/common-jevspawn_shared_domain_revision_stable-noncoding-tp4-v1-001",
+      "cohort": 7
+    },
+    {
+      "name": "tuned_bright",
+      "source_run": "runs/common-jevspawn_revision-tuned-noncoding-tp4-v1-001",
+      "cohort": 7
+    }
+  ]
+}

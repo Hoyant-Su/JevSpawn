@@ -1,0 +1,13 @@
+{
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "source_inputs": "runs/infra-race-finite-profile-002/exact_inputs.json",
+  "source_rows": [0, 1, 2],
+  "selected_rows": [2, 0],
+  "inspect_steps": [0, 31],
+  "padding_side": "left",
+  "num_splits": 1,
+  "invalid_key_value": 31.0,
+  "invalid_value_value": -31.0,
+  "output": "results/infra/attention_batch_001.json",
+  "scope": "Real batched left-padded prompt cache; validate explicit valid context, selected row identities, and exclusion of poisoned padding/future positions. This is operator qualification, not a full continuous-refill or task-quality test."
+}

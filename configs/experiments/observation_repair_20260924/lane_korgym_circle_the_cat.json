@@ -1,0 +1,79 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "qualification",
+  "world_size": 4,
+  "instance": "v26-v0709-4-core",
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/observation_repair_20260924/korgym_circle_the_cat_jevspawn.json",
+      "run": "runs/observation-repair-20260924/korgym_circle_the_cat/jevspawn",
+      "evaluation": "results/validation/observation_repair_20260924/korgym_circle_the_cat/jevspawn.json",
+      "method": "jevspawn",
+      "progress": "results/validation/observation_repair_20260924/korgym_circle_the_cat/jevspawn_progress.json",
+      "log": "logs/observation_repair_20260924/korgym_circle_the_cat/jevspawn.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/observation_repair_20260924/korgym_circle_the_cat_jevspawn.json",
+          "--output",
+          "runs/observation-repair-20260924/korgym_circle_the_cat/jevspawn",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/observation-repair-20260924/korgym_circle_the_cat/jevspawn",
+          "--output",
+          "results/validation/observation_repair_20260924/korgym_circle_the_cat/jevspawn.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/observation_repair_20260924/korgym_circle_the_cat_react.json",
+      "run": "runs/observation-repair-20260924/korgym_circle_the_cat/react",
+      "evaluation": "results/validation/observation_repair_20260924/korgym_circle_the_cat/react.json",
+      "method": "react",
+      "progress": "results/validation/observation_repair_20260924/korgym_circle_the_cat/react_progress.json",
+      "log": "logs/observation_repair_20260924/korgym_circle_the_cat/react.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/observation_repair_20260924/korgym_circle_the_cat_react.json",
+          "--output",
+          "runs/observation-repair-20260924/korgym_circle_the_cat/react",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/observation-repair-20260924/korgym_circle_the_cat/react",
+          "--output",
+          "results/validation/observation_repair_20260924/korgym_circle_the_cat/react.json"
+        ]
+      ]
+    }
+  ]
+}

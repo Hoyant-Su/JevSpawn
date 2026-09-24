@@ -1,0 +1,53 @@
+{
+  "protocol_file": "protocol.json",
+  "completion_file": "completion.json",
+  "task_file": "task-{index:05d}.json",
+  "batch_glob": "session-*/batches.json",
+  "next_index": 1,
+  "indent": 2,
+  "text_operation": "text",
+  "finite_operation": "finite",
+  "finite_components": [
+    "prefix_seconds",
+    "suffix_prefill_seconds",
+    "cache_load_seconds",
+    "graph_replay_seconds",
+    "capture_seconds",
+    "readout_seconds"
+  ],
+  "timing": {
+    "batch_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "session_glob": "session-*",
+    "files": {
+      "completion": "completion.json",
+      "runtime": "runtime.json",
+      "batches": "batches.json",
+      "elapsed": "elapsed.json"
+    },
+    "scope": "Measured autoregressive token intervals grouped by actual GPU batch size; model loading separate. Task lifecycles include queueing and tools."
+  },
+  "metric_definitions": {
+    "task_latency": "Admission through completed answer or recorded failure, including inference, queueing, and tools. All tasks remain in the denominator.",
+    "finite_request_to_delivery": "Native finite request submission through actual future delivery; includes input processing, queue, GPU compute and delivery. Only saved finite decision traces contribute.",
+    "sequential_inter_decision": "Successive finite result delivery times within a sequential action episode; includes the intervening native environment transition. No division by batch size.",
+    "finite_components": "Actual batch GPU stage timings. Graph replay is reported separately from input prefill and capture; it is not automatically a per-decision latency.",
+    "ordinary_itl": "Adjacent autoregressive token timestamps for each output row, grouped by actual batch size. No decision-to-token conversion.",
+    "quality": "Original task metric, with failed trajectories retained and assigned the configured failure score."
+  },
+  "run": "runs/action-tasks-maze_finite-001",
+  "output": "results/qualification/action_tasks/maze_finite.json",
+  "scorer": {
+    "class": "environments.maze_evaluation.MazeScorer",
+    "settings": "configs/data/maze/evaluation.json"
+  },
+  "references": "data/environments/maze/tasks.jsonl"
+}

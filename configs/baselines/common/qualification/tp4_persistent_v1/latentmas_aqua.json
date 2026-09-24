@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "tasks": "data/baselines/common/qualification/tp4_persistent_v1/aqua.jsonl",
+  "task_count": 8,
+  "method": "configs/baselines/common/methods/latentmas_native_segments_tp.json",
+  "environment": "configs/baselines/common/environment.json"
+}

@@ -1,0 +1,4 @@
+{
+  "operator_fixture": "tests/runtime/ragged_gdn/fixtures.json",
+  "projection_names": ["mixed_qkv", "z", "b", "a"]
+}

@@ -1,0 +1,25 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "patch": {
+    "score_fences": 4,
+    "tail_fences": 3,
+    "suffix_fences": 3
+  },
+  "specification": "tests/infra/native_rollout_profile/config/ppnl_8_spec.json",
+  "run_output": "runs/native-finite-fences-stage068-ppnl8-reference",
+  "entrypoint": "tests/infra/native_finite_fences/rollout.py",
+  "remove_timing_fences": false,
+  "work_timing_fields": [
+    "suffix_pack_seconds",
+    "suffix_forward_seconds",
+    "suffix_split_seconds"
+  ],
+  "component_timing_scope": "Host wall intervals without device completion fences; not GPU component execution times."
+}

@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "foldagent",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "foldagent",
+      "dataset": "plancraft",
+      "specification": "configs/experiments/native_baselines/feedback_20260924/foldagent_plancraft.json",
+      "run": "runs/native-baselines-feedback-20260924/foldagent/plancraft",
+      "evaluation": "results/native_baselines/feedback_20260924/foldagent/plancraft.json",
+      "progress": "results/native_baselines/feedback_20260924/progress/foldagent_plancraft.json",
+      "log": "logs/native_baselines/feedback-20260924-foldagent-plancraft.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/feedback_20260924/foldagent_plancraft.json",
+          "--output",
+          "runs/native-baselines-feedback-20260924/foldagent/plancraft",
+          "--devices",
+          "4,5,6,7",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-feedback-20260924/foldagent/plancraft",
+          "--output",
+          "results/native_baselines/feedback_20260924/foldagent/plancraft.json"
+        ]
+      ]
+    }
+  ]
+}

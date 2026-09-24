@@ -1,0 +1,33 @@
+{
+  "scope": "Teacher-forced recorded real tool feedback: continued static hybrid cache versus fresh exact-token history",
+  "tasks": "data/qualification/finite_cache/maze.jsonl",
+  "environment": "configs/baselines/common/environment.json",
+  "maze_configuration": "configs/data/maze/runtime.json",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "prompts": "qualification.native_action_stream",
+  "output": "results/qualification/native_continuation_equivalence_002",
+  "terminator": "eos_token_id",
+  "stream": {
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "transition": {
+      "num_warps": 4
+    }
+  },
+  "serialization": {
+    "ensure_ascii": false,
+    "indent": 2
+  },
+  "feedback_prompts": "qualification.native_action_feedback",
+  "source_result": "results/qualification/native_action_loop_001/rank-0.json",
+  "source_variant": "full_head",
+  "diagnostic_turns": [
+    13
+  ],
+  "diagnostic_repeats": 2,
+  "source_comparison_result": "results/qualification/native_continuation_equivalence_001/rank-0.json"
+}

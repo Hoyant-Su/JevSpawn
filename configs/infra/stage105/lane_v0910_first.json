@@ -1,0 +1,79 @@
+{
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "stage": "stage105_production_history_rollout",
+  "world_size": 4,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "instance": "v26-0910-8-core",
+  "entries": [
+    {
+      "dataset": "textarena_lightsout",
+      "method": "production_history",
+      "specification": "configs/infra/stage105/textarena_lightsout_spec.json",
+      "run": "runs/production-history-stage105/textarena_lightsout",
+      "evaluation": "results/validation/production-history-stage105/textarena_lightsout.json",
+      "progress": "results/validation/production-history-stage105/progress/textarena_lightsout.json",
+      "log": "logs/qualification/production-history-stage105/textarena_lightsout.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/infra/stage105/textarena_lightsout_spec.json",
+          "--output",
+          "runs/production-history-stage105/textarena_lightsout",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/production-history-stage105/textarena_lightsout",
+          "--output",
+          "results/validation/production-history-stage105/textarena_lightsout.json"
+        ]
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "method": "production_history",
+      "specification": "configs/infra/stage105/korgym_nullify_spec.json",
+      "run": "runs/production-history-stage105/korgym_nullify",
+      "evaluation": "results/validation/production-history-stage105/korgym_nullify.json",
+      "progress": "results/validation/production-history-stage105/progress/korgym_nullify.json",
+      "log": "logs/qualification/production-history-stage105/korgym_nullify.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/infra/stage105/korgym_nullify_spec.json",
+          "--output",
+          "runs/production-history-stage105/korgym_nullify",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/production-history-stage105/korgym_nullify",
+          "--output",
+          "results/validation/production-history-stage105/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

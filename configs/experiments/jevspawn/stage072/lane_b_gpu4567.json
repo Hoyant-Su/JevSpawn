@@ -1,0 +1,65 @@
+{
+  "stage": "stage072_observed_fields",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=4,5,6,7",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_screen/agentquest_mastermind_jevspawn.json",
+      "run": "runs/native-observed-fields-stage072/agentquest_mastermind",
+      "evaluation": "results/validation/native-observed-fields-stage072/agentquest_mastermind.json",
+      "progress": "results/validation/native-observed-fields-stage072/progress/agentquest_mastermind.json",
+      "log": "logs/qualification/native-observed-fields-stage072-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/experiments/jevspawn/stage072/agentquest_mastermind_gpu4567.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observed-fields-stage072/agentquest_mastermind",
+          "--output",
+          "results/validation/native-observed-fields-stage072/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_screen/agentquest_sudoku_jevspawn.json",
+      "run": "runs/native-observed-fields-stage072/agentquest_sudoku",
+      "evaluation": "results/validation/native-observed-fields-stage072/agentquest_sudoku.json",
+      "progress": "results/validation/native-observed-fields-stage072/progress/agentquest_sudoku.json",
+      "log": "logs/qualification/native-observed-fields-stage072-agentquest_sudoku.log",
+      "commands": [
+        [
+          "bash",
+          "tests/infra/native_direct_finite/launch.sh",
+          "configs/experiments/jevspawn/stage072/agentquest_sudoku_gpu4567.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-observed-fields-stage072/agentquest_sudoku",
+          "--output",
+          "results/validation/native-observed-fields-stage072/agentquest_sudoku.json"
+        ]
+      ]
+    }
+  ]
+}

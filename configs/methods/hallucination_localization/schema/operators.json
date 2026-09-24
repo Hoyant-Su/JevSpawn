@@ -1,0 +1,20 @@
+{
+  "options": [
+    {
+      "id": "supported",
+      "description": "This whole span is supported by the reference or contains no factual claim requiring support."
+    },
+    {
+      "id": "hallucinated",
+      "description": "Mark this span as hallucinated because it expresses unsupported or contradictory information."
+    },
+    {
+      "id": "refine",
+      "description": "Split this span into smaller parts and evaluate them separately."
+    }
+  ],
+  "terminal_ids": [
+    "supported",
+    "hallucinated"
+  ]
+}

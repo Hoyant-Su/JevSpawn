@@ -1,0 +1,32 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "sources": [
+    "results/infra/native-rollout-stage059-roots1/rank0-batch1.json",
+    "results/infra/native-rollout-stage059-roots8/rank0-batch1.json"
+  ],
+  "repetitions": 5,
+  "output": "results/infra/native-finite-fences-stage068",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "service": "configs/inference/shared_service.json",
+  "patch": {
+    "score_fences": 4,
+    "tail_fences": 3,
+    "suffix_fences": 3
+  },
+  "patch_order": [
+    "score_fences",
+    "tail_fences",
+    "suffix_fences"
+  ],
+  "arms": [
+    "reference",
+    "unfenced"
+  ],
+  "entrypoint": "tests/infra/native_finite_fences/qualify.py"
+}

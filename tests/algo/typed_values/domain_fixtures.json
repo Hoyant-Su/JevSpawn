@@ -1,0 +1,44 @@
+{
+  "config": "configs/jevspawn/typed_values.json",
+  "task": {
+    "instruction": "Return the selected material from the supplied catalog.",
+    "input": {
+      "opaque_catalog": "Materials: `copper`, `ceramic`, `basalt`\nSizes: `small`, `large`\n"
+    },
+    "answer_schema": {
+      "type": "string"
+    }
+  },
+  "schema": {
+    "type": "string"
+  },
+  "path": [
+    "result"
+  ],
+  "evidence": {},
+  "expected": "ceramic",
+  "domain_members": [
+    "copper",
+    "ceramic",
+    "basalt"
+  ],
+  "unseen_input": {
+    "other_key": [
+      "silk",
+      "cotton"
+    ]
+  },
+  "unseen_members": [
+    "silk",
+    "cotton"
+  ],
+  "fenced_text": "```python\nvalue = 3\n```\n",
+  "model_evidence": false
+  ,"array_task": {
+    "instruction": "Select the supplied coordinate pair.",
+    "input": "Coordinates: [40.7128, -74.0060] and [34.0522, -118.2437]",
+    "answer_schema": {"type": "array", "items": {"type": "number"}}
+  },
+  "array_schema": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+  "array_expected": [34.0522, -118.2437]
+}

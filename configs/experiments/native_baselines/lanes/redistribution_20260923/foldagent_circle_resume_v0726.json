@@ -1,0 +1,207 @@
+{
+  "stage": "qualification_then_formal",
+  "method": "foldagent",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/screen/agentquest_sudoku_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/screen/foldagent/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/foldagent/agentquest_sudoku.json",
+      "log": "logs/native_baselines/screen-foldagent-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/agentquest_sudoku_foldagent.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/screen/foldagent/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "agentquest_sudoku",
+      "specification": "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+      "evaluation": "results/native_baselines/formal/foldagent/agentquest_sudoku.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/agentquest_sudoku.json",
+      "log": "logs/native_baselines/formal-foldagent-agentquest_sudoku.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/agentquest_sudoku_foldagent.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/agentquest_sudoku",
+          "--output",
+          "results/native_baselines/formal/foldagent/agentquest_sudoku.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/screen/korgym_2048_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/screen/foldagent/korgym_2048.json",
+      "progress": "results/native_baselines/progress/foldagent/korgym_2048.json",
+      "log": "logs/native_baselines/screen-foldagent-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/korgym_2048_foldagent.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_2048",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_2048",
+          "--output",
+          "results/native_baselines/screen/foldagent/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_2048",
+      "specification": "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_2048.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/korgym_2048.json",
+      "log": "logs/native_baselines/formal-foldagent-korgym_2048.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_2048_foldagent.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_2048",
+          "--output",
+          "results/native_baselines/formal/foldagent/korgym_2048.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/screen/korgym_circle_the_cat_foldagent.json",
+      "run": "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/screen/foldagent/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/foldagent/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/screen-foldagent-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/screen/korgym_circle_the_cat_foldagent.json",
+          "--output",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-screen-20260923/foldagent/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/screen/foldagent/korgym_circle_the_cat.json"
+        ]
+      ]
+    },
+    {
+      "method": "foldagent",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/formal/korgym_circle_the_cat_foldagent.json",
+      "run": "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/formal/foldagent/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/progress/formal/foldagent/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/formal-foldagent-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/formal/korgym_circle_the_cat_foldagent.json",
+          "--output",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-formal-20260923/foldagent/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/formal/foldagent/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ]
+}

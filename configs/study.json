@@ -1,0 +1,899 @@
+{
+  "question": "Can inference-only finite-decision execution reduce latency and memory in bounded agent workloads while preserving task quality under matched budgets?",
+  "model": "Qwen/Qwen3.5-4B",
+  "primary_scope_revision": {
+    "date": "2026-09-18",
+    "question": "Can structured information flow improve quality versus time and memory for a single task requiring dependent reasoning over finite states, constraints, actions, or acquired evidence?",
+    "current_evidence": "BRIGHT is the only implemented external document collection task. Its current independent document scoring and ranking does not establish dependent evidence reasoning. Other supplied-context tasks remain execution controls or capability measurements.",
+    "stage_boundary": "Lexical stage active. Evaluate the same original eight development tasks against direct and identical finalizer-only controls. Preserve typed-stage rejection. No additional algorithm branch until this declared stage yields its required evidence.",
+    "task_selection": "Select tasks by original multistep reasoning requirements, not by observed method rankings or context length alone. Evidence acquisition is one task family. Finite constraint states and action transitions are also eligible. Preserve original labels, splits and negative results. Do not manufacture complexity by withholding information from only one method.",
+    "primary_comparison": "Use identical original queries, accessible corpus, evidence tools, model weights, precision, context capacity and hardware. Measure one root task at a time with the same declared live model-request cap. Charge planning, retrieval, tool work, inter-stage execution and final aggregation to request-to-answer latency. Report startup separately.",
+    "resource_frontier": "Separately compare quality at common wall-time deadlines and throughput under common device-memory ceilings. Tune allowed concurrency on development tasks using the same search budget. Freeze settings before evaluation; do not equate fixed concurrency with each method's maximum throughput.",
+    "quality": "Report original task quality, evidence quality, completion rate and time jointly. A shared deadline defines a budgeted quality comparison; accuracy from unequal intrinsic method budgets is not an equal-budget result. Faster execution alone does not establish preserved quality.",
+    "controls": "Retain direct answering where the input fits, retrieval plus a single answering agent, efficient batched independent decisions, and published agent methods. For constraint tasks include same-model symbolic compilation followed by an exact solver. Trusted gold symbolic constraints, if available, define an oracle reference, not an equal-input comparator. Identify execution ablations separately from method comparisons. Never truncate only a comparator to force a speed advantage.",
+    "prefix_reuse_boundary": "Current tiled_shared finds the longest exact common token prefix across all fields of each root inside one score_fields call, prefills it once and reuses it across physical tiles. It does not build a hierarchical trie for subgroup prefixes, persist caches across calls or rounds, or share all cache storage across live branches. Qwen attention, convolution and recurrent state are forked per live branch. No claim of maximal prefix reuse or zero incremental branch memory is supported.",
+    "completed_scaling_decision": "Frozen generated relevance program at1024 documents per root is rejected as superior retrieval: mean nDCG0.163117 versus direct finite relevance0.278871, complete model plus fresh compilation22.349s versus direct16.123s, and no peak memory advantage. This remains a negative development result, not a benchmark selection criterion.",
+    "retained_data_inventory": "results/dataset_inventory.json",
+    "data_acquisition": "Frozen at the existing thirteen prepared datasets. No existing data or results are discarded. Additional prepared tasks do not invalidate completed execution or coding experiments.",
+    "active_method_stage": "configs/methods/structured_flow/lexical-stage.json",
+    "completed_formal_baseline": {
+      "method": "LLMCompiler",
+      "dataset": "AQuA",
+      "tasks": 254,
+      "correct": 174,
+      "evaluation": "runs/official-compiler-aqua-test-001/evaluation.json"
+    },
+    "completed_constraint_decision": "Conditional finite constraint stage completed and rejected, zero of eight complete solutions. Fixed-table soft MAP diagnostic solves one of eight. Preserve these results as failure analysis, not quality-preserving acceleration.",
+    "completed_formal_baselines": [
+      {
+        "method": "LLMCompiler",
+        "dataset": "AQuA",
+        "tasks": 254,
+        "correct": 174,
+        "evaluation": "runs/official-compiler-aqua-test-001/evaluation.json"
+      },
+      {
+        "method": "ReAct",
+        "dataset": "AQuA",
+        "tasks": 254,
+        "correct": 217,
+        "evaluation": "runs/official-react-aqua-test-001/evaluation.json"
+      },
+      {
+        "method": "LatentMAS",
+        "dataset": "AQuA",
+        "tasks": 254,
+        "correct": 204,
+        "evaluation": "runs/baselines/latentmas/runs/formal-aqua254-001/summary.json",
+        "latency_qualification": "One measured298.463ms inter-token interval exceeds100ms."
+      }
+    ],
+    "completed_graph_decision": {
+      "run": "runs/structured-flow-development-001",
+      "strict_valid_graph_answers": 0,
+      "strict_valid_direct_answers": 1,
+      "tasks_per_method": 8,
+      "classification": "runs/structured-flow-development-001/failure_classification.json",
+      "decision": "Rejected. Most failures are interface formatting, not evidence that every underlying answer is semantically incorrect."
+    },
+    "completed_typed_graph_decision": {
+      "status": "completed_rejected",
+      "protocol": "configs/methods/structured_flow/typed-stage.json",
+      "run": "runs/structured-flow-typed-development-27b-001",
+      "next_stage": "Lexical program qualification launched on restored v26-v0812-4-core GPU1. See configs/methods/structured_flow/lexical-stage.json."
+    }
+  },
+  "datasets": [
+    {
+      "name": "SQuAD2 answerability",
+      "evaluation": "512 fixed original paragraphs; all associated questions retained",
+      "role": "Multi-field shared-prefix workload; existing full-dev results retained separately"
+    },
+    {
+      "name": "RACE-middle",
+      "evaluation": "Complete official validation split",
+      "role": "Native multi-question, four-choice reading comprehension"
+    },
+    {
+      "name": "AQuA-RAT",
+      "evaluation": "Official test, 254 questions",
+      "development": "Official dev",
+      "role": "Mathematics, five-choice, single-field negative control"
+    },
+    {
+      "name": "PubMedQA",
+      "evaluation": "Official test IDs, 500 questions",
+      "development": "Other manually labeled IDs",
+      "role": "Biomedical abstract evidence, yes/no/maybe, single-field negative control"
+    },
+    {
+      "name": "SciFact",
+      "evaluation": "300 official dev claims against their cited abstracts",
+      "development": "Official train claims",
+      "role": "Scientific/biomedical evidence classification; explicitly a cited-abstract subtask"
+    },
+    {
+      "name": "HumanEval",
+      "evaluation": "All 164 function-generation tasks",
+      "role": "Coding workflow; held-out sandbox tests"
+    },
+    {
+      "name": "MBPP",
+      "evaluation": "Official 500-task test split",
+      "role": "Coding workflow with the declared one-example prompt variant"
+    },
+    {
+      "name": "ProcessBench GSM8K",
+      "evaluation": "All 400 original solutions; exact earliest-error location and official harmonic score",
+      "development": "First 16 from the separate MATH subset",
+      "role": "Native multi-step mathematical verification; independent step fields collapsed to earliest error and compared with direct earliest-error selection. Unlabeled later steps are masked for local accuracy."
+    }
+  ],
+  "shared_controls": {
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "kernel": "fla",
+    "batch_size_per_gpu": 8,
+    "world_size_primary": 1,
+    "max_input_tokens": 8192,
+    "seed": 42,
+    "cpu_threads": 8,
+    "do_sample": false,
+    "temperature": 0,
+    "timing_repeats": 3,
+    "context_truncation": false,
+    "candidate_order": "Original dataset order",
+    "output_budget_structured": 128,
+    "warmup_complete_passes": 1
+  },
+  "timing": {
+    "primary": "Same exact task batches and configuration within a hardware block; record all controls, realized batch sizes, token counts, model calls, and hardware.",
+    "replication": "Three whole-workload timing repetitions; method order counterbalanced within batch and repetition. Sample-quality intervals resample original paragraphs/tasks, not individual questions as independent units.",
+    "cold_start": "Reported separately from warm compute; include model load and warmup when claiming application startup latency.",
+    "generation": "Record per-request first-token latency and inter-token delivery/decode intervals. Investigate any run with intervals above 100 ms before using it as a speed baseline. Never equate TTFT/prefill to inter-token latency.",
+    "structured": "No output tokens; use decision latency and throughput, not invented token throughput.",
+    "memory": "Maximum allocated and reserved bytes per GPU; also device process memory for cross-engine comparisons. Do not sum asynchronous per-GPU peaks.",
+    "warmup": "Run every exact batch once per method before measured repetitions to avoid shape-specific first-use compilation entering warm comparisons."
+  },
+  "tables": [
+    {
+      "id": "T1",
+      "question": "Does acceleration generalize across native structured tasks?",
+      "design": "Five structured datasets x independent/shared/streamed/compact JSON and efficient-engine generation; accuracy, macro-F1, latency, peak memory, invalid outputs."
+    },
+    {
+      "id": "T2",
+      "question": "Which execution component causes the saving?",
+      "design": "Prefix reuse off/on x selected/full vocabulary projection at matched arithmetic precision; retained-layer versus streamed cache; identical prompts and predictions compared."
+    },
+    {
+      "id": "T3",
+      "question": "When does the method stop helping?",
+      "design": "Batch sizes 1/4/8/16, original field-count and context-length strata, branch tiles 16/64/128. Real task subsets; no cloned inputs or fabricated fields."
+    },
+    {
+      "id": "T4",
+      "question": "How does it scale under matched resources?",
+      "design": "One/two/four GPUs, warm/cold timing, fixed per-GPU and separately fixed global batch experiments; every pair has identical hardware and task IDs."
+    },
+    {
+      "id": "T5",
+      "question": "How stable and reliable are categorical outputs?",
+      "design": "Original and cyclic option orderings with labels remapped; paired disagreements, macro-F1, Brier/ECE, truncation and invalid outputs, class/field-count strata."
+    },
+    {
+      "id": "T6",
+      "question": "Does controller efficiency improve complete agent workflows?",
+      "design": "Same-model single agent, ReAct, LLMCompiler, and a source-faithful recent efficiency baseline where compatible; compare original and Jev-controlled versions with matched tools and budgets. Code/math/evidence tasks reported separately."
+    },
+    {
+      "id": "T7",
+      "question": "What does adaptive spawning trade off?",
+      "design": "No extra worker/fixed reviewers/adaptive reviewers, categorical versus generated controllers, 1/2/3 round budgets; end-to-end task quality, total time, tokens, calls and actual peak concurrency."
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "state": "qualified_native",
+      "work": "Prepare small official splits, implement paired runner, verify baseline engine support and decoding latency, run 16 development tasks per dataset.",
+      "promotion": "Complete untruncated inputs, correct schema mapping, actual model outputs and timing, independent/streamed agreement inspected, development labels isolated from final evaluation. Slow or invalid framework configurations must be repaired before formal comparisons.",
+      "evidence": {
+        "native_pilot": "runs/native-pilot-001",
+        "tasks": 64,
+        "decisions": 111,
+        "native_methods": [
+          "independent",
+          "shared",
+          "streamed"
+        ],
+        "pairwise_disagreements": 0,
+        "runtime_limitation": "Initial shape compilation excluded by full-workload warmup. Native generation qualified; optional optimized serving engine not evaluated."
+      },
+      "native_runtime_qualification": {
+        "aqua": {
+          "status": "passed",
+          "generation_max_itl_ms": 36.89729515463114,
+          "native_disagreement": {
+            "independent": 0,
+            "shared": 0,
+            "streamed": 0,
+            "compact_json": 5
+          },
+          "measured_calls": 8
+        },
+        "race_middle": {
+          "status": "passed",
+          "generation_max_itl_ms": 37.55929693579674,
+          "native_disagreement": {
+            "independent": 0,
+            "shared": 0,
+            "streamed": 0,
+            "compact_json": 4
+          },
+          "measured_calls": 16
+        },
+        "pubmedqa": {
+          "status": "passed",
+          "generation_max_itl_ms": 37.2915961779654,
+          "native_disagreement": {
+            "independent": 0,
+            "shared": 0,
+            "streamed": 0,
+            "compact_json": 1
+          },
+          "measured_calls": 8
+        },
+        "scifact_cited": {
+          "status": "passed",
+          "generation_max_itl_ms": 37.43539331480861,
+          "native_disagreement": {
+            "independent": 0,
+            "shared": 0,
+            "streamed": 0,
+            "compact_json": 0
+          },
+          "measured_calls": 20
+        }
+      },
+      "engine": "vLLM0.17 environment download stopped because transfer was too slow; no engine comparison claimed."
+    },
+    {
+      "id": "S2",
+      "state": "complete",
+      "work": "Freeze prompts/configs and run cross-dataset structured comparisons plus mechanistic ablations.",
+      "promotion": "All methods evaluated on identical task sets; three timing repeats; uncertainty and negative results reported.",
+      "scope": "Frozen four-dataset native comparisons promoted after complete development parity and decode timing checks; optimized-engine and agent workflow qualification continue separately.",
+      "completed_native": "Five full main datasets; complete batch/tile matrix, real-activation projection microbenchmark, ProcessBench400, all five distributed configurations, paired neutral-renderer order runs and source-grounded eligible-root analysis. All10 corrected order jobs exited0; no planned native experiment remains.",
+      "evidence": [
+        "manuscript/tables/T1_structured.csv",
+        "manuscript/tables/T2_projection.csv",
+        "manuscript/tables/T2_cache.csv",
+        "manuscript/tables/T3_batch_tile.csv",
+        "results/T3_squad_strata.json",
+        "manuscript/tables/T4_scaling.csv",
+        "manuscript/tables/T5_robustness.csv",
+        "results/T6_processbench.json"
+      ]
+    },
+    {
+      "id": "S3",
+      "state": "active_formal_evaluation",
+      "work": "Run faithful agent and efficiency baselines plus spawning ablations on compact task sets.",
+      "promotion": "Tools, budgets and concurrency matched; no ground-truth feedback in agent trajectories; actual end-to-end traces complete.",
+      "completed": {
+        "adv2_component": "runs/adv2-gsm8k400-001/summary.json;398/400 retrieval coverage;three verifier repeats complete",
+        "react": "runs/tool-agents-aqua-test/react/summary.json;254questions x3complete",
+        "compiler": "runs/tool-agents-aqua-test/compiler/summary.json;254questions x3complete"
+      },
+      "pending": [
+        "Complete single-reasoning AQuA timing repetitions",
+        "Finish separate complete-workload tool-agent memory measurements and paired comparison",
+        "Finish HumanEval measured workflows and held-out scoring",
+        "Complete MBPP three GPU-blocked workflows and held-out scoring"
+      ]
+    },
+    {
+      "id": "S3b",
+      "state": "official_source_integration",
+      "work": "Download official agent repositories, adapt their original core code through model/task/tool interfaces, and execute matched method comparisons. User explicitly requires official-code baselines, including an MCTS-based paper method.",
+      "promotion": "Upstream core actually invoked, algorithm changes and task adaptations identified, same-model task/metric controls, complete quality/time/memory evidence. At least eight distinct published methods are required. Single-agent references, community model checkpoints and execution ablations do not count toward this requirement.",
+      "priority": "Primary comparison tables. Existing systems ablations move to appendix tables.",
+      "candidate_methods": [
+        "ReAct",
+        "LLMCompiler",
+        "LATS",
+        "Reflexion",
+        "Self-Refine",
+        "Tree of Thoughts",
+        "RAP",
+        "AgentDropoutV2"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "S3c",
+      "state": "complete_rejected_for_method_promotion",
+      "work": "Infer a typed decision DAG from the problem with a frozen model, execute model-defined finite questions and options, and measure final task quality including planning, execution and aggregation. Extend one compact template over real candidate collections for broad worker spawning.",
+      "development": "First eight existing AQuA development tasks for parser and execution qualification. BRIGHT Pony eight seeded development queries before104 held-out evaluation queries.",
+      "controls": {
+        "max_template_nodes": 16,
+        "candidate_count_min": 2,
+        "candidate_count_max": 8,
+        "max_depth": 4,
+        "planner_token_budget": 1024,
+        "batch_size": 8,
+        "max_input_tokens": 8192
+      },
+      "promotion": "Actual generated semantic schemas and dependencies, all model and task costs recorded, invalid plans retained as failures, no gold input, no hand-authored fallback. Broad-spawn evidence requires real document workers with consumed downstream outputs, distinct from field counts.",
+      "measurement_units": [
+        "root queries",
+        "template nodes",
+        "instantiated document workers",
+        "activated decision nodes",
+        "skipped nodes",
+        "generated model calls",
+        "critical-path depth"
+      ],
+      "evidence": "runs/generated-schema-development-001/stage_decision.json",
+      "outcome": {
+        "valid_plans": 6,
+        "assigned_problems": 8,
+        "accuracy": 0.125,
+        "planning_fraction": 0.95006431948474,
+        "interpretation": "Parser and executor feasibility only. Not evidence for useful broad spawning or end-to-end acceleration."
+      }
+    },
+    {
+      "id": "S3d",
+      "state": "development",
+      "work": "Generate one semantic decision template per BRIGHT query, instantiate document-local flows over its actual retrieved collection, and consume their structured outcomes in relevance ranking.",
+      "development": {
+        "dataset": "BRIGHT Pony",
+        "root_queries": 8,
+        "candidate_documents_per_query": 32,
+        "input": "../../data/research_v1/bright_pony/feasibility/collections.jsonl"
+      },
+      "held_out_evaluation": {
+        "root_queries": 104,
+        "candidate_documents_per_query": 128,
+        "launch": "Only after development-stage promotion."
+      },
+      "input_contract": "Planner receives the original query and collection interface. Each document flow receives query, full candidate text and its required parent outcomes. Labels and relevance annotations remain outside inference.",
+      "promotion": "Valid model-generated semantic templates, document-local outputs consumed in final rankings, measured nDCG@10 and complete stage costs. Compare against identical-pool direct reranking before any architecture benefit claim. Invalid plans remain failures. No target speedup is assumed.",
+      "claims_to_ablate": [
+        {
+          "mechanism": "Spawned execution network",
+          "comparisons": [
+            "Serial versus batched ready-node execution of identical frozen graphs.",
+            "Same-model direct candidate reranking versus model-generated document flows on the identical candidate pool.",
+            "Generated versus fixed templates and plan-cost accounting."
+          ],
+          "controls": "Keep selected inputs, generated graph, model, numerical precision and task budget fixed for the scheduling pair. Treat candidate pool size as a workload factor, not evidence of spawning by itself.",
+          "metrics": [
+            "end-to-end latency",
+            "planning latency",
+            "nDCG@10",
+            "peak GPU memory",
+            "actual batch occupancy",
+            "critical-path depth",
+            "completed document flows"
+          ]
+        },
+        {
+          "mechanism": "Structured communication",
+          "comparisons": [
+            "Typed parent outcomes versus verbose rendering of the identical parent information.",
+            "Parent messages present versus removed as an information-utility ablation."
+          ],
+          "controls": "Freeze graph and parent decisions for transport comparisons. Separate message rendering costs from receiver computation. Removing messages changes information and is not a pure transport speed comparison.",
+          "metrics": [
+            "message input tokens",
+            "message production time",
+            "receiver computation time",
+            "end-to-end latency",
+            "nDCG@10"
+          ]
+        },
+        {
+          "mechanism": "Finite structured readout",
+          "comparisons": [
+            "Selected frozen vocabulary rows versus full vocabulary projection at identical hidden states.",
+            "Finite field evaluation versus autoregressive structured output for identical schemas.",
+            "Independent field evaluation versus exact-prefix reuse versus layer-streamed branch evaluation."
+          ],
+          "controls": "Same backbone, prompts, candidate semantics and precision for projection comparisons. Record any numerical disagreement. Autoregressive decoding and direct readout are different policies and require paired quality reporting.",
+          "metrics": [
+            "readout latency",
+            "full task latency",
+            "peak GPU memory",
+            "computed input tokens",
+            "invalid output rate",
+            "decision agreement",
+            "nDCG@10"
+          ]
+        }
+      ],
+      "reporting": "Report root queries, template nodes, document flows, activated decisions, model calls and simultaneously resident states separately. Shared weights do not imply zero per-flow state memory. Retrieval and planning costs are included or reported separately with explicit boundaries."
+    },
+    {
+      "id": "S4",
+      "state": "active_assembly",
+      "work": "Assemble seven distinct result tables, figures, limitations, citations and manuscript.",
+      "promotion": "Every empirical claim linked to measured results; reproducible authored code and an arXiv-ready manuscript.",
+      "source_reproduction": {
+        "source_tree": "../../release/jevspawn-paper/research/jevspawn-paper",
+        "evidence": "../../runtime/research_v1/reproduction/comparison.json",
+        "files": 44,
+        "result": "Every regenerated JSONL record matches the corresponding experiment input or evaluation record exactly. Rebuilt from locally retained official raw sources; no inference rerun."
+      },
+      "measurement_reproduction": {
+        "archive": "../../release/jevspawn-paper/research/jevspawn-paper/results/measurements.tar.gz",
+        "table_evidence": "../../runtime/research_v1/table_reproduction/comparison.json",
+        "analysis_evidence": "../../runtime/research_v1/table_reproduction/analysis_comparison.json",
+        "result": "T1-T5 reproduce exactly as 12 CSV/TeX files. All five main analyses reproduce every method metric, paired difference, calibration value and timing summary from raw trials and rebuilt labels. SciFact connected-component mapping also reproduces exactly."
+      }
+    }
+  ],
+  "instances": [
+    "v26-v0812-4-core",
+    "v26-0813-4-core",
+    "low26-v0709-4-core"
+  ],
+  "protocol_amendments": [
+    {
+      "experiment": "T5 option order",
+      "reason": "Displaying both a letter and a semantic letter ID creates conflicting labels after permutation, such as A: B.",
+      "repair": "Matched original and cyclic menus use label plus description only; semantic IDs remain output metadata. All five complete evaluations, all four methods, one quality pass after full warmup. No runtime ranking.",
+      "plan": "configs/neutral-options-001.json",
+      "prior_records": "Original rotated runs retained as a confounded interface perturbation; original-order main results unchanged.",
+      "semantic_exclusions": {
+        "manifest": "configs/schema/option_order_exclusions.json",
+        "reason": "Permuting options with explicit other-option letters, positional above references, or embedded original labels can change meaning. Whole source roots excluded from order analysis to retain JSON dependency validity.",
+        "aqua": {
+          "excluded_roots": 6,
+          "retained_fields": 248
+        },
+        "race_middle": {
+          "excluded_roots": 17,
+          "retained_roots": 351,
+          "retained_fields": 1369
+        },
+        "scope": "Analysis only, determined from source text without predictions or gold; full runs and main evaluations retained."
+      }
+    },
+    {
+      "experiment": "ADv2 retrieved-indicator component",
+      "reason": "The frozen 4B selector emitted empty and malformed selections during formal retrieval.",
+      "accounting": "Complete original400 unchanged requests; preserve unavailable selections as failures, never substitute indicators. Verify the identical available-indicator subset across all methods and report conditional quality together with overall coverage. No complete ADv2 reproduction or full400 verifier accuracy is claimed."
+    }
+  ],
+  "active_resources": {
+    "available": [
+      "v26-v0812-4-core",
+      "v26-0813-4-core"
+    ],
+    "unavailable": [
+      "low26-v0709-4-core"
+    ],
+    "unavailable_note": "No longer resolved by qzcli after saved ProcessBench completion; no unapproved instance substituted."
+  },
+  "workflow_controls": {
+    "aqua_tools": {
+      "root_batch_cap": 8,
+      "model_calls_max": 4,
+      "tokens_per_call_max": 512,
+      "total_output_budget": 2048,
+      "tool_concurrency": 8,
+      "tools": [
+        "AST calculator",
+        "provided evidence search/read"
+      ],
+      "single_reasoning_calls": 1,
+      "single_reasoning_output_budget": 2048,
+      "memory_measurement": "A separate otherwise identical complete-workload measured pass after full warmup retains actual per-call peak CUDA allocation; original three repetitions supply time and designatedrepeat0 quality. Prediction parity and per-GPU source are reported. Initial tool-agent traces lacked peak allocation; values are not retrospectively inferred."
+    },
+    "coding": {
+      "root_batch_cap": 8,
+      "worker_batch_cap": 8,
+      "controller_batch_cap": 8,
+      "implement_tokens": 512,
+      "review_tokens": 256,
+      "repair_tokens": 512,
+      "controller_tokens": 128,
+      "policies": [
+        "single",
+        "fixed_review_repair",
+        "adaptive_direct",
+        "adaptive_json"
+      ],
+      "evaluation": "Offline held-out tests, excluded from model observations",
+      "mbpp_timing_blocks": {
+        "instance": "v26-v0812-4-core",
+        "repeat_to_gpu": {
+          "0": 3,
+          "1": 1,
+          "2": 2
+        },
+        "world_size_per_block": 1,
+        "batch_cap_per_block": 8,
+        "procedure": "Each GPU block runs all four complete500-task methods after full per-method workload warmup. Same settings within each block; counterbalance method order by repetition index. GPU and repetition vary together, so timing spread includes hardware-block variability. Quality uses designated repeat0; compare all other predictions explicitly."
+      }
+    },
+    "adv2_component": {
+      "root_batch_cap": 8,
+      "retrieval": "Original released math indicator pool; retrieve 20 then select at most 5",
+      "verification_methods": [
+        "independent",
+        "shared",
+        "streamed",
+        "compact_json"
+      ],
+      "scope": "Retrieved-indicator verification component; not the full original multi-agent method"
+    }
+  },
+  "baseline_definition": {
+    "primary": "Published agent methods executed from official upstream core code, with thin model, task and tool adapters, compared against JevSpawn on matched tasks and reported budgets.",
+    "ablations": "Independent readout, retained shared caches, streamed caches, compact JSON, projection, batch, tile and GPU scaling are execution controls or ablations, not published agent method baselines.",
+    "component_studies": "ADv2 indicator verification is a component evaluation, not a full method baseline.",
+    "prior_adaptations": "Current handwritten ReAct and LLMCompiler adaptations are not official-code reproductions.",
+    "not_primary": [
+      "AgentDropoutV2 evidence is a component study only until its full workflow is evaluated.",
+      "TypeSafe official Jev weights were not identified; no hosted API comparison has been run."
+    ]
+  },
+  "baseline_roster": [
+    {
+      "name": "Single-agent direct and reasoning",
+      "role": "Same-model reference policies",
+      "status": "Existing coding and AQuA measurements complete; matched official-agent protocol remains to be evaluated."
+    },
+    {
+      "name": "ReAct",
+      "role": "Published sequential reasoning and action baseline",
+      "source": "https://github.com/ysymyth/ReAct",
+      "status": "formal_aqua254_completed"
+    },
+    {
+      "name": "LLMCompiler",
+      "role": "Published dependency-aware parallel task execution baseline",
+      "source": "https://github.com/SqueezeAILab/LLMCompiler",
+      "status": "formal_aqua254_completed"
+    },
+    {
+      "name": "LATS",
+      "role": "Published MCTS agent baseline",
+      "source": "https://github.com/andyz245/LanguageAgentTreeSearch",
+      "status": "formal_mbpp500_running"
+    },
+    {
+      "name": "OpenJev 4B NLI",
+      "role": "Separately trained community decision-model comparator",
+      "source": "https://huggingface.co/AlexWortega/openjev",
+      "status": "Public checkpoint confirmed; weight transfer stopped for insufficient throughput, no inference results."
+    }
+  ],
+  "required_published_method_count": 8,
+  "published_method_roster": [
+    {
+      "name": "ReAct",
+      "source": "https://github.com/ysymyth/ReAct",
+      "mechanism": "Interleaved reasoning and tool use",
+      "state": "formal_aqua254_completed",
+      "priority": "classical_main"
+    },
+    {
+      "name": "LLMCompiler",
+      "source": "https://github.com/SqueezeAILab/LLMCompiler",
+      "mechanism": "Dependency-aware parallel tool execution",
+      "state": "formal_aqua254_completed",
+      "priority": "classical_main"
+    },
+    {
+      "name": "LATS",
+      "source": "https://github.com/andyz245/LanguageAgentTreeSearch",
+      "mechanism": "Monte Carlo tree search with agent reflection",
+      "state": "formal_mbpp500_running",
+      "priority": "classical_main"
+    },
+    {
+      "name": "AgentPrune",
+      "venue": "ICLR 2025",
+      "citation_key": "zhang2025agentprune",
+      "source": "https://github.com/yanweiyue/AgentPrune",
+      "mechanism": "Learned pruning of communication edges",
+      "state": "formal_aqua254_running_frozen_learned_graph",
+      "priority": "recent_main"
+    },
+    {
+      "name": "HiAgent",
+      "venue": "ACL 2025",
+      "citation_key": "hu-etal-2025-hiagent",
+      "source": "https://github.com/HiAgent2024/HiAgent",
+      "mechanism": "Hierarchical subgoal memory and trajectory summarization",
+      "state": "development003_completed_formal_bright104_preparation",
+      "priority": "recent_main"
+    },
+    {
+      "name": "DyFlow",
+      "venue": "NeurIPS 2025",
+      "citation_key": "wang2025dyflow",
+      "source": "https://github.com/wyf23187/DyFlow",
+      "mechanism": "Generated operator workflows with state dependent replanning",
+      "state": "formal_aqua254_running",
+      "priority": "recent_main"
+    },
+    {
+      "name": "FoldAgent",
+      "venue": "ICML 2026",
+      "citation_key": "sun2026scaling",
+      "source": "https://github.com/sunnweiwei/FoldAgent",
+      "mechanism": "Context folding through delegated branch execution and return",
+      "state": "development003_completed_formal_bright104_preparation",
+      "priority": "recent_main"
+    },
+    {
+      "name": "LatentMAS",
+      "venue": "ICML 2026",
+      "citation_key": "zou2026latent",
+      "source": "https://github.com/Gen-Verse/LatentMAS",
+      "mechanism": "Frozen model latent reasoning and interagent cache transport",
+      "state": "formal_aqua254_completed",
+      "priority": "recent_main"
+    }
+  ],
+  "recent_dataset_candidates": [
+    {
+      "name": "MMLU-Pro",
+      "venue": "NeurIPS 2024 Datasets and Benchmarks",
+      "paper": "https://proceedings.nips.cc/paper_files/paper/2024/hash/ad236edc564f3e3156e1b2feafb99a24-Abstract-Datasets_and_Benchmarks_Track.html",
+      "role": "Finite-choice decision quality across selected health, mathematics and computer science domains",
+      "scope": "Small prespecified category subsets, selected before examining model predictions. Not full benchmark.",
+      "state": "source_and_venue_verified"
+    },
+    {
+      "name": "MuSR team allocation",
+      "venue": "ICLR 2024",
+      "paper": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/3f8c7eb848ffec848f3ed2b7ca44915d-Abstract-Conference.html",
+      "role": "Long-context constrained allocation decisions requiring multistep reasoning",
+      "scope": "Original team allocation subtask with complete narrative and original candidate set. No invented subquestions.",
+      "state": "source_and_venue_verified"
+    },
+    {
+      "name": "MedXpertQA Text",
+      "venue": "ICML 2025",
+      "paper": "https://proceedings.mlr.press/v267/zuo25a.html",
+      "role": "Expert-level medical finite-choice reasoning, distinct from evidence-grounded fact checking",
+      "scope": "Small prespecified text-only subset. No image downloads.",
+      "state": "source_and_venue_verified"
+    },
+    {
+      "name": "BRIGHT Pony",
+      "venue": "ICLR 2025",
+      "role": "One retrieval query spawning document assessment workers from a generated semantic schema",
+      "scope": "Eight seed0 development queries and104 evaluation queries, actual BM25 top128 candidate documents, nDCG@10 and candidate coverage.",
+      "state": "preparation"
+    },
+    {
+      "name": "SuperGPQA",
+      "venue": "NeurIPS 2025 Datasets and Benchmarks",
+      "role": "Ten-choice graduate-level questions",
+      "scope": "Fixed seed0 sampled256 evaluation and16 disjoint development records through row API, not full26529benchmark",
+      "state": "preparation"
+    }
+  ],
+  "structured_flow_contract": {
+    "scope": "Inference-only typed decision dataflow over a frozen pretrained language model.",
+    "node_output": "A finite candidate identifier and measured candidate scores. No model-generated worker rationale or conversational reply.",
+    "message_transport": "Typed outcomes are serialized into receiver input together with the semantic definitions needed to interpret them. This is not latent-state transfer or zero-token communication.",
+    "scheduling": "Batch independent questions against shared state. Add a dependency only when an earlier outcome changes the next input, evidence or candidate space. Count critical-path rounds separately from graph width.",
+    "schema_generation": "An optional model-generated schema is an amortized task setup cost. All planning costs count in end-to-end results.",
+    "probabilities": "Frozen vocabulary scores are not claimed to have official Jev calibration or RLCD training.",
+    "claims": "Inference-only reproduction of selected execution mechanisms, not a reconstruction of undisclosed TypeSafe architecture.",
+    "primary_sources": [
+      "https://docs.typesafe.ai/primitives",
+      "https://docs.typesafe.ai/patterns",
+      "https://x.com/nwnwnyo/status/2100232295093620984",
+      "https://github.com/browser-use/jev-ultrafast"
+    ]
+  },
+  "baseline_revision": {
+    "reason": "Prioritize2025 onward methods for structured information flow and efficient agent execution, retaining three classical references.",
+    "classical": [
+      "ReAct",
+      "LLMCompiler",
+      "LATS"
+    ],
+    "recent_priority": [
+      "FoldAgent",
+      "HiAgent",
+      "AgentPrune",
+      "LatentMAS",
+      "DyFlow"
+    ],
+    "additional_reference": [
+      "AgentDropoutV2"
+    ],
+    "archived_development": [
+      "Reflexion",
+      "Self-Refine",
+      "Tree of Thoughts",
+      "RAP"
+    ],
+    "execution": "Reuse actual official inference core with frozen Qwen3.5-4B. Adapt task/model/tool interfaces only. Preserve any required topology optimization as a declared preparation cost; do not replace learned algorithms with hand-coded policies.",
+    "status": "Three published methods completed formal evaluation; DyFlow, AgentPrune and LATS are running; corrected FoldAgent and HiAgent are being prepared for heldout BRIGHT evaluation.",
+    "venue_note": "HiAgent is ACL2025, a user-nominated exception to the top-three ML conference preference.",
+    "agentprune_policy": "Learn its original communication graph on disjoint development labels. Report preparation cost and supervised topology learning separately. JevSpawn remains inference only. No hand-set topology substitution.",
+    "main_results_status": "Eight methods selected. Formal matched main comparisons are not yet complete. Development interface qualifications do not establish a main result."
+  },
+  "archived_method_development": [
+    {
+      "name": "Reflexion",
+      "source": "https://github.com/noahshinn/reflexion",
+      "mechanism": "Verbal reflection and episodic retry memory",
+      "state": "official_core_cpu_integrated_gpu_pending",
+      "priority": "archived_development"
+    },
+    {
+      "name": "Self-Refine",
+      "source": "https://github.com/madaan/self-refine",
+      "mechanism": "Iterative feedback and refinement",
+      "state": "official_core_development_gpu_active",
+      "priority": "archived_development"
+    },
+    {
+      "name": "Tree of Thoughts",
+      "source": "https://github.com/princeton-nlp/tree-of-thought-llm",
+      "mechanism": "Thought generation, evaluation and tree selection",
+      "state": "development_measured",
+      "priority": "archived_development"
+    },
+    {
+      "name": "RAP",
+      "source": "https://github.com/Ber666/RAP",
+      "mechanism": "World-model reasoning and MCTS planning",
+      "state": "official_core_adapter_written_qualification_pending",
+      "priority": "archived_development"
+    }
+  ],
+  "additional_published_methods": [
+    {
+      "name": "AgentDropoutV2",
+      "source": "https://github.com/TonySY2/AgentDropoutV2",
+      "mechanism": "Test-time rectify-or-reject multi-agent pruning",
+      "state": "development003_original_budget_qualification_active",
+      "priority": "additional"
+    }
+  ],
+  "generated_schema_stage_decisions": {
+    "S3f": {
+      "stage": "S3f compact independent template development",
+      "decision": "Reject quality promotion. Do not launch autoregressive followup or heldout evaluation for this configuration.",
+      "valid_plans": 8,
+      "assigned_queries": 8,
+      "completed_document_flows": 256,
+      "flows_per_query": 32,
+      "activated_typed_criteria": 1024,
+      "full_agent_count_from_typed_nodes": false,
+      "binary_ndcg_at_10": 0.05275392939295444,
+      "probability_ndcg_at_10": 0.22129645271461587,
+      "direct_binary_ndcg_at_10": 0.1266773844160062,
+      "direct_probability_ndcg_at_10": 0.2653324200773877,
+      "probability_ndcg_difference": -0.04403596736277185,
+      "planning_seconds": 28.13576441910118,
+      "criteria_seconds": 8.719958099303767,
+      "relevance_seconds": 7.862521510571241,
+      "total_wall_seconds": 45.529692265205085,
+      "direct_model_seconds": 4.932690172223374,
+      "warm_measured_plans_equal": true,
+      "warm_measured_choices_equal": true,
+      "communication": "One static model generated criterion schema is supplied to each relevance receiver. Worker messages contain finite node to option identities only. This schema and payload are still serialized as text tokens, not latent messages. Per option probabilities are preserved outside message payloads.",
+      "interpretation": "Shallow independent criteria remove the template validity failure but do not improve this development ranking workload. Direct relevance is faster and more accurate here. No architecture advantage or general statistical conclusion is supported by these eight development queries.",
+      "autoreg_comparison": "Not launched because the declared quality promotion criterion failed.",
+      "complete_model_seconds": 44.71824402897619,
+      "model_time_ratio_to_direct": 9.065690823395009
+    }
+  },
+  "active_method_stage": "configs/methods/structured_flow/grounded-stage.json",
+  "baseline_interface_corrections": {
+    "affected_methods": [
+      "HiAgent",
+      "FoldAgent"
+    ],
+    "rejected_runs": [
+      "runs/official-hiagent-development-002",
+      "runs/official-foldagent-development-002"
+    ],
+    "cause": "Transformers5 defaults to BatchEncoding for tokenized chat templates. Legacy adapters counted mapping entries rather than tokens.",
+    "fix": "Explicit return_dict=False and immutable submitted message snapshots.",
+    "cpu_evidence": "runs/official-foldagent-development-002/tokenizer-fix-qualification.json",
+    "replacement_runs": {
+      "HiAgent": {
+        "output": "runs/official-hiagent-development-003",
+        "instance": "v26-0813-4-core",
+        "gpu": 0,
+        "handle": "qzcli_38b35040_1789747899_b2af2289"
+      },
+      "FoldAgent": {
+        "output": "runs/official-foldagent-development-003",
+        "instance": "v26-0813-4-core",
+        "gpu": 3,
+        "handle": "qzcli_cca03bc2_1789747900_3e07ffdc"
+      }
+    }
+  },
+  "generic_choice_evaluation": {
+    "development": "runs/decision-program-choice-development-001",
+    "heldout": "runs/decision-program-choice-evaluation-001",
+    "datasets": {
+      "aqua": {
+        "tasks": 254,
+        "correct_streamed": 80
+      },
+      "supergpqa": {
+        "tasks": 256,
+        "correct_streamed": 72
+      },
+      "medxpertqa_text": {
+        "tasks": 256,
+        "correct_streamed": 38
+      }
+    },
+    "program": "One model-generated options input binding shared across all question types.",
+    "complete": true,
+    "comparison_status": "Published method results still running. No quality preservation claim."
+  },
+  "completed_scaling_stage": {
+    "stage": "S6 bounded execution scaling with frozen generated decision program",
+    "protocol": "configs/methods/decision_program/scaling-stage.json",
+    "compiler": "src/methods/decision_program/compiler.py",
+    "runtime": "src/methods/program_execution/tiled_run.py",
+    "semantic_candidates": "Generated once per task contract by the frozen language model. Input values are bound at execution.",
+    "completed_evidence": "runs/decision-program-tiled-development-128-001/evaluation.json",
+    "completed_roots": 8,
+    "maximum_completed_workers_per_root": 128,
+    "completed_logical_workers": 1024,
+    "maximum_live_workers": 128,
+    "next_declared_worker_counts_per_root": [
+      512,
+      1024
+    ],
+    "promotion": "Quality improved on reused development queries. End-to-end speed and matched-concurrency memory advantages are not established.",
+    "primary_scaling_unit": "One original query with512 or1024 distinct documents. One root at a time; at most128 live document workers.",
+    "compiler_cost_policy": "Fresh compiler call is charged to each independent cold task. Cross-task schema reuse is a separate service condition.",
+    "existing_multi_root_scope": "Completed8-root experiments measure batched throughput and cannot establish single-task1024-worker latency.",
+    "decomposition_scope": "The model defines the worker decision program. Runtime fanout follows supplied document items; arbitrary problem decomposition and learned spawn counts are not implemented.",
+    "single_query_runs": {
+      "512": {
+        "instance": "v26-0813-4-core",
+        "gpu": 1,
+        "handle": "qzcli_0aaac385_1789748487_f670af4b",
+        "output": "runs/decision-program-single-development-512-001"
+      },
+      "1024": {
+        "instance": "v26-v0812-4-core",
+        "gpu": 3,
+        "output": "runs/decision-program-single-development-1024-001"
+      }
+    }
+  },
+  "research_objective_source": "/inspire/hdd/global_user/suhaoyang-240107100018/Tools/codex_build/codex_home/attachments/90896c7a-e821-4255-aaea-018ee3109fca/pasted-text-1.txt",
+  "core_table_structure": [
+    {
+      "id": 1,
+      "kind": "published_method_comparison",
+      "question": "Overall original task quality, complete latency and memory."
+    },
+    {
+      "id": 2,
+      "kind": "resource_matched_comparison",
+      "question": "Performance under common time and memory budgets."
+    },
+    {
+      "id": 3,
+      "kind": "single_task_scaling",
+      "question": "Useful within-task expansion and dependency scaling."
+    },
+    {
+      "id": 4,
+      "kind": "execution_ablation",
+      "question": "Contributions of candidate readout, prefix reuse and cache lifetime."
+    },
+    {
+      "id": 5,
+      "kind": "topology_ablation",
+      "question": "Contributions of spawning policy and dependencies."
+    },
+    {
+      "id": 6,
+      "kind": "communication_ablation",
+      "question": "Information retention and actual utility of intermediate messages."
+    },
+    {
+      "id": 7,
+      "kind": "generalization",
+      "question": "Model-generated interface transfer and robustness."
+    }
+  ],
+  "table_completion_rule": "A table is complete only when its stated scientific comparison is supported by matched actual outputs. Existing component measurements do not fill missing workflow comparisons."
+}

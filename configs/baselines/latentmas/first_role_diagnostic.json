@@ -1,0 +1,11 @@
+{
+  "stage": "first_role_numerical_diagnostic",
+  "method_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/baselines/latentmas/development.json",
+  "latent_steps": 10,
+  "comparisons": ["unpadded_b1", "padded_width_b1"],
+  "scope": "The eight original AQuA development questions, original planner prompt and all ten original latent realignment transitions. No final answer decoding.",
+  "controls": "One original B8 trajectory, then each identical question as ordinary unpadded B1 and as B1 retaining exactly its B8 physical padding width, masks and positions. All valid input tokens and logical positions must agree.",
+  "observations": "Prefill and every transition retain last hidden vectors, actual masks and positions, latent vectors before and after normalization, and per-layer native convolution, recurrent and valid-key-value differences.",
+  "computation": "Original latent generation and realignment bodies are unchanged. One alignment matrix is shared across all trajectories. Instrumentation copies states for observation and makes no latency claim.",
+  "interpretation": "Prefill differences establish the initial discrepancy. Subsequent hidden and aligned-input differences measure its progression. Padded-width B1 separates padding layout from batch-shape effects. Nonzero BF16 differences alone do not establish an implementation error."
+}

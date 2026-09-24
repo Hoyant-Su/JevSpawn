@@ -1,0 +1,137 @@
+{
+  "selection": "Exactly the first two eligible records in each existing development source order, with explicit IDs frozen before this stage. MBPP eligibility is the original validation split. No gold values or observed quality enter selection.",
+  "sources": [
+    {
+      "dataset": "mbpp",
+      "source": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/agent_spawn_bulk/tasks.jsonl",
+      "task_ids": [
+        "MBPP/511",
+        "MBPP/512"
+      ],
+      "input_keys": [
+        "prompt",
+        "entry_point"
+      ],
+      "instruction": {
+        "$prompt": "configs/methods/structured_flow/task_preparation.json#sources/0/instruction"
+      },
+      "contract_kind": "code",
+      "evaluation": {
+        "kind": "original_sandbox_tests",
+        "path": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/agent_spawn_bulk/evaluation/tests.jsonl",
+        "prediction_path": [
+          "code"
+        ],
+        "scope": "Original MBPP validation task tests, evaluated only in the existing read-only sandbox."
+      }
+    },
+    {
+      "dataset": "processbench_math",
+      "source": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/processbench_gsm8k/feasibility/first_error/tasks.jsonl",
+      "task_ids": [
+        "processbench_gsm8k/math-0",
+        "processbench_gsm8k/math-1"
+      ],
+      "input_keys": [
+        "state",
+        "fields"
+      ],
+      "instruction": {
+        "$prompt": "configs/methods/structured_flow/task_preparation.json#sources/1/instruction"
+      },
+      "contract_kind": "field_answers",
+      "evaluation": {
+        "kind": "first_error_exact",
+        "path": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/processbench_gsm8k/feasibility/first_error/labels.jsonl",
+        "scope": "Separate original ProcessBench MATH development solutions. Later steps after the first error have no local correctness labels."
+      }
+    },
+    {
+      "dataset": "scifact_cited",
+      "source": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/scifact_cited/feasibility/tasks.jsonl",
+      "task_ids": [
+        "scifact_cited/train/5836",
+        "scifact_cited/train/18670"
+      ],
+      "input_keys": [
+        "state",
+        "fields"
+      ],
+      "instruction": {
+        "$prompt": "configs/methods/structured_flow/task_preparation.json#sources/2/instruction"
+      },
+      "contract_kind": "field_answers",
+      "evaluation": {
+        "kind": "claim_document_exact",
+        "path": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/scifact_cited/feasibility/labels.jsonl",
+        "scope": "Original SciFact training claim-document labels. Every claim field of each source abstract is retained."
+      }
+    },
+    {
+      "dataset": "zebralogic",
+      "source": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/zebralogic/development/tasks.jsonl",
+      "task_ids": [
+        "lgp-test-6x6-5",
+        "lgp-test-4x2-39"
+      ],
+      "input_keys": [
+        "puzzle"
+      ],
+      "instruction": {
+        "$prompt": "configs/methods/structured_flow/task_preparation.json#sources/3/instruction"
+      },
+      "contract_kind": "grid_rows",
+      "evaluation": {
+        "kind": "grid_cell_and_puzzle",
+        "path": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/zebralogic/development/labels.jsonl",
+        "prediction_path": [
+          "rows"
+        ],
+        "function": "data.evaluate_zebralogic.score_rows",
+        "scope": "Original solution remains offline. Match source category value sets to gold columns only inside the evaluator."
+      }
+    }
+  ],
+  "contracts": {
+    "code": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "field_answers": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "grid_rows": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "rows"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "output_tasks": "data/methods/structured_flow/development_tasks.jsonl",
+  "output_evaluation": "configs/methods/structured_flow/development_evaluation.json",
+  "mbpp_partition_manifest": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/agent_spawn_bulk/manifest.json",
+  "mbpp_partition": "validation"
+}

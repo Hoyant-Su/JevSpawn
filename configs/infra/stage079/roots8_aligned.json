@@ -1,0 +1,39 @@
+{
+  "specification": "configs/infra/stage079/roots8_spec.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "run_output": "runs/native-history-profile-stage079-aligned/roots8",
+  "profile_output": "results/infra/native-history-profile-stage079-aligned/roots8",
+  "initial_batch_index": 0,
+  "request_type": "baselines.common.jevspawn_service.DecisionRequest",
+  "profiled_batches": [
+    6
+  ],
+  "profiler": {
+    "record_shapes": true,
+    "profile_memory": false,
+    "with_stack": false
+  },
+  "trace_file": "rank{rank}-batch{batch}.trace.json",
+  "summary_file": "rank{rank}-batch{batch}.json",
+  "scope": "jev.finite_service",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "measurement_scope": "Actual Maze rollout with stage078 dynamic native history cache on TP4. Profile only finite cohorts5 and6 on all ranks. Full declared tasks, contexts and budgets remain unchanged. Instrumented wall times are diagnostic and excluded from comparative accuracy/speed tables. All ranks synchronize after profiler initialization and after export outside the measured service scope. Only cohort6 is captured, avoiding preceding trace-export skew.",
+  "recorded_fields": [
+    "task_id",
+    "field",
+    "input_ids",
+    "root_tokens",
+    "messages"
+  ],
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "history_cache": {
+    "chunk_tokens": 64,
+    "initial_count": 0
+  },
+  "entrypoint": "tests/infra/native_history_cache/profile_rollout.py"
+}

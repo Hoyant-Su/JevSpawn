@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required": ["nodes"],
+  "additionalProperties": false,
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "options", "parents"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "question": {"type": "string", "minLength": 1},
+          "parents": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "description"],
+              "additionalProperties": false,
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "description": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "activate_if": {
+            "oneOf": [
+              {"type": "null"},
+              {"type": "object", "required": ["parent", "equals"], "additionalProperties": false,
+               "properties": {"parent": {"type": "string", "minLength": 1}, "equals": {"type": "string", "minLength": 1}}}
+            ]
+          }
+        }
+      }
+    }
+  }
+}

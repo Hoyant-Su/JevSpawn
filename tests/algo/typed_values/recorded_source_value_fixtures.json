@@ -1,0 +1,18 @@
+{
+  "purpose": "Replay recorded source bindings to verify literal transport, not model answer quality.",
+  "protocol": "runs/common-jevspawn-candidate-verification-tp4-v2-001/protocol.json",
+  "value_config": "configs/jevspawn/typed_values.json",
+  "branch_batch_size": 8,
+  "cases": [
+    {
+      "record": "runs/common-jevspawn-candidate-verification-tp4-v2-001/task-00009.json",
+      "node": "finite-6",
+      "path": ["code"]
+    },
+    {
+      "record": "runs/common-jevspawn-candidate-verification-tp4-v2-001/task-00011.json",
+      "node": "finite-114",
+      "path": ["answer"]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "prompts": "jevspawn.query",
+  "execution_config": "configs/jevspawn/query_execution.json",
+  "control_id": "turn-{turn}-control",
+  "field_id": "turn-{turn}-field-{index}",
+  "finish_action": "answer",
+  "separator": "\t",
+  "separator_description": "one literal tab character",
+  "minimum_candidates": 1,
+  "structured_finish_action": "assemble",
+  "node_columns_before_payload": 2,
+  "declaration_frames": [
+    [
+      "```\n",
+      "\n```"
+    ],
+    [
+      "```tsv\n",
+      "\n```"
+    ]
+  ],
+  "refresh_action": "refresh",
+  "action_inputs": {
+    "spawn": [],
+    "answer": [],
+    "assemble": [],
+    "refresh": [
+      "fields"
+    ],
+    "bind": []
+  },
+  "bind_action": "bind",
+  "output_slots": {
+    "initial_index": 0,
+    "slot_id": "slot-{index}",
+    "root_key": "output",
+    "prompts": "jevspawn.output_slots",
+    "stop": [],
+    "object_kind": "object",
+    "array_kind": "array",
+    "string_kind": "string",
+    "number_kind": "number",
+    "reference_kind": "reference",
+    "literals": {
+      "true": true,
+      "false": false,
+      "null": null
+    },
+    "kind_options": [
+      {
+        "id": "object",
+        "description": "An object mapping semantic keys to values.",
+        "value": "object"
+      },
+      {
+        "id": "array",
+        "description": "An ordered array of values.",
+        "value": "array"
+      },
+      {
+        "id": "string",
+        "description": "A text value.",
+        "value": "string"
+      },
+      {
+        "id": "number",
+        "description": "A numeric value.",
+        "value": "number"
+      },
+      {
+        "id": "true",
+        "description": "The boolean true.",
+        "value": "true"
+      },
+      {
+        "id": "false",
+        "description": "The boolean false.",
+        "value": "false"
+      },
+      {
+        "id": "null",
+        "description": "An explicit null value.",
+        "value": "null"
+      },
+      {
+        "id": "reference",
+        "description": "Reuse an existing computed or bound value exactly.",
+        "value": "reference"
+      }
+    ]
+  },
+  "spawn_action": "spawn",
+  "operation_schemas": {
+    "spawn": {
+      "type": "array",
+      "description": "One record for each unresolved intermediate variable needed now.",
+      "items": {
+        "type": "object",
+        "description": "A single unresolved variable and its finite legal domain.",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "A precise question about one unresolved variable."
+          },
+          "values": {
+            "type": "string",
+            "description": "A JSON array literal containing the complete legal domain, with no explanation."
+          }
+        }
+      }
+    },
+    "bind": {
+      "type": "array",
+      "description": "One record for each supplied value to retain.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Meaning of the supplied value."
+          },
+          "value": {
+            "type": "string",
+            "description": "A JSON literal for the supplied value, or a JSON string for text."
+          }
+        }
+      }
+    },
+    "assemble": {}
+  },
+  "operation_references": {
+    "spawn": false,
+    "bind": false,
+    "assemble": true
+  }
+}

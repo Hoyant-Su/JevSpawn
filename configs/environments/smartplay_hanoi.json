@@ -1,0 +1,4 @@
+{
+  "class": "environments.smartplay.SmartPlayEnvironment",
+  "parameters": {"configuration": "configs/environments/smartplay_hanoi_runtime.json"}
+}

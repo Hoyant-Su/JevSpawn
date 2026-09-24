@@ -1,0 +1,6 @@
+{
+  "max_batch_size": 256,
+  "max_rows": 64,
+  "max_columns": 256,
+  "num_warps": 4
+}

@@ -1,0 +1,8 @@
+{
+  "source_stage": "configs/infra/stage093/aggregation.json",
+  "selection": "ordered_prefix",
+  "samples_per_task": 4,
+  "specification_directory": "configs/experiments/native_action_prefix_screen",
+  "data_directory": "data/qualification/native_action_prefix_screen",
+  "manifest": "results/infra/native-action-prefix-stage094/sample_selection.json"
+}

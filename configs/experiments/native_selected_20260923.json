@@ -1,0 +1,151 @@
+{
+  "decision": "Freeze the experimental task roster by finite-action suitability and reproducible native evaluation, independently of current JevSpawn score. This is not a claim that every task or batch interface is working.",
+  "benchmark_families": 9,
+  "task_tracks": 14,
+  "prepared_samples_per_track": 16,
+  "prepared_total": 224,
+  "screening_samples_per_track": 8,
+  "screening_total": 112,
+  "tracks": [
+    {
+      "family": "PPNL",
+      "dataset": "ppnl",
+      "task": "Grid navigation",
+      "finite_action_basis": "Finite directions composed into a route.",
+      "data": "data/qualification/native_expanded/ppnl/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/ppnl_jevspawn.json"
+    },
+    {
+      "family": "LMRL-Gym",
+      "dataset": "lmrlgym_maze",
+      "task": "Maze navigation",
+      "finite_action_basis": "Finite movement commands with native position observations.",
+      "data": "data/qualification/native_expanded/lmrlgym_maze/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/lmrlgym_maze_jevspawn.json"
+    },
+    {
+      "family": "LLF-Bench",
+      "dataset": "llfbench_gridworld",
+      "task": "Grid exploration",
+      "finite_action_basis": "Finite navigation actions with local observations.",
+      "data": "data/qualification/native_expanded/llfbench_gridworld/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/llfbench_gridworld_jevspawn.json"
+    },
+    {
+      "family": "Plancraft",
+      "dataset": "plancraft",
+      "task": "Crafting",
+      "finite_action_basis": "Finite inventory slots, quantities and crafting operations per state.",
+      "data": "data/qualification/native_expanded/plancraft/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/plancraft_jevspawn.json"
+    },
+    {
+      "family": "Robotouille",
+      "dataset": "robotouille",
+      "task": "Symbolic kitchen planning",
+      "finite_action_basis": "Finite grounded object, station and operator combinations per task.",
+      "data": "data/qualification/native_expanded/robotouille/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/robotouille_jevspawn.json"
+    },
+    {
+      "family": "AutoPlanBench",
+      "dataset": "autoplanbench",
+      "task": "Classical planning",
+      "finite_action_basis": "Finite task objects and declared planning operators.",
+      "data": "data/qualification/native_expanded/autoplanbench/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/autoplanbench_jevspawn.json"
+    },
+    {
+      "family": "AgentQuest",
+      "dataset": "agentquest_mastermind",
+      "task": "Code breaking",
+      "finite_action_basis": "Fixed-length guesses over a finite digit alphabet and native feedback.",
+      "data": "data/qualification/native_expanded/agentquest_mastermind/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/agentquest_mastermind_jevspawn.json"
+    },
+    {
+      "family": "AgentQuest",
+      "dataset": "agentquest_sudoku",
+      "task": "Constraint satisfaction",
+      "finite_action_basis": "Finite row, column and digit assignments.",
+      "data": "data/qualification/native_expanded/agentquest_sudoku/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/agentquest_sudoku_jevspawn.json"
+    },
+    {
+      "family": "TextArena",
+      "dataset": "textarena_lightsout",
+      "task": "Switch puzzle",
+      "finite_action_basis": "Finite board-cell toggles.",
+      "data": "data/qualification/native_expanded/textarena_lightsout/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/textarena_lightsout_jevspawn.json"
+    },
+    {
+      "family": "TextArena",
+      "dataset": "textarena_rushhour",
+      "task": "Vehicle puzzle",
+      "finite_action_basis": "Finite vehicles, movement directions and distances.",
+      "data": "data/qualification/native_expanded/textarena_rushhour/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/textarena_rushhour_jevspawn.json"
+    },
+    {
+      "family": "TextArena",
+      "dataset": "textarena_sokoban",
+      "task": "Box pushing",
+      "finite_action_basis": "Finite directional moves with native box and wall transitions.",
+      "data": "data/qualification/native_expanded/textarena_sokoban/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/textarena_sokoban_jevspawn.json"
+    },
+    {
+      "family": "KORGym",
+      "dataset": "korgym_2048",
+      "task": "Tile merging",
+      "finite_action_basis": "Finite directional moves; official numerical score, not binary accuracy.",
+      "data": "data/qualification/native_expanded/korgym_2048/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/korgym_2048_jevspawn.json"
+    },
+    {
+      "family": "KORGym",
+      "dataset": "korgym_circle_the_cat",
+      "task": "Spatial containment",
+      "finite_action_basis": "Finite board-cell placements with native opponent transitions.",
+      "data": "data/qualification/native_expanded/korgym_circle_the_cat/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/korgym_circle_the_cat_jevspawn.json"
+    },
+    {
+      "family": "KORGym",
+      "dataset": "korgym_nullify",
+      "task": "Arithmetic reduction",
+      "finite_action_basis": "Finite current items and native arithmetic operations.",
+      "data": "data/qualification/native_expanded/korgym_nullify/tasks.jsonl",
+      "specification": "configs/experiments/native_expanded/korgym_nullify_jevspawn.json"
+    }
+  ],
+  "excluded": [
+    {
+      "dataset": "gamebench_tic_tac_toe",
+      "reason": "Native random substitution of invalid method commands confounds demonstrated execution; only two distinct supported initial seats."
+    },
+    {
+      "dataset": "smartplay_hanoi",
+      "reason": "Only two distinct supported initial configurations; retain as a case study rather than a main-table dataset."
+    }
+  ],
+  "inference_invariance": {
+    "method": "configs/baselines/common/methods/jevspawn.json",
+    "shared_config": "configs/shared_config_tp4_v2.yaml",
+    "per_dataset_inference_edits": false,
+    "source_checks": "No selected dataset names found in jev_spawn infra/runtime/rollout/algo/schema. This check is limited and is not a proof of generalization.",
+    "data_correction": "Maze task answer schema aligned with existing official environment interface; no algorithm or prompt change."
+  },
+  "evidence": [
+    "results/validation/native_current_qualification_20260923.json",
+    "results/validation/native_stage045_launches_20260923.json",
+    "results/validation/native_expanded_sources_a_schema_correction_20260923.json"
+  ],
+  "limitations": [
+    "Nine independent benchmark families, not fourteen independent benchmarks.",
+    "Several selected tracks currently have zero task successes.",
+    "Expanded B8 runs exposed CUDA OOM and a native action lookup exception.",
+    "Several screening runs are still active; preparation and launch do not imply completed evaluation."
+  ]
+}

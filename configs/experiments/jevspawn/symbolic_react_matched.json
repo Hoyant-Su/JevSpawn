@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/qualification/finite_cache/symbolic.jsonl",
+  "task_count": 8,
+  "method": "configs/experiments/jevspawn/symbolic_react_matched_method.json",
+  "environment": "configs/baselines/common/environment.json"
+}

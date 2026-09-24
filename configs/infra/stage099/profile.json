@@ -1,0 +1,95 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "labels": "configs/jevspawn/readout_labels.json",
+  "chat_template": {
+    "tokenize": false,
+    "add_generation_prompt": true,
+    "enable_thinking": false
+  },
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "finite_new_tokens": 1,
+  "workload_fields": [
+    "computed_input_tokens",
+    "padded_input_tokens",
+    "graph_replays",
+    "graph_captures",
+    "batch_size",
+    "logical_field_count",
+    "elapsed_seconds"
+  ],
+  "rank_file": "rank-{rank}.json",
+  "allocator": "expandable_segments:True",
+  "entrypoint": "tests/infra/action_prefix/matched_profile.py",
+  "output": "results/infra/native-long-frontier-stage099/profile",
+  "prepared": "results/infra/native-long-frontier-stage099/prepared.json",
+  "modes": [
+    "reference"
+  ],
+  "rank_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "tracks": [
+    "agentquest_mastermind_early",
+    "agentquest_mastermind_late",
+    "agentquest_sudoku_early",
+    "agentquest_sudoku_late"
+  ],
+  "record_shapes": false,
+  "with_stack": false,
+  "trace_ranks": [
+    0
+  ],
+  "trace_file": "{track}-{mode}-rank-{rank}.json",
+  "kernel_category": "kernel",
+  "device_categories": [
+    "kernel",
+    "gpu_memcpy",
+    "gpu_memset"
+  ],
+  "launch_names": [
+    "LaunchKernel",
+    "LaunchCooperativeKernel",
+    "GraphLaunch"
+  ],
+  "sync_names": [
+    "Synchronize"
+  ],
+  "phase_names": {
+    "pack": "jev.pack",
+    "split": "jev.split",
+    "prefill": "jev.prefill",
+    "load": "jev.load",
+    "extension": "jev.extension",
+    "graph": "jev.graph",
+    "readout": "jev.readout",
+    "score": "jev.score",
+    "snapshot": "jev.snapshot"
+  },
+  "runtime_categories": [
+    "cuda_runtime",
+    "cuda_driver"
+  ],
+  "event_wait_names": [
+    "StreamWaitEvent"
+  ],
+  "collective_markers": [
+    "nccl"
+  ],
+  "summary_rank": 0,
+  "summary_file": "summary.json",
+  "implementations": {
+    "reference": {
+      "module": "jev_spawn.infra.stable_finite_graph",
+      "class": "StableFiniteGraphTail"
+    }
+  }
+}

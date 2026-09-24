@@ -1,0 +1,60 @@
+{
+  "prompts": "jevspawn.semantic_runtime",
+  "settings": {
+    "field_mode": "tiled_shared",
+    "finite_readout": "native_gpu_rows",
+    "finite_scheduling": "cohort",
+    "input_window": {
+      "mode": "head_tail_notice",
+      "head_fraction": 0.5,
+      "prompt": "jevspawn.input_truncation_notice"
+    },
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "graph_shape": {
+      "batch_buckets": [
+        1,
+        8
+      ]
+    },
+    "history_cache": {
+      "zero": 0,
+      "position_step": 1,
+      "row_step": 1,
+      "exclude_last": -1,
+      "last_index": -1,
+      "first_index": 0,
+      "minimum_rows": 1,
+      "record_offset": 1,
+      "cache": {
+        "initial_bytes": 0,
+        "max_entries": 128,
+        "max_bytes": 8589934592
+      },
+      "state_copy": {
+        "mode": "triton_grouped",
+        "block_size": 4096,
+        "num_warps": 4
+      },
+      "checkpoint": {
+        "chunk_size": 64,
+        "reserved_tail_tokens": 64,
+        "capture": {
+          "checkpoint_dtype": "float32",
+          "index_dtype": "int64",
+          "unselected_row": -1,
+          "block_size": 4096,
+          "num_warps": 4,
+          "num_stages": 1
+        }
+      }
+    }
+  },
+  "services": {
+    "shared": "tests.infra.history_cache.terminal_service.CachedService",
+    "latentmas": "baselines.latentmas.context_window_service.WindowedLatentMASService"
+  }
+}

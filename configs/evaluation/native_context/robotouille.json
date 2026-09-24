@@ -1,0 +1,70 @@
+{
+  "dataset": "robotouille",
+  "source_root": "external/Robotouille-native-pinned",
+  "domain": "external/Robotouille-native-pinned/domain/robotouille.json",
+  "sample_paths": [
+    "external/Robotouille-native-pinned/environments/env_generator/examples/base_move.json",
+    "external/Robotouille-native-pinned/environments/env_generator/examples/base_pickup.json"
+  ],
+  "native_text_core": "robotouille/env.py",
+  "native_preparation": "random.seed(42); builder.load_environment(absolute_sample_path); builder.build_problem(scene); build_state(domain_json, named_scene)",
+  "native_state_constructor": "build_state(domain_json, named_environment_dict)",
+  "native_context": "LanguageSpace.state_to_language_description(state)",
+  "native_action_resolution": "State.get_valid_actions_and_str() returns native action objects and corresponding official action strings in matching order.",
+  "native_transition": "State.step(actions)",
+  "native_score": "State.is_goal_reached()",
+  "native_fork": "copy.deepcopy(state)",
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "readiness": "native_context_ready",
+  "common_runner_connected": true,
+  "blocking_component": null,
+  "package_attempt": {
+    "interpreter": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/environ/qwen35_spawn/bin/python",
+    "prefix_verified": true,
+    "source": "Official sources and CPU wheels downloaded under project external; absolute project Python -m pip installed local files without changing configured pip index.",
+    "result": "pddlgym, imageio and skimage.transform.resize imported successfully.",
+    "evidence": "results/validation/robotouille_dependency_recovery_20260923.json"
+  },
+  "not_used": [
+    "Dummy renderer",
+    "Fake observation",
+    "Custom PDDL surrogate simulator",
+    "Task-specific model prompts"
+  ],
+  "notes": [
+    "Uses the exact native build_state, State.step and LanguageSpace methods called by RobotouilleEnv. Visual renderer initialization is not required for text-state execution.",
+    "Two official primitive samples verify environment integration and positive/negative native score; they are not model experiments or a benchmark performance claim.",
+    "Native public observations themselves include the current Valid Actions. Action strings are resolved to the matching original Action objects before native State.step."
+  ],
+  "dependency_evidence": "results/validation/robotouille_dependency_recovery_20260923.json",
+  "source_commit": "ddec56bbb864c897d833028b62f190ca791efa2b",
+  "tasks": "data/native_context/robotouille/tasks.jsonl",
+  "local_task_count": 2,
+  "model_inference_verified": false,
+  "environment_execution": {
+    "class": "environments.robotouille.RobotouilleEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/robotouille_runtime.json"
+    }
+  },
+  "common_specifications": {
+    "jevspawn": "configs/experiments/native_context/robotouille_jevspawn.json",
+    "react": "configs/experiments/native_context/robotouille_react.json",
+    "single": "configs/experiments/native_context/robotouille_single.json"
+  },
+  "evidence": "results/validation/robotouille_shared_evaluator_20260923.json"
+}

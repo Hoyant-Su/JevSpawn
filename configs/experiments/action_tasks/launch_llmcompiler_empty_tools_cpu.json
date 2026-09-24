@@ -1,0 +1,9 @@
+{
+  "phases": [
+    {
+      "name": "llmcompiler_empty_tool_numbering",
+      "devices": "",
+      "arguments": ["tests/baselines/llmcompiler/test_empty_tools.py"]
+    }
+  ]
+}

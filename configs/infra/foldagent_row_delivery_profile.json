@@ -1,0 +1,7 @@
+{
+  "specification": "configs/baselines/common/qualification/search_read_id_v1/foldagent.json",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "output": "runs/foldagent-row-delivery-profile-001",
+  "profiles": "runs/foldagent-row-delivery-profile-001/host-profiles.json",
+  "events": "runs/foldagent-row-delivery-profile-001/host-events.json"
+}

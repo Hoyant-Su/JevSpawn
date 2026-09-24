@@ -1,0 +1,47 @@
+{
+  "stage": "formal",
+  "method": "agentprune",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "entries": [
+    {
+      "method": "agentprune",
+      "dataset": "korgym_circle_the_cat",
+      "specification": "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "run": "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+      "evaluation": "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+      "progress": "results/native_baselines/agentprune_protocol_v2/progress/korgym_circle_the_cat.json",
+      "log": "logs/native_baselines/agentprune-protocol-v2-korgym_circle_the_cat.log",
+      "commands": [
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "scripts/native_baselines/infer_devices.py",
+          "--specification",
+          "configs/experiments/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json",
+          "--output",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+          "--devices",
+          "0,1,2,3",
+          "--parallel-settings",
+          "configs/jevspawn/qwen35_parallel.json"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-baselines-agentprune-protocol-v2-20260924/korgym_circle_the_cat",
+          "--output",
+          "results/native_baselines/agentprune_protocol_v2/korgym_circle_the_cat.json"
+        ]
+      ]
+    }
+  ]
+}

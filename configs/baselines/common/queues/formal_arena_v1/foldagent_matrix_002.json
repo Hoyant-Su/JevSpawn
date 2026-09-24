@@ -1,0 +1,90 @@
+{
+  "method": "foldagent",
+  "shared_config": "configs/shared_config_arena_v1.yaml",
+  "cells": [
+    {
+      "dataset": "aqua",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_aqua.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-aqua",
+      "task_count": 254
+    },
+    {
+      "dataset": "supergpqa",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_supergpqa.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-supergpqa",
+      "task_count": 256
+    },
+    {
+      "dataset": "medxpertqa_text",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_medxpertqa_text.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-medxpertqa_text",
+      "task_count": 256
+    },
+    {
+      "dataset": "processbench_gsm8k",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_processbench_gsm8k.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-processbench_gsm8k",
+      "task_count": 400
+    },
+    {
+      "dataset": "squad2_answerability",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_squad2_answerability.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-squad2_answerability",
+      "task_count": 512
+    },
+    {
+      "dataset": "race_middle",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_race_middle.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-race_middle",
+      "task_count": 368
+    },
+    {
+      "dataset": "pubmedqa",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_pubmedqa.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-pubmedqa",
+      "task_count": 500
+    },
+    {
+      "dataset": "scifact_cited",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_scifact_cited.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-scifact_cited",
+      "task_count": 283
+    },
+    {
+      "dataset": "humaneval",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_humaneval.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-humaneval",
+      "task_count": 164
+    },
+    {
+      "dataset": "mbpp",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_mbpp.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-mbpp",
+      "task_count": 500
+    },
+    {
+      "dataset": "bright_pony",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_bright_pony.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-bright_pony",
+      "task_count": 104
+    },
+    {
+      "dataset": "multihoprag",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_multihoprag.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-multihoprag",
+      "task_count": 64
+    },
+    {
+      "dataset": "zebralogic",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_zebralogic.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-zebralogic",
+      "task_count": 64
+    },
+    {
+      "dataset": "ragtruth",
+      "specification": "configs/baselines/common/formal_arena_v1/foldagent_ragtruth.json",
+      "output": "runs/common-foldagent-arena-v1-formal-002-ragtruth",
+      "task_count": 96
+    }
+  ]
+}

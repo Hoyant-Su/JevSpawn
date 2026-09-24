@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "jevspawn_revision_tuned": {
+      "run": "runs/common-jevspawn_revision-tuned-noncoding-tp4-v1-001",
+      "evaluation": "results/methods/structured_flow/jevspawn_revision_tuned_001.json"
+    },
+    "latentmas_tuned": {
+      "run": "runs/common-latentmas-tuned-noncoding-tp4-v1-001",
+      "evaluation": "results/baselines/common/evaluation/latentmas-tuned-noncoding-tp4-v1-001.json"
+    }
+  },
+  "output": "results/infra/tuned_reference_comparison_001.json"
+}

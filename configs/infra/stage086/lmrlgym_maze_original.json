@@ -1,0 +1,15 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "devices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+  "entrypoint": "tests/infra/history_cache/rollout_joint.py",
+  "run_output": "runs/native-joint-control-stage086/lmrlgym_maze/original",
+  "readout_labels": "configs/infra/stage086/readout_labels.json",
+  "joint_control": false
+}

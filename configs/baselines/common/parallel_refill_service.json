@@ -1,0 +1,15 @@
+{
+  "initial_request_id": 0,
+  "initial_command_sequence": 0,
+  "commands": {
+    "prefill": "refill_prefill",
+    "compact": "refill_compact",
+    "bind": "refill_bind",
+    "step": "refill_step",
+    "emit": "refill_emit"
+  },
+  "batch_buckets": [
+    1,
+    8
+  ]
+}

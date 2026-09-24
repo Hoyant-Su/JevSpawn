@@ -1,0 +1,21 @@
+{
+  "upstream": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/external/SelfRefine",
+  "model_name": "Qwen3.5-4B",
+  "temperature": 0.0,
+  "max_new_tokens": 512,
+  "batch_size": 8,
+  "native_config": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/native.json",
+  "tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/tasks.jsonl",
+  "labels": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/feasibility/labels.jsonl",
+  "formal_tasks": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/data/research_v1/aqua/evaluation/tasks.jsonl",
+  "task_count": 8,
+  "batch_wait_seconds": 0.03,
+  "prompts": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/configs/baselines/self_refine/schema/prompts.json",
+  "adapter_module": "baselines.self_refine.adapter",
+  "max_attempts": 2,
+  "evaluation_script": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/jevspawn/src/jev_spawn/cli/evaluate.py",
+  "sandbox": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/runtime/tools/bubblewrap/usr/bin/bwrap",
+  "sandbox_memory_mb": 512,
+  "execution_seconds": 5,
+  "work_dir": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/runs/self-refine-tools"
+}

@@ -1,0 +1,347 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "run": "runs/common-jevspawn_reference_revision-noncoding-tp4-v1-001",
+  "output": "runs/finite-stable-graph-001",
+  "result": "results/infra/finite_stable_graph_001.json",
+  "task_file": "task-{index:05d}.json",
+  "rank_file": "rank{rank}-{phase}-{variant}.json",
+  "variants": [
+    "ragged",
+    "stable"
+  ],
+  "reference_variant": "reference",
+  "candidate_variant": "mixed",
+  "caches": [
+    "base",
+    "state"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "mode": "tiled_shared",
+  "command": "qualify_finite_stable_graph",
+  "workloads": {
+    "initial": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "reordered": [
+      [
+        7,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "new_nodes": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "branches": [
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "single": [
+      [
+        0,
+        0
+      ]
+    ],
+    "partial_2": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "partial_5": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "partial_7": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        0
+      ]
+    ]
+  },
+  "phases": [
+    {
+      "name": "warm_initial",
+      "workload": "initial",
+      "clear": false
+    },
+    {
+      "name": "warm_new_nodes",
+      "workload": "new_nodes",
+      "clear": false
+    },
+    {
+      "name": "warm_branches",
+      "workload": "branches",
+      "clear": false
+    },
+    {
+      "name": "warm_single",
+      "workload": "single",
+      "clear": false
+    },
+    {
+      "name": "cold",
+      "workload": "initial",
+      "clear": true
+    },
+    {
+      "name": "cached_reordered",
+      "workload": "reordered",
+      "clear": false
+    },
+    {
+      "name": "new_nodes",
+      "workload": "new_nodes",
+      "clear": false
+    },
+    {
+      "name": "branches",
+      "workload": "branches",
+      "clear": false
+    },
+    {
+      "name": "cached_branches",
+      "workload": "branches",
+      "clear": false
+    },
+    {
+      "name": "single",
+      "workload": "single",
+      "clear": false
+    },
+    {
+      "name": "cached_single",
+      "workload": "single",
+      "clear": false
+    },
+    {
+      "name": "partial_2",
+      "workload": "partial_2",
+      "clear": false
+    },
+    {
+      "name": "cached_partial_2",
+      "workload": "partial_2",
+      "clear": false
+    },
+    {
+      "name": "partial_5",
+      "workload": "partial_5",
+      "clear": false
+    },
+    {
+      "name": "cached_partial_5",
+      "workload": "partial_5",
+      "clear": false
+    },
+    {
+      "name": "partial_7",
+      "workload": "partial_7",
+      "clear": false
+    },
+    {
+      "name": "cached_partial_7",
+      "workload": "partial_7",
+      "clear": false
+    }
+  ],
+  "profile": {
+    "phases": []
+  },
+  "graph_variants": {
+    "ragged": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "stable": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    }
+  },
+  "comparison_pairs": [
+    [
+      "ragged",
+      "stable"
+    ]
+  ],
+  "graph_implementations": {
+    "ragged": "ragged",
+    "stable": "stable"
+  },
+  "stable_settings": "configs/jevspawn/finite_graph_stable.json"
+}

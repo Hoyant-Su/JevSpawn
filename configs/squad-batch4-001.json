@@ -1,0 +1,26 @@
+{
+  "run_id": "structured",
+  "run_dir": "/inspire/hdd/global_user/suhaoyang-240107100018/research/Structured_inference/JEV/research/jevspawn-paper/runs",
+  "tasks_path": "/path/to/data/tasks.jsonl",
+  "fields_path": null,
+  "model_path": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.5-4B",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "kernel": "fla",
+  "max_input_tokens": 8192,
+  "seed": 42,
+  "cpu_threads": 8,
+  "world_size": 1,
+  "batch_size": 4,
+  "branch_batch_size": 128,
+  "task_offset": 0,
+  "method": "streamed",
+  "warmup_batch": true,
+  "worker_role": "answerability",
+  "json_constraints": "finite",
+  "controller_max_new_tokens": 128,
+  "job": {
+    "id": "document-answerability",
+    "instruction": "Assess whether each question can be answered from its assigned paragraph. Return one finite decision per question."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "prompts": "jevspawn.typed_answer",
+  "min_array_items": 0,
+  "max_array_items": 64,
+  "max_depth": 8,
+  "max_candidates": 256
+}

@@ -1,0 +1,14 @@
+{
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "tasks": "data/observation_repair_20260924/korgym_nullify/tasks.jsonl",
+  "task_count": 8,
+  "stage": "qualification",
+  "environment": "configs/environments/session.json",
+  "environment_execution": {
+    "class": "environments.korgym.KORGymEnvironment",
+    "parameters": {
+      "configuration": "configs/environments/korgym_nullify_runtime.json"
+    }
+  },
+  "method": "configs/baselines/common/methods/react.json"
+}

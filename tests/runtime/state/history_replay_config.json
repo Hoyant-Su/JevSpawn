@@ -1,0 +1,208 @@
+{
+  "expected_tasks": 112,
+  "cpu_workers": 8,
+  "model": "/inspire/hdd/global_public/public_models/Qwen/Qwen3.8-27B",
+  "max_input_tokens": 16384,
+  "inference": "configs/inference/shared_service.json",
+  "tracks": [
+    {
+      "dataset": "ppnl",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-ppnl-jevspawn-20260923-049/task-00000.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00001.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00002.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00003.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00004.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00005.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00006.json",
+        "runs/native-ppnl-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "lmrlgym_maze",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00000.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00001.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00002.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00003.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00004.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00005.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00006.json",
+        "runs/native-lmrlgym_maze-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "llfbench_gridworld",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00000.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00001.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00002.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00003.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00004.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00005.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00006.json",
+        "runs/native-llfbench_gridworld-jevspawn-20260923-046resume/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "plancraft",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-plancraft-jevspawn-20260923-045/task-00000.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00001.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00002.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00003.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00004.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00005.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00006.json",
+        "runs/native-plancraft-jevspawn-20260923-045/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "robotouille",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-robotouille-jevspawn-20260923-048/task-00000.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00001.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00002.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00003.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00004.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00005.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00006.json",
+        "runs/native-robotouille-jevspawn-20260923-048/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "autoplanbench",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00000.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00001.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00002.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00003.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00004.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00005.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00006.json",
+        "runs/native-autoplanbench-jevspawn-20260923-045/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "agentquest_mastermind",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00000.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00001.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00002.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00003.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00004.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00005.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00006.json",
+        "runs/native-agentquest_mastermind-jevspawn-20260923-045/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "agentquest_sudoku",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00000.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00001.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00002.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00003.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00004.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00005.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00006.json",
+        "runs/native-agentquest_sudoku-jevspawn-20260923-045/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "textarena_lightsout",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00000.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00001.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00002.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00003.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00004.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00005.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00006.json",
+        "runs/native-textarena_lightsout-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "textarena_rushhour",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00000.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00001.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00002.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00003.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00004.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00005.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00006.json",
+        "runs/native-textarena_rushhour-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "textarena_sokoban",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00000.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00001.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00002.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00003.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00004.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00005.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00006.json",
+        "runs/native-textarena_sokoban-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "korgym_2048",
+      "measure_prompts": true,
+      "sources": [
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00000.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00001.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00002.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00003.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00004.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00005.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00006.json",
+        "runs/native-korgym_2048-jevspawn-20260923-049/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "korgym_circle_the_cat",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00000.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00001.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00002.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00003.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00004.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00005.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00006.json",
+        "runs/native-korgym_circle_the_cat-jevspawn-20260923-045/task-00007.json"
+      ]
+    },
+    {
+      "dataset": "korgym_nullify",
+      "measure_prompts": false,
+      "sources": [
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00000.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00001.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00002.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00003.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00004.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00005.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00006.json",
+        "runs/native-korgym_nullify-jevspawn-20260923-045/task-00007.json"
+      ]
+    }
+  ],
+  "output": "results/validation/native_stage050_history_replay_20260923.json",
+  "old_prefix": "Background task:\n{context}\n\nExecution history:\nEach following line is one complete original execution event. Event IDs identify actual calls and observations; parent_feedback records execution ancestry. current_path and current_feedback in the decision state select the current branch and its latest observations. Events outside that path are alternative executions, not changes to the current branch. Event values are preserved in full.\n{history}",
+  "reconstruction_note": "Old full prompts reconstructed from saved049 request state/history/options and exact049 prefix supplied from prior tool output. New prompts replace only history representation and protocol format strings. Same tokenizer, chat framing and input-window policy. Coverage requires complete JSONL record plus all recursively referenced predecessor records; conservative whole-record criterion. Single-option decisions are explicitly marked and may bypass model inference. CPU only; no logits or quality claim."
+}

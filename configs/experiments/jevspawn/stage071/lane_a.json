@@ -1,0 +1,146 @@
+{
+  "stage": "stage071_current_jevspawn_screen",
+  "method": "jevspawn",
+  "world_size": 4,
+  "idle_memory_mib": 100,
+  "stop_on_failure": true,
+  "occupancy_command": [
+    "nvidia-smi",
+    "--id=0,1,2,3",
+    "--query-gpu=memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "shared_config": "configs/shared_config_tp4_v2.yaml",
+  "entries": [
+    {
+      "method": "jevspawn",
+      "dataset": "robotouille",
+      "specification": "configs/experiments/native_screen/robotouille_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/robotouille",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/robotouille.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/robotouille.json",
+      "log": "logs/qualification/native-jev-current-stage071-robotouille.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/robotouille_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/robotouille"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/robotouille",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/robotouille.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "lmrlgym_maze",
+      "specification": "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/lmrlgym_maze",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/lmrlgym_maze.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/lmrlgym_maze.json",
+      "log": "logs/qualification/native-jev-current-stage071-lmrlgym_maze.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/lmrlgym_maze_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/lmrlgym_maze"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/lmrlgym_maze",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/lmrlgym_maze.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "llfbench_gridworld",
+      "specification": "configs/experiments/native_screen/llfbench_gridworld_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/llfbench_gridworld",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/llfbench_gridworld.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/llfbench_gridworld.json",
+      "log": "logs/qualification/native-jev-current-stage071-llfbench_gridworld.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/llfbench_gridworld_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/llfbench_gridworld"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/llfbench_gridworld",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/llfbench_gridworld.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "agentquest_mastermind",
+      "specification": "configs/experiments/native_screen/agentquest_mastermind_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/agentquest_mastermind.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/agentquest_mastermind.json",
+      "log": "logs/qualification/native-jev-current-stage071-agentquest_mastermind.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/agentquest_mastermind_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/agentquest_mastermind",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/agentquest_mastermind.json"
+        ]
+      ]
+    },
+    {
+      "method": "jevspawn",
+      "dataset": "korgym_nullify",
+      "specification": "configs/experiments/native_screen/korgym_nullify_jevspawn.json",
+      "run": "runs/native-jev-current-stage071-screen-20260923/korgym_nullify",
+      "evaluation": "results/validation/native-jev-current-stage071-screen-20260923/korgym_nullify.json",
+      "progress": "results/validation/native-jev-current-stage071-screen-20260923/progress/korgym_nullify.json",
+      "log": "logs/qualification/native-jev-current-stage071-korgym_nullify.log",
+      "commands": [
+        [
+          "bash",
+          "scripts/infer.sh",
+          "configs/experiments/native_screen/korgym_nullify_jevspawn.json",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_nullify"
+        ],
+        [
+          "../../environ/qwen35_spawn/bin/python",
+          "-m",
+          "baselines.common.evaluate",
+          "--run",
+          "runs/native-jev-current-stage071-screen-20260923/korgym_nullify",
+          "--output",
+          "results/validation/native-jev-current-stage071-screen-20260923/korgym_nullify.json"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "method": "configs/baselines/common/methods/jevspawn_shared_state.json",
+  "source_protocol": "runs/finite-admitted-parity-001/protocol.json",
+  "reference_run": "runs/finite-admitted-parity-001",
+  "source_settings": "configs/infra/shared_state_prefix_bright32.json",
+  "output": "runs/finite-suffix-graph-001",
+  "phases": [
+    "prime",
+    "capture",
+    "eager",
+    "graph",
+    "eager_repeat",
+    "graph_repeat"
+  ],
+  "command": "qualify_suffix_graph",
+  "decision_tokens": 1,
+  "summary_output": "results/infra/finite_suffix_graph_001.json",
+  "scope": "Isolated exact suffix CUDA graph, identical admitted32 BRIGHT finite fields, TP4 B8. Capture and retained memory separate from admission-inclusive warm timing.",
+  "graph_phases": [
+    "capture",
+    "graph",
+    "graph_repeat"
+  ],
+  "graph": {
+    "warmup_steps": 2
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "object_type": "object",
+  "array_type": "array",
+  "json_scalar_types": [
+    "integer",
+    "number",
+    "boolean",
+    "null"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "module": "baselines.common.agentprune",
+  "service": "baselines.common.unified_service.UnifiedInferenceService",
+  "prompts": "configs/baselines/common/schema/agentprune.json",
+  "settings": {
+    "source_directory": "external/AgentPrune",
+    "checkpoint": "runs/official-agentprune-development-002/checkpoint-010.pt",
+    "training_config": "records/infra/seed42-transition/previous_configs/baselines/agentprune/config_1024.json",
+    "num_rounds": 1,
+    "aggregate_mode": "all connected",
+    "history_cache": {
+      "zero": 0,
+      "position_step": 1,
+      "row_step": 1,
+      "exclude_last": -1,
+      "last_index": -1,
+      "first_index": 0,
+      "minimum_rows": 1,
+      "record_offset": 1,
+      "cache": {
+        "initial_bytes": 0,
+        "max_entries": 128,
+        "max_bytes": 8589934592
+      },
+      "state_copy": {
+        "mode": "triton_grouped",
+        "block_size": 4096,
+        "num_warps": 4
+      }
+    },
+    "node_iterations": 36
+  },
+  "python_paths": [
+    "../../runtime/official_agentprune/deps"
+  ]
+}

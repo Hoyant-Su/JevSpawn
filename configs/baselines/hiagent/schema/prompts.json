@@ -1,0 +1,12 @@
+{
+  "system": "You are an agent selecting documents that provide evidence for answering a research question.",
+  "instruction": "Rank the ten documents most useful for answering the given question. The initial catalog contains candidate IDs in retrieval order, not verified relevance. Inspect document contents using read_documents before deciding which evidence is useful. You may organize your work into subgoals and retrieve previous subgoal trajectories. Available environment actions are read_documents(1, 2, 3), which returns the full text of at most eight specified candidate documents, finish(3, 1, 2, 4, 5, 6, 7, 8, 9, 10), which submits exactly ten distinct candidate IDs ordered from most to least relevant, and check valid actions. IDs in these commands are local catalog IDs. Each action must occupy one line. Do not answer the question itself. Return the ranking with finish.",
+  "initial": "Candidate catalog, ordered by the initial lexical retrieval rank:\n{catalog}",
+  "check_actions": "check valid actions",
+  "commands": "read_documents(id, id, ...) reads up to eight candidates. finish(id, id, ...) submits exactly ten distinct candidate IDs in relevance order. check valid actions lists these commands.",
+  "invalid_action": "Invalid action. Use read_documents(id, id, ...), finish(id, id, ...), or check valid actions.",
+  "invalid_ids": "Invalid candidate IDs. Use distinct IDs from the initial catalog.",
+  "invalid_ranking": "A final ranking must contain exactly ten distinct candidate IDs.",
+  "read_limit": "Read at most eight candidate documents per action.",
+  "finished": "Ranking submitted."
+}

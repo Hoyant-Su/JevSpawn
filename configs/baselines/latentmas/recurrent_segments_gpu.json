@@ -1,0 +1,22 @@
+{
+  "stage": "cached_recurrent_segments_validation",
+  "shared_config": "configs/shared_config_arena_v2.yaml",
+  "method": "configs/baselines/common/methods/latentmas.json",
+  "environment": "configs/baselines/common/environment.json",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_start": 0,
+  "task_count": 8,
+  "critic_prefix_tokens": 914,
+  "minimum_internal_padding_boundaries": 2,
+  "minimum_rows_with_valid_prefix_tokens": 3,
+  "validation_timeout_seconds": 1200,
+  "tolerance": {
+    "rtol": 0.05,
+    "atol": 0.05
+  },
+  "scope": "Compare the original token-by-token cached critic prefix with boundary segments using the same FLA fused recurrent kernel, FP32 normalization and unchanged state update. Actual first eight tasks and all ten planner latent transitions. Preserve previous rejected chunk-kernel evidence and its unchanged numerical tolerance. No task quality claim. Prefix ends at the next observed padding boundary after three rows become active (layout runs/latentmas-recurrent-segments-layout-001/padding_layout.json); two internal activation boundaries and all valid tokens in that prefix are compared.",
+  "workspace_reserve_bytes": 8589934592,
+  "snapshot_storage": "GPU only: initial cache clone and original final cache clone. Release initial clone after exact GPU restoration before graph capture; candidate final state uses views. No CPU snapshots or offload.",
+  "candidate_transport": "fused_recurrent_segments",
+  "graph_workspace_reserve_bytes": 2147483648
+}

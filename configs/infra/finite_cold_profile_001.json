@@ -1,0 +1,57 @@
+{
+  "source_run": "runs/common-jevspawn-mixed-scheduling-cohort-001",
+  "shared_config": "configs/shared_config_tp4_v1.yaml",
+  "parallel_settings": "configs/jevspawn/qwen35_parallel.json",
+  "batches_glob": "session-*/batches.json",
+  "input_directory": "finite-inputs",
+  "input_glob": "cohort-*.json",
+  "output": "runs/finite-cold-profile-001",
+  "result": "results/infra/finite_cold_profile_001.json",
+  "rank_file": "rank{rank}-{phase}.json",
+  "variants": {
+    "stable": "stable"
+  },
+  "caches": [
+    "base",
+    "state"
+  ],
+  "state_copy": {
+    "mode": "triton_grouped",
+    "block_size": 4096,
+    "num_warps": 4
+  },
+  "graph_shape": {
+    "batch_buckets": [
+      1,
+      8
+    ]
+  },
+  "command": "profile_recorded_cold",
+  "phases": [
+    {
+      "name": "cold_profile",
+      "clear_prefix": true,
+      "profile": true
+    },
+    {
+      "name": "warm_kernels_uncached",
+      "clear_prefix": true,
+      "profile": false
+    },
+    {
+      "name": "resident_prefix",
+      "clear_prefix": false,
+      "profile": false
+    }
+  ],
+  "timing_scope": "Exact first recorded eight-request cohort. Cold instrumentation includes initialization/compilation, GPU kernels and graph capture. Two unprofiled repeats separate warm-kernel uncached work from resident-prefix work. This is a diagnostic workload, not an end-to-end task speed result.",
+  "variant": "stable",
+  "cohort_indices": [
+    0
+  ],
+  "trace_file": "trace-rank{rank}-{phase}.json",
+  "scopes": {
+    "functions": {},
+    "model": "finite.full_model"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "system": "Evaluate exactly the requested field using its question, its supplied option set and its complete input. The catalog records several independent finite questions over the same background. For a field, merge shared_input with that field's input to obtain its complete worker input; all entries are exact original values. question_index and options_index are zero-based indexes into the displayed questions and option_sets. Other fields are separate requests, not answers or additional instructions. The background task and state remain context, not this call's output interface. Reply with exactly one label from the requested field's option set and then stop. Do not emit reasoning, explanations, JSON, code or option descriptions.",
+  "catalog": "Original background and worker-state preamble:\n{header}\n\nComplete finite field catalog:\n{catalog}",
+  "request": "{catalog}\n\nRequested field: {field}\n{instruction}"
+}

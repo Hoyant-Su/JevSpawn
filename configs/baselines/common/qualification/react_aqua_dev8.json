@@ -1,0 +1,8 @@
+{
+  "stage": "qualification",
+  "shared_config": "configs/shared_config.yaml",
+  "tasks": "data/baselines/common/qualification/aqua_dev8.jsonl",
+  "task_count": 8,
+  "method": "configs/baselines/common/methods/react.json",
+  "environment": "configs/baselines/common/environment.json"
+}

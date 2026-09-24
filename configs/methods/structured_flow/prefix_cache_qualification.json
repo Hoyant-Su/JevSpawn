@@ -1,0 +1,19 @@
+{
+  "shared_config": "configs/shared_config.yaml",
+  "tasks": "data/baselines/common/qualification/all_datasets_14.jsonl",
+  "task_id": "SQuAD2/26/3",
+  "field_batches": [["q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7"], ["q8", "q9"]],
+  "task_tools": ["calculate"],
+  "tool_definitions": "configs/baselines/common/schema/tools.json",
+  "method_prompts": "configs/baselines/common/schema/jevspawn.json",
+  "measurement_phases": ["first_pass", "warm_replay"],
+  "cache_capacity": 1,
+  "scope": "Exact infrastructure parity on all ten original finite fields of one existing development task, with original questions, candidate IDs and option descriptions. Two actual field batches share the same task context. Conditions replay identical inputs for numerical comparison; they do not represent extra workers or a model-generated graph. No labels are loaded.",
+  "requirements": [
+    "Same TaskPrefixService context-prefix boundary for uncached, fresh-cache and reused-cache scoring.",
+    "Exact choices, logits and probabilities; no numerical tolerance.",
+    "No prefix model forward or computed prefix tokens on a cache hit.",
+    "Native attention, convolution and recurrent tensors and initialization metadata remain unchanged through suffix forks.",
+    "Cold first pass and warm paired replay retain actual timing, workload and GPU memory records; immutable-state snapshot audits are reported separately."
+  ]
+}

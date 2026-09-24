@@ -1,0 +1,10 @@
+{
+  "module": "baselines.common.hiagent",
+  "prompts": "configs/baselines/common/schema/hiagent.json",
+  "settings": {
+    "source_directory": "external/HiAgent/agentboard/agents",
+    "memory_size": 100
+  },
+  "python_paths": [],
+  "service": "baselines.common.streaming_service.StreamingBatchService"
+}

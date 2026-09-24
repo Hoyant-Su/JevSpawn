@@ -1,0 +1,14 @@
+{
+  "phases": [
+    {
+      "name": "maze_native_trajectory_scoring",
+      "devices": "",
+      "arguments": [
+        "-m",
+        "pytest",
+        "tests/environments/maze_evaluation_test.py",
+        "-q"
+      ]
+    }
+  ]
+}
