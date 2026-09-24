@@ -1,0 +1,14 @@
+{
+  "context_fields": [
+    "instruction",
+    "input",
+    "answer_schema"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "seed": 42,
+  "indent": 2,
+  "splits": {"development": 16, "evaluation": 184},
+  "prompt": "tasks.bfcl",
+  "answer_schema": {
+    "type": "object",
+    "properties": {"completion": {"type": "string"}},
+    "required": ["completion"],
+    "additionalProperties": false
+  },
+  "report": "results/data/bfcl/preparation.json",
+  "datasets": [
+    {
+      "dataset": "bfcl_parallel",
+      "category": "parallel",
+      "tasks": "../../data/dataset_review/bfcl/BFCL_v4_parallel.json",
+      "labels": "../../data/dataset_review/bfcl/possible_answer/BFCL_v4_parallel.json",
+      "source_count": 200,
+      "output": "data/compositional/bfcl_parallel"
+    },
+    {
+      "dataset": "bfcl_parallel_multiple",
+      "category": "parallel_multiple",
+      "tasks": "../../data/dataset_review/bfcl/BFCL_v4_parallel_multiple.json",
+      "labels": "../../data/dataset_review/bfcl/possible_answer/BFCL_v4_parallel_multiple.json",
+      "source_count": 200,
+      "output": "data/compositional/bfcl_parallel_multiple"
+    }
+  ],
+  "evaluation": {
+    "upstream": "../../data/dataset_review/bfcl/upstream",
+    "revision": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "categories": ["parallel", "parallel_multiple"],
+    "model_name": "JevSpawn",
+    "underscore_to_dot": false,
+    "parser_functions": ["ast_parse", "resolve_ast_call", "resolve_ast_by_type"],
+    "allowed_ast_nodes": ["Expression", "Call", "List", "Tuple", "Dict", "Constant", "Name", "Attribute", "Load", "keyword", "UnaryOp", "USub"],
+    "prediction_language": "Python call or list/tuple of calls with keyword arguments, literals, containers, variable names and negative literals. Arithmetic, lambdas, subscripts and other executable expressions are rejected before original decoding. No function is executed.",
+    "scoring": "Original pinned Python AST checker, including greedy one-to-one order-independent call matching, multiplicity, argument alternatives, optional markers, type checks and original normalization. No API execution or text exact-match substitute.",
+    "scope": "Original BFCL_v4 static parallel and parallel_multiple categories only; not all BFCL categories or an exact reproduction of a model-specific leaderboard wrapper."
+  }
+}

@@ -50,3 +50,5 @@
 **/core.*
 **/*.exit-codes.json
 /tests/fixtures/
+
+/configs/data/local_collected_inventory.json

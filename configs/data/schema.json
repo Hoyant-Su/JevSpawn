@@ -1,0 +1,78 @@
+{
+  "aqua": {
+    "question": {
+      "$prompt": "configs/data/schema.json#aqua/question"
+    },
+    "option_ids": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "race": {
+    "question": {
+      "$prompt": "configs/data/schema.json#race/question"
+    },
+    "option_ids": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "evaluation_level": "middle",
+    "feasibility_level": "high",
+    "feasibility_articles": 32
+  },
+  "pubmedqa": {
+    "question": {
+      "$prompt": "configs/data/schema.json#pubmedqa/question"
+    },
+    "options": [
+      {
+        "id": "yes",
+        "description": {
+          "$prompt": "configs/data/schema.json#pubmedqa/options/0/description"
+        }
+      },
+      {
+        "id": "no",
+        "description": {
+          "$prompt": "configs/data/schema.json#pubmedqa/options/1/description"
+        }
+      },
+      {
+        "id": "maybe",
+        "description": {
+          "$prompt": "configs/data/schema.json#pubmedqa/options/2/description"
+        }
+      }
+    ]
+  },
+  "scifact": {
+    "question": {
+      "$prompt": "configs/data/schema.json#scifact/question"
+    },
+    "options": [
+      {
+        "id": "SUPPORT",
+        "description": {
+          "$prompt": "configs/data/schema.json#scifact/options/0/description"
+        }
+      },
+      {
+        "id": "CONTRADICT",
+        "description": {
+          "$prompt": "configs/data/schema.json#scifact/options/1/description"
+        }
+      },
+      {
+        "id": "NOINFO",
+        "description": {
+          "$prompt": "configs/data/schema.json#scifact/options/2/description"
+        }
+      }
+    ]
+  }
+}

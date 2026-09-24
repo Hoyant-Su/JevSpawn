@@ -1,0 +1,16 @@
+{
+  "sources": [
+    "data/qualification/finite_cache/zebra.jsonl",
+    "data/qualification/finite_cache/bfcl.jsonl",
+    "data/qualification/finite_cache/api_bank.jsonl"
+  ],
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "output": "data/qualification/query_context/tasks.jsonl",
+  "provenance": "data/qualification/query_context/sources.jsonl"
+}

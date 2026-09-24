@@ -1,0 +1,30 @@
+{
+  "aqua": {
+    "name": "AQuA-RAT five-choice mathematics",
+    "scope": "One original mathematics problem and its five original answer options per task. Official test is evaluation; official dev is feasibility.",
+    "sources": ["https://github.com/google-deepmind/AQuA", "https://raw.githubusercontent.com/google-deepmind/AQuA/master/test.json", "https://raw.githubusercontent.com/google-deepmind/AQuA/master/dev.json"],
+    "metric": "Answer accuracy over 254 official test questions.",
+    "limits": ["One field per task provides no cross-field prefix reuse.", "Direct answer selection does not evaluate rationale generation; original rationales are excluded from model input."]
+  },
+  "race_middle": {
+    "name": "RACE-middle reading comprehension",
+    "scope": "All official middle validation articles with every original question preserved. Feasibility uses the first 32 lexicographically sorted high validation article IDs, disjoint from evaluation articles.",
+    "sources": ["https://www.cs.cmu.edu/~glai1/data/race/", "https://huggingface.co/datasets/ehovy/race", "https://huggingface.co/datasets/ehovy/race/resolve/main/all/validation-00000-of-00001.parquet"],
+    "metric": "Question accuracy over all 1436 middle validation questions, grouped into 368 original articles.",
+    "limits": ["Evaluation uses the public validation split, not the official test split.", "Questions from an article are separate decisions; no claim is made that their answers are jointly reasoned.", "Feasibility is drawn from the high-school level and differs in difficulty from the middle-school evaluation."]
+  },
+  "pubmedqa": {
+    "name": "PubMedQA expert-labelled research question answering",
+    "scope": "The official 500 test IDs from PQA-L are evaluation; the other 500 labelled items form the feasibility pool. State contains only the original CONTEXTS; the field contains QUESTION. Choices are yes, no and maybe.",
+    "sources": ["https://github.com/pubmedqa/pubmedqa", "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json", "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/test_ground_truth.json"],
+    "metric": "Three-way answer accuracy and macro F1 over the official 500 test questions.",
+    "limits": ["One field per abstract provides no cross-field prefix reuse.", "This is abstract-grounded biomedical question answering, not clinical decision-making.", "LONG_ANSWER, LABELS, MESHES, auxiliary predictions and final_decision are excluded from model input."]
+  },
+  "scifact_cited": {
+    "name": "SciFact cited-abstract claim classification",
+    "scope": "For each official development claim, classify every originally cited document as SUPPORT, CONTRADICT or NOINFO. Group pairs by original abstract. A cited document has NOINFO when that claim has no annotated evidence in the document. Training claims form the feasibility pool.",
+    "sources": ["https://github.com/allenai/scifact", "https://github.com/allenai/scifact/blob/master/doc/data.md", "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz"],
+    "metric": "Claim-document pair accuracy and macro F1 over 340 pairs from all 300 development claims and 283 original abstracts.",
+    "limits": ["This supplied-citation classification subtask is not full-corpus retrieval or the official end-to-end SciFact score.", "Model input includes the complete title and abstract, never annotated evidence sentence IDs or labels.", "Claims with multiple cited documents contribute multiple decisions; report pair counts separately from claim counts.", "Training and development can share abstracts; the split unit is the original claim."]
+  }
+}

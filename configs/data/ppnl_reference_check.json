@@ -1,0 +1,21 @@
+{
+  "evaluator": "external/PPNL-executor-point-sg.py",
+  "evaluator_source": "https://github.com/MohamedAghzal/llms-as-path-planners/blob/main/ppnl-spatial-temporal-reasoning/evaluate/executor-point-sg.py",
+  "function": "is_goal",
+  "files": [
+    "data/context_datasets/ppnl/ICL_test_set.json",
+    "data/context_datasets/ppnl/ICL_test_set_5x5worlds.json",
+    "data/context_datasets/ppnl/ICL_test_set_7x7worlds.json",
+    "data/context_datasets/ppnl/ICL_test_set_moreobsts.json"
+  ],
+  "grid_field": "world",
+  "reference_field": "agent_as_a_point",
+  "unreachable_reference": "Goal not reachable",
+  "wall": 1,
+  "start": 2,
+  "goal": 3,
+  "success_code": 1,
+  "action_deltas": {"up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]},
+  "output": "results/data/ppnl_native_reference_20260922.json",
+  "indent": 2
+}

@@ -1,0 +1,46 @@
+{
+  "seed": 42,
+  "sample_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ],
+  "datasets": [
+    {
+      "id": "korgym_nullify",
+      "source": "external/korgym_nullify-source/game_lib/39-Nullify/game_lib.py",
+      "output": "data/context_datasets/korgym/nullify/generated.jsonl"
+    },
+    {
+      "id": "korgym_free_the_key",
+      "source": "external/korgym_key-source/game_lib/45-free_the_key/game_lib.py",
+      "output": "data/context_datasets/korgym/free_the_key/generated.jsonl",
+      "collection_status": "source_downloaded_generation_stopped_after_95_seconds_without_a_completed_batch"
+    }
+  ],
+  "additional_datasets": [
+    {
+      "id": "korgym_circle_the_cat",
+      "source": "external/KORGym-review/game_lib/40-CircleTheCat-Text/game_lib.py",
+      "output": "data/context_datasets/korgym/circle_the_cat/generated.jsonl"
+    },
+    {
+      "id": "korgym_2048",
+      "source": "external/KORGym-review/game_lib/3-2048/game_lib.py",
+      "output": "data/context_datasets/korgym/2048/generated.jsonl"
+    }
+  ]
+}

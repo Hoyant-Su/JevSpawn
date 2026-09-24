@@ -1,0 +1,14 @@
+{
+  "phases": [
+    {
+      "name": "prepare_original_planning_tasks",
+      "devices": "",
+      "arguments": ["-m", "data.prepare_planning", "--config", "configs/data/planning_original.json"]
+    },
+    {
+      "name": "verify_original_planning_inputs_and_labels",
+      "devices": "",
+      "arguments": ["tests/data/planning/check_preparation.py", "--config", "configs/data/planning_original.json", "--output", "results/data/planning_original/input_fidelity.json"]
+    }
+  ]
+}

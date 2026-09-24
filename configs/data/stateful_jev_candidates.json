@@ -1,0 +1,91 @@
+{
+  "seed": 42,
+  "network_access": false,
+  "source": {
+    "name": "TextArena",
+    "repository": "https://github.com/TextArena/TextArena",
+    "commit": "6dfb577c01d0337fe03b05adce84c5ae1878eca1",
+    "local_root": "external/TextArena-review"
+  },
+  "protocol": {
+    "input": "initial environment state and task goal",
+    "policy_output": "one action identifier from the declared finite action domain",
+    "transition": "local deterministic or seeded stochastic environment step",
+    "observation": "post-action state and terminal flag",
+    "primary_metric": "episode success",
+    "latency": "complete episode wall time including every policy and transition step"
+  },
+  "datasets": [
+    {
+      "id": "textarena_sokoban",
+      "environment": "Sokoban",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/Sokoban/env.py",
+      "action_space": {"type": "enum", "values": ["up", "down", "left", "right"]},
+      "state": "player position, box positions, walls, and targets",
+      "observation": "updated board and terminal outcome",
+      "fit": "strong",
+      "reason": "fixed four-way actions and genuine state-changing pushes"
+    },
+    {
+      "id": "textarena_fifteen_puzzle",
+      "environment": "FifteenPuzzle",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/FifteenPuzzle/env.py",
+      "action_space": {"type": "enum", "values": ["up", "down", "left", "right"]},
+      "state": "4x4 tile permutation and blank position",
+      "observation": "updated tile board and solved flag",
+      "fit": "strong",
+      "reason": "finite directional moves with exact successor state"
+    },
+    {
+      "id": "textarena_lights_out",
+      "environment": "LightsOut",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/LightsOut/env.py",
+      "action_space": {"type": "finite_indexed", "encoding": "cell_id"},
+      "state": "binary light grid and remaining move budget",
+      "observation": "toggled grid and completion status",
+      "fit": "strong",
+      "reason": "each finite cell action deterministically changes a local state"
+    },
+    {
+      "id": "textarena_rush_hour",
+      "environment": "RushHour",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/RushHour/env.py",
+      "action_space": {"type": "finite_product", "factors": ["vehicle_id", "direction"]},
+      "state": "vehicle positions and exit occupancy",
+      "observation": "updated vehicle layout or blocked-action feedback",
+      "fit": "strong",
+      "reason": "finite parameterized actions and state-dependent legality"
+    },
+    {
+      "id": "textarena_frozen_lake",
+      "environment": "FrozenLake",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/FrozenLake/env.py",
+      "action_space": {"type": "enum", "values": ["up", "down", "left", "right"]},
+      "state": "grid, agent position, holes, and goal",
+      "observation": "new position, failure, or success",
+      "fit": "strong",
+      "reason": "fixed actions with explicit feedback and optional seeded stochasticity"
+    },
+    {
+      "id": "textarena_tower_of_hanoi",
+      "environment": "TowerOfHanoi",
+      "publication_year": 2025,
+      "source_file": "external/TextArena-review/TowerOfHanoi/env.py",
+      "action_space": {"type": "finite_product", "factors": ["source_tower", "target_tower"]},
+      "state": "ordered disk stacks on three towers",
+      "observation": "updated stacks or invalid-move feedback",
+      "fit": "strong",
+      "reason": "source and target towers are finite and legality is state-dependent"
+    }
+  ],
+  "excluded": {
+    "wordle": "candidate words would require an externally defined dictionary; not a fixed action domain in the current protocol",
+    "textarena_social_games": "multi-agent and hidden-opponent dynamics would confound the single-policy latency study",
+    "current_bfcl_and_api_bank": "direct tool-call formatting without a state transition"
+  }
+}

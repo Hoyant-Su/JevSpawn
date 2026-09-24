@@ -1,0 +1,13 @@
+{
+  "source": "data/context_datasets/autoplanbench/extracted/apb1.0_dataset/data_main",
+  "problem_glob": "*/adapted_instances/*.pddl",
+  "expected_problems": 252,
+  "domain_file": "domain.pddl",
+  "plans_directory": "gold_plans",
+  "plan_name": "{problem}_gold_plan.txt",
+  "workers": 4,
+  "error_on_cross_namespace_names": false,
+  "transition_engine": "unified-planning 1.3.0 PDDLReader and UPSequentialSimulator; no search policy",
+  "output": "results/data/autoplanbench_reference_20260922.json",
+  "indent": 2
+}

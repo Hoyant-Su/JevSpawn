@@ -1,0 +1,11 @@
+{
+  "pubmedqa_test_ids.json": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/test_ground_truth.json",
+  "aqua_dev.json": "https://raw.githubusercontent.com/google-deepmind/AQuA/master/dev.json",
+  "aqua_test.json": "https://raw.githubusercontent.com/google-deepmind/AQuA/master/test.json",
+  "race_validation.parquet": "https://huggingface.co/datasets/ehovy/race/resolve/main/all/validation-00000-of-00001.parquet",
+  "scifact.tar.gz": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+  "pubmedqa_labelled.json": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
+  "processbench_gsm8k.json": "https://huggingface.co/datasets/Qwen/ProcessBench/resolve/main/gsm8k.json",
+  "processbench_math.json": "https://huggingface.co/datasets/Qwen/ProcessBench/resolve/main/math.json",
+  "adv2_math_pool.json": "https://raw.githubusercontent.com/TonySY2/AgentDropoutV2/main/test/metrics_pool/two_pool/deduped-mixed_metrics_two_pool.json"
+}

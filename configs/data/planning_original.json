@@ -1,0 +1,51 @@
+{
+  "seed": 42,
+  "indent": 2,
+  "splits": {"development": 32, "evaluation": 256},
+  "report": "results/data/planning_original/preparation.json",
+  "datasets": [
+    {
+      "dataset": "natural_plan_trip_planning",
+      "kind": "completion",
+      "source": "../../data/dataset_review/natural_plan/trip_planning.json",
+      "source_count": 1600,
+      "source_urls": ["https://github.com/google-deepmind/natural-plan", "https://raw.githubusercontent.com/google-deepmind/natural-plan/main/data/trip_planning.json"],
+      "layout": "mapping",
+      "input_field": "prompt_0shot",
+      "identity_template": "natural_plan_trip_planning/{identity}",
+      "label_fields": {"answer": "golden_plan", "cities": "cities", "durations": "durations", "num_cities": "num_cities"},
+      "output": "data/compositional/natural_plan_trip_planning",
+      "evaluation": {
+        "metric": "official_city_duration_sequence_exact_match",
+        "source": "https://raw.githubusercontent.com/google-deepmind/natural-plan/main/evaluate_trip_planning.py",
+        "functions": ["parse_response", "compute_example_score"],
+        "caveat": "The original metric compares the parsed reference city and stay-duration sequence. It does not independently validate every natural-language travel constraint and may accept a matched prefix with extra visits. Preserve this metric name; do not call it full constraint validity.",
+        "answer_contract": "The complete original itinerary, preserved as a string. No handwritten itinerary schema is supplied to the solver."
+      }
+    },
+    {
+      "dataset": "planbench_blocksworld",
+      "kind": "completion",
+      "source": "../../data/dataset_review/planbench/task_1_plan_generation.json",
+      "source_count": 500,
+      "source_urls": ["https://github.com/harshakokel/PlanBench", "https://raw.githubusercontent.com/harshakokel/PlanBench/main/plan-bench/prompts/blocksworld/task_1_plan_generation.json"],
+      "layout": "list",
+      "records_field": "instances",
+      "identity_field": "instance_id",
+      "input_field": "query",
+      "identity_template": "planbench_blocksworld/{identity}",
+      "label_fields": {"answer": "ground_truth_plan", "example_instance_ids": "example_instance_ids"},
+      "output": "data/compositional/planbench_blocksworld",
+      "evaluation": {
+        "metric": "executable_plan_goal_validity",
+        "source": "https://raw.githubusercontent.com/harshakokel/PlanBench/main/plan-bench/response_evaluation.py",
+        "domain_source": "https://raw.githubusercontent.com/harshakokel/PlanBench/main/plan-bench/instances/blocksworld/generated_domain.pddl",
+        "problem_source_template": "https://raw.githubusercontent.com/harshakokel/PlanBench/main/plan-bench/instances/blocksworld/generated/instance-{identity}.pddl",
+        "required_components": ["Official text-to-plan conversion", "Actual domain and each selected problem PDDL", "VAL executable"],
+        "status": "Data preparation complete; plan validity scoring requires evaluator assets and is not replaced by text exact match.",
+        "caveat": "The original one-shot prompt is preserved, including its author-provided exemplar. Target ground_truth_plan remains offline. This sample file covers Blocksworld only, not every PlanBench domain.",
+        "answer_contract": "A complete original action plan, preserved as a string. No task-specific action schema or gold PDDL is supplied to the solver."
+      }
+    }
+  ]
+}

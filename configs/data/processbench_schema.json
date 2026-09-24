@@ -1,0 +1,40 @@
+{
+  "feasibility_count": 16,
+  "max_first_error_options": 26,
+  "state": {
+    "$prompt": "configs/data/processbench_schema.json#state"
+  },
+  "step": {
+    "question": {
+      "$prompt": "configs/data/processbench_schema.json#step/question"
+    },
+    "options": [
+      {
+        "id": "correct",
+        "description": {
+          "$prompt": "configs/data/processbench_schema.json#step/options/0/description"
+        }
+      },
+      {
+        "id": "incorrect",
+        "description": {
+          "$prompt": "configs/data/processbench_schema.json#step/options/1/description"
+        }
+      }
+    ]
+  },
+  "first_error": {
+    "question": {
+      "$prompt": "configs/data/processbench_schema.json#first_error/question"
+    },
+    "correct_option": {
+      "id": "-1",
+      "description": {
+        "$prompt": "configs/data/processbench_schema.json#first_error/correct_option/description"
+      }
+    },
+    "error_description": {
+      "$prompt": "configs/data/processbench_schema.json#first_error/error_description"
+    }
+  }
+}

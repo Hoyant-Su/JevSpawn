@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "dataset": "ppnl",
+      "path": "data/context_datasets/ppnl/ICL_test_set.json",
+      "environment": "configs/environments/ppnl_runtime.json",
+      "task_id": "ICL_test_set/{index}",
+      "public_fields": [
+        "world",
+        "nl_description"
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "output": "data/native_context/ppnl/ICL_test_set.jsonl"
+    },
+    {
+      "dataset": "ppnl",
+      "path": "data/context_datasets/ppnl/ICL_test_set_5x5worlds.json",
+      "environment": "configs/environments/ppnl_runtime.json",
+      "task_id": "ICL_test_set_5x5worlds/{index}",
+      "public_fields": [
+        "world",
+        "nl_description"
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "output": "data/native_context/ppnl/ICL_test_set_5x5worlds.jsonl"
+    },
+    {
+      "dataset": "ppnl",
+      "path": "data/context_datasets/ppnl/ICL_test_set_7x7worlds.json",
+      "environment": "configs/environments/ppnl_runtime.json",
+      "task_id": "ICL_test_set_7x7worlds/{index}",
+      "public_fields": [
+        "world",
+        "nl_description"
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "output": "data/native_context/ppnl/ICL_test_set_7x7worlds.jsonl"
+    },
+    {
+      "dataset": "ppnl",
+      "path": "data/context_datasets/ppnl/ICL_test_set_moreobsts.json",
+      "environment": "configs/environments/ppnl_runtime.json",
+      "task_id": "ICL_test_set_moreobsts/{index}",
+      "public_fields": [
+        "world",
+        "nl_description"
+      ],
+      "indices": [
+        0,
+        1
+      ],
+      "output": "data/native_context/ppnl/ICL_test_set_moreobsts.jsonl"
+    }
+  ]
+}
