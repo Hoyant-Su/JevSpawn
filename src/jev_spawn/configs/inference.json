@@ -1,0 +1,43 @@
+{
+  "settings": {
+    "field_mode": "tiled_shared",
+    "finite_readout": "native_gpu_rows",
+    "finite_scheduling": "decode_step",
+    "input_window": {
+      "mode": "head_tail_notice",
+      "head_fraction": 0.5,
+      "prompt": "jevspawn.input_truncation_notice"
+    },
+    "state_copy": {
+      "mode": "triton_grouped",
+      "block_size": 4096,
+      "num_warps": 4
+    },
+    "graph_shape": {
+      "batch_buckets": [
+        1,
+        8
+      ]
+    },
+    "packing": {
+      "enabled": true,
+      "language_model_path": "model.language_model"
+    },
+    "values": {
+      "prompts": "jevspawn.values",
+      "terminator": "<|im_end|>",
+      "score_dtype": "float32",
+      "serialization": {
+        "ensure_ascii": false,
+        "separators": [
+          ",",
+          ":"
+        ],
+        "sort_keys": true,
+        "allow_nan": false
+      },
+      "score": "Product of allowed-native-token conditional probabilities at genuine value forks; singleton transitions have probability one; identical complete values share event mass equally across their IDs."
+    }
+  },
+  "prompts": "jevspawn.semantic_runtime"
+}

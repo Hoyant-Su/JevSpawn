@@ -1,0 +1,30 @@
+{
+  "cache_arena": {
+    "model_type": "qwen3_5_text",
+    "dtype": "bfloat16",
+    "recurrent_dtype": "float32",
+    "layer_types": [
+      "linear_attention",
+      "full_attention"
+    ]
+  },
+  "backend": {
+    "kernels": {
+      "torch": [
+        "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+        "transformers.models.qwen3_5.modeling_qwen3_5.torch_recurrent_gated_delta_rule"
+      ],
+      "fla": [
+        "fla.ops.gated_delta_rule.chunk_gated_delta_rule",
+        "fla.ops.gated_delta_rule.fused_recurrent_gated_delta_rule"
+      ]
+    }
+  },
+  "signature_parser": {
+    "signature_block_pattern": "\\A\\s*```[^\\r\\n`]*\\r?\\n(?P<body>[\\s\\S]*?)\\r?\\n[ \\t]*```\\s*\\Z",
+    "signature_fence_line": "(?m)^[ \\t]*```[^\\r\\n]*$",
+    "signature_format_error": "Use signature lines or one complete fenced block; a fence is not an action.",
+    "unbound_domain_pattern": "\\b(?:enum|range|repeat)\\s*\\(",
+    "unbound_domain_error": "Place each domain inside a named slot: {name:enum(...)}. Literal command text contains only native command punctuation and constants."
+  }
+}

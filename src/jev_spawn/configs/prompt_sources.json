@@ -1,0 +1,50 @@
+{
+  "jevspawn.branching": [
+    "template/prompts.json",
+    "jevspawn.branching"
+  ],
+  "jevspawn.declaration_builder": [
+    "template/prompts.json",
+    "jevspawn.declaration_builder"
+  ],
+  "jevspawn.input_truncation_notice": [
+    "template/prompts.json",
+    "jevspawn.input_truncation_notice"
+  ],
+  "jevspawn.joint_fields": [
+    "template/prompts.json",
+    "jevspawn.joint_fields"
+  ],
+  "jevspawn.query_execution": [
+    "template/prompts.json",
+    "jevspawn.query_execution"
+  ],
+  "jevspawn.semantic_runtime": [
+    "template/prompts.json",
+    "jevspawn.semantic_runtime"
+  ],
+  "jevspawn.state": [
+    "template/prompts.json",
+    "jevspawn.state"
+  ],
+  "jevspawn.terminal_answer": [
+    "template/prompts.json",
+    "jevspawn.terminal_answer"
+  ],
+  "shared.runtime_contract": [
+    "template/prompts.json",
+    "shared.runtime_contract"
+  ],
+  "templates/jevspawn/controller.json": [
+    "template/prompts.json",
+    "jevspawn.controller"
+  ],
+  "jevspawn.values": [
+    "template/prompts.json",
+    "jevspawn.values"
+  ],
+  "jevspawn.action": [
+    "template/prompts.json",
+    "jevspawn.action"
+  ]
+}

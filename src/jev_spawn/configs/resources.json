@@ -1,0 +1,7 @@
+{
+  "controller": "templates/jevspawn/controller.json",
+  "core": "configs/core.json",
+  "execution_policy": "configs/execution.json",
+  "qwen35_execution": "configs/qwen35_execution.json",
+  "readout_labels": "configs/readout_labels.json"
+}

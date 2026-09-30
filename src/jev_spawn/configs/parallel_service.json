@@ -1,0 +1,26 @@
+{
+  "generate_command": "generation_cohort",
+  "excluded_request_fields": [
+    "future"
+  ],
+  "prefix_caches": {
+    "jev_spawn.service.graph.HistoryGraphFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "jev_spawn.service.graph.DirectHistoryFiniteService": [
+      "prefix_cache",
+      "finite_cache"
+    ],
+    "jev_spawn.service.values.ValueService": [
+      "prefix_cache",
+      "finite_cache",
+      "value_cache"
+    ]
+  },
+  "request_types": [
+    "jev_spawn.service.batch.BatchedRequest",
+    "jev_spawn.service.finite.DecisionRequest",
+    "jev_spawn.service.values.ValueRequest"
+  ]
+}

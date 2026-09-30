@@ -1,0 +1,22 @@
+{
+  "controller": {
+    "labels": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    "minimum_options": 2
+  },
+  "backend": {
+    "device": "cuda:0",
+    "padding_side": "left",
+    "local_files_only": true,
+    "enable_thinking": false,
+    "add_generation_prompt": true,
+    "do_sample": false,
+    "generation_use_cache": true,
+    "logits_to_keep": 1
+  },
+  "framing": {
+    "python_open": "```python",
+    "json_open": "```json",
+    "close": "```",
+    "minimum_lines": 3
+  }
+}

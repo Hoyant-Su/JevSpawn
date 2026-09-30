@@ -1,0 +1,10 @@
+{
+  "alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "minimum_characters": 1,
+  "maximum_characters": 3,
+  "character_increment": 1,
+  "requested_count": 256,
+  "native_token_count": 1,
+  "add_special_tokens": false,
+  "clean_up_tokenization_spaces": false
+}

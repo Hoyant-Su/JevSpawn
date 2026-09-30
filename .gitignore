@@ -1,0 +1,26 @@
+# Only source code and explicit runtime configuration belong in this repository.
+/*
+!/.gitignore
+!/pyproject.toml
+!/src/
+!/configs/
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.env
+.env.*
+*credentials*
+auth.json
+*.pem
+*.key
+*token*
+*.log
+*.jsonl
+*.pt
+*.pth
+*.safetensors
+/src/jev_spawn/configs/*
+!/src/jev_spawn/configs/*.json
+/configs/*
+!/configs/shared.yaml
