@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2610.00437"><img height="20" src="https://img.shields.io/badge/Paper-arXiv-B85C70?style=flat-square" alt="Paper arXiv"></a>
+  <a href="https://hoyant-su.github.io/JevSpawn/"><img height="20" src="https://img.shields.io/badge/Project-Page-397E79?style=flat-square" alt="Project Page"></a>
   <a href="https://github.com/Hoyant-Su/JevSpawn"><img height="20" src="https://img.shields.io/badge/GitHub-46546A?style=flat-square" alt="GitHub"></a>
   <a href="#citation"><img height="20" src="https://img.shields.io/badge/Citation-8874AF?style=flat-square" alt="Citation"></a>
   <a href="https://huggingface.co/papers/2610.00437"><img height="20" src="https://img.shields.io/badge/Hugging_Face-C5A44D?style=flat-square" alt="Hugging Face"></a>
