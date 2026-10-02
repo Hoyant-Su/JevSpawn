@@ -39,6 +39,7 @@ h2 { font: 400 30px/1.25 Georgia, "Times New Roman", serif; letter-spacing: -.5p
 .method-text { margin: 0 0 24px; font-size: 16px; }
 .method-text strong { font-weight: 600; }
 .method-figure { padding: 10px 0; }
+.method-figure svg { display: block; width: 100%; height: auto; }
 .score-summary { display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 26px; margin: 25px 0 24px; }
 .score { border-top: 2px solid var(--teal); padding-top: 13px; }
 .score:nth-child(2) { border-color: #74a9c0; }
