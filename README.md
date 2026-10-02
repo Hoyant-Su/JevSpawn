@@ -1,17 +1,21 @@
 # JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces
 
-**Haoyang Su · Weiran Huang**
+![Quality–latency tradeoff and accumulated task scores for JevSpawn and seven agent baselines](assets/results.png)
 
-Fudan University · Shanghai Jiao Tong University · Shanghai Innovation Institute
-
-[Paper](https://arxiv.org/abs/2610.00437) · [Method](#method) · [Results](#results) · [Citation](#citation)
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.00437"><img height="16" src="https://img.shields.io/badge/Paper-arXiv-B85C70?style=flat-square" alt="Paper arXiv"></a>&nbsp;
+  <a href="https://github.com/Hoyant-Su/JevSpawn"><img height="16" src="https://img.shields.io/badge/GitHub-46546A?style=flat-square" alt="GitHub"></a>&nbsp;
+  <a href="#citation"><img height="16" src="https://img.shields.io/badge/Citation-8874AF?style=flat-square" alt="Citation"></a>&nbsp;
+  <img height="16" src="https://img.shields.io/badge/Hugging_Face-C5A44D?style=flat-square" alt="Hugging Face" title="Link coming soon">
+</p>
 
 LLM agents spend substantial time generating intermediate reasoning and actions token by token. Jev-style prediction offers a faster route through finite choices, but usually requires those choices to be defined in advance. **JevSpawn lets an agent infer and adapt its own compositional action space**, bringing finite probabilistic prediction to multi-turn interaction without additional training.
 
 ## What's New
 
-- **October 2026** — The [JevSpawn preprint](https://arxiv.org/abs/2610.00437) and core algorithm and GPU inference code are available.
-- **Research beta** — Feedback, replications, and follow-up work are welcome through [GitHub issues](https://github.com/Hoyant-Su/JevSpawn/issues).
+- **2026-10-01** — <img src="assets/icons/paper.svg" width="16" height="16" alt="Preprint"> The [JevSpawn preprint](https://arxiv.org/abs/2610.00437) is available on arXiv.
+- **2026-10-01** — <img src="assets/icons/research.svg" width="16" height="16" alt="Research beta"> JevSpawn is in research beta. Feedback, replications, and follow-up work are welcome through [GitHub issues](https://github.com/Hoyant-Su/JevSpawn/issues).
+- **2026-09-30** — <img src="assets/icons/code.svg" width="16" height="16" alt="Code release"> The core algorithm and GPU inference runtime are open source in this repository.
 
 ## Method
 
@@ -23,13 +27,13 @@ JevSpawn connects natural-language task descriptions to **finite, executable act
 2. **Spawn and explore.** Conditional field probabilities are combined into joint action probabilities. A bounded beam selects distinct assignments, each of which is executed in an independent copy of the parent state. Observations guide further exploration, and retained branches allow backtracking. The model can revise the declaration when the current action space is insufficient.
 3. **Share the computation.** Known value sequences are evaluated in batches, with output projection restricted to tokens that distinguish alternatives. Common context prefixes are reused across evaluations. Text generation supplies declarations, revisions, and final answers when needed. Repeated action exploration uses the finite policy.
 
-The agent algorithm is shared across tasks. Task rules are provided in the context, while the environment executes actions and returns observations. The repository contains the core method and inference runtime, with the public entry point in [`src/jev_spawn/api.py`](src/jev_spawn/api.py) and shared experiment settings in [`configs/shared.yaml`](configs/shared.yaml).
+The repository contains the core method and inference runtime, with the public entry point in [`src/jev_spawn/api.py`](src/jev_spawn/api.py) and shared experiment settings in [`configs/shared.yaml`](configs/shared.yaml).
 
 ## Results
 
-Experiments cover **eight benchmark tasks and 1,761 instances**. JevSpawn and the seven agent baselines use Qwen3.8-27B on four H100 GPUs, with batch size 8, seed 42, a 16,384-token context, up to 36 exploration rounds, and a 300-second task budget. Thinking mode is disabled. PPNL evaluates path planning, Maze and Grid evaluate interactive navigation, LightsOut, RushHour, and Sokoban evaluate puzzle solving, and 2048 and Nullify evaluate numerical game play.
-
-Against the seven agent baselines, JevSpawn achieves the highest task scores on **five of eight tasks**. On Maze and Grid, success rates reach **0.96 and 0.95**, with lower E2E latency than every agent baseline. The TypeSafe Jev comparison uses the **same JevSpawn architecture**, replacing finite scoring with the API while retaining Qwen for declarations and text generation.
+- **Tasks** — PPNL, Maze, Grid, LightsOut, RushHour, Sokoban, 2048, and Nullify.
+- **Model** — Qwen3.8-27B.
+- **TypeSafe Jev** — JevSpawn with API-based finite scoring.
 
 ### Task performance ↑
 
@@ -62,14 +66,6 @@ Elapsed time is measured from task submission to termination, including failed t
 | LatentMAS | 48.70 | 269.86 | 281.61 | 292.64 | 150.25 | 269.05 | 289.03 | 185.05 |
 | TypeSafe Jev | 43.96 | 63.98 | 78.39 | 153.95 | 187.45 | 214.76 | 249.05 | 189.41 |
 | JevSpawn | 21.88 | **40.91** | **40.58** | 111.05 | 89.20 | <ins>122.49</ins> | <ins>169.94</ins> | 104.21 |
-
-### Quality and latency
-
-![Quality–latency tradeoff and accumulated task scores for JevSpawn and seven agent baselines](assets/results.png)
-
-The left panel compares task-balanced quality and E2E latency, with 95% paired bootstrap intervals. Scores are normalized by the best observed mean for each task across JevSpawn and the seven agent baselines, then averaged with equal task weights. The right panel shows scores returned by each elapsed-time threshold, with unfinished tasks contributing zero. TypeSafe Jev is reported separately in the tables above.
-
-Full experimental settings, component ablations, long-horizon experiments, and inference profiles are provided in the [paper](https://arxiv.org/abs/2610.00437).
 
 ## Citation
 

@@ -7,6 +7,9 @@
 /assets/*
 !/assets/architecture.png
 !/assets/results.png
+!/assets/icons/
+/assets/icons/*
+!/assets/icons/*.svg
 !/src/
 !/configs/
 __pycache__/
