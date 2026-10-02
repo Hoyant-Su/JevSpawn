@@ -12,6 +12,10 @@
 !/assets/icons/*.svg
 !/src/
 !/configs/
+!/demo/
+/demo/output/
+/demo/environments/external/
+/demo/media/*.webm
 __pycache__/
 *.py[cod]
 *.so

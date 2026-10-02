@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JevSpawn · Inference explorer</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="JevSpawn home"><span class="brand-mark">J</span>JevSpawn<span class="brand-caption">Inference explorer</span></a>
+    <div class="header-note"><span class="status-dot"></span>Structured actions. Observed outcomes.</div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="section-label">BENCHMARK SAMPLES <span id="sample-count"></span></div>
+      <nav id="samples" aria-label="Benchmark samples"></nav>
+      <div class="sidebar-note"><span class="small-label">ABOUT THIS DEMO</span><p>One recorded case per task. Follow each declaration, branch selection, and real environment return.</p><p>2048 is evaluated by accumulated score.</p></div>
+    </aside>
+    <main>
+      <section class="task-heading">
+        <div><div id="dataset" class="eyebrow">JEVSPAWN / INTERACTIVE TASKS</div><h1 id="title">Inference explorer</h1><div id="task-id" class="task-id"></div></div>
+        <div class="controls"><select id="mode" aria-label="Execution mode"><option value="replay">Recorded trace</option><option value="live" disabled>Live inference</option></select><button id="run" class="primary" disabled><span>▶</span> Play trace</button><button id="stop" class="secondary" hidden>Stop</button></div>
+      </section>
+      <div class="run-strip"><span id="run-status" class="run-status">Loading samples</span><span id="mode-note">Recorded trace playback · no model calls</span><div class="metrics"><span>ROUND <b id="round-count">—</b></span><span>EXECUTED <b id="action-count">0</b></span><span>FRONTIER <b id="frontier-count">—</b></span></div></div>
+      <section class="inspection">
+        <article class="panel observation-panel"><div class="panel-heading"><h2>Observed state</h2><span id="observed-branch" class="tag">Initial task</span></div><pre id="observation" class="observation">Choose a task to explore its inference trace.</pre><div class="panel-foot"><span id="state-caption">Exact environment text</span><button id="context-button" class="text-button">Full task context ↗</button></div></article>
+        <article class="panel declaration-panel"><div class="panel-heading"><h2>Action declaration</h2><span id="declaration-status" class="tag">Awaiting round</span></div><div id="declaration" class="declaration"><p class="muted">The model declares finite action fields, then the runtime scores and executes structured choices.</p></div><div class="panel-foot"><span>Finite fields → structured actions → environment</span></div></article>
+      </section>
+      <section class="timeline-panel panel"><div class="panel-heading"><h2>Turn by turn <span class="heading-sub">Branch decisions & environment feedback</span></h2><label class="follow-label"><input id="follow" type="checkbox" checked> Follow latest</label></div><div id="timeline" class="timeline" aria-live="polite"><div class="empty-state"><div class="empty-glyph">↗</div><h3>Watch inference unfold</h3><p>Each round exposes the selected branch, executed actions,<br>and the observations returned by the environment.</p></div></div></section>
+      <section id="result" class="result" hidden aria-live="polite"></section>
+      <div id="error" class="error" hidden role="alert"></div>
+      <footer><span>JevSpawn / Structured inference</span><span id="provenance">Source traces preserve every recorded control round.</span></footer>
+    </main>
+  </div>
+  <dialog id="context-dialog"><div class="dialog-heading"><h2>Full task context</h2><button id="close-context" class="secondary" aria-label="Close task context">Close</button></div><pre id="full-context"></pre></dialog>
+</body>
+</html>

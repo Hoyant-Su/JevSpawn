@@ -1,0 +1,113 @@
+{
+  "source_root": "external/lmrlgym",
+  "module_path_index": 0,
+  "factory_module_name": "agentgym_maze_utils",
+  "factory_file": "agentgym/maze_utils.py",
+  "text_module": "LLM_RL.environment",
+  "latest_history_index": -1,
+  "seed": 42,
+  "prompts": "configs/data/maze/prompts.json",
+  "environment": {
+    "maze_name": "double_t_maze",
+    "width": 13,
+    "height": 10,
+    "display_position": true,
+    "display_init_position": false,
+    "success_reward": 1.0,
+    "illegal_penalty": -4.0,
+    "max_steps": 50
+  },
+  "tool_name": "move",
+  "action_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "move left",
+          "move right",
+          "move up",
+          "move down"
+        ]
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "answer_schema": {
+    "type": "object",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "move left",
+            "move right",
+            "move up",
+            "move down"
+          ]
+        }
+      }
+    },
+    "required": [
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "serialization": {
+    "ensure_ascii": false
+  },
+  "native_history_limit": 40,
+  "action_suffix": "\n",
+  "tool_output_schemas": {
+    "move": {
+      "type": "object",
+      "properties": {
+        "observation": {
+          "type": "string"
+        },
+        "reward": {
+          "type": "number"
+        },
+        "done": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "observation",
+        "reward",
+        "done"
+      ],
+      "additionalProperties": false
+    },
+    "finish": {
+      "type": "object",
+      "properties": {
+        "observation": {
+          "type": "string"
+        },
+        "reward": {
+          "type": "number"
+        },
+        "done": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "observation",
+        "reward",
+        "done"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "session": "configs/environments/session.json",
+  "answer_field": "actions",
+  "action_field": "action",
+  "initial_separator": "\n\n",
+  "scorer_class": "demo.environments.maze_evaluation.MazeScorer",
+  "submission_reward": 0.0
+}

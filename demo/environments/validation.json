@@ -1,0 +1,74 @@
+[
+  {
+    "id": "korgym_2048",
+    "task_id": "korgym_2048_seed141",
+    "score": 1076.0,
+    "rounds": 37,
+    "branch_actions": 144,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "korgym_nullify",
+    "task_id": "korgym_nullify_seed129",
+    "score": 1.0,
+    "rounds": 13,
+    "branch_actions": 48,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "llfbench_gridworld",
+    "task_id": "llfbench_gridworld_seed104",
+    "score": 1.0,
+    "rounds": 7,
+    "branch_actions": 24,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "lmrlgym_maze",
+    "task_id": "lmrlgym_maze_10",
+    "score": 1.0,
+    "rounds": 11,
+    "branch_actions": 40,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "ppnl",
+    "task_id": "ICL_test_set_moreobsts_updated/164",
+    "score": 1.0,
+    "rounds": 8,
+    "branch_actions": 28,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "textarena_lightsout",
+    "task_id": "textarena_lightsout_seed124",
+    "score": 1.0,
+    "rounds": 4,
+    "branch_actions": 12,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "textarena_rushhour",
+    "task_id": "textarena_rushhour_seed138",
+    "score": 1.0,
+    "rounds": 14,
+    "branch_actions": 52,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  },
+  {
+    "id": "textarena_sokoban",
+    "task_id": "textarena_sokoban_seed88",
+    "score": 1.0,
+    "rounds": 7,
+    "branch_actions": 24,
+    "initial_context_matches": true,
+    "all_observations_match": true
+  }
+]

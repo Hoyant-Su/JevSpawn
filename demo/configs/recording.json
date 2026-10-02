@@ -1,0 +1,22 @@
+{
+  "url": "http://127.0.0.1:8765",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "timeout_ms": 90000,
+  "context_pause_ms": 1600,
+  "result_pause_ms": 2200,
+  "mode": "replay",
+  "video": "demo/media/jevspawn.mp4",
+  "screenshots": "demo/output/screenshots",
+  "report": "demo/output/browser-check.json",
+  "frame_rate": 6,
+  "codec": "libx264",
+  "pixel_format": "yuv420p",
+  "encoder_options": {
+    "crf": "18",
+    "preset": "fast"
+  },
+  "encoder_python": "python"
+}

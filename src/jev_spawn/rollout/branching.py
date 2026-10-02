@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 from itertools import count
 import json
 import time
@@ -123,7 +124,14 @@ def control_options(branch, settings, selection_only):
     return [settings['expand_operation'], settings['revise_operation'], settings['submit_operation']]
 
 
-def solve(query, *, task_id, service, complete, settings, prompts, budget, trace, environment):
+@contextmanager
+def report_turn(record, callback):
+    yield
+    if callback is not None:
+        callback(record)
+
+
+def solve(query, *, task_id, service, complete, settings, prompts, budget, trace, environment, on_turn=None):
     started = time.perf_counter()
     policy = Policy(settings)
     root = QueryExecution(query, service, task_id, settings['execution'])
@@ -137,62 +145,63 @@ def solve(query, *, task_id, service, complete, settings, prompts, budget, trace
         selection_only = turn == budget['max_turns']
         record = {'turn': turn, 'remaining_control_rounds': remaining, 'selection_only': selection_only}
         trace['rounds'].append(record)
-        history_events = tuple(events.values())
-        all_branches = frontier
-        for branch in all_branches.values():
-            policy.history(branch, history, history_events)
-        ranked, selected_terminal, operation = select_control(
-            frontier, query, task_id, service, settings, prompts, remaining, selection_only,
-            history, record, policy)
-        record['pruned_frontier'] = ranked[settings['retained_frontier_width']:]
-        frontier = {identity: frontier[identity] for identity in ranked[:settings['retained_frontier_width']]}
-        branch = frontier[selected_terminal]
-        if operation == settings['discard_operation']:
-            frontier.pop(selected_terminal)
-            if not frontier:
-                environment.tool_timings = tool_timings
-                return {'answer': None, 'elapsed_seconds': time.perf_counter() - started,
-                        'termination': settings['frontier_exhausted']}
-            continue
-        if operation == settings['revise_operation']:
-            record['revision'] = {}
-            revise(branch, query, task_id, service, settings, prompts, budget, record['revision'])
-            if branch.declaration is None:
-                continue
-        if operation == settings['submit_operation']:
-            if not branch.environment.done:
-                submission = {'branch_id': selected_terminal,
-                    'history_event_ids': [event['id'] for event in branch.execution.tool_observations]}
-                record['submission'] = submission
-                arguments = finalize_answer(query, branch.execution.state(),
-                    branch.environment.display_answer_schema(), service, task_id, budget,
-                    settings['terminal_answer'], submission)
-                submission['resolved_arguments'] = arguments
-                previous_timings = len(branch.environment.tool_timings)
-                submission['feedback'] = branch.environment.observe(settings['submission_tool'], arguments)
-                tool_timings.extend(branch.environment.tool_timings[previous_timings:])
-                if not branch.environment.done or branch.environment.answer is None:
+        with report_turn(record, on_turn):
+            history_events = tuple(events.values())
+            all_branches = frontier
+            for branch in all_branches.values():
+                policy.history(branch, history, history_events)
+            ranked, selected_terminal, operation = select_control(
+                frontier, query, task_id, service, settings, prompts, remaining, selection_only,
+                history, record, policy)
+            record['pruned_frontier'] = ranked[settings['retained_frontier_width']:]
+            frontier = {identity: frontier[identity] for identity in ranked[:settings['retained_frontier_width']]}
+            branch = frontier[selected_terminal]
+            if operation == settings['discard_operation']:
+                frontier.pop(selected_terminal)
+                if not frontier:
                     environment.tool_timings = tool_timings
                     return {'answer': None, 'elapsed_seconds': time.perf_counter() - started,
-                            'termination': settings['submission_rejected'], 'selected_branch': selected_terminal}
-            environment.answer, environment.done = branch.environment.answer, branch.environment.done
-            environment.tool_timings = tool_timings
-            return {'answer': environment.answer, 'elapsed_seconds': time.perf_counter() - started,
-                'selected_terminal': selected_terminal,
-                'terminal_branches': {identity: item.environment.answer for identity, item in frontier.items()
-                                     if item.environment.done}}
-        selected = [identity for identity in frontier if frontier[identity].declaration is not None
-                    and not frontier[identity].environment.done][:settings['parent_width']]
-        parents = {identity: frontier.pop(identity) for identity in selected}
-        record['retained_frontier'] = list(frontier)
-        children = spawn_blocks(parents, policy.width(parents), settings['host_workers'], identities,
-                                prompt=load_prompt(settings['joint_fields_prompt'])['question'])
-        policy.observe(children)
-        record.update(selected=selected, parents=list(parents),
-            parent_computations={identity: list(parent.execution.trace) for identity, parent in parents.items()},
-            children={identity: list(child.execution.trace) for identity, child in children.items()})
-        tool_timings.extend(timing for child in children.values() for timing in child.execution.trace[-2]['tool_timings'])
-        observations = [event for child in children.values() for event in child.execution.latest_feedback]
-        history += extend_event_history(observations, events.values())
-        events.update({event['id']: event for event in observations})
-        frontier.update(children)
+                            'termination': settings['frontier_exhausted']}
+                continue
+            if operation == settings['revise_operation']:
+                record['revision'] = {}
+                revise(branch, query, task_id, service, settings, prompts, budget, record['revision'])
+                if branch.declaration is None:
+                    continue
+            if operation == settings['submit_operation']:
+                if not branch.environment.done:
+                    submission = {'branch_id': selected_terminal,
+                        'history_event_ids': [event['id'] for event in branch.execution.tool_observations]}
+                    record['submission'] = submission
+                    arguments = finalize_answer(query, branch.execution.state(),
+                        branch.environment.display_answer_schema(), service, task_id, budget,
+                        settings['terminal_answer'], submission)
+                    submission['resolved_arguments'] = arguments
+                    previous_timings = len(branch.environment.tool_timings)
+                    submission['feedback'] = branch.environment.observe(settings['submission_tool'], arguments)
+                    tool_timings.extend(branch.environment.tool_timings[previous_timings:])
+                    if not branch.environment.done or branch.environment.answer is None:
+                        environment.tool_timings = tool_timings
+                        return {'answer': None, 'elapsed_seconds': time.perf_counter() - started,
+                                'termination': settings['submission_rejected'], 'selected_branch': selected_terminal}
+                environment.answer, environment.done = branch.environment.answer, branch.environment.done
+                environment.tool_timings = tool_timings
+                return {'answer': environment.answer, 'elapsed_seconds': time.perf_counter() - started,
+                    'selected_terminal': selected_terminal,
+                    'terminal_branches': {identity: item.environment.answer for identity, item in frontier.items()
+                                         if item.environment.done}}
+            selected = [identity for identity in frontier if frontier[identity].declaration is not None
+                        and not frontier[identity].environment.done][:settings['parent_width']]
+            parents = {identity: frontier.pop(identity) for identity in selected}
+            record['retained_frontier'] = list(frontier)
+            children = spawn_blocks(parents, policy.width(parents), settings['host_workers'], identities,
+                                    prompt=load_prompt(settings['joint_fields_prompt'])['question'])
+            policy.observe(children)
+            record.update(selected=selected, parents=list(parents),
+                parent_computations={identity: list(parent.execution.trace) for identity, parent in parents.items()},
+                children={identity: list(child.execution.trace) for identity, child in children.items()})
+            tool_timings.extend(timing for child in children.values() for timing in child.execution.trace[-2]['tool_timings'])
+            observations = [event for child in children.values() for event in child.execution.latest_feedback]
+            history += extend_event_history(observations, events.values())
+            events.update({event['id']: event for event in observations})
+            frontier.update(children)

@@ -1,0 +1,34 @@
+{
+  "ppnl": {
+    "class": "demo.environments.ppnl.PPNLEnvironment",
+    "configuration": "configs/environments/ppnl_runtime.json"
+  },
+  "lmrlgym_maze": {
+    "class": "demo.environments.maze.MazeEnvironment",
+    "configuration": "configs/data/maze/runtime.json"
+  },
+  "llfbench_gridworld": {
+    "class": "demo.environments.llfbench.LLFEnvironment",
+    "configuration": "configs/evaluation/native_context/llfbench_gridworld.json"
+  },
+  "textarena_lightsout": {
+    "class": "demo.environments.textarena.TextArenaEnvironment",
+    "configuration": "configs/environments/textarena_runtime.json"
+  },
+  "textarena_rushhour": {
+    "class": "demo.environments.textarena.TextArenaEnvironment",
+    "configuration": "configs/environments/textarena_runtime.json"
+  },
+  "textarena_sokoban": {
+    "class": "demo.environments.textarena.TextArenaEnvironment",
+    "configuration": "configs/environments/textarena_runtime.json"
+  },
+  "korgym_2048": {
+    "class": "demo.environments.korgym.KORGymEnvironment",
+    "configuration": "configs/environments/korgym_2048_runtime.json"
+  },
+  "korgym_nullify": {
+    "class": "demo.environments.korgym.KORGymEnvironment",
+    "configuration": "configs/environments/korgym_nullify_runtime.json"
+  }
+}

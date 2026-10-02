@@ -1,0 +1,1641 @@
+{
+  "id": "textarena_lightsout",
+  "title": "LightsOut",
+  "dataset": "textarena_lightsout",
+  "task_id": "textarena_lightsout_seed124",
+  "task": {
+    "task_id": "textarena_lightsout_seed124",
+    "source": {
+      "seed": 124,
+      "native_class": "textarena.envs.LightsOut.env.LightsOutEnv",
+      "native_parameters": {
+        "size": 4,
+        "max_turns": 50
+      },
+      "repository": "https://github.com/TextArena/TextArena",
+      "commit": "6dfb577c01d0337fe03b05adce84c5ae1878eca1",
+      "env_id": "LightsOut-v0"
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Complete action sequence from the initial state, using the official action syntax in the task instructions."
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "context": "\n[GAME] Welcome to Lights Out! You have a 4x4 grid of lights.\nYour goal is to turn ALL lights OFF (represented by '.')\nWhen you press a light, it toggles itself AND its adjacent neighbors (up/down/left/right).\nType [row col] to press a light (0-indexed, so valid range is 0-3).\nYou have up to 50 moves to solve the puzzle.\nLegend: 'O' = light ON, '.' = light OFF\n[GAME] Current grid state (Move 0, 50 moves remaining, 0.0% complete):\n   0 1 2 3\n0: O O . .\n1: O . . .\n2: O . . O\n3: O O O O\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure."
+  },
+  "context": "\n[GAME] Welcome to Lights Out! You have a 4x4 grid of lights.\nYour goal is to turn ALL lights OFF (represented by '.')\nWhen you press a light, it toggles itself AND its adjacent neighbors (up/down/left/right).\nType [row col] to press a light (0-indexed, so valid range is 0-3).\nYou have up to 50 moves to solve the puzzle.\nLegend: 'O' = light ON, '.' = light OFF\n[GAME] Current grid state (Move 0, 50 moves remaining, 0.0% complete):\n   0 1 2 3\n0: O O . .\n1: O . . .\n2: O . . O\n3: O O O O\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure.",
+  "description": "Row and column fields define sixteen possible button presses. Three presses extinguish the board. Four actions are explored at each expansion, and subsequent states are selected from the returned boards.",
+  "instance_label": "Environment seed 124.",
+  "field_meanings": {
+    "f0": "row",
+    "f1": "column"
+  },
+  "score": 1.0,
+  "success": true,
+  "score_label": "Official reward",
+  "answer": {
+    "actions": [
+      "0 0",
+      "3 0",
+      "3 3"
+    ]
+  },
+  "selected_terminal": "n11",
+  "solution_path": [
+    "n0",
+    "n6",
+    "n11"
+  ],
+  "evaluation": {
+    "status": "completed",
+    "valid_answer": true,
+    "correct": null,
+    "score": 1.0,
+    "tool_calls": 12
+  },
+  "recording": {
+    "method": "JevSpawn",
+    "run": "20260929/main",
+    "selection": "manuscript case studies",
+    "content": "Complete recorded control rounds and original environment observations."
+  },
+  "rounds": [
+    {
+      "turn": 0,
+      "remaining_control_rounds": 36,
+      "selection_only": false,
+      "active_frontier": [
+        "root"
+      ],
+      "ranked_compared": [
+        "root"
+      ],
+      "selected": [
+        "root"
+      ],
+      "selected_operation": "revise",
+      "pruned_frontier": [],
+      "retained_frontier": [],
+      "parents": [
+        "root"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "root",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "root"
+        ],
+        "ranked_option_ids": [
+          "root"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "revise",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "revise"
+        ],
+        "ranked_option_ids": [
+          "revise"
+        ]
+      },
+      "revision": {
+        "named_bindings": {
+          "row": {
+            "domain": {
+              "values": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            "template": "${f0}"
+          },
+          "col": {
+            "domain": {
+              "values": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            "template": "${f1}"
+          }
+        },
+        "declaration": {
+          "fields": [
+            {
+              "id": "f0",
+              "question": "row",
+              "values": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "id": "f1",
+              "question": "col",
+              "values": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "action": {
+            "tool": "execute",
+            "arguments": {
+              "action": "${f0} ${f1}"
+            }
+          },
+          "answer": null
+        },
+        "observation": {
+          "accepted": true,
+          "declaration": {
+            "fields": [
+              {
+                "id": "f0",
+                "question": "row",
+                "values": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "id": "f1",
+                "question": "col",
+                "values": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ],
+            "action": {
+              "tool": "execute",
+              "arguments": {
+                "action": "${f0} ${f1}"
+              }
+            },
+            "answer": null
+          },
+          "source_signatures": [
+            "{row:range(0, 4)} {col:range(0, 4)}"
+          ]
+        }
+      },
+      "children": {
+        "n0": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "0 0"
+                },
+                "id": "n0"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n0",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "0 0"
+                  },
+                  "id": "n0"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [0 0]\n[GAME] Current grid state (Move 1, 49 moves remaining, 0.3% complete):\n   0 1 2 3\n0: . . . .\n1: . . . .\n2: O . . O\n3: O O O O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": 0,
+              "f1": 0
+            },
+            "block_conditional_log_probability": -0.16011327505111694
+          }
+        ],
+        "n1": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "1 0"
+                },
+                "id": "n1"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n1",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "1 0"
+                  },
+                  "id": "n1"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [1 0]\n[GAME] Current grid state (Move 1, 49 moves remaining, 0.2% complete):\n   0 1 2 3\n0: . O . .\n1: . O . .\n2: . . . O\n3: O O O O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": 1,
+              "f1": 0
+            },
+            "block_conditional_log_probability": -3.99450945854187
+          }
+        ],
+        "n2": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 0"
+                },
+                "id": "n2"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n2",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 0"
+                  },
+                  "id": "n2"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 0]\n[GAME] Current grid state (Move 1, 49 moves remaining, 0.3% complete):\n   0 1 2 3\n0: O O . .\n1: O . . .\n2: . . . O\n3: . . O O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": 3,
+              "f1": 0
+            },
+            "block_conditional_log_probability": -2.830704927444458
+          }
+        ],
+        "n3": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 3"
+                },
+                "id": "n3"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n3",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 3"
+                  },
+                  "id": "n3"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 3]\n[GAME] Current grid state (Move 1, 49 moves remaining, 0.3% complete):\n   0 1 2 3\n0: O O . .\n1: O . . .\n2: O . . .\n3: O O . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": 3,
+              "f1": 3
+            },
+            "block_conditional_log_probability": -4.366623878479004
+          }
+        ]
+      },
+      "parent_computations": {
+        "root": [
+          {
+            "decision": {
+              "id": "[\"root\", [\"f0\", \"f1\"]]",
+              "choice": "value-0",
+              "probabilities": [
+                0.8520472645759583,
+                0.010658684186637402,
+                0.007207323331385851,
+                0.005853591952472925,
+                0.018416479229927063,
+                0.008154374547302723,
+                0.0017087672604247928,
+                0.00162044120952487,
+                0.0076768770813941956,
+                0.003955472726374865,
+                0.004270120523869991,
+                0.0022919869516044855,
+                0.05897127091884613,
+                0.00233655609190464,
+                0.0021367098670452833,
+                0.012694025412201881
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-0",
+                "value-12",
+                "value-4",
+                "value-15",
+                "value-1",
+                "value-5",
+                "value-8",
+                "value-2",
+                "value-3",
+                "value-10",
+                "value-9",
+                "value-13",
+                "value-11",
+                "value-14",
+                "value-6",
+                "value-7"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 3"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": []
+          }
+        ]
+      }
+    },
+    {
+      "turn": 1,
+      "remaining_control_rounds": 35,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "ranked_compared": [
+        "n0",
+        "n1",
+        "n3",
+        "n2"
+      ],
+      "selected": [
+        "n0"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n1",
+        "n3",
+        "n2"
+      ],
+      "parents": [
+        "n0"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n0",
+        "probabilities": [
+          0.8029342293739319,
+          0.15548616647720337,
+          0.018325578421354294,
+          0.023254022002220154
+        ],
+        "option_ids": [
+          "n0",
+          "n1",
+          "n2",
+          "n3"
+        ],
+        "ranked_option_ids": [
+          "n0",
+          "n1",
+          "n3",
+          "n2"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9901255369186401,
+          0.009320663288235664,
+          0.0005538552068173885
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n4": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "2 0"
+                },
+                "id": "n4"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n4",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "2 0"
+                  },
+                  "id": "n4"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [2 0]\n[GAME] Current grid state (Move 2, 48 moves remaining, 0.3% complete):\n   0 1 2 3\n0: . . . .\n1: O . . .\n2: . O . O\n3: . O O O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": 2,
+              "f1": 0
+            },
+            "block_conditional_log_probability": -0.39719825983047485
+          }
+        ],
+        "n5": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "2 3"
+                },
+                "id": "n5"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n5",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "2 3"
+                  },
+                  "id": "n5"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [2 3]\n[GAME] Current grid state (Move 2, 48 moves remaining, 0.3% complete):\n   0 1 2 3\n0: . . . .\n1: . . . O\n2: O . O .\n3: O O O .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": 2,
+              "f1": 3
+            },
+            "block_conditional_log_probability": -3.0735116004943848
+          }
+        ],
+        "n6": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 0"
+                },
+                "id": "n6"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n6",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 0"
+                  },
+                  "id": "n6"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 0]\n[GAME] Current grid state (Move 2, 48 moves remaining, 0.7% complete):\n   0 1 2 3\n0: . . . .\n1: . . . .\n2: . . . O\n3: . . O O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": 3,
+              "f1": 0
+            },
+            "block_conditional_log_probability": -1.9834100008010864
+          }
+        ],
+        "n7": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 1"
+                },
+                "id": "n7"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n7",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 1"
+                  },
+                  "id": "n7"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 1]\n[GAME] Current grid state (Move 2, 48 moves remaining, 0.6% complete):\n   0 1 2 3\n0: . . . .\n1: . . . .\n2: O O . O\n3: . . . O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": 3,
+              "f1": 1
+            },
+            "block_conditional_log_probability": -2.853130340576172
+          }
+        ]
+      },
+      "parent_computations": {
+        "n0": [
+          {
+            "decision": {
+              "id": "[\"n0\", [\"f0\", \"f1\"]]",
+              "choice": "value-8",
+              "probabilities": [
+                0.005564086604863405,
+                0.006537614390254021,
+                0.0035637738183140755,
+                0.002646609442308545,
+                0.004006992094218731,
+                0.0019662922713905573,
+                0.0008074897923506796,
+                0.0015520126326009631,
+                0.6722007393836975,
+                0.00315715535543859,
+                0.010068059898912907,
+                0.04625842347741127,
+                0.13759922981262207,
+                0.057663530111312866,
+                0.02218361757695675,
+                0.02422446198761463
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-8",
+                "value-12",
+                "value-13",
+                "value-11",
+                "value-15",
+                "value-14",
+                "value-10",
+                "value-1",
+                "value-0",
+                "value-4",
+                "value-2",
+                "value-9",
+                "value-3",
+                "value-5",
+                "value-7",
+                "value-6"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 3"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 2,
+      "remaining_control_rounds": 34,
+      "selection_only": false,
+      "active_frontier": [
+        "n1",
+        "n3",
+        "n2",
+        "n4",
+        "n5",
+        "n6",
+        "n7"
+      ],
+      "ranked_compared": [
+        "n6",
+        "n7",
+        "n3",
+        "n1",
+        "n2",
+        "n4",
+        "n5"
+      ],
+      "selected": [
+        "n6"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n7",
+        "n3",
+        "n1",
+        "n2",
+        "n4",
+        "n5"
+      ],
+      "parents": [
+        "n6"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n6",
+        "probabilities": [
+          0.005251383408904076,
+          0.007076651323586702,
+          0.005109268240630627,
+          0.004212568048387766,
+          0.0019486420787870884,
+          0.8906992077827454,
+          0.08570227771997452
+        ],
+        "option_ids": [
+          "n1",
+          "n3",
+          "n2",
+          "n4",
+          "n5",
+          "n6",
+          "n7"
+        ],
+        "ranked_option_ids": [
+          "n6",
+          "n7",
+          "n3",
+          "n1",
+          "n2",
+          "n4",
+          "n5"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9887651205062866,
+          0.010220400989055634,
+          0.0010145172709599137
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n8": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "2 3"
+                },
+                "id": "n8"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n8",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "2 3"
+                  },
+                  "id": "n8"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [2 3]\n[GAME] Current grid state (Move 3, 47 moves remaining, 0.7% complete):\n   0 1 2 3\n0: . . . .\n1: . . . O\n2: . . O .\n3: . . O .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": 2,
+              "f1": 3
+            },
+            "block_conditional_log_probability": -0.6045866012573242
+          }
+        ],
+        "n9": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 1"
+                },
+                "id": "n9"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n9",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 1"
+                  },
+                  "id": "n9"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 1]\n[GAME] Current grid state (Move 3, 47 moves remaining, 0.4% complete):\n   0 1 2 3\n0: . . . .\n1: . . . .\n2: . O . O\n3: O O . O",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": 3,
+              "f1": 1
+            },
+            "block_conditional_log_probability": -3.410033702850342
+          }
+        ],
+        "n10": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 2"
+                },
+                "id": "n10"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n10",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 2"
+                  },
+                  "id": "n10"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 2]\n[GAME] Current grid state (Move 3, 47 moves remaining, 0.7% complete):\n   0 1 2 3\n0: . . . .\n1: . . . .\n2: . . O O\n3: . O . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": 3,
+              "f1": 2
+            },
+            "block_conditional_log_probability": -1.1019375324249268
+          }
+        ],
+        "n11": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "3 3"
+                },
+                "id": "n11"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n11",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0} ${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "3 3"
+                  },
+                  "id": "n11"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [3 3]\n\n{\"rewards\":{\"0\":1.0},\"game_info\":{\"0\":{\"role\":\"Player 0\",\"invalid_move\":false,\"turn_count\":3,\"reason\":\"Congratulations! You solved the puzzle in 3 moves!\"}}}",
+                  "done": true
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": 3,
+              "f1": 3
+            },
+            "block_conditional_log_probability": -2.7575905323028564
+          }
+        ]
+      },
+      "parent_computations": {
+        "n6": [
+          {
+            "decision": {
+              "id": "[\"n6\", [\"f0\", \"f1\"]]",
+              "choice": "value-11",
+              "probabilities": [
+                0.0011704993667080998,
+                0.0002684635401237756,
+                0.00042692263377830386,
+                0.00038607517490163445,
+                0.00017989170737564564,
+                0.0001557106152176857,
+                0.00014117948012426496,
+                0.00046554944128729403,
+                0.0052926866337656975,
+                0.001661362941376865,
+                0.012220025062561035,
+                0.5463002324104309,
+                0.002620069542899728,
+                0.033040083944797516,
+                0.3322267532348633,
+                0.06344445049762726
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-11",
+                "value-14",
+                "value-15",
+                "value-13",
+                "value-10",
+                "value-8",
+                "value-12",
+                "value-9",
+                "value-0",
+                "value-7",
+                "value-2",
+                "value-3",
+                "value-1",
+                "value-4",
+                "value-5",
+                "value-6"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "0 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "1 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "2 3"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 0"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 1"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 2"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "3 3"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 3,
+      "remaining_control_rounds": 33,
+      "selection_only": false,
+      "active_frontier": [
+        "n7",
+        "n3",
+        "n1",
+        "n2",
+        "n4",
+        "n5",
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "ranked_compared": [
+        "n11",
+        "n7",
+        "n3",
+        "n1",
+        "n2",
+        "n8",
+        "n9",
+        "n10",
+        "n4",
+        "n5"
+      ],
+      "selected": [
+        "n11"
+      ],
+      "selected_operation": "submit",
+      "pruned_frontier": [
+        "n4",
+        "n5"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n11",
+        "probabilities": [
+          0.0022726559545844793,
+          0.0017950949259102345,
+          0.0003146020753774792,
+          0.00029513484332710505,
+          7.850199472159147e-05,
+          7.146473944885656e-05,
+          0.00022370429360307753,
+          0.00011279463797109202,
+          0.00010235465742880479,
+          0.9947336912155151
+        ],
+        "option_ids": [
+          "n7",
+          "n3",
+          "n1",
+          "n2",
+          "n4",
+          "n5",
+          "n8",
+          "n9",
+          "n10",
+          "n11"
+        ],
+        "ranked_option_ids": [
+          "n11",
+          "n7",
+          "n3",
+          "n1",
+          "n2",
+          "n8",
+          "n9",
+          "n10",
+          "n4",
+          "n5"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "submit",
+        "probabilities": [
+          0.9999872446060181,
+          1.2747791515721474e-05
+        ],
+        "option_ids": [
+          "submit",
+          "discard"
+        ],
+        "ranked_option_ids": [
+          "submit",
+          "discard"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,6998 @@
+{
+  "id": "textarena_rushhour",
+  "title": "RushHour",
+  "dataset": "textarena_rushhour",
+  "task_id": "textarena_rushhour_seed138",
+  "task": {
+    "task_id": "textarena_rushhour_seed138",
+    "source": {
+      "seed": 138,
+      "native_class": "textarena.envs.RushHour.env.RushHourEnv",
+      "native_parameters": {
+        "difficulty": "easy"
+      },
+      "repository": "https://github.com/TextArena/TextArena",
+      "commit": "6dfb577c01d0337fe03b05adce84c5ae1878eca1",
+      "env_id": "RushHour-v0"
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Complete action sequence from the initial state, using the official action syntax in the task instructions."
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "context": "\n[GAME] You are playing a easy RushHour puzzle. Slide cars to free the red car [X] and drive it out the right edge.\nActions: [A+], [B-], etc.  (+ = forward, - = backward).\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . D D . C\nF F H H . C\nJ J . . . .\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure."
+  },
+  "context": "\n[GAME] You are playing a easy RushHour puzzle. Slide cars to free the red car [X] and drive it out the right edge.\nActions: [A+], [B-], etc.  (+ = forward, - = backward).\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . D D . C\nF F H H . C\nJ J . . . .\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure.",
+  "description": "Vehicle and direction fields express the available sliding actions. Exploration returns to retained alternatives before selecting a path of nine actions that releases the red car.",
+  "instance_label": "Environment seed 138.",
+  "field_meanings": {
+    "f0": "vehicle",
+    "f1": "direction"
+  },
+  "score": 1.0,
+  "success": true,
+  "score_label": "Official reward",
+  "answer": {
+    "actions": [
+      "J+",
+      "B+",
+      "C-",
+      "B+",
+      "B+",
+      "X+",
+      "B-",
+      "C+",
+      "X+"
+    ]
+  },
+  "selected_terminal": "n51",
+  "solution_path": [
+    "n3",
+    "n4",
+    "n9",
+    "n20",
+    "n28",
+    "n39",
+    "n40",
+    "n44",
+    "n51"
+  ],
+  "evaluation": {
+    "status": "completed",
+    "valid_answer": true,
+    "correct": null,
+    "score": 1.0,
+    "tool_calls": 52
+  },
+  "recording": {
+    "method": "JevSpawn",
+    "run": "20260929/visible",
+    "selection": "manuscript case studies",
+    "content": "Complete recorded control rounds and original environment observations."
+  },
+  "rounds": [
+    {
+      "turn": 0,
+      "remaining_control_rounds": 36,
+      "selection_only": false,
+      "active_frontier": [
+        "root"
+      ],
+      "ranked_compared": [
+        "root"
+      ],
+      "selected": [
+        "root"
+      ],
+      "selected_operation": "revise",
+      "pruned_frontier": [],
+      "retained_frontier": [],
+      "parents": [
+        "root"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "root",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "root"
+        ],
+        "ranked_option_ids": [
+          "root"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "revise",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "revise"
+        ],
+        "ranked_option_ids": [
+          "revise"
+        ]
+      },
+      "revision": {
+        "named_bindings": {
+          "car": {
+            "domain": {
+              "values": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "F",
+                "H",
+                "J",
+                "X"
+              ]
+            },
+            "template": "${f0}"
+          },
+          "dir": {
+            "domain": {
+              "values": [
+                "+",
+                "-"
+              ]
+            },
+            "template": "${f1}"
+          }
+        },
+        "declaration": {
+          "fields": [
+            {
+              "id": "f0",
+              "question": "car",
+              "values": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "F",
+                "H",
+                "J",
+                "X"
+              ]
+            },
+            {
+              "id": "f1",
+              "question": "dir",
+              "values": [
+                "+",
+                "-"
+              ]
+            }
+          ],
+          "action": {
+            "tool": "execute",
+            "arguments": {
+              "action": "${f0}${f1}"
+            }
+          },
+          "answer": null
+        },
+        "observation": {
+          "accepted": true,
+          "declaration": {
+            "fields": [
+              {
+                "id": "f0",
+                "question": "car",
+                "values": [
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "F",
+                  "H",
+                  "J",
+                  "X"
+                ]
+              },
+              {
+                "id": "f1",
+                "question": "dir",
+                "values": [
+                  "+",
+                  "-"
+                ]
+              }
+            ],
+            "action": {
+              "tool": "execute",
+              "arguments": {
+                "action": "${f0}${f1}"
+              }
+            },
+            "answer": null
+          },
+          "source_signatures": [
+            "{car:enum(\"A\", \"B\", \"C\", \"D\", \"F\", \"H\", \"J\", \"X\")}{dir:enum(\"+\", \"-\")}"
+          ]
+        }
+      },
+      "children": {
+        "n0": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n0"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n0",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n0"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B . >\nA . D D B C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.1967277526855469
+          }
+        ],
+        "n1": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n1"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n1",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n1"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.431711196899414
+          }
+        ],
+        "n2": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D+"
+                },
+                "id": "n2"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n2",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D+"
+                  },
+                  "id": "n2"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D+]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . . D D C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "D",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.4354147911071777
+          }
+        ],
+        "n3": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "J+"
+                },
+                "id": "n3"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n3",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "J+"
+                  },
+                  "id": "n3"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [J+]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . D D . C\nF F H H . C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "J",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.0107219219207764
+          }
+        ]
+      },
+      "parent_computations": {
+        "root": [
+          {
+            "decision": {
+              "id": "[\"root\", [\"f0\", \"f1\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.03507731482386589,
+                0.01671651378273964,
+                0.3021814227104187,
+                0.23889976739883423,
+                0.07639453560113907,
+                0.03737388178706169,
+                0.08756141364574432,
+                0.017040245234966278,
+                0.013413720764219761,
+                0.004587745759636164,
+                0.009702450595796108,
+                0.0028108551632612944,
+                0.1338919848203659,
+                0.01863761804997921,
+                0.005543314386159182,
+                0.00016719191626179963
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-3",
+                "value-12",
+                "value-6",
+                "value-4",
+                "value-5",
+                "value-0",
+                "value-13",
+                "value-7",
+                "value-1",
+                "value-8",
+                "value-10",
+                "value-14",
+                "value-9",
+                "value-11",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": []
+          }
+        ]
+      }
+    },
+    {
+      "turn": 1,
+      "remaining_control_rounds": 35,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "ranked_compared": [
+        "n3",
+        "n0",
+        "n2",
+        "n1"
+      ],
+      "selected": [
+        "n3"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n0",
+        "n2",
+        "n1"
+      ],
+      "parents": [
+        "n3"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n3",
+        "probabilities": [
+          0.26792261004447937,
+          0.028064170852303505,
+          0.037896476686000824,
+          0.6661167144775391
+        ],
+        "option_ids": [
+          "n0",
+          "n1",
+          "n2",
+          "n3"
+        ],
+        "ranked_option_ids": [
+          "n3",
+          "n0",
+          "n2",
+          "n1"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9649028778076172,
+          0.03341221809387207,
+          0.0016849135281518102
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n4": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n4"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n4",
+                "source": "tool",
+                "parent_feedback": [
+                  "n3"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n4"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B . >\nA . D D B C\nF F H H . C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n3",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.9812893867492676
+          }
+        ],
+        "n5": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n5"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n5",
+                "source": "tool",
+                "parent_feedback": [
+                  "n3"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n5"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B C >\nA . D D . C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n3",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.1015849113464355
+          }
+        ],
+        "n6": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n6"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n6",
+                "source": "tool",
+                "parent_feedback": [
+                  "n3"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n6"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA D D . . C\nF F H H . C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n3",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.1034507751464844
+          }
+        ],
+        "n7": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "H+"
+                },
+                "id": "n7"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n7",
+                "source": "tool",
+                "parent_feedback": [
+                  "n3"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "H+"
+                  },
+                  "id": "n7"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [H+]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . D D . C\nF F . H H C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n3",
+            "selected_values": {
+              "f0": "H",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.242575168609619
+          }
+        ]
+      },
+      "parent_computations": {
+        "n3": [
+          {
+            "decision": {
+              "id": "[\"n3\", [\"f0\", \"f1\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.018717464059591293,
+                0.03261579945683479,
+                0.13789132237434387,
+                0.054953258484601974,
+                0.06534036993980408,
+                0.12226249277591705,
+                0.08485153317451477,
+                0.12203457951545715,
+                0.03708885237574577,
+                0.029968056827783585,
+                0.1061847060918808,
+                0.06521381437778473,
+                0.05014944449067116,
+                0.007578758988529444,
+                0.06288027763366699,
+                0.002269263844937086
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-5",
+                "value-7",
+                "value-10",
+                "value-6",
+                "value-4",
+                "value-11",
+                "value-14",
+                "value-3",
+                "value-12",
+                "value-8",
+                "value-1",
+                "value-9",
+                "value-0",
+                "value-13",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 2,
+      "remaining_control_rounds": 34,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n2",
+        "n1",
+        "n4",
+        "n5",
+        "n6",
+        "n7"
+      ],
+      "ranked_compared": [
+        "n4",
+        "n5",
+        "n7",
+        "n0",
+        "n6",
+        "n2",
+        "n1"
+      ],
+      "selected": [
+        "n4"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n5",
+        "n7",
+        "n0",
+        "n6",
+        "n2",
+        "n1"
+      ],
+      "parents": [
+        "n4"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n4",
+        "probabilities": [
+          0.07786259055137634,
+          0.01249336265027523,
+          0.008673133328557014,
+          0.48755964636802673,
+          0.18265151977539062,
+          0.04900515079498291,
+          0.18175457417964935
+        ],
+        "option_ids": [
+          "n0",
+          "n2",
+          "n1",
+          "n4",
+          "n5",
+          "n6",
+          "n7"
+        ],
+        "ranked_option_ids": [
+          "n4",
+          "n5",
+          "n7",
+          "n0",
+          "n6",
+          "n2",
+          "n1"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9052743315696716,
+          0.08855336159467697,
+          0.0061722747050225735
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n8": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n8"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n8",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n8"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . D D . C\nF F H H . C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.155430316925049
+          }
+        ],
+        "n9": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n9"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n9",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n9"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B C >\nA . D D B C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.4855281114578247
+          }
+        ],
+        "n10": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n10"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n10",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n10"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B . >\nA D D . B C\nF F H H . C\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.1219892501831055
+          }
+        ],
+        "n11": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n11"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n11",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n11"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.896543264389038
+          }
+        ]
+      },
+      "parent_computations": {
+        "n4": [
+          {
+            "decision": {
+              "id": "[\"n4\", [\"f0\", \"f1\"]]",
+              "choice": "value-5",
+              "probabilities": [
+                0.01965634897351265,
+                0.05381770804524422,
+                0.0847012847661972,
+                0.11585333198308945,
+                0.01665431261062622,
+                0.22638274729251862,
+                0.04389292001724243,
+                0.11979310214519501,
+                0.01964392513036728,
+                0.025460967794060707,
+                0.02714674361050129,
+                0.017390592023730278,
+                0.01616758294403553,
+                0.05511101335287094,
+                0.15008653700351715,
+                0.008240844123065472
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-5",
+                "value-14",
+                "value-7",
+                "value-3",
+                "value-2",
+                "value-13",
+                "value-1",
+                "value-6",
+                "value-10",
+                "value-9",
+                "value-0",
+                "value-8",
+                "value-11",
+                "value-4",
+                "value-12",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 3,
+      "remaining_control_rounds": 33,
+      "selection_only": false,
+      "active_frontier": [
+        "n5",
+        "n7",
+        "n0",
+        "n6",
+        "n2",
+        "n1",
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "ranked_compared": [
+        "n1",
+        "n5",
+        "n7",
+        "n0",
+        "n9",
+        "n8",
+        "n6",
+        "n2",
+        "n11",
+        "n10"
+      ],
+      "selected": [
+        "n1"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n11",
+        "n10"
+      ],
+      "retained_frontier": [
+        "n5",
+        "n7",
+        "n0",
+        "n9",
+        "n8",
+        "n6",
+        "n2"
+      ],
+      "parents": [
+        "n1"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n1",
+        "probabilities": [
+          0.16164876520633698,
+          0.05008218437433243,
+          0.03446604683995247,
+          0.01185080036520958,
+          0.008031579665839672,
+          0.6930914521217346,
+          0.014050107449293137,
+          0.01770956628024578,
+          0.0017651991220191121,
+          0.007304318714886904
+        ],
+        "option_ids": [
+          "n5",
+          "n7",
+          "n0",
+          "n6",
+          "n2",
+          "n1",
+          "n8",
+          "n9",
+          "n10",
+          "n11"
+        ],
+        "ranked_option_ids": [
+          "n1",
+          "n5",
+          "n7",
+          "n0",
+          "n9",
+          "n8",
+          "n6",
+          "n2",
+          "n11",
+          "n10"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.8679236769676208,
+          0.10759716480970383,
+          0.0244792178273201
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n12": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "A-"
+                },
+                "id": "n12"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n12",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "A-"
+                  },
+                  "id": "n12"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [A-]\n[GAME] \n. . . . B .\nA . . . B .\nA . X X B . >\n. . D D . C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "A",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.8074288368225098
+          }
+        ],
+        "n13": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n13"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n13",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n13"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B . >\nA . D D B C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.291447162628174
+          }
+        ],
+        "n14": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D+"
+                },
+                "id": "n14"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n14",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D+"
+                  },
+                  "id": "n14"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D+]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA . . D D C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "D",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -0.6284486055374146
+          }
+        ],
+        "n15": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n15"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n15",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n15"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B . >\nA D D . . C\nF F H H . C\nJ J . . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.5734119415283203
+          }
+        ]
+      },
+      "parent_computations": {
+        "n1": [
+          {
+            "decision": {
+              "id": "[\"n1\", [\"f0\", \"f1\"]]",
+              "choice": "value-6",
+              "probabilities": [
+                0.034397006034851074,
+                0.06035998463630676,
+                0.10112001746892929,
+                0.003348738420754671,
+                0.007173618767410517,
+                0.05470389127731323,
+                0.5334187150001526,
+                0.07627485692501068,
+                0.015878822654485703,
+                0.015225118026137352,
+                0.0063390727154910564,
+                0.0014262470649555326,
+                0.058086421340703964,
+                0.026993948966264725,
+                0.003847158048301935,
+                0.0014063887065276504
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-6",
+                "value-2",
+                "value-7",
+                "value-1",
+                "value-12",
+                "value-5",
+                "value-0",
+                "value-13",
+                "value-8",
+                "value-9",
+                "value-4",
+                "value-10",
+                "value-14",
+                "value-3",
+                "value-11",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 4,
+      "remaining_control_rounds": 32,
+      "selection_only": false,
+      "active_frontier": [
+        "n5",
+        "n7",
+        "n0",
+        "n9",
+        "n8",
+        "n6",
+        "n2",
+        "n12",
+        "n13",
+        "n14",
+        "n15"
+      ],
+      "ranked_compared": [
+        "n5",
+        "n9",
+        "n6",
+        "n7",
+        "n0",
+        "n8",
+        "n2",
+        "n15",
+        "n12",
+        "n14",
+        "n13"
+      ],
+      "selected": [
+        "n5"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n12",
+        "n14",
+        "n13"
+      ],
+      "retained_frontier": [
+        "n9",
+        "n6",
+        "n7",
+        "n0",
+        "n8",
+        "n2",
+        "n15"
+      ],
+      "parents": [
+        "n5"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n5",
+        "probabilities": [
+          0.4350875914096832,
+          0.07899073511362076,
+          0.052816957235336304,
+          0.20794840157032013,
+          0.04732007905840874,
+          0.08453482389450073,
+          0.03595210984349251,
+          0.01817527413368225,
+          0.005050609353929758,
+          0.014065577648580074,
+          0.020057881250977516
+        ],
+        "option_ids": [
+          "n5",
+          "n7",
+          "n0",
+          "n9",
+          "n8",
+          "n6",
+          "n2",
+          "n12",
+          "n13",
+          "n14",
+          "n15"
+        ],
+        "ranked_option_ids": [
+          "n5",
+          "n9",
+          "n6",
+          "n7",
+          "n0",
+          "n8",
+          "n2",
+          "n15",
+          "n12",
+          "n14",
+          "n13"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9505585432052612,
+          0.04518202319741249,
+          0.004259419161826372
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n16": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n16"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n16",
+                "source": "tool",
+                "parent_feedback": [
+                  "n5"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n16"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B C >\nA . D D B C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n5",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.9524208307266235
+          }
+        ],
+        "n17": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n17"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n17",
+                "source": "tool",
+                "parent_feedback": [
+                  "n5"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n17"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n5",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.3319050073623657
+          }
+        ],
+        "n18": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n18"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n18",
+                "source": "tool",
+                "parent_feedback": [
+                  "n5"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n18"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . B .\n. . . . B C\nA . X X B C >\nA . D D . .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n5",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.492251396179199
+          }
+        ],
+        "n19": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n19"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n19",
+                "source": "tool",
+                "parent_feedback": [
+                  "n5"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n19"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B C >\nA D D . . C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n5",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.6252095699310303
+          }
+        ]
+      },
+      "parent_computations": {
+        "n5": [
+          {
+            "decision": {
+              "id": "[\"n5\", [\"f0\", \"f1\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.004459646064788103,
+                0.0450548380613327,
+                0.14193007349967957,
+                0.2639739215373993,
+                0.017477987334132195,
+                0.08272352069616318,
+                0.05134368687868118,
+                0.19687040150165558,
+                0.008953706361353397,
+                0.015252220444381237,
+                0.01884908229112625,
+                0.03094327077269554,
+                0.012707814574241638,
+                0.043120723217725754,
+                0.06346684694290161,
+                0.0028722863644361496
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-7",
+                "value-2",
+                "value-5",
+                "value-14",
+                "value-6",
+                "value-1",
+                "value-13",
+                "value-11",
+                "value-10",
+                "value-4",
+                "value-9",
+                "value-12",
+                "value-8",
+                "value-0",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 5,
+      "remaining_control_rounds": 31,
+      "selection_only": false,
+      "active_frontier": [
+        "n9",
+        "n6",
+        "n7",
+        "n0",
+        "n8",
+        "n2",
+        "n15",
+        "n16",
+        "n17",
+        "n18",
+        "n19"
+      ],
+      "ranked_compared": [
+        "n9",
+        "n18",
+        "n2",
+        "n0",
+        "n15",
+        "n6",
+        "n7",
+        "n8",
+        "n16",
+        "n19",
+        "n17"
+      ],
+      "selected": [
+        "n9"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n16",
+        "n19",
+        "n17"
+      ],
+      "retained_frontier": [
+        "n18",
+        "n2",
+        "n0",
+        "n15",
+        "n6",
+        "n7",
+        "n8"
+      ],
+      "parents": [
+        "n9"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n9",
+        "probabilities": [
+          0.3945341110229492,
+          0.05667879059910774,
+          0.04677340015769005,
+          0.06382700055837631,
+          0.041312746703624725,
+          0.08797220140695572,
+          0.0623166449368,
+          0.03407598286867142,
+          0.00993154477328062,
+          0.17045971751213074,
+          0.032117750495672226
+        ],
+        "option_ids": [
+          "n9",
+          "n6",
+          "n7",
+          "n0",
+          "n8",
+          "n2",
+          "n15",
+          "n16",
+          "n17",
+          "n18",
+          "n19"
+        ],
+        "ranked_option_ids": [
+          "n9",
+          "n18",
+          "n2",
+          "n0",
+          "n15",
+          "n6",
+          "n7",
+          "n8",
+          "n16",
+          "n19",
+          "n17"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.915581464767456,
+          0.07296349853277206,
+          0.01145496778190136
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n20": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n20"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n20",
+                "source": "tool",
+                "parent_feedback": [
+                  "n9"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n20"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . . .\nA . X X B C >\nA . D D B C\nF F H H B .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n9",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.5844533443450928
+          }
+        ],
+        "n21": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n21"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n21",
+                "source": "tool",
+                "parent_feedback": [
+                  "n9"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n21"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] \n. . . . B .\n. . . . B .\nA . X X B C >\nA . D D . C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n9",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.1133934259414673
+          }
+        ],
+        "n22": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n22"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n22",
+                "source": "tool",
+                "parent_feedback": [
+                  "n9"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n22"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B C >\nA D D . B C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n9",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.5429210662841797
+          }
+        ],
+        "n23": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n23"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n23",
+                "source": "tool",
+                "parent_feedback": [
+                  "n9"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n23"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n9",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.35798978805542
+          }
+        ]
+      },
+      "parent_computations": {
+        "n9": [
+          {
+            "decision": {
+              "id": "[\"n9\", [\"f0\", \"f1\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.002958744764328003,
+                0.026354657486081123,
+                0.20505987107753754,
+                0.3284425139427185,
+                0.0043874699622392654,
+                0.028031669557094574,
+                0.06388764083385468,
+                0.213755801320076,
+                0.0033503002487123013,
+                0.004266553092747927,
+                0.003650897881016135,
+                0.004252404905855656,
+                0.00360761652700603,
+                0.010477077215909958,
+                0.09461022913455963,
+                0.0029066356364637613
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-7",
+                "value-2",
+                "value-14",
+                "value-6",
+                "value-5",
+                "value-1",
+                "value-13",
+                "value-4",
+                "value-9",
+                "value-11",
+                "value-10",
+                "value-12",
+                "value-8",
+                "value-0",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 6,
+      "remaining_control_rounds": 30,
+      "selection_only": false,
+      "active_frontier": [
+        "n18",
+        "n2",
+        "n0",
+        "n15",
+        "n6",
+        "n7",
+        "n8",
+        "n20",
+        "n21",
+        "n22",
+        "n23"
+      ],
+      "ranked_compared": [
+        "n18",
+        "n20",
+        "n2",
+        "n0",
+        "n23",
+        "n8",
+        "n6",
+        "n7",
+        "n15",
+        "n22",
+        "n21"
+      ],
+      "selected": [
+        "n18"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n15",
+        "n22",
+        "n21"
+      ],
+      "retained_frontier": [
+        "n20",
+        "n2",
+        "n0",
+        "n23",
+        "n8",
+        "n6",
+        "n7"
+      ],
+      "parents": [
+        "n18"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n18",
+        "probabilities": [
+          0.40258902311325073,
+          0.053741343319416046,
+          0.0414179302752018,
+          0.025367796421051025,
+          0.03401929512619972,
+          0.033578068017959595,
+          0.03480064496397972,
+          0.31298160552978516,
+          0.0120760602876544,
+          0.014573401771485806,
+          0.03485475853085518
+        ],
+        "option_ids": [
+          "n18",
+          "n2",
+          "n0",
+          "n15",
+          "n6",
+          "n7",
+          "n8",
+          "n20",
+          "n21",
+          "n22",
+          "n23"
+        ],
+        "ranked_option_ids": [
+          "n18",
+          "n20",
+          "n2",
+          "n0",
+          "n23",
+          "n8",
+          "n6",
+          "n7",
+          "n15",
+          "n22",
+          "n21"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9374077320098877,
+          0.05535805597901344,
+          0.007234163582324982
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n24": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n24"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n24",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n24"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . B C\nA . X X B C >\nA . D D B .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -0.83022141456604
+          }
+        ],
+        "n25": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n25"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n25",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n25"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.5440312623977661
+          }
+        ],
+        "n26": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D+"
+                },
+                "id": "n26"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n26",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D+"
+                  },
+                  "id": "n26"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D+]\n[GAME] \n. . . . B .\n. . . . B C\nA . X X B C >\nA . . D D .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "D",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.846463680267334
+          }
+        ],
+        "n27": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n27"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n27",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n27"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . B .\n. . . . B C\nA . X X B C >\nA D D . . .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.6231513023376465
+          }
+        ]
+      },
+      "parent_computations": {
+        "n18": [
+          {
+            "decision": {
+              "id": "[\"n18\", [\"f0\", \"f1\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.0028062500059604645,
+                0.009396715089678764,
+                0.435952752828598,
+                0.21351860463619232,
+                0.008166744373738766,
+                0.04112502187490463,
+                0.058049239218235016,
+                0.1972760409116745,
+                0.0022579494398087263,
+                0.0017097328091040254,
+                0.0012970826355740428,
+                0.001002996345050633,
+                0.006409196648746729,
+                0.005203240551054478,
+                0.015384846366941929,
+                0.00044353920384310186
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-3",
+                "value-7",
+                "value-6",
+                "value-5",
+                "value-14",
+                "value-1",
+                "value-4",
+                "value-12",
+                "value-13",
+                "value-0",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-15"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 7,
+      "remaining_control_rounds": 29,
+      "selection_only": false,
+      "active_frontier": [
+        "n20",
+        "n2",
+        "n0",
+        "n23",
+        "n8",
+        "n6",
+        "n7",
+        "n24",
+        "n25",
+        "n26",
+        "n27"
+      ],
+      "ranked_compared": [
+        "n20",
+        "n24",
+        "n0",
+        "n26",
+        "n23",
+        "n2",
+        "n6",
+        "n27",
+        "n8",
+        "n7",
+        "n25"
+      ],
+      "selected": [
+        "n20"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n8",
+        "n7",
+        "n25"
+      ],
+      "retained_frontier": [
+        "n24",
+        "n0",
+        "n26",
+        "n23",
+        "n2",
+        "n6",
+        "n27"
+      ],
+      "parents": [
+        "n20"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n20",
+        "probabilities": [
+          0.44495105743408203,
+          0.022084347903728485,
+          0.16997407376766205,
+          0.03963782265782356,
+          0.014525409787893295,
+          0.02105996385216713,
+          0.009684049524366856,
+          0.2088942974805832,
+          0.0060339877381920815,
+          0.045504141598939896,
+          0.017650822177529335
+        ],
+        "option_ids": [
+          "n20",
+          "n2",
+          "n0",
+          "n23",
+          "n8",
+          "n6",
+          "n7",
+          "n24",
+          "n25",
+          "n26",
+          "n27"
+        ],
+        "ranked_option_ids": [
+          "n20",
+          "n24",
+          "n0",
+          "n26",
+          "n23",
+          "n2",
+          "n6",
+          "n27",
+          "n8",
+          "n7",
+          "n25"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9398913979530334,
+          0.050335612148046494,
+          0.009773052297532558
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n28": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n28"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n28",
+                "source": "tool",
+                "parent_feedback": [
+                  "n20"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n28"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . . .\nA . X X . C >\nA . D D B C\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n20",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.9887480735778809
+          }
+        ],
+        "n29": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n29"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n29",
+                "source": "tool",
+                "parent_feedback": [
+                  "n20"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n29"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] \n. . . . . .\n. . . . B .\nA . X X B C >\nA . D D B C\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n20",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.8908514976501465
+          }
+        ],
+        "n30": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n30"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n30",
+                "source": "tool",
+                "parent_feedback": [
+                  "n20"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n30"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . . C\nA . X X B C >\nA . D D B .\nF F H H B .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n20",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.272408366203308
+          }
+        ],
+        "n31": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n31"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n31",
+                "source": "tool",
+                "parent_feedback": [
+                  "n20"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n31"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . . .\nA . X X B C >\nA D D . B C\nF F H H B .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n20",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.9589253664016724
+          }
+        ]
+      },
+      "parent_computations": {
+        "n20": [
+          {
+            "decision": {
+              "id": "[\"n20\", [\"f0\", \"f1\"]]",
+              "choice": "value-5",
+              "probabilities": [
+                0.004272306337952614,
+                0.023037174716591835,
+                0.13686665892601013,
+                0.15094321966171265,
+                0.016706041991710663,
+                0.28015610575675964,
+                0.05941356346011162,
+                0.1410098671913147,
+                0.010329867713153362,
+                0.011261469684541225,
+                0.019360441714525223,
+                0.01825076714158058,
+                0.007072559557855129,
+                0.00979708880186081,
+                0.10647048056125641,
+                0.005052403546869755
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-5",
+                "value-3",
+                "value-7",
+                "value-2",
+                "value-14",
+                "value-6",
+                "value-1",
+                "value-10",
+                "value-11",
+                "value-4",
+                "value-9",
+                "value-8",
+                "value-13",
+                "value-12",
+                "value-15",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 8,
+      "remaining_control_rounds": 28,
+      "selection_only": false,
+      "active_frontier": [
+        "n24",
+        "n0",
+        "n26",
+        "n23",
+        "n2",
+        "n6",
+        "n27",
+        "n28",
+        "n29",
+        "n30",
+        "n31"
+      ],
+      "ranked_compared": [
+        "n24",
+        "n28",
+        "n27",
+        "n6",
+        "n30",
+        "n31",
+        "n23",
+        "n2",
+        "n26",
+        "n0",
+        "n29"
+      ],
+      "selected": [
+        "n24"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n26",
+        "n0",
+        "n29"
+      ],
+      "retained_frontier": [
+        "n28",
+        "n27",
+        "n6",
+        "n30",
+        "n31",
+        "n23",
+        "n2"
+      ],
+      "parents": [
+        "n24"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n24",
+        "probabilities": [
+          0.5502244234085083,
+          0.01893320120871067,
+          0.02939399518072605,
+          0.03959636390209198,
+          0.03665754944086075,
+          0.045350849628448486,
+          0.04569385573267937,
+          0.13192015886306763,
+          0.013895283453166485,
+          0.04431115463376045,
+          0.04402320086956024
+        ],
+        "option_ids": [
+          "n24",
+          "n0",
+          "n26",
+          "n23",
+          "n2",
+          "n6",
+          "n27",
+          "n28",
+          "n29",
+          "n30",
+          "n31"
+        ],
+        "ranked_option_ids": [
+          "n24",
+          "n28",
+          "n27",
+          "n6",
+          "n30",
+          "n31",
+          "n23",
+          "n2",
+          "n26",
+          "n0",
+          "n29"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9553385376930237,
+          0.0351078063249588,
+          0.009553594514727592
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n32": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n32"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n32",
+                "source": "tool",
+                "parent_feedback": [
+                  "n24"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n32"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] \n. . . . . .\n. . . . . C\nA . X X B C >\nA . D D B .\nF F H H B .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n24",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.152773380279541
+          }
+        ],
+        "n33": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n33"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n33",
+                "source": "tool",
+                "parent_feedback": [
+                  "n24"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n33"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . C\n. . . . B C\nA . X X B . >\nA . D D B .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n24",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -0.8214251399040222
+          }
+        ],
+        "n34": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D+"
+                },
+                "id": "n34"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n34",
+                "source": "tool",
+                "parent_feedback": [
+                  "n24"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D+"
+                  },
+                  "id": "n34"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D+]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n24",
+            "selected_values": {
+              "f0": "D",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.3309860229492188
+          }
+        ],
+        "n35": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n35"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n35",
+                "source": "tool",
+                "parent_feedback": [
+                  "n24"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n35"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . B C\nA . X X B C >\nA D D . B .\nF F H H . .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n24",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.8359546661376953
+          }
+        ]
+      },
+      "parent_computations": {
+        "n24": [
+          {
+            "decision": {
+              "id": "[\"n24\", [\"f0\", \"f1\"]]",
+              "choice": "value-5",
+              "probabilities": [
+                0.003436257131397724,
+                0.018051844090223312,
+                0.11616154760122299,
+                0.05518011748790741,
+                0.019626127555966377,
+                0.43980443477630615,
+                0.09719985723495483,
+                0.15946120023727417,
+                0.0017514911014586687,
+                0.00230204570107162,
+                0.0021029370836913586,
+                0.0019748711492866278,
+                0.007023900747299194,
+                0.009000719524919987,
+                0.06407550722360611,
+                0.002847119467332959
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-5",
+                "value-7",
+                "value-2",
+                "value-6",
+                "value-14",
+                "value-3",
+                "value-4",
+                "value-1",
+                "value-13",
+                "value-12",
+                "value-0",
+                "value-15",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-8"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 9,
+      "remaining_control_rounds": 27,
+      "selection_only": false,
+      "active_frontier": [
+        "n28",
+        "n27",
+        "n6",
+        "n30",
+        "n31",
+        "n23",
+        "n2",
+        "n32",
+        "n33",
+        "n34",
+        "n35"
+      ],
+      "ranked_compared": [
+        "n28",
+        "n30",
+        "n23",
+        "n31",
+        "n2",
+        "n6",
+        "n33",
+        "n35",
+        "n34",
+        "n27",
+        "n32"
+      ],
+      "selected": [
+        "n28"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n34",
+        "n27",
+        "n32"
+      ],
+      "retained_frontier": [
+        "n30",
+        "n23",
+        "n31",
+        "n2",
+        "n6",
+        "n33",
+        "n35"
+      ],
+      "parents": [
+        "n28"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n28",
+        "probabilities": [
+          0.7695098519325256,
+          0.012033025734126568,
+          0.019580328837037086,
+          0.0691145583987236,
+          0.026049569249153137,
+          0.029267793521285057,
+          0.021230360493063927,
+          0.011506357230246067,
+          0.015118619427084923,
+          0.013017276301980019,
+          0.013572231866419315
+        ],
+        "option_ids": [
+          "n28",
+          "n27",
+          "n6",
+          "n30",
+          "n31",
+          "n23",
+          "n2",
+          "n32",
+          "n33",
+          "n34",
+          "n35"
+        ],
+        "ranked_option_ids": [
+          "n28",
+          "n30",
+          "n23",
+          "n31",
+          "n2",
+          "n6",
+          "n33",
+          "n35",
+          "n34",
+          "n27",
+          "n32"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.925103485584259,
+          0.0424358956515789,
+          0.03246060758829117
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n36": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B+"
+                },
+                "id": "n36"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n36",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B+"
+                  },
+                  "id": "n36"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B+]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "B",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -2.9516167640686035
+          }
+        ],
+        "n37": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n37"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n37",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n37"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] \n. . . . . .\n. . . . . .\nA . X X B C >\nA . D D B C\nF F H H B .\n. J J . . .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -3.016991138458252
+          }
+        ],
+        "n38": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n38"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n38",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n38"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . . C\nA . X X . C >\nA . D D B .\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -0.8472113609313965
+          }
+        ],
+        "n39": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n39"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n39",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n39"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X C >\nA . D D B C\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.1389273405075073
+          }
+        ]
+      },
+      "parent_computations": {
+        "n28": [
+          {
+            "decision": {
+              "id": "[\"n28\", [\"f0\", \"f1\"]]",
+              "choice": "value-5",
+              "probabilities": [
+                0.0026690680533647537,
+                0.006648072972893715,
+                0.05225514993071556,
+                0.04894827678799629,
+                0.023859061300754547,
+                0.4286085069179535,
+                0.01786119118332863,
+                0.041729554533958435,
+                0.0016869971295818686,
+                0.0014088237658143044,
+                0.0024112837854772806,
+                0.003220296697691083,
+                0.032685715705156326,
+                0.013356820680201054,
+                0.32016226649284363,
+                0.002488895319402218
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-5",
+                "value-14",
+                "value-2",
+                "value-3",
+                "value-7",
+                "value-12",
+                "value-4",
+                "value-6",
+                "value-13",
+                "value-1",
+                "value-11",
+                "value-0",
+                "value-15",
+                "value-10",
+                "value-8",
+                "value-9"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31",
+              "n32",
+              "n33",
+              "n34",
+              "n35"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 10,
+      "remaining_control_rounds": 26,
+      "selection_only": false,
+      "active_frontier": [
+        "n30",
+        "n23",
+        "n31",
+        "n2",
+        "n6",
+        "n33",
+        "n35",
+        "n36",
+        "n37",
+        "n38",
+        "n39"
+      ],
+      "ranked_compared": [
+        "n39",
+        "n30",
+        "n23",
+        "n38",
+        "n2",
+        "n31",
+        "n33",
+        "n6",
+        "n35",
+        "n36",
+        "n37"
+      ],
+      "selected": [
+        "n39"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n35",
+        "n36",
+        "n37"
+      ],
+      "retained_frontier": [
+        "n30",
+        "n23",
+        "n38",
+        "n2",
+        "n31",
+        "n33",
+        "n6"
+      ],
+      "parents": [
+        "n39"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n39",
+        "probabilities": [
+          0.05428635701537132,
+          0.013206368312239647,
+          0.005137449596077204,
+          0.005652138032019138,
+          0.002895443234592676,
+          0.003412987105548382,
+          0.002530450467020273,
+          0.0015716735506430268,
+          0.001456217491067946,
+          0.008211163803935051,
+          0.9016398191452026
+        ],
+        "option_ids": [
+          "n30",
+          "n23",
+          "n31",
+          "n2",
+          "n6",
+          "n33",
+          "n35",
+          "n36",
+          "n37",
+          "n38",
+          "n39"
+        ],
+        "ranked_option_ids": [
+          "n39",
+          "n30",
+          "n23",
+          "n38",
+          "n2",
+          "n31",
+          "n33",
+          "n6",
+          "n35",
+          "n36",
+          "n37"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.8609837889671326,
+          0.02826777473092079,
+          0.1107485219836235
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n40": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n40"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n40",
+                "source": "tool",
+                "parent_feedback": [
+                  "n39"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n40"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n39",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.9146077632904053
+          }
+        ],
+        "n41": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n41"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n41",
+                "source": "tool",
+                "parent_feedback": [
+                  "n39"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n41"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . . C\nA . . X X C >\nA . D D B .\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n39",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -1.7698705196380615
+          }
+        ],
+        "n42": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n42"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n42",
+                "source": "tool",
+                "parent_feedback": [
+                  "n39"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n42"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X C >\nA D D . B C\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n39",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -4.134931564331055
+          }
+        ],
+        "n43": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n43"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n43",
+                "source": "tool",
+                "parent_feedback": [
+                  "n39"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n43"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n39",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -0.3610852062702179
+          }
+        ]
+      },
+      "parent_computations": {
+        "n39": [
+          {
+            "decision": {
+              "id": "[\"n39\", [\"f0\", \"f1\"]]",
+              "choice": "value-14",
+              "probabilities": [
+                0.002147495746612549,
+                0.00911943893879652,
+                0.01265258900821209,
+                0.054225292056798935,
+                0.006937647238373756,
+                0.17035505175590515,
+                0.003084775060415268,
+                0.01600375957787037,
+                0.0019514060113579035,
+                0.004676039796322584,
+                0.0008136528776958585,
+                0.0027997565921396017,
+                0.003167032264173031,
+                0.005403336137533188,
+                0.6969196200370789,
+                0.009743152186274529
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-14",
+                "value-5",
+                "value-3",
+                "value-7",
+                "value-2",
+                "value-15",
+                "value-1",
+                "value-4",
+                "value-13",
+                "value-9",
+                "value-12",
+                "value-6",
+                "value-11",
+                "value-0",
+                "value-8",
+                "value-10"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31",
+              "n32",
+              "n33",
+              "n34",
+              "n35",
+              "n36",
+              "n37",
+              "n38",
+              "n39"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 11,
+      "remaining_control_rounds": 25,
+      "selection_only": false,
+      "active_frontier": [
+        "n30",
+        "n23",
+        "n38",
+        "n2",
+        "n31",
+        "n33",
+        "n6",
+        "n40",
+        "n41",
+        "n42",
+        "n43"
+      ],
+      "ranked_compared": [
+        "n40",
+        "n42",
+        "n30",
+        "n41",
+        "n33",
+        "n31",
+        "n38",
+        "n2",
+        "n6",
+        "n43",
+        "n23"
+      ],
+      "selected": [
+        "n40"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n6",
+        "n43",
+        "n23"
+      ],
+      "retained_frontier": [
+        "n42",
+        "n30",
+        "n41",
+        "n33",
+        "n31",
+        "n38",
+        "n2"
+      ],
+      "parents": [
+        "n40"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n40",
+        "probabilities": [
+          0.10995781421661377,
+          0.03292394429445267,
+          0.08616173267364502,
+          0.07869774848222733,
+          0.08790302276611328,
+          0.10493679344654083,
+          0.06276540458202362,
+          0.14395864307880402,
+          0.10661685466766357,
+          0.13912184536457062,
+          0.04695618897676468
+        ],
+        "option_ids": [
+          "n30",
+          "n23",
+          "n38",
+          "n2",
+          "n31",
+          "n33",
+          "n6",
+          "n40",
+          "n41",
+          "n42",
+          "n43"
+        ],
+        "ranked_option_ids": [
+          "n40",
+          "n42",
+          "n30",
+          "n41",
+          "n33",
+          "n31",
+          "n38",
+          "n2",
+          "n6",
+          "n43",
+          "n23"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.7706847190856934,
+          0.108179472386837,
+          0.12113585323095322
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n44": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C+"
+                },
+                "id": "n44"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n44",
+                "source": "tool",
+                "parent_feedback": [
+                  "n40"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C+"
+                  },
+                  "id": "n44"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C+]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X . >\nA . D D B C\nF F H H B C\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n40",
+            "selected_values": {
+              "f0": "C",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -3.289001941680908
+          }
+        ],
+        "n45": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n45"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n45",
+                "source": "tool",
+                "parent_feedback": [
+                  "n40"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n45"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . . C\nA . . X X C >\nA . D D B .\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n40",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -0.6112006902694702
+          }
+        ],
+        "n46": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n46"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n46",
+                "source": "tool",
+                "parent_feedback": [
+                  "n40"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n46"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X C >\nA D D . B C\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n40",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -3.6117658615112305
+          }
+        ],
+        "n47": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n47"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n47",
+                "source": "tool",
+                "parent_feedback": [
+                  "n40"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n47"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n\n{\"rewards\":{\"0\":0.75},\"game_info\":{\"0\":{\"role\":\"Player 0\",\"invalid_move\":true,\"turn_count\":7,\"reason\":\"Move blocked.\"}}}",
+                  "done": true
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n40",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -1.2044456005096436
+          }
+        ]
+      },
+      "parent_computations": {
+        "n40": [
+          {
+            "decision": {
+              "id": "[\"n40\", [\"f0\", \"f1\"]]",
+              "choice": "value-5",
+              "probabilities": [
+                0.003331388346850872,
+                0.007702558767050505,
+                0.017406869679689407,
+                0.00559889106079936,
+                0.03729105368256569,
+                0.542698860168457,
+                0.008878319524228573,
+                0.027004122734069824,
+                0.001996496459469199,
+                0.003882979042828083,
+                0.0006482135504484177,
+                0.001437600702047348,
+                0.007537278812378645,
+                0.013352089561522007,
+                0.2998581826686859,
+                0.021375102922320366
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-5",
+                "value-14",
+                "value-4",
+                "value-7",
+                "value-15",
+                "value-2",
+                "value-13",
+                "value-6",
+                "value-1",
+                "value-12",
+                "value-3",
+                "value-9",
+                "value-0",
+                "value-8",
+                "value-11",
+                "value-10"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31",
+              "n32",
+              "n33",
+              "n34",
+              "n35",
+              "n36",
+              "n37",
+              "n38",
+              "n39",
+              "n40",
+              "n41",
+              "n42",
+              "n43"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 12,
+      "remaining_control_rounds": 24,
+      "selection_only": false,
+      "active_frontier": [
+        "n42",
+        "n30",
+        "n41",
+        "n33",
+        "n31",
+        "n38",
+        "n2",
+        "n44",
+        "n45",
+        "n46",
+        "n47"
+      ],
+      "ranked_compared": [
+        "n44",
+        "n42",
+        "n2",
+        "n30",
+        "n47",
+        "n38",
+        "n41",
+        "n31",
+        "n33",
+        "n46",
+        "n45"
+      ],
+      "selected": [
+        "n44"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n33",
+        "n46",
+        "n45"
+      ],
+      "retained_frontier": [
+        "n42",
+        "n2",
+        "n30",
+        "n47",
+        "n38",
+        "n41",
+        "n31"
+      ],
+      "parents": [
+        "n44"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n44",
+        "probabilities": [
+          0.15330514311790466,
+          0.0978354886174202,
+          0.07281462103128433,
+          0.045097898691892624,
+          0.06438688188791275,
+          0.0741581991314888,
+          0.11213412880897522,
+          0.2113787680864334,
+          0.03591734170913696,
+          0.04263366386294365,
+          0.090337835252285
+        ],
+        "option_ids": [
+          "n42",
+          "n30",
+          "n41",
+          "n33",
+          "n31",
+          "n38",
+          "n2",
+          "n44",
+          "n45",
+          "n46",
+          "n47"
+        ],
+        "ranked_option_ids": [
+          "n44",
+          "n42",
+          "n2",
+          "n30",
+          "n47",
+          "n38",
+          "n41",
+          "n31",
+          "n33",
+          "n46",
+          "n45"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.7944108843803406,
+          0.034842848777770996,
+          0.17074626684188843
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n48": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "B-"
+                },
+                "id": "n48"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n48",
+                "source": "tool",
+                "parent_feedback": [
+                  "n44"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "B-"
+                  },
+                  "id": "n48"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [B-]\n[GAME] You attempted an invalid move. Reason: Move blocked. Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n44",
+            "selected_values": {
+              "f0": "B",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -2.9427404403686523
+          }
+        ],
+        "n49": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "C-"
+                },
+                "id": "n49"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n49",
+                "source": "tool",
+                "parent_feedback": [
+                  "n44"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "C-"
+                  },
+                  "id": "n49"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [C-]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X C >\nA . D D B C\nF F H H B .\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n44",
+            "selected_values": {
+              "f0": "C",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -3.274169445037842
+          }
+        ],
+        "n50": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "D-"
+                },
+                "id": "n50"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n50",
+                "source": "tool",
+                "parent_feedback": [
+                  "n44"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "D-"
+                  },
+                  "id": "n50"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [D-]\n[GAME] \n. . . . . .\n. . . . . .\nA . . X X . >\nA D D . B C\nF F H H B C\n. J J . B .",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n44",
+            "selected_values": {
+              "f0": "D",
+              "f1": "-"
+            },
+            "block_conditional_log_probability": -3.552999496459961
+          }
+        ],
+        "n51": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "X+"
+                },
+                "id": "n51"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n51",
+                "source": "tool",
+                "parent_feedback": [
+                  "n44"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}${f1}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "X+"
+                  },
+                  "id": "n51"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [X+]\n[GAME] The red car zooms out! You solved the puzzle.\n\n{\"rewards\":{\"0\":1.0},\"game_info\":{\"0\":{\"role\":\"Player 0\",\"invalid_move\":false,\"turn_count\":8,\"reason\":\"Puzzle solved!\"}}}",
+                  "done": true
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n44",
+            "selected_values": {
+              "f0": "X",
+              "f1": "+"
+            },
+            "block_conditional_log_probability": -0.24597150087356567
+          }
+        ]
+      },
+      "parent_computations": {
+        "n44": [
+          {
+            "decision": {
+              "id": "[\"n44\", [\"f0\", \"f1\"]]",
+              "choice": "value-14",
+              "probabilities": [
+                0.005041235126554966,
+                0.012995065189898014,
+                0.016025308519601822,
+                0.0527210533618927,
+                0.01837162673473358,
+                0.03784829005599022,
+                0.00685525219887495,
+                0.028638606891036034,
+                0.004328792914748192,
+                0.006282818969339132,
+                0.00144379201810807,
+                0.0029960917308926582,
+                0.004324210807681084,
+                0.007928344421088696,
+                0.7819445133209229,
+                0.012255051173269749
+              ],
+              "option_ids": [
+                "value-0",
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-4",
+                "value-5",
+                "value-6",
+                "value-7",
+                "value-8",
+                "value-9",
+                "value-10",
+                "value-11",
+                "value-12",
+                "value-13",
+                "value-14",
+                "value-15"
+              ],
+              "ranked_option_ids": [
+                "value-14",
+                "value-3",
+                "value-5",
+                "value-7",
+                "value-4",
+                "value-2",
+                "value-1",
+                "value-15",
+                "value-13",
+                "value-6",
+                "value-9",
+                "value-0",
+                "value-8",
+                "value-12",
+                "value-11",
+                "value-10"
+              ],
+              "options": [
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "A-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "B-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-4",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-5",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "C-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-6",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-7",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "D-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-8",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-9",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "F-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-10",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-11",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "H-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-12",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-13",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "J-"
+                    }
+                  }
+                },
+                {
+                  "id": "value-14",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X+"
+                    }
+                  }
+                },
+                {
+                  "id": "value-15",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "X-"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31",
+              "n32",
+              "n33",
+              "n34",
+              "n35",
+              "n36",
+              "n37",
+              "n38",
+              "n39",
+              "n40",
+              "n41",
+              "n42",
+              "n43",
+              "n44",
+              "n45",
+              "n46",
+              "n47"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 13,
+      "remaining_control_rounds": 23,
+      "selection_only": false,
+      "active_frontier": [
+        "n42",
+        "n2",
+        "n30",
+        "n47",
+        "n38",
+        "n41",
+        "n31",
+        "n48",
+        "n49",
+        "n50",
+        "n51"
+      ],
+      "ranked_compared": [
+        "n51",
+        "n2",
+        "n42",
+        "n50",
+        "n41",
+        "n30",
+        "n47",
+        "n38",
+        "n31",
+        "n49",
+        "n48"
+      ],
+      "selected": [
+        "n51"
+      ],
+      "selected_operation": "submit",
+      "pruned_frontier": [
+        "n31",
+        "n49",
+        "n48"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n51",
+        "probabilities": [
+          0.0030540423467755318,
+          0.004710660316050053,
+          0.00035701438901014626,
+          0.0002708859392441809,
+          0.000254145881626755,
+          0.00040706738946028054,
+          0.0002365854597883299,
+          0.00014593062223866582,
+          0.00015007225738372654,
+          0.0007245696615427732,
+          0.9896891117095947
+        ],
+        "option_ids": [
+          "n42",
+          "n2",
+          "n30",
+          "n47",
+          "n38",
+          "n41",
+          "n31",
+          "n48",
+          "n49",
+          "n50",
+          "n51"
+        ],
+        "ranked_option_ids": [
+          "n51",
+          "n2",
+          "n42",
+          "n50",
+          "n41",
+          "n30",
+          "n47",
+          "n38",
+          "n31",
+          "n49",
+          "n48"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "submit",
+        "probabilities": [
+          0.9999351501464844,
+          6.482175376731902e-05
+        ],
+        "option_ids": [
+          "submit",
+          "discard"
+        ],
+        "ranked_option_ids": [
+          "submit",
+          "discard"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "environments.agentquest": {
+    "tool_description": "Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action."
+  },
+  "environments.korgym": {
+    "tool_description": "Execute one native move. Pass the value that follows Answer: in the native task format. Receive the updated public state fields, current score, and terminal signal. The environment records the executed action sequence automatically when the episode ends.",
+    "episode": "\n\nEpisode interface: The native Answer: value is one move, supplied through the execute tool. Observations return the current values of the native prompt fields; the initial rules remain in force. The environment automatically closes the episode after {max_steps} executed moves or an earlier native terminal state, and records the executed action sequence and cumulative native score. The runtime limits stated separately still apply."
+  },
+  "environments.ppnl": {
+    "context": "{rules}\n\nTask: {instruction}",
+    "tool_description": "Execute an action sequence from the current position. The actions string contains space-separated up, down, left, or right moves. Execution stops before a move that would leave the grid or hit an obstacle. The observation reports the reached position, any blocked move, and whether the goal was reached. Continue from that position using the returned observation.",
+    "rules": "(0,0) is located in the upper-left corner and (M, N) lies in the M row and N column."
+  },
+  "environments.robotouille": {
+    "invalid_action": "The action '{action}' is not valid. Please provide a valid action.",
+    "rejected_observation": "Error Feedback: {feedback}\n{observation}"
+  },
+  "shared.context": {
+    "context": "{official_context}\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{tools}\n\nFinal answer schema (mandatory output structure):\n{answer_schema}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure.",
+    "submission_description": "Submit the final answer in the declared answer schema.",
+    "submission_observation": "Answer submitted."
+  },
+  "shared.runtime_contract": "Runtime contract for this task: {contract}\nThe input limit applies to each complete request, including the task, history, and observations. The output limit applies to each autoregressive response. The time limit covers the complete task. max_turns limits serial action-to-observation transitions along each environment branch. Parallel child actions from one parent each advance to the same next depth. Declaration, model scoring, and summaries consume time but do not advance that depth. Final submission remains available at the transition limit. When branch_width and parent_width are present, the runtime retains up to branch_width conditional action combinations and expands up to parent_width parent states per execution round. Candidate capacity is the maximum finite domain size supported by the actual model interface. Respect these limits while solving the task; do not reproduce this contract in the answer.",
+  "configs/data/maze/prompts.json": {
+    "instruction": "Your objective is to reach the goal in as few steps as possible. At each step you will be given information about where the goal is, your current position,\nand the walls that surround you. \n\nWhen you move right you increase your y position by 1, when you move down you increase your x position by 1.\n\nYour possible actions are \"move up\", \"move down\", \"move left\", \"move right\".",
+    "context": "{instruction}\nAvailable actions: {actions}\nEpisode step limit: {max_steps}\nInitial observation:\n{observation}",
+    "question": "Which available move should be executed next to reach the goal?",
+    "tool_description": "Execute one native movement action and observe the resulting local state.",
+    "reset": "{context}"
+  }
+}

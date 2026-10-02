@@ -1,0 +1,2288 @@
+{
+  "id": "textarena_sokoban",
+  "title": "Sokoban",
+  "dataset": "textarena_sokoban",
+  "task_id": "textarena_sokoban_seed88",
+  "task": {
+    "task_id": "textarena_sokoban_seed88",
+    "source": {
+      "seed": 88,
+      "native_class": "textarena.envs.Sokoban.env.SokobanEnv",
+      "native_parameters": {
+        "dim_room": [
+          6,
+          6
+        ],
+        "num_boxes": 2,
+        "max_turns": 100
+      },
+      "repository": "https://github.com/TextArena/TextArena",
+      "commit": "6dfb577c01d0337fe03b05adce84c5ae1878eca1",
+      "env_id": "Sokoban-v0"
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Each action uses a bracketed direction: [up], [down], [left], or [right]. The accepted aliases are [w], [s], [a], and [d], respectively. The same syntax is required by the execute tool action argument."
+          },
+          "description": "Complete action sequence from the initial state, using the official action syntax in the task instructions."
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "context": "\n[GAME] You are solving the Sokoban puzzle. You are the player and you need to push all boxes to targets.\n        When you are right next to a box, you can push it by moving in the same direction.\n        You cannot push a box through a wall, and you cannot pull a box.\n        On the board, objects are represented as: \n        - The player (you) appears as 'P' \n        - Walls are represented with '#' \n        - Boxes are marked as 'X' \n        - Empty goals are shown with a 'O'\n        - Boxes on goals are visualized with '√'\n        You can also use [w] for up, [a] for left, [s] for down, and [d] for right.\n        \n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ O X P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"Each action uses a bracketed direction: [up], [down], [left], or [right]. The accepted aliases are [w], [s], [a], and [d], respectively. The same syntax is required by the execute tool action argument.\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"Each action uses a bracketed direction: [up], [down], [left], or [right]. The accepted aliases are [w], [s], [a], and [d], respectively. The same syntax is required by the execute tool action argument.\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure."
+  },
+  "context": "\n[GAME] You are solving the Sokoban puzzle. You are the player and you need to push all boxes to targets.\n        When you are right next to a box, you can push it by moving in the same direction.\n        You cannot push a box through a wall, and you cannot pull a box.\n        On the board, objects are represented as: \n        - The player (you) appears as 'P' \n        - Walls are represented with '#' \n        - Boxes are marked as 'X' \n        - Empty goals are shown with a 'O'\n        - Boxes on goals are visualized with '√'\n        You can also use [w] for up, [a] for left, [s] for down, and [d] for right.\n        \n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ O X P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"execute\":{\"description\":\"Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\"}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"Each action uses a bracketed direction: [up], [down], [left], or [right]. The accepted aliases are [w], [s], [a], and [d], respectively. The same syntax is required by the execute tool action argument.\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"Each action uses a bracketed direction: [up], [down], [left], or [right]. The accepted aliases are [w], [s], [a], and [d], respectively. The same syntax is required by the execute tool action argument.\"},\"description\":\"Complete action sequence from the initial state, using the official action syntax in the task instructions.\"}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure.",
+  "description": "A declaration over four movement commands supports both navigation and box pushing. Exploration revisits earlier branches before selecting a solution with four moves that places both boxes on their goals.",
+  "instance_label": "Environment seed 88.",
+  "field_meanings": {
+    "f0": "movement command"
+  },
+  "score": 1.0,
+  "success": true,
+  "score_label": "Official reward",
+  "answer": {
+    "actions": [
+      "[left]",
+      "[right]",
+      "[down]",
+      "[left]"
+    ]
+  },
+  "selected_terminal": "n21",
+  "solution_path": [
+    "n1",
+    "n6",
+    "n8",
+    "n21"
+  ],
+  "evaluation": {
+    "status": "completed",
+    "valid_answer": true,
+    "correct": null,
+    "score": 1.0,
+    "tool_calls": 24
+  },
+  "recording": {
+    "method": "JevSpawn",
+    "run": "20260929/main",
+    "selection": "manuscript case studies",
+    "content": "Complete recorded control rounds and original environment observations."
+  },
+  "rounds": [
+    {
+      "turn": 0,
+      "remaining_control_rounds": 36,
+      "selection_only": false,
+      "active_frontier": [
+        "root"
+      ],
+      "ranked_compared": [
+        "root"
+      ],
+      "selected": [
+        "root"
+      ],
+      "selected_operation": "revise",
+      "pruned_frontier": [],
+      "retained_frontier": [],
+      "parents": [
+        "root"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "root",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "root"
+        ],
+        "ranked_option_ids": [
+          "root"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "revise",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "revise"
+        ],
+        "ranked_option_ids": [
+          "revise"
+        ]
+      },
+      "revision": {
+        "named_bindings": {
+          "move": {
+            "domain": {
+              "values": [
+                "[up]",
+                "[down]",
+                "[left]",
+                "[right]"
+              ]
+            },
+            "template": "${f0}"
+          }
+        },
+        "declaration": {
+          "fields": [
+            {
+              "id": "f0",
+              "question": "move",
+              "values": [
+                "[up]",
+                "[down]",
+                "[left]",
+                "[right]"
+              ]
+            }
+          ],
+          "action": {
+            "tool": "execute",
+            "arguments": {
+              "action": "${f0}"
+            }
+          },
+          "answer": null
+        },
+        "observation": {
+          "accepted": true,
+          "declaration": {
+            "fields": [
+              {
+                "id": "f0",
+                "question": "move",
+                "values": [
+                  "[up]",
+                  "[down]",
+                  "[left]",
+                  "[right]"
+                ]
+              }
+            ],
+            "action": {
+              "tool": "execute",
+              "arguments": {
+                "action": "${f0}"
+              }
+            },
+            "answer": null
+          },
+          "source_signatures": [
+            "{move:enum(\"[up]\", \"[down]\", \"[left]\", \"[right]\")}"
+          ]
+        }
+      },
+      "children": {
+        "n0": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n0"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n0",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n0"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You  moved [down].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ O X _ #\n# _ O X P #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -2.504978656768799
+          }
+        ],
+        "n1": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n1"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n1",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n1"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You pushed a box while moved [left].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ P _ #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -0.13917005062103271
+          }
+        ],
+        "n2": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n2"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n2",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n2"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -4.482183933258057
+          }
+        ],
+        "n3": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n3"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n3",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n3"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You  moved [up].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # P #\n# _ O X _ #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -3.298624277114868
+          }
+        ]
+      },
+      "parent_computations": {
+        "root": [
+          {
+            "decision": {
+              "id": "[\"root\", [\"f0\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.08167734742164612,
+                0.8700800538063049,
+                0.011308690533041954,
+                0.03693393990397453
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-1",
+                "value-0",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": []
+          }
+        ]
+      }
+    },
+    {
+      "turn": 1,
+      "remaining_control_rounds": 35,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "ranked_compared": [
+        "n1",
+        "n3",
+        "n2",
+        "n0"
+      ],
+      "selected": [
+        "n1"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n3",
+        "n2",
+        "n0"
+      ],
+      "parents": [
+        "n1"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n1",
+        "probabilities": [
+          0.008041688241064548,
+          0.9209524989128113,
+          0.014368490315973759,
+          0.05663733184337616
+        ],
+        "option_ids": [
+          "n0",
+          "n1",
+          "n2",
+          "n3"
+        ],
+        "ranked_option_ids": [
+          "n1",
+          "n3",
+          "n2",
+          "n0"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9730271100997925,
+          0.024901844561100006,
+          0.002071111463010311
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n4": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n4"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n4",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n4"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -0.19888491928577423
+          }
+        ],
+        "n5": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n5"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n5",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n5"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You pushed a box while moved [left].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# X P _ _ #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -2.4633407592773438
+          }
+        ],
+        "n6": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n6"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n6",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n6"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You  moved [right].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ _ P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -3.9569320678710938
+          }
+        ],
+        "n7": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n7"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n7",
+                "source": "tool",
+                "parent_feedback": [
+                  "n1"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n7"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n1",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -2.575916290283203
+          }
+        ]
+      },
+      "parent_computations": {
+        "n1": [
+          {
+            "decision": {
+              "id": "[\"n1\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.8196442127227783,
+                0.08515001833438873,
+                0.019121689721941948,
+                0.07608408480882645
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-2",
+                "value-0",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 2,
+      "remaining_control_rounds": 34,
+      "selection_only": false,
+      "active_frontier": [
+        "n3",
+        "n2",
+        "n0",
+        "n4",
+        "n5",
+        "n6",
+        "n7"
+      ],
+      "ranked_compared": [
+        "n6",
+        "n7",
+        "n2",
+        "n0",
+        "n5",
+        "n4",
+        "n3"
+      ],
+      "selected": [
+        "n6"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n7",
+        "n2",
+        "n0",
+        "n5",
+        "n4",
+        "n3"
+      ],
+      "parents": [
+        "n6"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n6",
+        "probabilities": [
+          0.0072061484679579735,
+          0.043764252215623856,
+          0.02619325928390026,
+          0.007694989908486605,
+          0.02049132250249386,
+          0.8304144144058228,
+          0.06423553824424744
+        ],
+        "option_ids": [
+          "n3",
+          "n2",
+          "n0",
+          "n4",
+          "n5",
+          "n6",
+          "n7"
+        ],
+        "ranked_option_ids": [
+          "n6",
+          "n7",
+          "n2",
+          "n0",
+          "n5",
+          "n4",
+          "n3"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9829229116439819,
+          0.015454774722456932,
+          0.001622406649403274
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n8": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n8"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n8",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n8"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You  moved [down].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ _ _ #\n# _ O X P #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -0.4871060252189636
+          }
+        ],
+        "n9": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n9"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n9",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n9"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You  moved [left].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ P _ #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -1.3370816707611084
+          }
+        ],
+        "n10": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n10"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n10",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n10"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -4.6763129234313965
+          }
+        ],
+        "n11": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n11"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n11",
+                "source": "tool",
+                "parent_feedback": [
+                  "n6"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n11"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You  moved [up].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # P #\n# _ √ _ _ #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n6",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -2.1744210720062256
+          }
+        ]
+      },
+      "parent_computations": {
+        "n6": [
+          {
+            "decision": {
+              "id": "[\"n6\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.6144018769264221,
+                0.26261094212532043,
+                0.009313288144767284,
+                0.11367394775152206
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-2",
+                "value-0",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 3,
+      "remaining_control_rounds": 33,
+      "selection_only": false,
+      "active_frontier": [
+        "n7",
+        "n2",
+        "n0",
+        "n5",
+        "n4",
+        "n3",
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "ranked_compared": [
+        "n11",
+        "n8",
+        "n3",
+        "n9",
+        "n10",
+        "n2",
+        "n7",
+        "n0",
+        "n4",
+        "n5"
+      ],
+      "selected": [
+        "n11"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n4",
+        "n5"
+      ],
+      "retained_frontier": [
+        "n8",
+        "n3",
+        "n9",
+        "n10",
+        "n2",
+        "n7",
+        "n0"
+      ],
+      "parents": [
+        "n11"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n11",
+        "probabilities": [
+          0.011065644212067127,
+          0.0342581570148468,
+          0.00983339361846447,
+          0.00844890158623457,
+          0.009058203548192978,
+          0.07942087203264236,
+          0.3036808669567108,
+          0.048123300075531006,
+          0.03585809841752052,
+          0.460252583026886
+        ],
+        "option_ids": [
+          "n7",
+          "n2",
+          "n0",
+          "n5",
+          "n4",
+          "n3",
+          "n8",
+          "n9",
+          "n10",
+          "n11"
+        ],
+        "ranked_option_ids": [
+          "n11",
+          "n8",
+          "n3",
+          "n9",
+          "n10",
+          "n2",
+          "n7",
+          "n0",
+          "n4",
+          "n5"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9344508051872253,
+          0.059672992676496506,
+          0.0058761597611010075
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n12": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n12"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n12",
+                "source": "tool",
+                "parent_feedback": [
+                  "n11"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n12"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You  moved [down].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ _ P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n11",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -1.8245208263397217
+          }
+        ],
+        "n13": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n13"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n13",
+                "source": "tool",
+                "parent_feedback": [
+                  "n11"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n13"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n11",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -0.2014072686433792
+          }
+        ],
+        "n14": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n14"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n14",
+                "source": "tool",
+                "parent_feedback": [
+                  "n11"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n14"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n11",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -4.727555274963379
+          }
+        ],
+        "n15": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n15"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n15",
+                "source": "tool",
+                "parent_feedback": [
+                  "n11"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n15"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n11",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -4.399977684020996
+          }
+        ]
+      },
+      "parent_computations": {
+        "n11": [
+          {
+            "decision": {
+              "id": "[\"n11\", [\"f0\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.16129490733146667,
+                0.8175793886184692,
+                0.008848076686263084,
+                0.012277616187930107
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-1",
+                "value-0",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 4,
+      "remaining_control_rounds": 32,
+      "selection_only": false,
+      "active_frontier": [
+        "n8",
+        "n3",
+        "n9",
+        "n10",
+        "n2",
+        "n7",
+        "n0",
+        "n12",
+        "n13",
+        "n14",
+        "n15"
+      ],
+      "ranked_compared": [
+        "n0",
+        "n8",
+        "n3",
+        "n14",
+        "n12",
+        "n7",
+        "n13",
+        "n10",
+        "n9",
+        "n2",
+        "n15"
+      ],
+      "selected": [
+        "n0"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n9",
+        "n2",
+        "n15"
+      ],
+      "retained_frontier": [
+        "n8",
+        "n3",
+        "n14",
+        "n12",
+        "n7",
+        "n13",
+        "n10"
+      ],
+      "parents": [
+        "n0"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n0",
+        "probabilities": [
+          0.30253633856773376,
+          0.13640418648719788,
+          0.0231655053794384,
+          0.025211060419678688,
+          0.01956094428896904,
+          0.03294909745454788,
+          0.3368763029575348,
+          0.036887094378471375,
+          0.027987949550151825,
+          0.047877613455057144,
+          0.010543887503445148
+        ],
+        "option_ids": [
+          "n8",
+          "n3",
+          "n9",
+          "n10",
+          "n2",
+          "n7",
+          "n0",
+          "n12",
+          "n13",
+          "n14",
+          "n15"
+        ],
+        "ranked_option_ids": [
+          "n0",
+          "n8",
+          "n3",
+          "n14",
+          "n12",
+          "n7",
+          "n13",
+          "n10",
+          "n9",
+          "n2",
+          "n15"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9248955249786377,
+          0.07382842153310776,
+          0.001276075141504407
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n16": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n16"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n16",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n16"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -3.190603733062744
+          }
+        ],
+        "n17": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n17"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n17",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n17"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You pushed a box while moved [left].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ O X _ #\n# _ √ P _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -0.13342908024787903
+          }
+        ],
+        "n18": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n18"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n18",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n18"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -4.301435947418213
+          }
+        ],
+        "n19": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n19"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n19",
+                "source": "tool",
+                "parent_feedback": [
+                  "n0"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n19"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You  moved [up].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ O X P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n0",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -2.656202793121338
+          }
+        ]
+      },
+      "parent_computations": {
+        "n0": [
+          {
+            "decision": {
+              "id": "[\"n0\", [\"f0\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.04114701971411705,
+                0.8750895261764526,
+                0.013549089431762695,
+                0.07021433115005493
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-0",
+                "value-1",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 5,
+      "remaining_control_rounds": 31,
+      "selection_only": false,
+      "active_frontier": [
+        "n8",
+        "n3",
+        "n14",
+        "n12",
+        "n7",
+        "n13",
+        "n10",
+        "n16",
+        "n17",
+        "n18",
+        "n19"
+      ],
+      "ranked_compared": [
+        "n8",
+        "n19",
+        "n17",
+        "n18",
+        "n3",
+        "n16",
+        "n10",
+        "n13",
+        "n14",
+        "n12",
+        "n7"
+      ],
+      "selected": [
+        "n8"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n14",
+        "n12",
+        "n7"
+      ],
+      "retained_frontier": [
+        "n19",
+        "n17",
+        "n18",
+        "n3",
+        "n16",
+        "n10",
+        "n13"
+      ],
+      "parents": [
+        "n8"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n8",
+        "probabilities": [
+          0.45787525177001953,
+          0.0569160096347332,
+          0.02439016103744507,
+          0.02141033299267292,
+          0.019520336762070656,
+          0.03452279046177864,
+          0.037598349153995514,
+          0.04083084315061569,
+          0.09975667297840118,
+          0.08692388981580734,
+          0.12025540322065353
+        ],
+        "option_ids": [
+          "n8",
+          "n3",
+          "n14",
+          "n12",
+          "n7",
+          "n13",
+          "n10",
+          "n16",
+          "n17",
+          "n18",
+          "n19"
+        ],
+        "ranked_option_ids": [
+          "n8",
+          "n19",
+          "n17",
+          "n18",
+          "n3",
+          "n16",
+          "n10",
+          "n13",
+          "n14",
+          "n12",
+          "n7"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9694222211837769,
+          0.02687169797718525,
+          0.0037061392795294523
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n20": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[down]"
+                },
+                "id": "n20"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n20",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[down]"
+                  },
+                  "id": "n20"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [down]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "[down]"
+            },
+            "block_conditional_log_probability": -3.477928876876831
+          }
+        ],
+        "n21": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[left]"
+                },
+                "id": "n21"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n21",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[left]"
+                  },
+                  "id": "n21"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [left]\n[GAME] You pushed a box while moved [left].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ _ _ #\n# _ √ P _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right\n\n{\"rewards\":{\"0\":1},\"game_info\":{\"0\":{\"role\":\"Player 0\",\"invalid_move\":false,\"turn_count\":4,\"reason\":\"Congratulations! You have solved the Sokoban puzzle!\"}}}",
+                  "done": true
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "[left]"
+            },
+            "block_conditional_log_probability": -0.1103389710187912
+          }
+        ],
+        "n22": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[right]"
+                },
+                "id": "n22"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n22",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[right]"
+                  },
+                  "id": "n22"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [right]\n[GAME] You attempted an invalid move. Reason: You cannot move into a wall! Please resubmit a valid move and remember to follow the game rules to avoid penalties.",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "[right]"
+            },
+            "block_conditional_log_probability": -3.9737918376922607
+          }
+        ],
+        "n23": [
+          {
+            "actions": [
+              {
+                "tool": "execute",
+                "arguments": {
+                  "action": "[up]"
+                },
+                "id": "n23"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n23",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "execute",
+                  "arguments": {
+                    "action": "[up]"
+                  },
+                  "id": "n23"
+                },
+                "value": {
+                  "observation": "\n[Player 0] [up]\n[GAME] You  moved [up].\n[GAME] Current Board:\n\n# # # # # #\n# # # # # #\n# # # # _ #\n# _ √ _ P #\n# _ O X _ #\n# # # # # #\n\nAvailable Moves: up, down, left, right",
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "[up]"
+            },
+            "block_conditional_log_probability": -2.9041337966918945
+          }
+        ]
+      },
+      "parent_computations": {
+        "n8": [
+          {
+            "decision": {
+              "id": "[\"n8\", [\"f0\"]]",
+              "choice": "value-2",
+              "probabilities": [
+                0.030871281400322914,
+                0.8955305218696594,
+                0.01880200393497944,
+                0.0547962412238121
+              ],
+              "option_ids": [
+                "value-1",
+                "value-2",
+                "value-3",
+                "value-0"
+              ],
+              "ranked_option_ids": [
+                "value-2",
+                "value-0",
+                "value-1",
+                "value-3"
+              ],
+              "options": [
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[down]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[left]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[right]"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "execute",
+                    "arguments": {
+                      "action": "[up]"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 6,
+      "remaining_control_rounds": 30,
+      "selection_only": false,
+      "active_frontier": [
+        "n19",
+        "n17",
+        "n18",
+        "n3",
+        "n16",
+        "n10",
+        "n13",
+        "n20",
+        "n21",
+        "n22",
+        "n23"
+      ],
+      "ranked_compared": [
+        "n21",
+        "n20",
+        "n22",
+        "n19",
+        "n17",
+        "n23",
+        "n10",
+        "n13",
+        "n3",
+        "n18",
+        "n16"
+      ],
+      "selected": [
+        "n21"
+      ],
+      "selected_operation": "submit",
+      "pruned_frontier": [
+        "n3",
+        "n18",
+        "n16"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n21",
+        "probabilities": [
+          0.0014359375927597284,
+          0.0008320771157741547,
+          0.0002172465465264395,
+          0.00021735970221925527,
+          0.000146222606417723,
+          0.0003946279175579548,
+          0.0003698033979162574,
+          0.002603253349661827,
+          0.9912430047988892,
+          0.0017938214587047696,
+          0.0007466590614058077
+        ],
+        "option_ids": [
+          "n19",
+          "n17",
+          "n18",
+          "n3",
+          "n16",
+          "n10",
+          "n13",
+          "n20",
+          "n21",
+          "n22",
+          "n23"
+        ],
+        "ranked_option_ids": [
+          "n21",
+          "n20",
+          "n22",
+          "n19",
+          "n17",
+          "n23",
+          "n10",
+          "n13",
+          "n3",
+          "n18",
+          "n16"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "submit",
+        "probabilities": [
+          0.9999984502792358,
+          1.5961345525283832e-06
+        ],
+        "option_ids": [
+          "submit",
+          "discard"
+        ],
+        "ranked_option_ids": [
+          "submit",
+          "discard"
+        ]
+      }
+    }
+  ]
+}

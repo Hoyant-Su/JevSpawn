@@ -1,0 +1,12 @@
+{
+  "prompts": "shared.context",
+  "submission_tool": "finish",
+  "serialization": {
+    "ensure_ascii": false,
+    "separators": [
+      ",",
+      ":"
+    ]
+  },
+  "initial_transition_depth": 0
+}

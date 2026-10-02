@@ -1,0 +1,145 @@
+{
+  "repositories": {
+    "ppnl": [
+      "MohamedAghzal/llms-as-path-planners",
+      "5fd0376fc50ae9860bc986085165ebac5675fd44"
+    ],
+    "llfbench": [
+      "microsoft/LLF-Bench",
+      "fce2e11d8ceac33ae81265d09cb3e12a1d9e9030"
+    ],
+    "korgym": [
+      "multimodal-art-projection/KORGym",
+      "b56bca0c9bd40eac0968683efb21db6d482b0620"
+    ],
+    "nullify": [
+      "multimodal-art-projection/KORGym",
+      "b56bca0c9bd40eac0968683efb21db6d482b0620"
+    ],
+    "lmrlgym": [
+      "abdulhaim/LMRL-Gym",
+      "911d726b5b3732b468acada46ca60fa3cbc2f847"
+    ],
+    "AgentGym": [
+      "WooooDyy/AgentGym",
+      "3ef9235d23e68e7c2920c5422ad957dc8ced5c6c"
+    ],
+    "textarena": [
+      "TextArena/TextArena",
+      "6dfb577c01d0337fe03b05adce84c5ae1878eca1"
+    ]
+  },
+  "files": [
+    {
+      "path": "lmrlgym/LICENSE",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/LICENSE"
+    },
+    {
+      "path": "llfbench/LICENSE",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/LICENSE"
+    },
+    {
+      "path": "llfbench/README.md",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/README.md"
+    },
+    {
+      "path": "nullify/game_lib/39-Nullify/game_lib.py",
+      "url": "https://raw.githubusercontent.com/multimodal-art-projection/KORGym/b56bca0c9bd40eac0968683efb21db6d482b0620/game_lib/39-Nullify/game_lib.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/llf_env.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/llf_env.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/utils.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/utils.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/gridworld/gridworld.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/gridworld/gridworld.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/gridworld/prompts.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/gridworld/prompts.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/gridworld/scene.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/gridworld/scene.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/gridworld/wrapper.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/gridworld/wrapper.py"
+    },
+    {
+      "path": "llfbench/llfbench/envs/gridworld/room.py",
+      "url": "https://raw.githubusercontent.com/microsoft/LLF-Bench/fce2e11d8ceac33ae81265d09cb3e12a1d9e9030/llfbench/envs/gridworld/room.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/__init__.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/__init__.py"
+    },
+    {
+      "path": "lmrlgym/LLM_RL/__init__.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/LLM_RL/__init__.py"
+    },
+    {
+      "path": "lmrlgym/LLM_RL/environment.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/LLM_RL/environment.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/maze/__init__.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/maze/__init__.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/maze/env/randomness.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/maze/env/randomness.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/maze/env/env.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/maze/env/env.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/maze/env/__init__.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/maze/env/__init__.py"
+    },
+    {
+      "path": "lmrlgym/llm_rl_scripts/maze/env/mazes.py",
+      "url": "https://raw.githubusercontent.com/abdulhaim/LMRL-Gym/911d726b5b3732b468acada46ca60fa3cbc2f847/llm_rl_scripts/maze/env/mazes.py"
+    },
+    {
+      "path": "korgym/game_lib/3-2048/game_lib.py",
+      "url": "https://raw.githubusercontent.com/multimodal-art-projection/KORGym/b56bca0c9bd40eac0968683efb21db6d482b0620/game_lib/3-2048/game_lib.py"
+    },
+    {
+      "path": "ppnl/ICL/react.py",
+      "url": "https://raw.githubusercontent.com/MohamedAghzal/llms-as-path-planners/5fd0376fc50ae9860bc986085165ebac5675fd44/ppnl-spatial-temporal-reasoning/ICL/react.py"
+    },
+    {
+      "path": "ppnl/evaluate/executor-point-sg.py",
+      "url": "https://raw.githubusercontent.com/MohamedAghzal/llms-as-path-planners/5fd0376fc50ae9860bc986085165ebac5675fd44/ppnl-spatial-temporal-reasoning/evaluate/executor-point-sg.py"
+    },
+    {
+      "path": "lmrlgym/agentgym/maze_utils.py",
+      "url": "https://raw.githubusercontent.com/WooooDyy/AgentGym/3ef9235d23e68e7c2920c5422ad957dc8ced5c6c/agentenv-lmrlgym/agentenv_lmrlgym/maze/utils.py"
+    },
+    {
+      "path": "lmrlgym/agentgym/LICENSE",
+      "url": "https://raw.githubusercontent.com/WooooDyy/AgentGym/3ef9235d23e68e7c2920c5422ad957dc8ced5c6c/LICENSE"
+    }
+  ],
+  "acquisition": {
+    "workers": 8,
+    "timeout_seconds": 60
+  },
+  "validation": {
+    "workers": 8
+  },
+  "licenses": {
+    "lmrlgym": "MIT, acquired LICENSE",
+    "AgentGym": "MIT, acquired LICENSE",
+    "llfbench": "MIT, acquired LICENSE",
+    "ppnl": "No license file supplied by upstream; source is downloaded directly from upstream and is not redistributed here.",
+    "korgym": "No license file supplied by upstream; source is downloaded directly from upstream and is not redistributed here.",
+    "textarena": "MIT, installed distribution includes license."
+  }
+}

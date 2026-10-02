@@ -1,0 +1,16 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "replay_interval_ms": 900,
+  "poll_interval_seconds": 0.1,
+  "live_enabled": false,
+  "model_label": "Qwen3.8-27B · manuscript case studies",
+  "data": "demo/data",
+  "web": "demo/web",
+  "output": "demo/output",
+  "shared_config": "configs/shared.yaml",
+  "method_config": "src/jev_spawn/configs/method.json",
+  "inference_config": "src/jev_spawn/configs/inference.json",
+  "parallel_config": "src/jev_spawn/configs/parallel.json",
+  "samples": ["ppnl", "lmrlgym_maze", "llfbench_gridworld", "textarena_lightsout", "textarena_rushhour", "textarena_sokoban", "korgym_2048", "korgym_nullify"]
+}

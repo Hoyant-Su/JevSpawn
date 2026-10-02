@@ -1,0 +1,116 @@
+{
+  "source_root": "external/llfbench",
+  "native_class": "llfbench.envs.gridworld.gridworld.Gridworld",
+  "native_wrapper": "llfbench.envs.gridworld.wrapper.GridworldWrapper",
+  "wrapper_parameters": {
+    "instruction_type": "b",
+    "feedback_type": "r"
+  },
+  "paraphrase_method": 0,
+  "public_contract": {
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "tools": {
+      "execute": {
+        "description": "Execute one action using the exact response format described in the initial task instructions. Return the environment observation before choosing the next action.",
+        "arguments": {
+          "action": "integer"
+        },
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "finish": {
+        "description": "Submit the final answer in the declared answer schema.",
+        "arguments": {
+          "actions": "array"
+        },
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              }
+            }
+          },
+          "required": [
+            "actions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "model_input_fields": [
+      "context"
+    ],
+    "initial_observation_fields": [
+      "instruction",
+      "observation",
+      "feedback"
+    ],
+    "step_observation_fields": [
+      "instruction",
+      "observation",
+      "feedback"
+    ],
+    "hidden_info_fields": [
+      "expert_action"
+    ]
+  },
+  "session": "configs/environments/session.json",
+  "module_path_index": 0,
+  "tool_name": "execute",
+  "action_field": "action",
+  "answer_field": "actions",
+  "initial_text_fields": [
+    "instruction",
+    "observation"
+  ],
+  "initial_separator": "\n\n",
+  "observation_schema": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "observation",
+      "done"
+    ],
+    "additionalProperties": false
+  }
+}

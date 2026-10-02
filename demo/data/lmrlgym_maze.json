@@ -1,0 +1,3876 @@
+{
+  "id": "lmrlgym_maze",
+  "title": "Maze",
+  "dataset": "lmrlgym_maze",
+  "task_id": "lmrlgym_maze_10",
+  "task": {
+    "task_id": "lmrlgym_maze_10",
+    "dataset": "agentgym_maze",
+    "kind": "environment",
+    "instruction": "Navigate to the goal using only the available move actions. Positions and nearby walls are supplied by the environment. A blocked move leaves your position unchanged. The environment ends the episode on success or its step limit.",
+    "input": {
+      "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left."
+    },
+    "answer_schema": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "move left",
+              "move right",
+              "move up",
+              "move down"
+            ]
+          }
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "game": 10,
+      "init_position": [
+        2,
+        3
+      ],
+      "goal": [
+        8,
+        6
+      ]
+    },
+    "context": "Navigate to the goal using only the available move actions. Positions and nearby walls are supplied by the environment. A blocked move leaves your position unchanged. The environment ends the episode on success or its step limit.\n\nThe goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"move\":{\"description\":\"Execute one native movement action and observe the resulting local state.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure."
+  },
+  "context": "Navigate to the goal using only the available move actions. Positions and nearby walls are supplied by the environment. A blocked move leaves your position unchanged. The environment ends the episode on success or its step limit.\n\nThe goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.\n\nExecution interface (mandatory argument keys, JSON types, and tool signatures):\n{\"move\":{\"description\":\"Execute one native movement action and observe the resulting local state.\",\"arguments\":{\"action\":\"string\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"action\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}},\"required\":[\"action\"],\"additionalProperties\":false}},\"finish\":{\"description\":\"Submit the final answer in the declared answer schema.\",\"arguments\":{\"actions\":\"array\"},\"input_schema\":{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}}},\"required\":[\"actions\"],\"additionalProperties\":false}}}\n\nFinal answer schema (mandatory output structure):\n{\"type\":\"object\",\"properties\":{\"actions\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"move left\",\"move right\",\"move up\",\"move down\"]}}},\"required\":[\"actions\"],\"additionalProperties\":false}\n\nThe task rules and interface above are the execution contract. Preserve native command delimiters and each command's parameter count. Tool-call arguments and the final answer have their respective schemas. Use the execution interface to obtain observations and submit the final result in the declared answer structure.",
+  "description": "Only local wall observations are available. An initial right move is blocked. Subsequent selections follow an observed corridor to the goal without requiring a complete map.",
+  "instance_label": "Initial state 10.",
+  "field_meanings": {
+    "f0": "movement command"
+  },
+  "score": 1.0,
+  "success": true,
+  "score_label": "Official reward",
+  "answer": {
+    "actions": [
+      "move right",
+      "move down",
+      "move down",
+      "move down",
+      "move right",
+      "move right",
+      "move right",
+      "move down",
+      "move down",
+      "move down"
+    ]
+  },
+  "selected_terminal": "n36",
+  "solution_path": [
+    "n2",
+    "n4",
+    "n8",
+    "n12",
+    "n18",
+    "n22",
+    "n26",
+    "n28",
+    "n32",
+    "n36"
+  ],
+  "evaluation": {
+    "status": "completed",
+    "valid_answer": true,
+    "correct": true,
+    "score": 1.0,
+    "tool_calls": 40
+  },
+  "recording": {
+    "method": "JevSpawn",
+    "run": "20260929/main",
+    "selection": "manuscript case studies",
+    "content": "Complete recorded control rounds and original environment observations."
+  },
+  "rounds": [
+    {
+      "turn": 0,
+      "remaining_control_rounds": 36,
+      "selection_only": false,
+      "active_frontier": [
+        "root"
+      ],
+      "ranked_compared": [
+        "root"
+      ],
+      "selected": [
+        "root"
+      ],
+      "selected_operation": "revise",
+      "pruned_frontier": [],
+      "retained_frontier": [],
+      "parents": [
+        "root"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "root",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "root"
+        ],
+        "ranked_option_ids": [
+          "root"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "revise",
+        "probabilities": [
+          1.0
+        ],
+        "option_ids": [
+          "revise"
+        ],
+        "ranked_option_ids": [
+          "revise"
+        ]
+      },
+      "revision": {
+        "named_bindings": {},
+        "declaration": {
+          "fields": [
+            {
+              "id": "f0",
+              "question": "[\"action\", \"arguments\", \"action\"]",
+              "values": [
+                "move left",
+                "move right",
+                "move up",
+                "move down"
+              ]
+            }
+          ],
+          "action": {
+            "tool": "move",
+            "arguments": {
+              "action": "${f0}"
+            }
+          },
+          "answer": null
+        },
+        "observation": {
+          "accepted": true,
+          "declaration": {
+            "fields": [
+              {
+                "id": "f0",
+                "question": "[\"action\", \"arguments\", \"action\"]",
+                "values": [
+                  "move left",
+                  "move right",
+                  "move up",
+                  "move down"
+                ]
+              }
+            ],
+            "action": {
+              "tool": "move",
+              "arguments": {
+                "action": "${f0}"
+              }
+            },
+            "answer": null
+          },
+          "source_signatures": []
+        }
+      },
+      "children": {
+        "n0": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n0"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n0",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n0"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 3, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.7864049673080444
+          }
+        ],
+        "n1": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n1"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n1",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n1"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -3.4626400470733643
+          }
+        ],
+        "n2": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n2"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n2",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n2"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -1.4532769918441772
+          }
+        ],
+        "n3": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n3"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n3",
+                "source": "tool",
+                "parent_feedback": [],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n3"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 1, 3. There is a wall above you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "root",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -1.2752145528793335
+          }
+        ]
+      },
+      "parent_computations": {
+        "root": [
+          {
+            "decision": {
+              "id": "[\"root\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.45547932386398315,
+                0.031346894800662994,
+                0.23380285501480103,
+                0.2793710231781006
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-2",
+                "value-1",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": []
+          }
+        ]
+      }
+    },
+    {
+      "turn": 1,
+      "remaining_control_rounds": 35,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "ranked_compared": [
+        "n2",
+        "n0",
+        "n3",
+        "n1"
+      ],
+      "selected": [
+        "n2"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n0",
+        "n3",
+        "n1"
+      ],
+      "parents": [
+        "n2"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n2",
+        "probabilities": [
+          0.2953105568885803,
+          0.12168139964342117,
+          0.34887266159057617,
+          0.23413537442684174
+        ],
+        "option_ids": [
+          "n0",
+          "n1",
+          "n2",
+          "n3"
+        ],
+        "ranked_option_ids": [
+          "n2",
+          "n0",
+          "n3",
+          "n1"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9670588374137878,
+          0.032761164009571075,
+          0.00017999655392486602
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n4": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n4"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n4",
+                "source": "tool",
+                "parent_feedback": [
+                  "n2"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n4"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 3, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n2",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.6324193477630615
+          }
+        ],
+        "n5": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n5"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n5",
+                "source": "tool",
+                "parent_feedback": [
+                  "n2"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n5"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n2",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -4.768056869506836
+          }
+        ],
+        "n6": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n6"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n6",
+                "source": "tool",
+                "parent_feedback": [
+                  "n2"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n6"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n2",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -4.181728363037109
+          }
+        ],
+        "n7": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n7"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n7",
+                "source": "tool",
+                "parent_feedback": [
+                  "n2"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n7"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 1, 3. There is a wall above you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n2",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -0.8098466396331787
+          }
+        ]
+      },
+      "parent_computations": {
+        "n2": [
+          {
+            "decision": {
+              "id": "[\"n2\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.5313048362731934,
+                0.008496875874698162,
+                0.015272092074155807,
+                0.44492629170417786
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-2",
+                "value-1",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 2,
+      "remaining_control_rounds": 34,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n3",
+        "n1",
+        "n4",
+        "n5",
+        "n6",
+        "n7"
+      ],
+      "ranked_compared": [
+        "n4",
+        "n3",
+        "n1",
+        "n0",
+        "n5",
+        "n7",
+        "n6"
+      ],
+      "selected": [
+        "n4"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [],
+      "retained_frontier": [
+        "n3",
+        "n1",
+        "n0",
+        "n5",
+        "n7",
+        "n6"
+      ],
+      "parents": [
+        "n4"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n4",
+        "probabilities": [
+          0.1336316466331482,
+          0.23973706364631653,
+          0.16494040191173553,
+          0.4113280475139618,
+          0.022190742194652557,
+          0.011028608307242393,
+          0.017143426463007927
+        ],
+        "option_ids": [
+          "n0",
+          "n3",
+          "n1",
+          "n4",
+          "n5",
+          "n6",
+          "n7"
+        ],
+        "ranked_option_ids": [
+          "n4",
+          "n3",
+          "n1",
+          "n0",
+          "n5",
+          "n7",
+          "n6"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9856265187263489,
+          0.014026075601577759,
+          0.00034739638795144856
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n8": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n8"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n8",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n8"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 4, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.9536398649215698
+          }
+        ],
+        "n9": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n9"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n9",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n9"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 3, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -2.7552525997161865
+          }
+        ],
+        "n10": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n10"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n10",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n10"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 3, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -1.1472433805465698
+          }
+        ],
+        "n11": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n11"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n11",
+                "source": "tool",
+                "parent_feedback": [
+                  "n4"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n11"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 2, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n4",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -1.4543150663375854
+          }
+        ]
+      },
+      "parent_computations": {
+        "n4": [
+          {
+            "decision": {
+              "id": "[\"n4\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.38533589243888855,
+                0.06359294801950455,
+                0.31751081347465515,
+                0.23356027901172638
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-1",
+                "value-2",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 3,
+      "remaining_control_rounds": 33,
+      "selection_only": false,
+      "active_frontier": [
+        "n3",
+        "n1",
+        "n0",
+        "n5",
+        "n7",
+        "n6",
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "ranked_compared": [
+        "n8",
+        "n10",
+        "n0",
+        "n3",
+        "n1",
+        "n7",
+        "n9",
+        "n5",
+        "n6",
+        "n11"
+      ],
+      "selected": [
+        "n8"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n6",
+        "n11"
+      ],
+      "retained_frontier": [
+        "n10",
+        "n0",
+        "n3",
+        "n1",
+        "n7",
+        "n9",
+        "n5"
+      ],
+      "parents": [
+        "n8"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n8",
+        "probabilities": [
+          0.015589316375553608,
+          0.013202500529587269,
+          0.0565057173371315,
+          0.008457661606371403,
+          0.008527378551661968,
+          0.007672975305467844,
+          0.48568591475486755,
+          0.008501783013343811,
+          0.3903385400772095,
+          0.005518279038369656
+        ],
+        "option_ids": [
+          "n3",
+          "n1",
+          "n0",
+          "n5",
+          "n7",
+          "n6",
+          "n8",
+          "n9",
+          "n10",
+          "n11"
+        ],
+        "ranked_option_ids": [
+          "n8",
+          "n10",
+          "n0",
+          "n3",
+          "n1",
+          "n7",
+          "n9",
+          "n5",
+          "n6",
+          "n11"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9920055270195007,
+          0.006868662312626839,
+          0.001125808572396636
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n12": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n12"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n12",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n12"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 3. There are walls to your left, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.16510508954524994
+          }
+        ],
+        "n13": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n13"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n13",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n13"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 4, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -4.106839656829834
+          }
+        ],
+        "n14": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n14"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n14",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n14"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 4, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -2.3858425617218018
+          }
+        ],
+        "n15": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n15"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n15",
+                "source": "tool",
+                "parent_feedback": [
+                  "n8"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n15"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 3, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n8",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -3.1298534870147705
+          }
+        ]
+      },
+      "parent_computations": {
+        "n8": [
+          {
+            "decision": {
+              "id": "[\"n8\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.847804605960846,
+                0.016459714621305466,
+                0.09201142936944962,
+                0.04372420534491539
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-1",
+                "value-2",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 4,
+      "remaining_control_rounds": 32,
+      "selection_only": false,
+      "active_frontier": [
+        "n10",
+        "n0",
+        "n3",
+        "n1",
+        "n7",
+        "n9",
+        "n5",
+        "n12",
+        "n13",
+        "n14",
+        "n15"
+      ],
+      "ranked_compared": [
+        "n12",
+        "n0",
+        "n15",
+        "n13",
+        "n7",
+        "n3",
+        "n10",
+        "n1",
+        "n9",
+        "n5",
+        "n14"
+      ],
+      "selected": [
+        "n12"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n9",
+        "n5",
+        "n14"
+      ],
+      "retained_frontier": [
+        "n0",
+        "n15",
+        "n13",
+        "n7",
+        "n3",
+        "n10",
+        "n1"
+      ],
+      "parents": [
+        "n12"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n12",
+        "probabilities": [
+          0.010662027634680271,
+          0.3081585466861725,
+          0.014780808240175247,
+          0.007709068711847067,
+          0.01835373044013977,
+          0.006704605184495449,
+          0.0066444664262235165,
+          0.3096775710582733,
+          0.0773269385099411,
+          0.005924665369093418,
+          0.23405757546424866
+        ],
+        "option_ids": [
+          "n10",
+          "n0",
+          "n3",
+          "n1",
+          "n7",
+          "n9",
+          "n5",
+          "n12",
+          "n13",
+          "n14",
+          "n15"
+        ],
+        "ranked_option_ids": [
+          "n12",
+          "n0",
+          "n15",
+          "n13",
+          "n7",
+          "n3",
+          "n10",
+          "n1",
+          "n9",
+          "n5",
+          "n14"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9960553646087646,
+          0.003583405865356326,
+          0.000361172977136448
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n16": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n16"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n16",
+                "source": "tool",
+                "parent_feedback": [
+                  "n12"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n16"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 3. There are walls to your left, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n12",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -2.218081474304199
+          }
+        ],
+        "n17": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n17"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n17",
+                "source": "tool",
+                "parent_feedback": [
+                  "n12"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n17"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 3. There are walls to your left, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n12",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -4.493546485900879
+          }
+        ],
+        "n18": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n18"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n18",
+                "source": "tool",
+                "parent_feedback": [
+                  "n12"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n18"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 4. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n12",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -0.23803991079330444
+          }
+        ],
+        "n19": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n19"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n19",
+                "source": "tool",
+                "parent_feedback": [
+                  "n12"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n19"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 4, 3. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n12",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -2.387814521789551
+          }
+        ]
+      },
+      "parent_computations": {
+        "n12": [
+          {
+            "decision": {
+              "id": "[\"n12\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.1088176816701889,
+                0.011180921457707882,
+                0.7881712317466736,
+                0.09183016419410706
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-3",
+                "value-2",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 5,
+      "remaining_control_rounds": 31,
+      "selection_only": false,
+      "active_frontier": [
+        "n0",
+        "n15",
+        "n13",
+        "n7",
+        "n3",
+        "n10",
+        "n1",
+        "n16",
+        "n17",
+        "n18",
+        "n19"
+      ],
+      "ranked_compared": [
+        "n18",
+        "n16",
+        "n13",
+        "n17",
+        "n19",
+        "n10",
+        "n1",
+        "n7",
+        "n3",
+        "n0",
+        "n15"
+      ],
+      "selected": [
+        "n18"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n3",
+        "n0",
+        "n15"
+      ],
+      "retained_frontier": [
+        "n16",
+        "n13",
+        "n17",
+        "n19",
+        "n10",
+        "n1",
+        "n7"
+      ],
+      "parents": [
+        "n18"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n18",
+        "probabilities": [
+          0.015390798449516296,
+          0.014082401990890503,
+          0.11780408769845963,
+          0.016480954363942146,
+          0.016290530562400818,
+          0.03812282159924507,
+          0.020871343091130257,
+          0.16874144971370697,
+          0.11396577209234238,
+          0.4222792685031891,
+          0.055970557034015656
+        ],
+        "option_ids": [
+          "n0",
+          "n15",
+          "n13",
+          "n7",
+          "n3",
+          "n10",
+          "n1",
+          "n16",
+          "n17",
+          "n18",
+          "n19"
+        ],
+        "ranked_option_ids": [
+          "n18",
+          "n16",
+          "n13",
+          "n17",
+          "n19",
+          "n10",
+          "n1",
+          "n7",
+          "n3",
+          "n0",
+          "n15"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9966350197792053,
+          0.002641149563714862,
+          0.000723891076631844
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n20": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n20"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n20",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n20"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 4. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -3.656900644302368
+          }
+        ],
+        "n21": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n21"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n21",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n21"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 3. There are walls to your left, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -2.937652826309204
+          }
+        ],
+        "n22": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n22"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n22",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n22"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 5. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -0.08868430554866791
+          }
+        ],
+        "n23": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n23"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n23",
+                "source": "tool",
+                "parent_feedback": [
+                  "n18"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n23"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 4. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n18",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -5.105515003204346
+          }
+        ]
+      },
+      "parent_computations": {
+        "n18": [
+          {
+            "decision": {
+              "id": "[\"n18\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.025812391191720963,
+                0.052989959716796875,
+                0.9151344299316406,
+                0.006063216831535101
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-0",
+                "value-3",
+                "value-2"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 6,
+      "remaining_control_rounds": 30,
+      "selection_only": false,
+      "active_frontier": [
+        "n16",
+        "n13",
+        "n17",
+        "n19",
+        "n10",
+        "n1",
+        "n7",
+        "n20",
+        "n21",
+        "n22",
+        "n23"
+      ],
+      "ranked_compared": [
+        "n22",
+        "n23",
+        "n21",
+        "n17",
+        "n16",
+        "n20",
+        "n13",
+        "n7",
+        "n19",
+        "n1",
+        "n10"
+      ],
+      "selected": [
+        "n22"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n19",
+        "n1",
+        "n10"
+      ],
+      "retained_frontier": [
+        "n23",
+        "n21",
+        "n17",
+        "n16",
+        "n20",
+        "n13",
+        "n7"
+      ],
+      "parents": [
+        "n22"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n22",
+        "probabilities": [
+          0.0611676387488842,
+          0.013890855945646763,
+          0.08523084968328476,
+          0.006438868120312691,
+          0.004049152135848999,
+          0.005878170020878315,
+          0.009397652000188828,
+          0.03367210179567337,
+          0.09928146749734879,
+          0.5701018571853638,
+          0.11089134961366653
+        ],
+        "option_ids": [
+          "n16",
+          "n13",
+          "n17",
+          "n19",
+          "n10",
+          "n1",
+          "n7",
+          "n20",
+          "n21",
+          "n22",
+          "n23"
+        ],
+        "ranked_option_ids": [
+          "n22",
+          "n23",
+          "n21",
+          "n17",
+          "n16",
+          "n20",
+          "n13",
+          "n7",
+          "n19",
+          "n1",
+          "n10"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9974498152732849,
+          0.0013298415578901768,
+          0.0012203663354739547
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ]
+      },
+      "children": {
+        "n24": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n24"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n24",
+                "source": "tool",
+                "parent_feedback": [
+                  "n22"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n24"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 5. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n22",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -3.7176668643951416
+          }
+        ],
+        "n25": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n25"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n25",
+                "source": "tool",
+                "parent_feedback": [
+                  "n22"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n25"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 4. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n22",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -3.493408679962158
+          }
+        ],
+        "n26": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n26"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n26",
+                "source": "tool",
+                "parent_feedback": [
+                  "n22"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n26"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 6. There is a wall above you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n22",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -0.06410253047943115
+          }
+        ],
+        "n27": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n27"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n27",
+                "source": "tool",
+                "parent_feedback": [
+                  "n22"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n27"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 5. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n22",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -4.905811786651611
+          }
+        ]
+      },
+      "parent_computations": {
+        "n22": [
+          {
+            "decision": {
+              "id": "[\"n22\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.024290574714541435,
+                0.03039708361029625,
+                0.9379088282585144,
+                0.007403431460261345
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-0",
+                "value-3",
+                "value-2"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 7,
+      "remaining_control_rounds": 29,
+      "selection_only": false,
+      "active_frontier": [
+        "n23",
+        "n21",
+        "n17",
+        "n16",
+        "n20",
+        "n13",
+        "n7",
+        "n24",
+        "n25",
+        "n26",
+        "n27"
+      ],
+      "ranked_compared": [
+        "n26",
+        "n25",
+        "n23",
+        "n7",
+        "n24",
+        "n17",
+        "n27",
+        "n13",
+        "n21",
+        "n16",
+        "n20"
+      ],
+      "selected": [
+        "n26"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n21",
+        "n16",
+        "n20"
+      ],
+      "retained_frontier": [
+        "n25",
+        "n23",
+        "n7",
+        "n24",
+        "n17",
+        "n27",
+        "n13"
+      ],
+      "parents": [
+        "n26"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n26",
+        "probabilities": [
+          0.018746469169855118,
+          0.0034224919509142637,
+          0.008129565045237541,
+          0.0029691813979297876,
+          0.001522510196082294,
+          0.005790174938738346,
+          0.01648811437189579,
+          0.008928019553422928,
+          0.16022008657455444,
+          0.7671862840652466,
+          0.0065970891155302525
+        ],
+        "option_ids": [
+          "n23",
+          "n21",
+          "n17",
+          "n16",
+          "n20",
+          "n13",
+          "n7",
+          "n24",
+          "n25",
+          "n26",
+          "n27"
+        ],
+        "ranked_option_ids": [
+          "n26",
+          "n25",
+          "n23",
+          "n7",
+          "n24",
+          "n17",
+          "n27",
+          "n13",
+          "n21",
+          "n16",
+          "n20"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.9939396381378174,
+          0.0017509693279862404,
+          0.004309309180825949
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n28": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n28"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n28",
+                "source": "tool",
+                "parent_feedback": [
+                  "n26"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n28"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 6, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n26",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -2.2293970584869385
+          }
+        ],
+        "n29": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n29"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n29",
+                "source": "tool",
+                "parent_feedback": [
+                  "n26"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n29"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 5. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n26",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -3.925611734390259
+          }
+        ],
+        "n30": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n30"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n30",
+                "source": "tool",
+                "parent_feedback": [
+                  "n26"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n30"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 7. There are walls above you, below you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n26",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -0.13973072171211243
+          }
+        ],
+        "n31": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n31"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n31",
+                "source": "tool",
+                "parent_feedback": [
+                  "n26"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n31"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 6. There is a wall above you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n26",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -5.78142786026001
+          }
+        ]
+      },
+      "parent_computations": {
+        "n26": [
+          {
+            "decision": {
+              "id": "[\"n26\", [\"f0\"]]",
+              "choice": "value-1",
+              "probabilities": [
+                0.10759328305721283,
+                0.019730063155293465,
+                0.8695923686027527,
+                0.003084308933466673
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-1",
+                "value-3",
+                "value-0",
+                "value-2"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 8,
+      "remaining_control_rounds": 28,
+      "selection_only": false,
+      "active_frontier": [
+        "n25",
+        "n23",
+        "n7",
+        "n24",
+        "n17",
+        "n27",
+        "n13",
+        "n28",
+        "n29",
+        "n30",
+        "n31"
+      ],
+      "ranked_compared": [
+        "n28",
+        "n31",
+        "n25",
+        "n30",
+        "n13",
+        "n29",
+        "n23",
+        "n7",
+        "n24",
+        "n27",
+        "n17"
+      ],
+      "selected": [
+        "n28"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n24",
+        "n27",
+        "n17"
+      ],
+      "retained_frontier": [
+        "n31",
+        "n25",
+        "n30",
+        "n13",
+        "n29",
+        "n23",
+        "n7"
+      ],
+      "parents": [
+        "n28"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n28",
+        "probabilities": [
+          0.04600829258561134,
+          0.010356473736464977,
+          0.006092368625104427,
+          0.003089573932811618,
+          0.0013518630294129252,
+          0.00290501955896616,
+          0.030585531145334244,
+          0.6175692677497864,
+          0.024288104847073555,
+          0.03815479949116707,
+          0.21959862112998962
+        ],
+        "option_ids": [
+          "n25",
+          "n23",
+          "n7",
+          "n24",
+          "n17",
+          "n27",
+          "n13",
+          "n28",
+          "n29",
+          "n30",
+          "n31"
+        ],
+        "ranked_option_ids": [
+          "n28",
+          "n31",
+          "n25",
+          "n30",
+          "n13",
+          "n29",
+          "n23",
+          "n7",
+          "n24",
+          "n27",
+          "n17"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.96977299451828,
+          0.00990172941237688,
+          0.02032528817653656
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n32": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n32"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n32",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n32"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 7, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.7888709306716919
+          }
+        ],
+        "n33": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n33"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n33",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n33"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 6, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -2.827113389968872
+          }
+        ],
+        "n34": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n34"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n34",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n34"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 6, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -1.6873103380203247
+          }
+        ],
+        "n35": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n35"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n35",
+                "source": "tool",
+                "parent_feedback": [
+                  "n28"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n35"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 5, 6. There is a wall above you.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n28",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -1.1991759538650513
+          }
+        ]
+      },
+      "parent_computations": {
+        "n28": [
+          {
+            "decision": {
+              "id": "[\"n28\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.4543575048446655,
+                0.059183452278375626,
+                0.1850164830684662,
+                0.3014425039291382
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-2",
+                "value-1",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 9,
+      "remaining_control_rounds": 27,
+      "selection_only": false,
+      "active_frontier": [
+        "n31",
+        "n25",
+        "n30",
+        "n13",
+        "n29",
+        "n23",
+        "n7",
+        "n32",
+        "n33",
+        "n34",
+        "n35"
+      ],
+      "ranked_compared": [
+        "n32",
+        "n33",
+        "n13",
+        "n34",
+        "n35",
+        "n31",
+        "n25",
+        "n7",
+        "n30",
+        "n23",
+        "n29"
+      ],
+      "selected": [
+        "n32"
+      ],
+      "selected_operation": "expand",
+      "pruned_frontier": [
+        "n30",
+        "n23",
+        "n29"
+      ],
+      "retained_frontier": [
+        "n33",
+        "n13",
+        "n34",
+        "n35",
+        "n31",
+        "n25",
+        "n7"
+      ],
+      "parents": [
+        "n32"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n32",
+        "probabilities": [
+          0.027706565335392952,
+          0.009529597125947475,
+          0.008657706901431084,
+          0.10870727151632309,
+          0.0022469654213637114,
+          0.0023552689235657454,
+          0.008686653338372707,
+          0.40470075607299805,
+          0.33037707209587097,
+          0.05519112944602966,
+          0.04184103012084961
+        ],
+        "option_ids": [
+          "n31",
+          "n25",
+          "n30",
+          "n13",
+          "n29",
+          "n23",
+          "n7",
+          "n32",
+          "n33",
+          "n34",
+          "n35"
+        ],
+        "ranked_option_ids": [
+          "n32",
+          "n33",
+          "n13",
+          "n34",
+          "n35",
+          "n31",
+          "n25",
+          "n7",
+          "n30",
+          "n23",
+          "n29"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "expand",
+        "probabilities": [
+          0.919133722782135,
+          0.0060869972221553326,
+          0.07477932423353195
+        ],
+        "option_ids": [
+          "expand",
+          "revise",
+          "submit"
+        ],
+        "ranked_option_ids": [
+          "expand",
+          "submit",
+          "revise"
+        ]
+      },
+      "children": {
+        "n36": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move down"
+                },
+                "id": "n36"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n36",
+                "source": "tool",
+                "parent_feedback": [
+                  "n32"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move down"
+                  },
+                  "id": "n36"
+                },
+                "value": {
+                  "observation": "Success\n",
+                  "reward": 1.0,
+                  "done": true
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n32",
+            "selected_values": {
+              "f0": "move down"
+            },
+            "block_conditional_log_probability": -0.36138680577278137
+          }
+        ],
+        "n37": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move left"
+                },
+                "id": "n37"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n37",
+                "source": "tool",
+                "parent_feedback": [
+                  "n32"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move left"
+                  },
+                  "id": "n37"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 7, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n32",
+            "selected_values": {
+              "f0": "move left"
+            },
+            "block_conditional_log_probability": -2.8212084770202637
+          }
+        ],
+        "n38": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move right"
+                },
+                "id": "n38"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n38",
+                "source": "tool",
+                "parent_feedback": [
+                  "n32"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move right"
+                  },
+                  "id": "n38"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 7, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n32",
+            "selected_values": {
+              "f0": "move right"
+            },
+            "block_conditional_log_probability": -1.7356754541397095
+          }
+        ],
+        "n39": [
+          {
+            "actions": [
+              {
+                "tool": "move",
+                "arguments": {
+                  "action": "move up"
+                },
+                "id": "n39"
+              }
+            ],
+            "observations": [
+              {
+                "id": "n39",
+                "source": "tool",
+                "parent_feedback": [
+                  "n32"
+                ],
+                "argument_bindings": {
+                  "action": "${f0}"
+                },
+                "action": {
+                  "tool": "move",
+                  "arguments": {
+                    "action": "move up"
+                  },
+                  "id": "n39"
+                },
+                "value": {
+                  "observation": "The goal is at position 8, 6. Your current position is at position 6, 6. There are walls to your right, to your left.",
+                  "reward": 0,
+                  "done": false
+                }
+              }
+            ]
+          },
+          {
+            "parent_id": "n32",
+            "selected_values": {
+              "f0": "move up"
+            },
+            "block_conditional_log_probability": -2.695991039276123
+          }
+        ]
+      },
+      "parent_computations": {
+        "n32": [
+          {
+            "decision": {
+              "id": "[\"n32\", [\"f0\"]]",
+              "choice": "value-3",
+              "probabilities": [
+                0.6967094540596008,
+                0.05953394994139671,
+                0.17628109455108643,
+                0.06747547537088394
+              ],
+              "option_ids": [
+                "value-3",
+                "value-0",
+                "value-1",
+                "value-2"
+              ],
+              "ranked_option_ids": [
+                "value-3",
+                "value-1",
+                "value-2",
+                "value-0"
+              ],
+              "options": [
+                {
+                  "id": "value-3",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move down"
+                    }
+                  }
+                },
+                {
+                  "id": "value-0",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move left"
+                    }
+                  }
+                },
+                {
+                  "id": "value-1",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move right"
+                    }
+                  }
+                },
+                {
+                  "id": "value-2",
+                  "values": {
+                    "tool": "move",
+                    "arguments": {
+                      "action": "move up"
+                    }
+                  }
+                }
+              ]
+            },
+            "based_on_feedback": [
+              "n0",
+              "n1",
+              "n2",
+              "n3",
+              "n4",
+              "n5",
+              "n6",
+              "n7",
+              "n8",
+              "n9",
+              "n10",
+              "n11",
+              "n12",
+              "n13",
+              "n14",
+              "n15",
+              "n16",
+              "n17",
+              "n18",
+              "n19",
+              "n20",
+              "n21",
+              "n22",
+              "n23",
+              "n24",
+              "n25",
+              "n26",
+              "n27",
+              "n28",
+              "n29",
+              "n30",
+              "n31",
+              "n32",
+              "n33",
+              "n34",
+              "n35"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "turn": 10,
+      "remaining_control_rounds": 26,
+      "selection_only": false,
+      "active_frontier": [
+        "n33",
+        "n13",
+        "n34",
+        "n35",
+        "n31",
+        "n25",
+        "n7",
+        "n36",
+        "n37",
+        "n38",
+        "n39"
+      ],
+      "ranked_compared": [
+        "n36",
+        "n33",
+        "n7",
+        "n39",
+        "n37",
+        "n13",
+        "n34",
+        "n38",
+        "n35",
+        "n31",
+        "n25"
+      ],
+      "selected": [
+        "n36"
+      ],
+      "selected_operation": "submit",
+      "pruned_frontier": [
+        "n35",
+        "n31",
+        "n25"
+      ],
+      "frontier_decision": {
+        "id": "frontier",
+        "choice": "n36",
+        "probabilities": [
+          0.004982757847756147,
+          0.0014897310175001621,
+          0.0014413984026759863,
+          0.0011269878596067429,
+          0.0007840947946533561,
+          0.0004319492436479777,
+          0.002342737279832363,
+          0.9827060699462891,
+          0.0015084361657500267,
+          0.0011966079473495483,
+          0.0019892719574272633
+        ],
+        "option_ids": [
+          "n33",
+          "n13",
+          "n34",
+          "n35",
+          "n31",
+          "n25",
+          "n7",
+          "n36",
+          "n37",
+          "n38",
+          "n39"
+        ],
+        "ranked_option_ids": [
+          "n36",
+          "n33",
+          "n7",
+          "n39",
+          "n37",
+          "n13",
+          "n34",
+          "n38",
+          "n35",
+          "n31",
+          "n25"
+        ]
+      },
+      "operation_decision": {
+        "id": "operation",
+        "choice": "submit",
+        "probabilities": [
+          0.9999971389770508,
+          2.908144097091281e-06
+        ],
+        "option_ids": [
+          "submit",
+          "discard"
+        ],
+        "ranked_option_ids": [
+          "submit",
+          "discard"
+        ]
+      }
+    }
+  ]
+}

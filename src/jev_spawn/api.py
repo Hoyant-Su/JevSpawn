@@ -37,7 +37,7 @@ class Environment(Protocol):
 
 def run(tasks: Sequence[dict], environment_factory: Callable[[dict], Environment],
         commit: Callable[[int, dict], None], *, shared_config: Path, method_config: Path,
-        inference_config: Path, parallel_config: Path):
+        inference_config: Path, parallel_config: Path, on_turn=None):
     """Run under torchrun; each task supplies task_id and context, without a dataset key.
 
     All ranks call run. Only the leader creates environments and commits results.
@@ -56,7 +56,8 @@ def run(tasks: Sequence[dict], environment_factory: Callable[[dict], Environment
 
     def execute(task):
         return solve(task, environment_factory(task), runtime.complete(task['task_id']),
-                     settings, load_prompt(inference['prompts']))
+                     settings, load_prompt(inference['prompts']),
+                     on_turn=partial(on_turn, task['task_id']) if on_turn is not None else None)
 
     try:
         if commands.is_leader:

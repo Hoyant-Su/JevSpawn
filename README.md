@@ -13,6 +13,7 @@ LLM agents spend substantial time generating intermediate reasoning and actions 
 
 ## What's New
 
+- **2026-10-02** — <img src="assets/icons/code.svg" width="16" height="16" alt="Demo"> The [JevSpawn end-to-end demo](demo/README.md) is now available. [Watch the demo](demo/media/jevspawn.mp4).
 - **2026-10-01** — <img src="assets/icons/paper.svg" width="16" height="16" alt="Preprint"> The [JevSpawn preprint](https://arxiv.org/abs/2610.00437) is available on arXiv.
 - **2026-10-01** — <img src="assets/icons/research.svg" width="16" height="16" alt="Research beta"> JevSpawn is in research beta. Feedback, replications, and follow-up work are welcome through [GitHub issues](https://github.com/Hoyant-Su/JevSpawn/issues).
 - **2026-09-30** — <img src="assets/icons/code.svg" width="16" height="16" alt="Code release"> The core algorithm and GPU inference runtime are open source in this repository.
@@ -28,6 +29,18 @@ JevSpawn connects natural-language task descriptions to **finite, executable act
 3. **Share the computation.** Known value sequences are evaluated in batches, with output projection restricted to tokens that distinguish alternatives. Common context prefixes are reused across evaluations. Text generation supplies declarations, revisions, and final answers when needed. Repeated action exploration uses the finite policy.
 
 The repository contains the core method and inference runtime, with the public entry point in [`src/jev_spawn/api.py`](src/jev_spawn/api.py) and shared experiment settings in [`configs/shared.yaml`](configs/shared.yaml).
+
+## Demo
+
+Follow the eight paper case studies through streamed declarations, spawned actions, observations, and final answers.
+
+[![JevSpawn turn-by-turn demo](demo/media/preview.png)](demo/media/jevspawn.mp4)
+
+```bash
+bash demo/run.sh
+```
+
+Open **http://127.0.0.1:8765** to replay the complete recorded traces without a GPU. [Demo instructions](demo/README.md) include fresh four-GPU inference and reproducible screen recording. The video shows recorded playback.
 
 ## Results
 
