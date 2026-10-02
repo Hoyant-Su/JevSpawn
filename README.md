@@ -6,7 +6,7 @@
   <a href="https://arxiv.org/abs/2610.00437"><img height="16" src="https://img.shields.io/badge/Paper-arXiv-B85C70?style=flat-square" alt="Paper arXiv"></a>&nbsp;
   <a href="https://github.com/Hoyant-Su/JevSpawn"><img height="16" src="https://img.shields.io/badge/GitHub-46546A?style=flat-square" alt="GitHub"></a>&nbsp;
   <a href="#citation"><img height="16" src="https://img.shields.io/badge/Citation-8874AF?style=flat-square" alt="Citation"></a>&nbsp;
-  <img height="16" src="https://img.shields.io/badge/Hugging_Face-C5A44D?style=flat-square" alt="Hugging Face" title="Link coming soon">
+  <a href="https://huggingface.co/papers/2610.00437"><img height="16" src="https://img.shields.io/badge/Hugging_Face-C5A44D?style=flat-square" alt="Hugging Face"></a>
 </p>
 
 LLM agents spend substantial time generating intermediate reasoning and actions token by token. Jev-style prediction offers a faster route through finite choices, but usually requires those choices to be defined in advance. **JevSpawn lets an agent infer and adapt its own compositional action space**, bringing finite probabilistic prediction to multi-turn interaction without additional training.
