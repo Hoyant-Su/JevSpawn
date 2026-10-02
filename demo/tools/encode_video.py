@@ -25,6 +25,7 @@ def main():
             length, elapsed = header.unpack(data)
             with av.open(BytesIO(sys.stdin.buffer.read(length))) as image:
                 frame = next(image.decode(video=0))
+            frame.pict_type = av.video.frame.PictureType.NONE
             frame.pts = round(elapsed * settings['frame_rate'])
             frame.time_base = Fraction(1, settings['frame_rate'])
             for packet in stream.encode(frame):

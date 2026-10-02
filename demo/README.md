@@ -12,7 +12,7 @@ bash demo/run.sh
 
 Open **http://127.0.0.1:8765**. Python 3 is the only dependency for this mode. Select a task and press **Play trace**. Click a branch to inspect its action and returned observation, or expand a round to inspect the full record.
 
-[Watch the browser recording](media/jevspawn.mp4)
+https://github.com/user-attachments/assets/6a51df55-0d32-42fd-8568-9f0c09411d7d
 
 Recorded mode displays complete saved inference traces at 0.9 seconds per round. Playback makes no model calls and does not represent inference latency. The final answers were re-executed with the original environment implementations. All 372 recorded branch actions were also re-executed and their observations matched.
 
