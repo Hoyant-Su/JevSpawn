@@ -1,7 +1,12 @@
-# Only source code and explicit runtime configuration belong in this repository.
+# Track core code, runtime configuration, and public project documentation.
 /*
 !/.gitignore
 !/pyproject.toml
+!/README.md
+!/assets/
+/assets/*
+!/assets/architecture.png
+!/assets/results.png
 !/src/
 !/configs/
 __pycache__/
