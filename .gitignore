@@ -13,6 +13,7 @@
 !/src/
 !/configs/
 !/demo/
+!/docs/
 /demo/output/
 /demo/environments/external/
 /demo/media/*.webm
